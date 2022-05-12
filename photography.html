@@ -1,0 +1,24 @@
+---
+layout: page
+title: Photography
+permalink: /photography/
+---
+
+<style TYPE="text/css">
+.thumbnail {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+{% assign thumbnails = site.static_files | where: "thumbnail", true %}
+{% for thumbnail in thumbnails %}
+    <a href="/photography/{{ thumbnail.name }}">
+        <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}"/>
+    </a><br>
+{% endfor %}
+
