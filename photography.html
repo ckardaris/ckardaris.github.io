@@ -16,9 +16,12 @@ permalink: /photography/
 }
 </style>
 {% assign thumbnails = site.static_files | where: "thumbnail", true %}
-{% for thumbnail in thumbnails %}
-    <a href="/photography/{{ thumbnail.name }}">
-        <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}"/>
-    </a><br>
-{% endfor %}
-
+{%- if thumbnails.size > 0 -%}
+    {% for thumbnail in thumbnails %}
+        <a href="/photography/{{ thumbnail.name }}">
+            <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}"/>
+        </a><br>
+    {% endfor %}
+{%- else -%}
+<h4>No photos to show</h4>
+{%- endif -%}

@@ -32,7 +32,7 @@ plugins:
   - jekyll-feed
 
 header_pages:
-  - technology.md
+  - blog.md
   - photography.html
   - about.md
 

@@ -1,0 +1,48 @@
+---
+layout: page
+---
+<style>
+.post-table td {
+  padding-bottom: 10px;
+}
+
+.td-date {
+  padding-right: 10px;
+}
+
+.post-tag {
+  background: lightgrey;
+  margin-right: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+
+</style>
+
+{%- if site.posts.size > 0 -%}
+<table class="post-table">
+  <tbody>
+    {%- for post in site.posts -%}
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      <tr>
+          <td class="td-date">
+              <span class="post-meta">{{ post.date | date: date_format }}</span>
+          </td>
+          <td>
+              <a class="post-link" href="{{ post.url | relative_url }}">
+                  {{ post.title | escape }}
+              </a>
+          </td>
+      </tr>
+      {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+    {%- endfor -%}
+  </tbody>
+</table>
+
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+{%- else -%}
+<h4>No posts to show</h4>
+{%- endif -%}
