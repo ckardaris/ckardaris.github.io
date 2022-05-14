@@ -9,3 +9,7 @@ draft:
 .PHONY: thumbnails
 thumbnails:
 	@./scripts/make_thumbnails.sh
+
+.PHONY: diff
+diff:
+	@./scripts/diff_upstream.sh
