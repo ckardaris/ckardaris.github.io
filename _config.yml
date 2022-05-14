@@ -18,7 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Charalampos Kardaris' space
+title: Charalampos Kardaris
+title_alt: C. Kardaris
 email: ckardaris@outlook.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "ckardaris.github.io" # the base hostname & protocol for your site, e.g. http://example.com

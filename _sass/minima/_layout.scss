@@ -23,6 +23,19 @@
   }
 }
 
+#title-alt {
+    display: none;
+}
+
+@include media-query($on-palm) {
+    #title {
+        display: none;
+    }
+    #title-alt {
+        display: flex;
+    }
+}
+
 .site-nav {
   float: right;
   line-height: $base-line-height * $base-font-size * 2.25;

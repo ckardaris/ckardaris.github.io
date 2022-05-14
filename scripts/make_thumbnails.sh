@@ -3,8 +3,9 @@ mkdir -p photography/thumbnails
 cd photography
 for file in *
 do
-    printf "%s..." "$file"
     [[ -d "$file" ]] && continue
+    line=".............................................."
+    printf "%s %s" "$file" ${line:${#file}}
     [[ -f thumbnails/$file ]] && echo Skipping && continue
     convert "$file" -resize 400x400 thumbnails/$file
     echo OK
