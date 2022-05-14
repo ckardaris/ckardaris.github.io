@@ -27,19 +27,6 @@ $header-height: $base-line-height * $base-font-size * 1.8;
   }
 }
 
-#title-alt {
-    display: none;
-}
-
-@include media-query($on-palm) {
-    #title {
-        display: none;
-    }
-    #title-alt {
-        display: initial;
-    }
-}
-
 .site-nav {
   float: right;
   line-height: $header-height;
