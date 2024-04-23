@@ -47,6 +47,8 @@ header_pages:
 exclude:
   - Makefile
   - scripts/
+  - Dockerfile
+  - blog/_posts/2024-04-23-hello-world.md
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
