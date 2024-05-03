@@ -5,4 +5,4 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock .
 RUN bundle install
 
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--incremental", "--drafts"]
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--incremental", "--drafts", "--livereload"]
