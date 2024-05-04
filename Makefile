@@ -6,11 +6,11 @@ endif
 
 .PHONY: server
 server: image
-	podman run --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE}
+	podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE}
 
 .PHONY: build
 build: image
-	podman run --rm -it -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
+	podman run --security-opt label=disable --rm -it -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
 
 .PHONY: deploy
 deploy:

@@ -15,12 +15,14 @@ permalink: /photography/
   margin-right: auto;
 }
 </style>
-{% assign thumbnails = site.static_files | where: "thumbnail", true %}
-{%- if thumbnails.size > 0 -%}
-    {% for thumbnail in thumbnails %}
+{%- if site.data.thumbnails.size > 0 -%}
+    {% for thumbnail in site.data.thumbnails %}
         <a href="/photography/{{ thumbnail.name }}">
             <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}"/>
-        </a><br>
+        </a>
+        <div class="photo-caption" style="text-align: center;">
+            <p><em>{{thumbnail.caption}}</em></p>
+        </div>
     {% endfor %}
 {%- else -%}
 <h4>No photos to show</h4>
