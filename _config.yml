@@ -29,6 +29,7 @@ linkedin_username: ckardaris
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-loading-lazy
 
 header_pages:
   - blog.md

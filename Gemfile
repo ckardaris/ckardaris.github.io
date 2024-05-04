@@ -37,3 +37,5 @@ gem 'jekyll-gallery-generator'
 gem 'webrick'
 
 gem 'jekyll-tagging'
+
+gem 'jekyll-loading-lazy'
