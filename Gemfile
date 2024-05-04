@@ -35,3 +35,5 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 gem 'jekyll-gallery-generator'
 
 gem 'webrick'
+
+gem 'jekyll-tagging'

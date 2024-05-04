@@ -1,0 +1,22 @@
+.tags {
+    padding-top: 15px;
+    border-top: $footnote-line;
+}
+
+.tag, #tag-cloud > a {
+  background-color: $grey-color-light;
+  color: $grey-color-dark;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+#tag-cloud {
+    margin: $spacing-unit 0;
+}
+
+.subtitle {
+  color: $grey-color;
+  margin-top: $spacing-unit / 8;
+  margin-bottom: $spacing-unit;
+}

@@ -22,7 +22,14 @@ layout: default_no_header
     {{ content }}
   </div>
 
-  <a href=/blog>Back to home</a>
+  {%- if page.tags.size > 0 -%}
+  <div class="tags">
+    Tags:
+    {% for tag in page.tags %}
+      <a href="/blog/tags/{{tag}}" class="tag">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>

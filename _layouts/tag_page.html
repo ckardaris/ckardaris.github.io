@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<h1 class="post-title tag-page-title">Tag: {{ page.tag }}</h1>
+<div class="subtitle">
+  view all
+  <a href=/blog>posts</a>
+  and
+  <a href=/blog/tags>tags</a>
+  on {{ site.title }}' blog
+</div>
+
+<table class="post-table">
+  <tbody>
+    {%- for post in page.posts -%}
+      {%- include post-entry.html -%}
+    {%- endfor -%}
+  </tbody>
+</table>

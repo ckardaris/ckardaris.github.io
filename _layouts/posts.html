@@ -10,34 +10,23 @@ layout: page
   padding-right: 10px;
 }
 
-.post-tag {
-  background: lightgrey;
-  margin-right: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 10px;
+.post-header {
+  margin-bottom: 0px;
 }
 
 </style>
+
+<div class="subtitle">
+    subscribe
+    <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>,
+    view all <a href="/blog/tags">tags</a>
+</div>
 
 {%- if site.posts.size > 0 -%}
 <table class="post-table">
   <tbody>
     {%- for post in site.posts -%}
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      <tr>
-          <td class="td-date">
-              <span class="post-list-meta">{{ post.date | date: date_format }}</span>
-          </td>
-          <td>
-              <a class="post-link" href="{{ post.url | relative_url }}">
-                  {{ post.title | escape }}
-              </a>
-              {% if post.draft %}
-              <span style="color: red; font-weight: bold;">DRAFT</span>
-              {% endif %}
-          </td>
-      </tr>
+      {%- include post-entry.html -%}
       {%- if site.show_excerpts -%}
         {{ post.excerpt }}
       {%- endif -%}
@@ -45,7 +34,6 @@ layout: page
   </tbody>
 </table>
 
-<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
 {%- else -%}
 <h4>No posts to show</h4>
 {%- endif -%}
