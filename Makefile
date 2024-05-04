@@ -1,14 +1,20 @@
+.PHONY: image
+image:
 ifndef IMAGE
-    $(error IMAGE is not defined. Please define it before running make.)
+	$(error IMAGE is not defined. Please define it before running make.)
 endif
 
 .PHONY: server
-server:
+server: image
 	podman run --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE}
 
-.PHONY: draft
-draft:
-	bundle exec jekyll server --drafts
+.PHONY: build
+build: image
+	podman run --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
+
+.PHONY: deploy
+deploy:
+	@./scripts/deploy.sh
 
 .PHONY: thumbnails
 thumbnails:
