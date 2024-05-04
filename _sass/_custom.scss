@@ -24,3 +24,10 @@
 .photo-caption {
   margin-bottom: $spacing-unit;
 }
+
+#carousel-container > a {
+  background-color: $grey-color-light;
+  color: $grey-color-dark;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

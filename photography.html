@@ -26,12 +26,12 @@ permalink: /photography/
 }
 </style>
 
-{%- if site.data.thumbnails.size > 0 -%}
+{%- if site.data.photos.size > 0 -%}
 <div class="grid-container">
-  {% for thumbnail in site.data.thumbnails %}
+  {% for thumbnail in site.data.photos %}
   <div class="grid-item">
     <a href="/photography/{{ thumbnail.name }}">
-      <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}" alt="{{ thumbnail.caption }}">
+      <img class="thumbnail" src="/photography/thumbnails/400x400/{{ thumbnail.name }}.jpg" alt="{{ thumbnail.caption }}">
     </a>
     <div class="photo-caption" style="text-align: center;">
       <p><em>{{thumbnail.caption}}</em></p>

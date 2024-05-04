@@ -1,0 +1,43 @@
+---
+layout: default_no_header
+---
+
+<style>
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #carousel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.post-header {
+  margin-bottom: 0px;
+}
+
+</style>
+
+<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+<div class="subtitle">
+    view all <a href="/photography">{{site.title}}' photos</a>
+</div>
+
+<div id="carousel-container">
+  {% if page.previous_photo %}
+    <a class="prev" href="/photography/{{ page.previous_photo.name }}">Previous</a>
+  {% endif %}
+  <div>{{ page.index}} / {{site.data.photos.size}}</div>
+  {% if page.next_photo %}
+    <a class="next" href="/photography/{{ page.next_photo.name }}">Next</a>
+  {% endif %}
+</div><br>
+
+<div>
+  <a href="/photography/{{ page.photo.name }}.jpg">
+    <img src="/photography/thumbnails/800x800/{{ page.photo.name }}.jpg">
+  </a>
+</div>

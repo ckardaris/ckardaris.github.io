@@ -61,10 +61,6 @@ exclude:
 #   - vendor/ruby/
 defaults:
   - scope:
-      path: "photography/thumbnails"
-    values:
-      thumbnail: true
-  - scope:
       path: "404"
     values:
       layout: 404
