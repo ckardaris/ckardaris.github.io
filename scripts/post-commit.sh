@@ -9,5 +9,4 @@ fi
 git add *
 touch .nojekyll
 git add .nojekyll
-git log -n 1 &>/dev/null && amend="--amend" || amend=
-git commit $amend -m "Deploy $hash"
+git commit -m "Deploy $hash"
