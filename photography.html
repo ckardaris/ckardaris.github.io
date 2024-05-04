@@ -14,16 +14,31 @@ permalink: /photography/
   margin-left: auto;
   margin-right: auto;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 10px;
+}
+
+.grid-item {
+  width: 100%;
+}
 </style>
+
 {%- if site.data.thumbnails.size > 0 -%}
-    {% for thumbnail in site.data.thumbnails %}
-        <a href="/photography/{{ thumbnail.name }}">
-            <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}"/>
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>{{thumbnail.caption}}</em></p>
-        </div>
-    {% endfor %}
+<div class="grid-container">
+  {% for thumbnail in site.data.thumbnails %}
+  <div class="grid-item">
+    <a href="/photography/{{ thumbnail.name }}">
+      <img class="thumbnail" src="/photography/thumbnails/{{ thumbnail.name }}" alt="{{ thumbnail.caption }}">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>{{thumbnail.caption}}</em></p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {%- else -%}
 <h4>No photos to show</h4>
 {%- endif -%}
