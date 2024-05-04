@@ -10,7 +10,7 @@ server: image
 
 .PHONY: build
 build: image
-	podman run --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
+	podman run --rm -it -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
 
 .PHONY: deploy
 deploy:
