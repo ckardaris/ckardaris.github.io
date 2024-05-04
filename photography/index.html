@@ -88,133 +88,182 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 10px;
+}
+
+.grid-item {
+  width: 100%;
+}
 </style>
-        <a href="/photography/birth_of_an_artist.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/birth_of_an_artist.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Birth of an artist</em></p>
-        </div>
-    
-        <a href="/photography/city_circles.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/city_circles.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>City circles</em></p>
-        </div>
-    
-        <a href="/photography/the_tunnel.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/the_tunnel.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>The tunnel</em></p>
-        </div>
-    
-        <a href="/photography/nature_taking_over.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/nature_taking_over.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Nature taking over</em></p>
-        </div>
-    
-        <a href="/photography/strolling_around.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/strolling_around.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Strolling around</em></p>
-        </div>
-    
-        <a href="/photography/reality_game.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/reality_game.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Glitch in the matrix</em></p>
-        </div>
-    
-        <a href="/photography/squares.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/squares.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Squares</em></p>
-        </div>
-    
-        <a href="/photography/where_are_you_going.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/where_are_you_going.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Hey, boy, up here!</em></p>
-        </div>
-    
-        <a href="/photography/fruta_carne.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/fruta_carne.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Fruta vs jamón</em></p>
-        </div>
-    
-        <a href="/photography/city_is_moving.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/city_is_moving.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Barcelona moving</em></p>
-        </div>
-    
-        <a href="/photography/good_morning.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/good_morning.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Good morning</em></p>
-        </div>
-    
-        <a href="/photography/desert_rock.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/desert_rock.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Desert rock</em></p>
-        </div>
-    
-        <a href="/photography/getting_ready.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/getting_ready.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Turban ready</em></p>
-        </div>
-    
-        <a href="/photography/follow_the_shadows.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/follow_the_shadows.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Shadows of desert life</em></p>
-        </div>
-    
-        <a href="/photography/by_the_ocean.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/by_the_ocean.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>By the ocean</em></p>
-        </div>
-    
-        <a href="/photography/locking_love.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/locking_love.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Lock your love</em></p>
-        </div>
-    
-        <a href="/photography/stairway_to_nowhere.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/stairway_to_nowhere.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Stairway to Nowhere</em></p>
-        </div>
-    
-        <a href="/photography/biking_around.jpg">
-            <img class="thumbnail" src="/photography/thumbnails/biking_around.jpg" loading="lazy">
-        </a>
-        <div class="photo-caption" style="text-align: center;">
-            <p><em>Biking around</em></p>
-        </div>
-    
+<div class="grid-container">
+  
+  <div class="grid-item">
+    <a href="/photography/birth_of_an_artist.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/birth_of_an_artist.jpg" alt="Birth of an artist" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Birth of an artist</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/city_circles.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/city_circles.jpg" alt="City circles" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>City circles</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/the_tunnel.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/the_tunnel.jpg" alt="The tunnel" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>The tunnel</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/nature_taking_over.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/nature_taking_over.jpg" alt="Nature taking over" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Nature taking over</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/strolling_around.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/strolling_around.jpg" alt="Strolling around" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Strolling around</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/reality_game.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/reality_game.jpg" alt="Glitch in the matrix" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Glitch in the matrix</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/squares.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/squares.jpg" alt="Squares" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Squares</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/where_are_you_going.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/where_are_you_going.jpg" alt="Hey, boy, up here!" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Hey, boy, up here!</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/fruta_carne.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/fruta_carne.jpg" alt="Fruta vs jamón" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Fruta vs jamón</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/city_is_moving.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/city_is_moving.jpg" alt="Barcelona moving" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Barcelona moving</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/good_morning.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/good_morning.jpg" alt="Good morning" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Good morning</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/desert_rock.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/desert_rock.jpg" alt="Desert rock" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Desert rock</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/getting_ready.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/getting_ready.jpg" alt="Turban ready" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Turban ready</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/follow_the_shadows.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/follow_the_shadows.jpg" alt="Shadows of desert life" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Shadows of desert life</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/by_the_ocean.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/by_the_ocean.jpg" alt="By the ocean" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>By the ocean</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/locking_love.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/locking_love.jpg" alt="Lock your love" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Lock your love</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/stairway_to_nowhere.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/stairway_to_nowhere.jpg" alt="Stairway to Nowhere" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Stairway to Nowhere</em></p>
+    </div>
+  </div>
+  
+  <div class="grid-item">
+    <a href="/photography/biking_around.jpg">
+      <img class="thumbnail" src="/photography/thumbnails/biking_around.jpg" alt="Biking around" loading="lazy">
+    </a>
+    <div class="photo-caption" style="text-align: center;">
+      <p><em>Biking around</em></p>
+    </div>
+  </div>
+  
+</div>
   </div>
 
 </article>
