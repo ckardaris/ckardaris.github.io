@@ -11,4 +11,4 @@ RUN sed -i \
 "/ self.data    = data/a\      self.data['title'] = \"Tag: #{data['tag']}\"" \
 /usr/local/bundle/gems/jekyll-tagging-1.1.0/lib/jekyll/tagging.rb
 
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--incremental", "--drafts", "--livereload"]
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--incremental", "--drafts", "--livereload", "--destination", "/tmp/ckardaris.github.io/"]
