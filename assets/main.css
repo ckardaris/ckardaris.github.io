@@ -288,4 +288,6 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 .subtitle { color: #828282; margin-top: 3.75px; margin-bottom: 30px; }
 
+.photo-caption { margin-bottom: 60px; }
+
 /*# sourceMappingURL=main.css.map */
