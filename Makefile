@@ -10,7 +10,7 @@ server: image
 
 .PHONY: build
 build: image
-	podman run --security-opt label=disable --rm -it -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
+	podman run --security-opt label=disable --rm -v ${PWD}:/app ${IMAGE} bundle exec jekyll build
 
 .PHONY: deploy
 deploy:
