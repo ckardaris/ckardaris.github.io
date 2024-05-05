@@ -19,7 +19,8 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Charalampos Kardaris
-email: ckardaris [at] outlook [dot] com
+email_username: ckardaris
+email_domain: outlook.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ckardaris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ckardaris
