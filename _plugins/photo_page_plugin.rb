@@ -26,7 +26,7 @@ module Jekyll
       self.process(@name)
       self.data = {
         'layout' => 'photo_page',
-        'title' => 'Photography: ' + photo["caption"],
+        'title' => photo["caption"],
         'photo' => photo,
         'previous_photo' => previous_photo,
         'next_photo' => next_photo,
