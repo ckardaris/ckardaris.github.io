@@ -61,7 +61,6 @@ $header-height: $base-line-height * $base-font-size * 1.8;
       width: 36px;
       z-index: 2;
       cursor: pointer;
-      margin-top: 3px;
     }
 
     .menu-icon {
@@ -69,11 +68,10 @@ $header-height: $base-line-height * $base-font-size * 1.8;
       width: 36px;
       height: 26px;
       line-height: 0;
-      padding-top: 11px;
       text-align: center;
 
       > svg {
-        fill: $grey-color-dark;
+        fill: $text-color;
       }
     }
 
