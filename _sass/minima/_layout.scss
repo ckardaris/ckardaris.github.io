@@ -15,7 +15,7 @@ $header-height: $base-line-height * $base-font-size * 1.8;
 
 .site-title {
   @include relative-font-size(1.625);
-  font-weight: 300;
+  font-weight: $base-font-weight;
   line-height: $header-height;
   letter-spacing: -1px;
   margin-bottom: 0;
