@@ -80,7 +80,7 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 /** Site header */
 .site-header { border-bottom: 1px solid #e8e8e8; min-height: 48.6px; position: relative; background: #fdfdfd; width: 100%; }
 
-.site-title { font-size: 29.25px; font-weight: 300; line-height: 48.6px; letter-spacing: -1px; margin-bottom: 0; float: left; }
+.site-title { font-size: 29.25px; font-weight: 400; line-height: 48.6px; letter-spacing: -1px; margin-bottom: 0; float: left; }
 
 .site-title, .site-title:visited { color: #111; }
 
