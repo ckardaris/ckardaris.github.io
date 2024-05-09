@@ -19,9 +19,9 @@ module Jekyll
       @site = site
       @base = site.source
       @dir = "/photography/" + photo["name"]
-      @basename = 'index'      # filename without the extension.
-      @ext      = '.html'      # the extension.
-      @name     = 'index.html' # basically @basename + @ext.
+      @basename = 'index'
+      @ext      = '.html'
+      @name     = 'index.html'
 
       self.process(@name)
       self.data = {
