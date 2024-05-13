@@ -27,8 +27,8 @@ deploy:
 
 .PHONY: thumbnails
 thumbnails:
-	@./scripts/make_thumbnails.sh
+	@./scripts/make-thumbnails.sh
 
 .PHONY: diff
 diff:
-	@./scripts/diff_upstream.sh
+	@./scripts/diff-upstream.sh

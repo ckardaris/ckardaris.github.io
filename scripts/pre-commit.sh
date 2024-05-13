@@ -12,7 +12,7 @@ else
 	against=$(git hash-object -t tree /dev/null)
 fi
 
-./scripts/make_thumbnails.sh
+./scripts/make-thumbnails.sh
 git add ./photography/thumbnails/*
 
 exec git diff-index --check --cached $against --
