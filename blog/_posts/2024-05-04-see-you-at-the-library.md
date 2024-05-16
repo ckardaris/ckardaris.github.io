@@ -1,6 +1,6 @@
 ---
 layout: post
-title: See you at the library
+title: See You at the Library
 tags: library life travel work
 ---
 
