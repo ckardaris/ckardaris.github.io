@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Finding the Optional Truth | Charalampos Kardaris</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Finding the Optional Truth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using a programming language can be an easy task1. Understanding it deeply and mastering it, though, is more challenging. Multiple definitions of the word apply here: demanding and stimulating. Depending on which one you pick, of course. &#8617;" />
+<meta property="og:description" content="Using a programming language can be an easy task1. Understanding it deeply and mastering it, though, is more challenging. Multiple definitions of the word apply here: demanding and stimulating. Depending on which one you pick, of course. &#8617;" />
+<link rel="canonical" href="https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html" />
+<meta property="og:url" content="https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html" />
+<meta property="og:site_name" content="Charalampos Kardaris" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-16T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Finding the Optional Truth" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-16T00:00:00+00:00","datePublished":"2024-05-16T00:00:00+00:00","description":"Using a programming language can be an easy task1. Understanding it deeply and mastering it, though, is more challenging. Multiple definitions of the word apply here: demanding and stimulating. Depending on which one you pick, of course. &#8617;","headline":"Finding the Optional Truth","mainEntityOfPage":{"@type":"WebPage","@id":"https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html"},"url":"https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://ckardaris.github.io/feed.xml" title="Charalampos Kardaris" /><link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Finding the Optional Truth</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-05-16T00:00:00+00:00" itemprop="datePublished">May 16, 2024
+      </time>
+      on
+      <a href=/blog>Charalampos Kardaris' blog</a>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Understanding it deeply
+and mastering it, though, is more challenging. Multiple definitions of the word
+apply here: <em>demanding</em> and <em>stimulating</em>.</p>
+
+<p>I have been trying to utilize all available features of C++ as much as possible.
+One that I particularly like is <code class="language-plaintext highlighter-rouge">std::optional</code><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. I am fond of its semantics.
+Here is something that may contain a value, or it may as well contain nothing.
+This <em>nothing</em> is also known as <code class="language-plaintext highlighter-rouge">std::nullopt</code>. <code class="language-plaintext highlighter-rouge">std::optional</code> removes the need
+of returning raw pointers and relying on comparisons with <code class="language-plaintext highlighter-rouge">nullptr</code> in order to
+check if the return value of a function is valid or not.</p>
+
+<p>I must say I have not been using <code class="language-plaintext highlighter-rouge">std::optional</code> extensively, so I am yet to
+discover all its edges. But recently, I had to interact with it a little more
+and learned something along the way.</p>
+
+<h4 id="the-pseudocode">The Pseudocode</h4>
+
+<p>Let’s start by writing a small example to describe my thought process.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;optional&gt;</span><span class="cp">
+</span>
+<span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">ParseMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">msg</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">myMsg</span> <span class="o">=</span> <span class="n">ParseMessage</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The most explicit way to print the above message is:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">myMsg</span><span class="p">.</span><span class="n">has_value</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">myMsg</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Of course, in this small example, we could have skipped the check. But in the
+real world, we always have to ensure that the value is there. Otherwise, an
+exception – when using <code class="language-plaintext highlighter-rouge">.value()</code> – or undefined behavior – when directly
+dereferencing the <code class="language-plaintext highlighter-rouge">std::optional</code> – is on the table.</p>
+
+<p>Knowing all these, I filled my code with <code class="language-plaintext highlighter-rouge">.has_value()</code> and <code class="language-plaintext highlighter-rouge">.value()</code> calls. I
+knew it was correct, but it was also quite cumbersome. There must have been an
+easier way to write this.</p>
+
+<p>Looking online, I saw some examples that were doing something akin to:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">myMsg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">myMsg</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is what I was looking for. Not only is this a lot simpler to write, but it
+permits you to reuse old code that uses the <em>nullptr-for-no-value</em> pattern,
+just by changing the type from <code class="language-plaintext highlighter-rouge">T*</code> to <code class="language-plaintext highlighter-rouge">std::optional&lt;T&gt;</code> in the code.</p>
+
+<p>Equipped with my newly found knowledge, I removed all calls to <code class="language-plaintext highlighter-rouge">has_value()</code> and
+replaced all calls to <code class="language-plaintext highlighter-rouge">value()</code> with direct dereferencing using <code class="language-plaintext highlighter-rouge">operator*</code>.</p>
+
+<h4 id="the-surprise">The Surprise</h4>
+
+<p>Unfortunately, I was greeted with a compiler error.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: cannot convert 'std::optional&lt;T&gt;' to 'bool'
+</code></pre></div></div>
+
+<p>The code in question was trying to do something like the following:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">Check</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">Run</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+    <span class="n">Check</span><span class="p">(</span><span class="n">myOptionalValue</span><span class="p">);</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The message was clear. But why did it not work? Converting to a
+<code class="language-plaintext highlighter-rouge">bool</code> in the condition of the <code class="language-plaintext highlighter-rouge">if</code> statement is certainly possible.</p>
+
+<h4 id="the-truth">The Truth</h4>
+
+<p>It turns out – as always – this is all by design. To answer my questions, I
+had to read the available specification on <em>cppreference.com</em> a little more
+carefully.</p>
+
+<blockquote>
+  <p>When an object of type optional&lt;T&gt; is <strong>contextually converted to bool</strong> <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>,
+the conversion returns true if the object contains a value and false if it
+does not contain a value.</p>
+</blockquote>
+
+<p>I was not sure what <strong>“contextually”</strong> meant, so I followed the link, and
+I was presented with the following introductory text.</p>
+
+<blockquote>
+  <p><strong>Implicit conversions</strong> are performed whenever an expression of some type T1 is used in context that does not accept that type, but accepts some other type T2; in particular:</p>
+  <ul>
+    <li>when the expression is used as the <strong>argument</strong> when calling a function that is declared with T2 as parameter;</li>
+    <li>when the expression is used as an <strong>operand</strong> with an operator that expects T2;</li>
+    <li>when <strong>initializing</strong> a new object of type T2, including return statement in a function returning T2;</li>
+    <li>when the expression is used in a <strong>switch</strong> statement (T2 is integral type);</li>
+    <li>when the expression is used in an <strong>if</strong> statement or a <strong>loop</strong> (T2 is bool).</li>
+  </ul>
+</blockquote>
+
+<p>It seemed to explain my situation. The last bullet must be what permits the
+usage of <code class="language-plaintext highlighter-rouge">std::optional</code> in <code class="language-plaintext highlighter-rouge">if</code> statements.</p>
+
+<p>But wait a minute.</p>
+
+<p>The first bullet should cover the function parameter scenario, too. Obviously,
+this was not the case. I was missing something.</p>
+
+<p>The magic word is <strong>“implicit”</strong>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">std::optional</code> class defines the following conversion function to
+<code class="language-plaintext highlighter-rouge">bool</code>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">constexpr</span> <span class="k">explicit</span> <span class="k">operator</span> <span class="kt">bool</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span>
+</code></pre></div></div>
+
+<p>It is clearly marked as <code class="language-plaintext highlighter-rouge">explicit</code>, so implicit conversions do not consider it.</p>
+
+<p>I thought to myself:</p>
+
+<blockquote>
+  <p>How, then, does the conversion to ‘bool’ take place in the ‘if’ condition?</p>
+</blockquote>
+
+<p>I had to keep reading. Further below was the answer to my question about the
+meaning of <strong>“contextually”</strong>.</p>
+
+<blockquote>
+  <p><strong>Contextual conversions</strong></p>
+
+  <p>In the following contexts, the type ‘bool’ is expected and the implicit
+conversion is performed if the declaration ‘bool t(e)’ is well-formed (that is,
+an explicit conversion function such as ‘explicit T::operator bool() const’ is
+considered). Such expression ‘e’ is said to be <strong>contextually converted to
+bool</strong>.</p>
+
+  <p>Since C++11:</p>
+  <ul>
+    <li>the controlling expression of <strong>if</strong>, <strong>while</strong>, <strong>for</strong></li>
+    <li>the operands of the built-in logical operators <strong>!</strong>, <strong>&amp;&amp;</strong> and <strong>||</strong></li>
+    <li>the first operand of the conditional operator <strong>?:</strong></li>
+    <li>the predicate in a <strong>static_assert</strong> declaration</li>
+    <li>the expression in a <strong>noexcept</strong> specifier</li>
+  </ul>
+
+  <p>Since C++20:</p>
+  <ul>
+    <li>the expression in an <strong>explicit</strong> specifier</li>
+  </ul>
+</blockquote>
+
+<p>It turns out that, when a boolean expression is required for defining a
+condition – one would say, in a <em>conditional context</em> –, explicit conversion
+functions to <code class="language-plaintext highlighter-rouge">bool</code> are considered as well.</p>
+
+<h4 id="the-lesson">The Lesson</h4>
+
+<p>I don’t want to focus on the minefield that is modern C++ syntax and rules.
+People smarter and more knowledgeable than me have expressed, and will continue
+to express, their opinions on the language. All I want to say is that, as a
+deeply inquiring mind, I was quite fascinated to discover this little sub-rule,
+which ultimately expanded my knowledge.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Depending on which one you pick, of course. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>See <a href="https://en.cppreference.com/w/cpp/utility/optional">cppreference.com/…/optional</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>See <a href="https://en.cppreference.com/w/cpp/language/implicit_conversion">cppreference.com/…/language/implicit_conversion</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><div class="tags">
+    Tags:
+    
+      <a href="/blog/tags/c++" class="tag">c++</a>
+    
+      <a href="/blog/tags/std::optional" class="tag">std::optional</a>
+    
+  </div><a class="u-url" href="/blog/2024/05/16/finding-the-optional-truth.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+  </body>
+
+</html>

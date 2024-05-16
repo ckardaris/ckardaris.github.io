@@ -292,4 +292,6 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 #carousel-container > a { background-color: #e8e8e8; color: #424242; padding: 5px 10px; border-radius: 5px; }
 
+h1, h2, h3, h4 { margin-top: 37.5px; }
+
 /*# sourceMappingURL=main.css.map */
