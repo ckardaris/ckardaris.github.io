@@ -23,7 +23,7 @@ I must say I have not been using `std::optional` extensively, so I am yet to
 discover all its edges. But recently, I had to interact with it a little more
 and learned something along the way.
 
-#### The Pseudocode
+## The Pseudocode
 
 Let's start by writing a small example to describe my thought process.
 
@@ -80,7 +80,7 @@ just by changing the type from `T*` to `std::optional<T>` in the code.
 Equipped with my newly found knowledge, I removed all calls to `has_value()` and
 replaced all calls to `value()` with direct dereferencing using `operator*`.
 
-#### The Surprise
+## The Surprise
 
 Unfortunately, I was greeted with a compiler error.
 
@@ -104,7 +104,7 @@ void Run()
 The message was clear. But why did it not work? Converting to a
 `bool` in the condition of the `if` statement is certainly possible.
 
-#### The Truth
+## The Truth
 
 It turns out -- as always -- this is all by design. To answer my questions, I
 had to read the available specification on *cppreference.com* a little more
@@ -174,7 +174,7 @@ It turns out that, when a boolean expression is required for defining a
 condition -- one would say, in a *conditional context* --, explicit conversion
 functions to `bool` are considered as well.
 
-#### The Lesson
+## The Lesson
 
 I don't want to focus on the minefield that is modern C++ syntax and rules.
 People smarter and more knowledgeable than me have expressed, and will continue
