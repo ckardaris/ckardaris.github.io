@@ -282,7 +282,7 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 .tags { padding-top: 15px; border-top: 1px solid #e8e8e8; }
 
-.tag, #tag-cloud > a { color: #424242; text-decoration: underline; padding: 5px 10px; }
+.tag, #tag-cloud > a { color: #424242; text-decoration: underline; padding: 5px; }
 
 #tag-cloud { margin: 30px 0; }
 
