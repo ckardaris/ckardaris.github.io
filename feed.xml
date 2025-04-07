@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2024-05-16T17:15:53+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Finding the Optional Truth</title><link href="https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html" rel="alternate" type="text/html" title="Finding the Optional Truth" /><published>2024-05-16T00:00:00+00:00</published><updated>2024-05-16T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth</id><content type="html" xml:base="https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html"><![CDATA[<p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Understanding it deeply
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2024-05-19T19:11:40+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Finding the Optional Truth</title><link href="https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html" rel="alternate" type="text/html" title="Finding the Optional Truth" /><published>2024-05-16T00:00:00+00:00</published><updated>2024-05-16T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth</id><content type="html" xml:base="https://ckardaris.github.io/blog/2024/05/16/finding-the-optional-truth.html"><![CDATA[<p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Understanding it deeply
 and mastering it, though, is more challenging. Multiple definitions of the word
 apply here: <em>demanding</em> and <em>stimulating</em>.</p>
 
@@ -13,7 +13,7 @@ check if the return value of a function is valid or not.</p>
 discover all its edges. But recently, I had to interact with it a little more
 and learned something along the way.</p>
 
-<h4 id="the-pseudocode">The Pseudocode</h4>
+<h2 id="the-pseudocode">The Pseudocode</h2>
 
 <p>Let’s start by writing a small example to describe my thought process.</p>
 
@@ -67,7 +67,7 @@ just by changing the type from <code class="language-plaintext highlighter-rouge
 <p>Equipped with my newly found knowledge, I removed all calls to <code class="language-plaintext highlighter-rouge">has_value()</code> and
 replaced all calls to <code class="language-plaintext highlighter-rouge">value()</code> with direct dereferencing using <code class="language-plaintext highlighter-rouge">operator*</code>.</p>
 
-<h4 id="the-surprise">The Surprise</h4>
+<h2 id="the-surprise">The Surprise</h2>
 
 <p>Unfortunately, I was greeted with a compiler error.</p>
 
@@ -89,7 +89,7 @@ replaced all calls to <code class="language-plaintext highlighter-rouge">value()
 <p>The message was clear. But why did it not work? Converting to a
 <code class="language-plaintext highlighter-rouge">bool</code> in the condition of the <code class="language-plaintext highlighter-rouge">if</code> statement is certainly possible.</p>
 
-<h4 id="the-truth">The Truth</h4>
+<h2 id="the-truth">The Truth</h2>
 
 <p>It turns out – as always – this is all by design. To answer my questions, I
 had to read the available specification on <em>cppreference.com</em> a little more
@@ -170,7 +170,7 @@ bool</strong>.</p>
 condition – one would say, in a <em>conditional context</em> –, explicit conversion
 functions to <code class="language-plaintext highlighter-rouge">bool</code> are considered as well.</p>
 
-<h4 id="the-lesson">The Lesson</h4>
+<h2 id="the-lesson">The Lesson</h2>
 
 <p>I don’t want to focus on the minefield that is modern C++ syntax and rules.
 People smarter and more knowledgeable than me have expressed, and will continue
