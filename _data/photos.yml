@@ -1,3 +1,24 @@
+- name: dont_look_up
+  caption: Don't look up
+
+- name: bilbo
+  caption: Bilbo
+
+- name: strangers
+  caption: Strangers
+
+- name: life_in_glass
+  caption: Life in glass
+
+- name: lisbon_shapes
+  caption: Lisbon shapes
+
+- name: old_school
+  caption: Old school
+
+- name: girl_at_the_water
+  caption: Girl at the water
+
 - name: birth_of_an_artist
   caption: Birth of an artist
 
