@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 ./scripts/check-track.sh
 echo Pushing sources...
 git push origin sources

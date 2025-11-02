@@ -4,6 +4,10 @@ ifndef IMAGE
 	$(error IMAGE is not defined. Please define it before running make.)
 endif
 
+.PHONY: setup
+setup:
+	rm -f .git/hooks/post-commit
+	ln -sf ../../scripts/post-commit.sh .git/hooks/post-commit
 
 .PHONY: bash
 bash: image
