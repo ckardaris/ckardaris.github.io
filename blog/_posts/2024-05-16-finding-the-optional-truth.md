@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Finding the Optional Truth
+title: Finding the optional truth
 tags: c++ std::optional
 ---
 

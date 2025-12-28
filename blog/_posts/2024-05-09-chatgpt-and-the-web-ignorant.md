@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ChatGPT and the Web Ignorant
+title: ChatGPT and the web ignorant
 tags: html css chatgpt ruby jekyll
 ---
 
