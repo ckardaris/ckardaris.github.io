@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2025-12-28T21:20:20+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">std::cout « “Goodbye Meeting C++. Hello C++ Community.”;</title><link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html" rel="alternate" type="text/html" title="std::cout « “Goodbye Meeting C++. Hello C++ Community.”;" /><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community</id><content type="html" xml:base="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html"><![CDATA[<p>The train journey from Berlin to Brno takes around 7 hours.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2025-12-29T18:26:32+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">std::cout « “Goodbye Meeting C++. Hello C++ Community.”;</title><link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html" rel="alternate" type="text/html" title="std::cout « “Goodbye Meeting C++. Hello C++ Community.”;" /><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community</id><content type="html" xml:base="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html"><![CDATA[<p>The train journey from Berlin to Brno takes around 7 hours.
 This gave me some time to reflect on my experience at this year’s <strong>Meeting C++</strong> in
 Berlin and start jotting down these words.</p>
 
-<h1 id="the-setting">The setting</h1>
+<h1 id="setting">Setting</h1>
 
 <p>I have been working with C++ throughout my still-young software engineering
 career.
@@ -13,7 +13,7 @@ Having no prior reference for such an event, I did not have any outright
 expectations.
 I approached the event with an open mind and a curious spirit, diving right in.</p>
 
-<h2 id="the-talks">The talks</h2>
+<h1 id="talks">Talks</h1>
 
 <p>All conference talks are usually made available online.
 Attending a conference does not necessarily grant access to exclusive or hidden
@@ -69,7 +69,7 @@ in having such sensitivities.</p>
 I truly believed it paved the way nicely for the success of the whole
 conference.</p>
 
-<h2 id="the-people">The people</h2>
+<h1 id="people">People</h1>
 
 <p>The most important aspect of any conference is the people.
 The stories and experiences shared by everyone are invaluable.
@@ -83,7 +83,7 @@ Your fascinating work and stories left a lasting impression on me.</p>
 <p>I wish I could have met even more people, but I guess this will have to wait
 for the next time<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
 
-<h2 id="the-organization">The organization</h2>
+<h1 id="organization">Organization</h1>
 
 <p>Organizing a conference is no easy feat.
 Such efforts often go unnoticed or underappreciated.
@@ -103,7 +103,7 @@ exchanging opinions, and socializing with fellow attendees.
 This sentiment was shared by others I spoke to as well, so it would be
 nice to consider it in future editions of the conference.</p>
 
-<h2 id="the-conclusion">The conclusion</h2>
+<h1 id="conclusion">Conclusion</h1>
 
 <p>I thoroughly enjoyed my time at <strong>Meeting C++</strong> this year.
 I am really grateful that
@@ -127,7 +127,7 @@ attend.</li>
   <li>I quite like my new T-shirt.</li>
 </ol>
 
-<p><img src="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" alt="Tshit" /></p>
+<p><img src="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" alt="t-shirt" /></p>
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1" role="doc-endnote">
@@ -157,7 +157,7 @@ check if the return value of a function is valid or not.</p>
 discover all its edges. But recently, I had to interact with it a little more
 and learned something along the way.</p>
 
-<h2 id="the-pseudocode">The Pseudocode</h2>
+<h1 id="pseudocode">Pseudocode</h1>
 
 <p>Let’s start by writing a small example to describe my thought process.</p>
 
@@ -211,7 +211,7 @@ just by changing the type from <code class="language-plaintext highlighter-rouge
 <p>Equipped with my newly found knowledge, I removed all calls to <code class="language-plaintext highlighter-rouge">has_value()</code> and
 replaced all calls to <code class="language-plaintext highlighter-rouge">value()</code> with direct dereferencing using <code class="language-plaintext highlighter-rouge">operator*</code>.</p>
 
-<h2 id="the-surprise">The Surprise</h2>
+<h1 id="surprise">Surprise</h1>
 
 <p>Unfortunately, I was greeted with a compiler error.</p>
 
@@ -233,7 +233,7 @@ replaced all calls to <code class="language-plaintext highlighter-rouge">value()
 <p>The message was clear. But why did it not work? Converting to a
 <code class="language-plaintext highlighter-rouge">bool</code> in the condition of the <code class="language-plaintext highlighter-rouge">if</code> statement is certainly possible.</p>
 
-<h2 id="the-truth">The Truth</h2>
+<h1 id="truth">Truth</h1>
 
 <p>It turns out – as always – this is all by design. To answer my questions, I
 had to read the available specification on <em>cppreference.com</em> a little more
@@ -314,7 +314,7 @@ bool</strong>.</p>
 condition – one would say, in a <em>conditional context</em> –, explicit conversion
 functions to <code class="language-plaintext highlighter-rouge">bool</code> are considered as well.</p>
 
-<h2 id="the-lesson">The Lesson</h2>
+<h1 id="lesson">Lesson</h1>
 
 <p>I don’t want to focus on the minefield that is modern C++ syntax and rules.
 People smarter and more knowledgeable than me have expressed, and will continue

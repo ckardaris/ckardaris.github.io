@@ -61,7 +61,7 @@ check if the return value of a function is valid or not.</p>
 discover all its edges. But recently, I had to interact with it a little more
 and learned something along the way.</p>
 
-<h2 id="the-pseudocode">The Pseudocode</h2>
+<h1 id="pseudocode">Pseudocode</h1>
 
 <p>Let’s start by writing a small example to describe my thought process.</p>
 
@@ -115,7 +115,7 @@ just by changing the type from <code class="language-plaintext highlighter-rouge
 <p>Equipped with my newly found knowledge, I removed all calls to <code class="language-plaintext highlighter-rouge">has_value()</code> and
 replaced all calls to <code class="language-plaintext highlighter-rouge">value()</code> with direct dereferencing using <code class="language-plaintext highlighter-rouge">operator*</code>.</p>
 
-<h2 id="the-surprise">The Surprise</h2>
+<h1 id="surprise">Surprise</h1>
 
 <p>Unfortunately, I was greeted with a compiler error.</p>
 
@@ -137,7 +137,7 @@ replaced all calls to <code class="language-plaintext highlighter-rouge">value()
 <p>The message was clear. But why did it not work? Converting to a
 <code class="language-plaintext highlighter-rouge">bool</code> in the condition of the <code class="language-plaintext highlighter-rouge">if</code> statement is certainly possible.</p>
 
-<h2 id="the-truth">The Truth</h2>
+<h1 id="truth">Truth</h1>
 
 <p>It turns out – as always – this is all by design. To answer my questions, I
 had to read the available specification on <em>cppreference.com</em> a little more
@@ -218,7 +218,7 @@ bool</strong>.</p>
 condition – one would say, in a <em>conditional context</em> –, explicit conversion
 functions to <code class="language-plaintext highlighter-rouge">bool</code> are considered as well.</p>
 
-<h2 id="the-lesson">The Lesson</h2>
+<h1 id="lesson">Lesson</h1>
 
 <p>I don’t want to focus on the minefield that is modern C++ syntax and rules.
 People smarter and more knowledgeable than me have expressed, and will continue

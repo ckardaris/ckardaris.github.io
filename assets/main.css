@@ -141,13 +141,17 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 .post-content { margin-bottom: 30px; }
 
-.post-content h1 { font-size: 29.25px; }
+.post-content h1 { font-size: 27px; }
 
-.post-content h2 { font-size: 27px; }
+.post-content h2 { font-size: 25.2px; }
 
-.post-content h3 { font-size: 25.2px; }
+.post-content h3 { font-size: 23.4px; }
 
-.post-content h4 { font-size: 23.4px; }
+.post-content h4 { font-size: 21.6px; }
+
+.post-content h5 { font-size: 19.8px; }
+
+.post-content h6 { font-size: 18px; }
 
 .footnotes { border-top: 1px solid #e8e8e8; }
 
