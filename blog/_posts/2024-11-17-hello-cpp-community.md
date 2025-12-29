@@ -8,7 +8,7 @@ The train journey from Berlin to Brno takes around 7 hours.
 This gave me some time to reflect on my experience at this year's **Meeting C++** in
 Berlin and start jotting down these words.
 
-# The setting
+# Setting
 
 I have been working with C++ throughout my still-young software engineering
 career.
@@ -19,7 +19,7 @@ Having no prior reference for such an event, I did not have any outright
 expectations.
 I approached the event with an open mind and a curious spirit, diving right in.
 
-## The talks
+# Talks
 
 All conference talks are usually made available online.
 Attending a conference does not necessarily grant access to exclusive or hidden
@@ -75,7 +75,7 @@ So, thank you, Titus, for your talk.
 I truly believed it paved the way nicely for the success of the whole
 conference.
 
-## The people
+# People
 
 The most important aspect of any conference is the people.
 The stories and experiences shared by everyone are invaluable.
@@ -92,7 +92,7 @@ for the next time[^1].
 [^1]: Or online. If we didn't meet in person and you would like to talk to me, you can
     always reach me on LinkedIn or by sending me an email.
 
-## The organization
+# Organization
 
 Organizing a conference is no easy feat.
 Such efforts often go unnoticed or underappreciated.
@@ -114,7 +114,7 @@ nice to consider it in future editions of the conference.
 
 [^2]: It's easier for people to complain.
 
-## The conclusion
+# Conclusion
 
 I thoroughly enjoyed my time at **Meeting C++** this year.
 I am really grateful that
@@ -138,4 +138,4 @@ PS:
 1. Apparently, I, too, don't know how to properly operate a coffee safety pot.
 2. I quite like my new T-shirt.
 
-![Tshit](/assets/images/2024-11-17-meeting-cpp-tshirt.jpg)
+![t-shirt](/assets/images/2024-11-17-meeting-cpp-tshirt.jpg)

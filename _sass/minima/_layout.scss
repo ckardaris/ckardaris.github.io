@@ -264,19 +264,27 @@ $header-height: $base-line-height * $base-font-size * 1.8;
   margin-bottom: $spacing-unit;
 
   h1 {
-    @include relative-font-size(1.625);
-  }
-
-  h2 {
     @include relative-font-size(1.5);
   }
 
-  h3 {
+  h2 {
     @include relative-font-size(1.4);
   }
 
-  h4 {
+  h3 {
     @include relative-font-size(1.3);
+  }
+
+  h4 {
+    @include relative-font-size(1.2);
+  }
+
+  h5 {
+    @include relative-font-size(1.1);
+  }
+
+  h6 {
+    @include relative-font-size(1);
   }
 }
 
