@@ -1,4 +1,363 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2025-12-29T18:26:50+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">std::cout « “Goodbye Meeting C++. Hello C++ Community.”;</title><link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html" rel="alternate" type="text/html" title="std::cout « “Goodbye Meeting C++. Hello C++ Community.”;" /><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community</id><content type="html" xml:base="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html"><![CDATA[<p>The train journey from Berlin to Brno takes around 7 hours.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2025-12-29T19:29:42+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
+
+<p>It’s been a while since my last post and I did not want to leave 2025 behind without making any.</p>
+
+<p>During the past year I have been gradually migrating my development and configuration file setup to
+<a href="https://github.com/nix-community/home-manager">Nix Home Manager</a> (aka <code class="language-plaintext highlighter-rouge">home-manager</code>).</p>
+
+<p>This has not been a quick transition, but I am satisfied with the result and I believe it was worth
+it.</p>
+
+<p>I note the following benefits:</p>
+
+<ol>
+  <li>
+    <p>It enables me to handle all changes (program versions and configuration files) from a single
+directory.
+A single source of truth that can be easily tracked by <code class="language-plaintext highlighter-rouge">git</code>.</p>
+  </li>
+  <li>
+    <p>I am a fan of Nix reproducible environments and builds and I considered using <code class="language-plaintext highlighter-rouge">home-manager</code> a
+nice opportunity to familiarize myself with the language.</p>
+  </li>
+  <li>
+    <p>Nix packages enable me to create a predictable development environment across different machines
+(e.g. home, work, etc.), irrespective of the underlying operating system and the packages that it
+provides by default.</p>
+  </li>
+</ol>
+
+<p>I finally finished the migration last month, so I thought it is a good idea to share the interesting
+bits of my current setup.
+Maybe someone will find it useful.</p>
+
+<p>I don’t know how many posts I will make about it, but let’s get started.</p>
+
+<h1 id="template-files">Template files</h1>
+<p>When sharing a <code class="language-plaintext highlighter-rouge">home-manager</code> configuration between multiple machines, a common scenario is to have
+a file that needs to be slightly different in each machine.</p>
+
+<p>For example, in my <code class="language-plaintext highlighter-rouge">vim</code> configuration, I want to configure the number of async workers that
+<code class="language-plaintext highlighter-rouge">clangd</code> will use when launched by the <code class="language-plaintext highlighter-rouge">LSP</code> server.
+In my laptop which has only 4 cores, I want to use 3 of them.
+In my work computer that has 20, I want to use more (e.g. 16).</p>
+
+<p>How can we utilize <code class="language-plaintext highlighter-rouge">home-manager</code> to automate this customization?</p>
+
+<h1 id="baseline">Baseline</h1>
+
+<p>This post does not provide an introduction to <code class="language-plaintext highlighter-rouge">home-manager</code>.
+Nevertheless, we need to agree on some necessary baseline knowledge.</p>
+
+<p><code class="language-plaintext highlighter-rouge">home-manager</code> requires a configuration file <code class="language-plaintext highlighter-rouge">home.nix</code> that typically lies in the
+<code class="language-plaintext highlighter-rouge">$HOME/.config/home-manager</code> directory.
+In <code class="language-plaintext highlighter-rouge">home.nix</code> we can define the files that are generated via <code class="language-plaintext highlighter-rouge">home-manager</code> by populating the
+<code class="language-plaintext highlighter-rouge">home.file</code><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> <a href="https://nix.dev/manual/nix/2.24/language/syntax#attrs-literal">attribute set</a>.</p>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nv">pkgs</span><span class="p">,</span>
+  <span class="nv">lib</span><span class="p">,</span>
+  <span class="o">...</span>
+<span class="p">}:</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="nv">Other</span> <span class="nv">home-manager</span> <span class="nv">configuration</span> <span class="nv">options</span>
+  <span class="o">...</span>
+
+  <span class="o">//</span> <span class="nv">Files</span>
+  <span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="nv">Key-value</span> <span class="nv">file</span> <span class="nv">entries</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Every “key-value” entry in this attribute set corresponds to a file that we want to generate in our
+<code class="language-plaintext highlighter-rouge">$HOME</code> directory.</p>
+
+<p>For example, if we want to generate the <code class="language-plaintext highlighter-rouge">$HOME/.bashrc</code> file, we need to add the
+corresponding entry in the <code class="language-plaintext highlighter-rouge">home.file</code> attribute set.</p>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">...</span>
+  <span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">".bashrc"</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="o">//</span> <span class="nv">File</span> <span class="nv">options</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+<p>The file options attribute set fully configures the generation of each file.
+This includes the contents, setting the executable bit, any actions to perform when the file changes
+and more.</p>
+
+<p>This post only deals with the contents of the generated files.
+For this we have two options:</p>
+
+<ul>
+  <li>the <code class="language-plaintext highlighter-rouge">source</code> attribute, which is a <a href="https://nix.dev/tutorials/nix-language.html#file-system-paths">Nix
+path</a> to a file whose content will
+populate the <code class="language-plaintext highlighter-rouge">home-manager</code> generated file
+    <div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">".bashrc"</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nv">source</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"&lt;absolute-path-to-source-file&gt;"</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+    <p>or</p>
+  </li>
+  <li>the <code class="language-plaintext highlighter-rouge">text</code> attribute, which  is a <a href="https://nix.dev/manual/nix/2.19/language/values#type-string">Nix
+string</a> defining the content of the
+<code class="language-plaintext highlighter-rouge">home-manager</code> generated file
+    <div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">".bashrc"</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nv">text</span> <span class="o">=</span> <span class="s2">''</span><span class="err">
+</span><span class="s2">      # This is the content of the $HOME/.bashrc file.</span><span class="err">
+</span><span class="s2">    ''</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="implementation">Implementation</h1>
+
+<p>We can create a templating layer on top of <code class="language-plaintext highlighter-rouge">home-manager</code> and programmatically
+generate files with parametrizable content.</p>
+
+<p>How do we do that?
+We can use a template engine like <a href="https://github.com/pallets/jinja">jinja</a>.</p>
+
+<p>For the purposes of my configuration I am using
+<a href="https://github.com/mattrobenolt/jinja2-cli">jinja2-cli</a>, because I want to easily invoke <code class="language-plaintext highlighter-rouge">jinja</code>
+from the command line.</p>
+
+<p>Let’s take it step by step.</p>
+
+<h5 id="1-decouple-templating-layer-from-the-actual-homefile-attribute-set">1. <strong>Decouple</strong> templating layer from the actual <code class="language-plaintext highlighter-rouge">home.file</code> attribute set.</h5>
+
+<p>We create an attribute set that mirrors the structure of the <code class="language-plaintext highlighter-rouge">home.file</code>. We do not want to deviate
+too much from the actual “structure” that <code class="language-plaintext highlighter-rouge">home-manager</code> expects, so that the configuration and
+programming logic is simpler.</p>
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">".bashrc"</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="s2">".inputrc"</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="p">};</span>
+  <span class="err">}</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h5 id="2-modify-each-key-value-file-entry-using-builtinsmapattrs">2. <strong>Modify</strong> each “key-value” file entry using <code class="language-plaintext highlighter-rouge">builtins.mapAttrs</code><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</h5>
+
+<p>Currently the values of the file entries are empty.
+We need to populate these attribute sets, so that they are valid <code class="language-plaintext highlighter-rouge">home-manager</code> file entries.</p>
+
+<p>As already mentioned, to set the file content, we need to define either the <code class="language-plaintext highlighter-rouge">source</code> or the <code class="language-plaintext highlighter-rouge">text</code>
+attribute.</p>
+
+<p>For <strong>non-template files</strong> the <code class="language-plaintext highlighter-rouge">map</code> function is simple:</p>
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">makeSimple</span> <span class="o">=</span>
+    <span class="nv">files</span><span class="p">:</span>
+    <span class="p">(</span><span class="nv">lib</span><span class="o">.</span><span class="nv">mapAttrs</span> <span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nv">source</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"&lt;absolute-path-to-config-files&gt;/</span><span class="si">${</span><span class="nv">path</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+    <span class="p">})</span> <span class="nv">files</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>You may wonder what this <code class="language-plaintext highlighter-rouge">&lt;absolute-path-to-config-files&gt;</code> is.</p>
+
+<p>In my configuration, I have created a directory inside <code class="language-plaintext highlighter-rouge">$HOME/.config/home-manager</code> that mirrors the
+directory structure of the <code class="language-plaintext highlighter-rouge">$HOME</code> directory.
+This allows referring to the <code class="language-plaintext highlighter-rouge">home-manager</code> source file and the actual generated location with the
+same relative path and permits using <code class="language-plaintext highlighter-rouge">lib.mapAttrs</code> to modify the initial <code class="language-plaintext highlighter-rouge">files</code> attribute set.</p>
+
+<p>For <strong>template files</strong> we need to provide some more information (i.e. the <code class="language-plaintext highlighter-rouge">jinja</code> data).
+We do so by adding a <code class="language-plaintext highlighter-rouge">data</code> attribute.</p>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">".bashrc"</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="s2">".inputrc"</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="s2">".vimrc"</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"data"</span> <span class="o">=</span> <span class="s2">"&lt;absolute-path-to-json-data-file&gt;"</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+</code></pre></div></div>
+
+<p>Now, we define the <code class="language-plaintext highlighter-rouge">map</code> function.</p>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">makeTemplate</span> <span class="o">=</span>
+    <span class="nv">files</span><span class="p">:</span>
+    <span class="p">(</span><span class="nv">lib</span><span class="o">.</span><span class="nv">mapAttrs</span> <span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nv">text</span> <span class="o">=</span> <span class="nv">template</span> <span class="p">{</span>
+        <span class="nv">src</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"&lt;absolute-path-to-config-files&gt;/</span><span class="si">${</span><span class="nv">path</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+        <span class="nv">data</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"</span><span class="si">${</span><span class="nv">options</span><span class="o">.</span><span class="nv">data</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+      <span class="p">};</span>
+    <span class="p">})</span> <span class="nv">files</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>We can see that we rely on the output of a helper function: <code class="language-plaintext highlighter-rouge">template</code>. This function in its
+simplest form<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> takes two paths as arguments:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">src</code> is the path to the template file.</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code> is the path to a file containing data in <code class="language-plaintext highlighter-rouge">JSON</code> format.</li>
+</ol>
+
+<p>The return value of this function has to be a Nix string that is then used as the value of the
+<code class="language-plaintext highlighter-rouge">text</code> attribute.</p>
+
+<p>We define the <code class="language-plaintext highlighter-rouge">template</code> function as follows:</p>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">template</span> <span class="o">=</span>
+    <span class="p">{</span> <span class="nv">src</span><span class="p">,</span> <span class="nv">data</span> <span class="p">}:</span>
+    <span class="kd">let</span>
+      <span class="nv">out</span> <span class="o">=</span> <span class="nv">pkgs</span><span class="o">.</span><span class="nv">runCommand</span> <span class="s2">""</span> <span class="p">{</span> <span class="nv">buildInputs</span> <span class="o">=</span> <span class="p">[</span> <span class="nv">pkgs</span><span class="o">.</span><span class="nv">jinja2-cli</span> <span class="p">];</span> <span class="p">}</span> <span class="s2">''</span><span class="err">
+</span><span class="s2">        # If jinja2 fails (e.g. missing keys), just use the input file unchanged.</span><span class="err">
+</span><span class="s2">        jinja2 --format=json </span><span class="si">${</span><span class="nv">src</span><span class="si">}</span><span class="s2"> &lt;&lt;&lt; "$(&lt; </span><span class="si">${</span><span class="nv">data</span><span class="si">}</span><span class="s2">)" -o $out 2&gt;/dev/null || cp </span><span class="si">${</span><span class="nv">src</span><span class="si">}</span><span class="s2"> $out</span><span class="err">
+</span><span class="s2">      ''</span><span class="p">;</span>
+    <span class="kn">in</span>
+    <span class="kr">builtins</span><span class="o">.</span><span class="nv">readFile</span> <span class="nv">out</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>How does the <code class="language-plaintext highlighter-rouge">template</code> function work?</p>
+
+<p>The function uses <code class="language-plaintext highlighter-rouge">pkgs.runCommand</code><sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> to create a <a href="https://nix.dev/manual/nix/2.22/language/derivations">Nix
+derivation</a>.
+In our use case we only want to create one single file that we can then read from.</p>
+
+<ul>
+  <li>We run <code class="language-plaintext highlighter-rouge">jinja2</code> on the <code class="language-plaintext highlighter-rouge">src</code> file using the <code class="language-plaintext highlighter-rouge">data</code> in <code class="language-plaintext highlighter-rouge">json</code> format.</li>
+  <li>We write the output to the <code class="language-plaintext highlighter-rouge">$out</code> file (<strong>note:</strong> the <code class="language-plaintext highlighter-rouge">$out</code> variable is used internally by Nix and points
+ to the generated derivation file).<br />
+ If anything fails during the <code class="language-plaintext highlighter-rouge">jinja2</code> call we copy the original template file content to the
+ output file directly.</li>
+  <li>Finally, we read the output file and return its content as a Nix string.</li>
+</ul>
+
+<h5 id="3-merge-simple-and-template-files-in-one-attribute-set">3. <strong>Merge</strong> simple and template files in one attribute set.</h5>
+
+<p>We are almost done.
+We need to map <strong>non-template files</strong> with the <code class="language-plaintext highlighter-rouge">makeSimple</code> function and <strong>template files</strong> with the
+<code class="language-plaintext highlighter-rouge">makeTemplate</code> function.
+The differentiating factor is the presence of the <code class="language-plaintext highlighter-rouge">data</code> attribute and we use that to create a
+filter.</p>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">simpleFile</span> <span class="o">=</span> <span class="p">(</span><span class="nv">lib</span><span class="o">.</span><span class="nv">filterAttrs</span> <span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="o">!</span><span class="nv">options</span> <span class="o">?</span> <span class="nv">data</span><span class="p">)</span> <span class="nv">files</span><span class="p">);</span>
+  <span class="nv">templateFiles</span> <span class="o">=</span> <span class="p">(</span><span class="nv">lib</span><span class="o">.</span><span class="nv">filterAttrs</span> <span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="nv">options</span> <span class="o">?</span> <span class="nv">data</span><span class="p">)</span> <span class="nv">files</span><span class="p">);</span>
+
+  <span class="nv">result</span> <span class="o">=</span> <span class="nv">makeSimple</span> <span class="nv">simpleFiles</span> <span class="o">//</span> <span class="nv">makeTemplates</span> <span class="nv">templateFiles</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h5 id="4-assign-the-resulting-attribute-set-to-homefile">4. <strong>Assign</strong> the resulting attribute set to <code class="language-plaintext highlighter-rouge">home.file</code>.</h5>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nv">pkgs</span><span class="p">,</span>
+  <span class="nv">lib</span><span class="p">,</span>
+  <span class="o">...</span>
+<span class="p">}:</span>
+<span class="kd">let</span>
+  <span class="nv">files</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+  <span class="nv">template</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+  <span class="nv">makeSimple</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+  <span class="nv">makeTemplate</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+  <span class="nv">simpleFiles</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+  <span class="nv">templateFiles</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+
+  <span class="nv">result</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
+<span class="kn">in</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="nv">Other</span> <span class="nv">home-manager</span> <span class="nv">configuration</span> <span class="nv">options</span><span class="o">.</span>
+  <span class="o">...</span>
+
+  <span class="o">//</span> <span class="nv">Files</span>
+  <span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="nv">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>That’s it. We have successfully configured <code class="language-plaintext highlighter-rouge">home-manager</code> to generate files from templates.</p>
+
+<h1 id="in-practice">In practice</h1>
+
+<p>At the <a href="#template-files">beginning</a> of this post I mentioned how one my use cases for template files
+is specifying a different number of async workers for <code class="language-plaintext highlighter-rouge">clangd</code> in my <code class="language-plaintext highlighter-rouge">LSP</code> configuration in <code class="language-plaintext highlighter-rouge">vim</code>.</p>
+
+<p>How does this look like based on the described setup?</p>
+
+<p><code class="language-plaintext highlighter-rouge">$HOME/.config/home-manager/home.nix</code>:</p>
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">...</span>
+  <span class="nv">files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">".vim/variables.vim"</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nv">data</span> <span class="o">=</span> <span class="s2">"/home/&lt;username&gt;/.local/share/home-mananger/data.json"</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="o">...</span>
+  <span class="p">};</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">$HOME/.config/home-manager/files/.vim/variables.vim</code>:</p>
+<div class="language-vimscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd <span class="nb">User</span> LspSetup <span class="k">call</span> LspAddServer<span class="p">([</span>
+<span class="se">    \</span>   #<span class="p">{</span>
+<span class="se">    \</span>       name<span class="p">:</span> <span class="s1">'clangd'</span><span class="p">,</span>
+<span class="se">    \</span>       <span class="k">filetype</span><span class="p">:</span> <span class="p">[</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">],</span>
+<span class="se">    \</span>       <span class="nb">path</span><span class="p">:</span> <span class="s1">'clangd'</span><span class="p">,</span>
+<span class="se">    \</span>       <span class="k">args</span><span class="p">:</span> <span class="p">[</span><span class="s1">'--clang-tidy'</span><span class="p">,</span> <span class="s1">'-j'</span><span class="p">,</span> <span class="p">{{</span> data<span class="p">.</span>nproc * <span class="m">80</span> <span class="sr">//</span> <span class="m">100</span> <span class="p">}}]</span>
+<span class="se">    \</span>  <span class="p">},</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">$HOME/.local/share/home-manager/data.json</code>:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"nproc"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>It is that simple<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>.</p>
+
+<h1 id="extensions">Extensions</h1>
+
+<p>Nix enables extensive configuration, so we could certainly improve on the described setup if we
+needed to. Here are some ideas:</p>
+
+<ul>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">template</code> function in its current form requires two file paths as parameters.
+We may desire some more flexibility.<br />
+For example, we may want to pass the template file as a Nix string.
+Or we may want to pass the <code class="language-plaintext highlighter-rouge">data</code> in a different format (e.g. as a Nix attribute set, a
+Nix string, etc.).<br />
+We should be able to easily achieve that with a few small changes in the <code class="language-plaintext highlighter-rouge">template</code> function in
+order to correctly parse and transform parameters of different types.</p>
+  </li>
+  <li>
+    <p>In a previous iteration of my configuration I was generating multiple files from a single template
+file by iterating over a <code class="language-plaintext highlighter-rouge">JSON</code> array.<br />
+I now have no use for it, so I have not included it in this post, but it is certainly doable with
+a few changes.</p>
+  </li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>See <a href="https://nix-community.github.io/home-manager/options.xhtml#opt-home.file">home-file</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>See <a href="https://nix.dev/manual/nix/2.28/language/builtins.html#builtins-mapAttrs">builtins.mapAttrs</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>See <a href="#extensions">Extensions</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>See
+<a href="https://ryantm.github.io/nixpkgs/builders/trivial-builders/#trivial-builder-runCommand">pkgs.runCommand</a>. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>The file <code class="language-plaintext highlighter-rouge">$HOME/.local/share/home-manager/data.json</code> is automatically generated, but that
+deserves a post of its own. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="blog" /><category term="config" /><category term="dotfiles" /><category term="nix" /><category term="home-manager" /><category term="template" /><category term="jinja" /><summary type="html"><![CDATA[Backstory]]></summary></entry><entry><title type="html">std::cout « “Goodbye Meeting C++. Hello C++ Community.”;</title><link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html" rel="alternate" type="text/html" title="std::cout « “Goodbye Meeting C++. Hello C++ Community.”;" /><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community</id><content type="html" xml:base="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community.html"><![CDATA[<p>The train journey from Berlin to Brno takes around 7 hours.
 This gave me some time to reflect on my experience at this year’s <strong>Meeting C++</strong> in
 Berlin and start jotting down these words.</p>
 
