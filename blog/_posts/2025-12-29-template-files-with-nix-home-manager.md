@@ -143,7 +143,6 @@ programming logic is simpler.
   files = {
     ".bashrc" = {};
     ".inputrc" = {};
-    };
   };
 ```
 
@@ -159,11 +158,11 @@ attribute.
 
 For **non-template files** the `map` function is simple:
 ```nix
-  makeSimple =
-    files:
-    (lib.mapAttrs (path: options: {
+  makeSimple = builtins.mapAttrs (
+    path: options: {
       source = /. + "<absolute-path-to-config-files>/${path}";
-    }) files);
+    }
+  );
 ```
 
 You may wonder what this `<absolute-path-to-config-files>` is.
@@ -189,14 +188,14 @@ We do so by adding a `data` attribute.
 Now, we define the `map` function.
 
 ```nix
-  makeTemplate =
-    files:
-    (lib.mapAttrs (path: options: {
+  makeTemplates = builtins.mapAttrs (
+    path: options: {
       text = template {
         src = /. + "<absolute-path-to-config-files>/${path}";
         data = /. + "${options.data}";
       };
-    }) files);
+    }
+  );
 ```
 
 We can see that we rely on the output of a helper function: `template`. This function in its
