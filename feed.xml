@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2025-12-30T14:01:45+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2025-12-30T14:01:47+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
 
 <p>It’s been a while since my last post and I did not want to leave 2025 behind without making any.</p>
 
@@ -140,8 +140,7 @@ programming logic is simpler.</p>
 <div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">files</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">".bashrc"</span> <span class="o">=</span> <span class="p">{};</span>
     <span class="s2">".inputrc"</span> <span class="o">=</span> <span class="p">{};</span>
-    <span class="p">};</span>
-  <span class="err">}</span><span class="p">;</span>
+  <span class="p">};</span>
 </code></pre></div></div>
 
 <h5 id="2-modify-each-key-value-file-entry-using-builtinsmapattrs">2. <strong>Modify</strong> each “key-value” file entry using <code class="language-plaintext highlighter-rouge">builtins.mapAttrs</code><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</h5>
@@ -153,11 +152,11 @@ We need to populate these attribute sets, so that they are valid <code class="la
 attribute.</p>
 
 <p>For <strong>non-template files</strong> the <code class="language-plaintext highlighter-rouge">map</code> function is simple:</p>
-<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">makeSimple</span> <span class="o">=</span>
-    <span class="nv">files</span><span class="p">:</span>
-    <span class="p">(</span><span class="nv">lib</span><span class="o">.</span><span class="nv">mapAttrs</span> <span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="p">{</span>
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">makeSimple</span> <span class="o">=</span> <span class="kr">builtins</span><span class="o">.</span><span class="nv">mapAttrs</span> <span class="p">(</span>
+    <span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="p">{</span>
       <span class="nv">source</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"&lt;absolute-path-to-config-files&gt;/</span><span class="si">${</span><span class="nv">path</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
-    <span class="p">})</span> <span class="nv">files</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
 </code></pre></div></div>
 
 <p>You may wonder what this <code class="language-plaintext highlighter-rouge">&lt;absolute-path-to-config-files&gt;</code> is.</p>
@@ -181,14 +180,14 @@ We do so by adding a <code class="language-plaintext highlighter-rouge">data</co
 
 <p>Now, we define the <code class="language-plaintext highlighter-rouge">map</code> function.</p>
 
-<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">makeTemplate</span> <span class="o">=</span>
-    <span class="nv">files</span><span class="p">:</span>
-    <span class="p">(</span><span class="nv">lib</span><span class="o">.</span><span class="nv">mapAttrs</span> <span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="p">{</span>
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">makeTemplates</span> <span class="o">=</span> <span class="kr">builtins</span><span class="o">.</span><span class="nv">mapAttrs</span> <span class="p">(</span>
+    <span class="nv">path</span><span class="p">:</span> <span class="nv">options</span><span class="p">:</span> <span class="p">{</span>
       <span class="nv">text</span> <span class="o">=</span> <span class="nv">template</span> <span class="p">{</span>
         <span class="nv">src</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"&lt;absolute-path-to-config-files&gt;/</span><span class="si">${</span><span class="nv">path</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
         <span class="nv">data</span> <span class="o">=</span> <span class="sx">/.</span> <span class="o">+</span> <span class="s2">"</span><span class="si">${</span><span class="nv">options</span><span class="o">.</span><span class="nv">data</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
       <span class="p">};</span>
-    <span class="p">})</span> <span class="nv">files</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
 </code></pre></div></div>
 
 <p>We can see that we rely on the output of a helper function: <code class="language-plaintext highlighter-rouge">template</code>. This function in its
