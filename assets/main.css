@@ -128,7 +128,7 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 .post-list > li { margin-bottom: 30px; }
 
-.post-meta { font-size: 18px; color: #828282; margin-top: 3.75px; }
+.post-meta { font-size: 18px; margin-top: 3.75px; }
 
 .post-list-meta { font-size: 20.34px; color: #828282; }
 
@@ -282,11 +282,11 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 .tags { padding-top: 15px; border-top: 1px solid #e8e8e8; }
 
-.tag, #tag-cloud > a { color: #424242; text-decoration: underline; padding: 5px; }
+.tag, #tag-cloud > a { text-decoration: underline; padding: 5px; }
 
 #tag-cloud { margin: 30px 0; }
 
-.subtitle { color: #828282; margin-top: 3.75px; margin-bottom: 30px; }
+.subtitle { margin-top: 3.75px; margin-bottom: 30px; }
 
 .photo-caption { margin-bottom: 30px; }
 
