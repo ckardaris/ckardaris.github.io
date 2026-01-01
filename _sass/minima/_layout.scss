@@ -231,13 +231,11 @@ $header-height: $base-line-height * $base-font-size * 1.8;
 
 .post-meta {
   @include relative-font-size(1);
-  color: $grey-color;
   margin-top: $spacing-unit / 8;
 }
 
 .post-list-meta {
   @include relative-font-size(1.13);
-  color: $grey-color;
 }
 
 .post-link {

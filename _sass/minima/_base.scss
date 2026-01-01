@@ -101,32 +101,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /**
- * Links
- */
-a {
-  text-decoration: none;
-
-  &:hover {
-    color: $text-color;
-    text-decoration: underline;
-  }
-
-  .social-media-list &:hover {
-    text-decoration: none;
-
-    .username {
-      text-decoration: underline;
-    }
-  }
-}
-
-
-/**
  * Blockquotes
  */
 blockquote {
-  color: $grey-color;
-  border-left: 4px solid $grey-color-light;
+  background-color: $grey-color-light;
+  border-left: 4px solid $grey-color;
   padding-left: $spacing-unit / 2;
   @include relative-font-size(1.125);
   letter-spacing: -1px;
