@@ -130,7 +130,7 @@ table:not(.post-table):not(.rouge-table) td { border: 1px solid #e8e8e8; }
 
 .post-meta { font-size: 18px; margin-top: 3.75px; }
 
-.post-list-meta { font-size: 20.34px; color: #828282; }
+.post-list-meta { font-size: 20.34px; }
 
 .post-link { font-size: 20.34px; }
 
