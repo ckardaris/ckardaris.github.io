@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Finding the optional truth | Charalampos Kardaris</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Finding the optional truth" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Using a programming language can be an easy task1. Understanding it deeply and mastering it, though, is more challenging. Multiple definitions of the word apply here: demanding and stimulating. Depending on which one you pick, of course. &#8617;" />
@@ -46,12 +46,12 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Understanding it deeply
+    <p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Understanding it deeply
 and mastering it, though, is more challenging. Multiple definitions of the word
 apply here: <em>demanding</em> and <em>stimulating</em>.</p>
 
 <p>I have been trying to utilize all available features of C++ as much as possible.
-One that I particularly like is <code class="language-plaintext highlighter-rouge">std::optional</code><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. I am fond of its semantics.
+One that I particularly like is <code class="language-plaintext highlighter-rouge">std::optional</code><sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. I am fond of its semantics.
 Here is something that may contain a value, or it may as well contain nothing.
 This <em>nothing</em> is also known as <code class="language-plaintext highlighter-rouge">std::nullopt</code>. <code class="language-plaintext highlighter-rouge">std::optional</code> removes the need
 of returning raw pointers and relying on comparisons with <code class="language-plaintext highlighter-rouge">nullptr</code> in order to
@@ -144,7 +144,7 @@ had to read the available specification on <em>cppreference.com</em> a little mo
 carefully.</p>
 
 <blockquote>
-  <p>When an object of type optional&lt;T&gt; is <strong>contextually converted to bool</strong> <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>,
+  <p>When an object of type optional&lt;T&gt; is <strong>contextually converted to bool</strong> <sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>,
 the conversion returns true if the object contains a value and false if it
 does not contain a value.</p>
 </blockquote>
@@ -227,13 +227,13 @@ deeply inquiring mind, I was quite fascinated to discover this little sub-rule,
 which ultimately expanded my knowledge.</p>
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>Depending on which one you pick, of course. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>See <a href="https://en.cppreference.com/w/cpp/utility/optional">cppreference.com/…/optional</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3" role="doc-endnote">
+    <li id="fn:3">
       <p>See <a href="https://en.cppreference.com/w/cpp/language/implicit_conversion">cppreference.com/…/language/implicit_conversion</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>

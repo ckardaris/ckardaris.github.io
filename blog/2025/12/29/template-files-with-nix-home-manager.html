@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Template files with Nix Home Manager | Charalampos Kardaris</title>
-<meta name="generator" content="Jekyll v4.2.2" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Template files with Nix Home Manager" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Backstory" />
@@ -100,7 +100,7 @@ Nevertheless, we need to agree on some necessary baseline knowledge.</p>
 <p><code class="language-plaintext highlighter-rouge">home-manager</code> requires a configuration file <code class="language-plaintext highlighter-rouge">home.nix</code> that typically lies in the
 <code class="language-plaintext highlighter-rouge">$HOME/.config/home-manager</code> directory.
 In <code class="language-plaintext highlighter-rouge">home.nix</code> we can define the files that are generated via <code class="language-plaintext highlighter-rouge">home-manager</code> by populating the
-<code class="language-plaintext highlighter-rouge">home.file</code><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> <a href="https://nix.dev/manual/nix/2.24/language/syntax#attrs-literal">attribute set</a>.</p>
+<code class="language-plaintext highlighter-rouge">home.file</code><sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> <a href="https://nix.dev/manual/nix/2.24/language/syntax#attrs-literal">attribute set</a>.</p>
 
 <div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
   <span class="nv">pkgs</span><span class="p">,</span>
@@ -191,7 +191,7 @@ programming logic is simpler.</p>
   <span class="p">};</span>
 </code></pre></div></div>
 
-<h5 id="2-modify-each-key-value-file-entry-using-builtinsmapattrs">2. <strong>Modify</strong> each “key-value” file entry using <code class="language-plaintext highlighter-rouge">builtins.mapAttrs</code><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</h5>
+<h5 id="2-modify-each-key-value-file-entry-using-builtinsmapattrs">2. <strong>Modify</strong> each “key-value” file entry using <code class="language-plaintext highlighter-rouge">builtins.mapAttrs</code><sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</h5>
 
 <p>Currently the values of the file entries are empty.
 We need to populate these attribute sets, so that they are valid <code class="language-plaintext highlighter-rouge">home-manager</code> file entries.</p>
@@ -239,7 +239,7 @@ We do so by adding a <code class="language-plaintext highlighter-rouge">data</co
 </code></pre></div></div>
 
 <p>We can see that we rely on the output of a helper function: <code class="language-plaintext highlighter-rouge">template</code>. This function in its
-simplest form<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> takes two paths as arguments:</p>
+simplest form<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup> takes two paths as arguments:</p>
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">src</code> is the path to the template file.</li>
@@ -264,7 +264,7 @@ simplest form<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnot
 
 <p>How does the <code class="language-plaintext highlighter-rouge">template</code> function work?</p>
 
-<p>The function uses <code class="language-plaintext highlighter-rouge">pkgs.runCommand</code><sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> to create a <a href="https://nix.dev/manual/nix/2.22/language/derivations">Nix
+<p>The function uses <code class="language-plaintext highlighter-rouge">pkgs.runCommand</code><sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup> to create a <a href="https://nix.dev/manual/nix/2.22/language/derivations">Nix
 derivation</a>.
 In our use case we only want to create one single file that we can then read from.</p>
 
@@ -360,7 +360,7 @@ is specifying a different number of async workers for <code class="language-plai
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>It is that simple<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>.</p>
+<p>It is that simple<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>.</p>
 
 <h1 id="extensions">Extensions</h1>
 
@@ -386,20 +386,20 @@ a few changes.</p>
 </ul>
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>See <a href="https://nix-community.github.io/home-manager/options.xhtml#opt-home.file">home-file</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>See <a href="https://nix.dev/manual/nix/2.28/language/builtins.html#builtins-mapAttrs">builtins.mapAttrs</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3" role="doc-endnote">
+    <li id="fn:3">
       <p>See <a href="#extensions">Extensions</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:4" role="doc-endnote">
+    <li id="fn:4">
       <p>See
 <a href="https://ryantm.github.io/nixpkgs/builders/trivial-builders/#trivial-builder-runCommand">pkgs.runCommand</a>. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:5" role="doc-endnote">
+    <li id="fn:5">
       <p>The file <code class="language-plaintext highlighter-rouge">$HOME/.local/share/home-manager/data.json</code> is automatically generated, but that
 deserves a post of its own. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>

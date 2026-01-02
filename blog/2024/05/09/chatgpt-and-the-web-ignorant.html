@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ChatGPT and the web ignorant | Charalampos Kardaris</title>
-<meta name="generator" content="Jekyll v4.2.2">
+<meta name="generator" content="Jekyll v4.4.1">
 <meta property="og:title" content="ChatGPT and the web ignorant">
 <meta property="og:locale" content="en_US">
 <meta name="description" content="The first time I used ChatGPT I was astounded. Here was something that felt like magic. Since then, a lot more information has been made available about LLMs in general. Us laymen have peeked inside the magician’s hat. We know more about their capabilities and shortcomings. We know that they can hallucinate at times and that their output should be used with care. But the point still remains; what ChatGPT and the rest of the LLMs offer is awesome.">
@@ -64,16 +64,16 @@ question followed by an answer. Most times the answer is on point, something you
 don’t get out of a traditional search engine these days. The top-ranked
 SEO-heavy posts create an additional burden on me to filter them, which is not
 always an easy task, or a worthwhile one. For specific technical matters, I
-still prefer to directly visit the reference or documentation websites<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+still prefer to directly visit the reference or documentation websites<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <p>I first set up this personal website two years ago. I realised that GitHub
 pages would be a simple way to go about it. I set up Jekyll and started
-tinkering with a theme<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. Initially hesitant to begin posting, I uploaded
+tinkering with a theme<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. Initially hesitant to begin posting, I uploaded
 some of my photography and left it at that.</p>
 
 <p>About two weeks ago, I decided that I wanted to bring some life back into it. I
 set up my local environment again and started improving the website, bit by bit.
-I introduced post tags and tag pages<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. I uploaded my first
+I introduced post tags and tag pages<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. I uploaded my first
 <a href="/blog/2024/05/04/see-you-at-the-library.html">post</a>.</p>
 
 <p>One thing remained and I would be set: a better gallery view for my
@@ -101,8 +101,8 @@ want it to be responsive. What is the proper way to do it?</p>
 </code></pre></div></div>
 <p>and</p>
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
-  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="nb">repeat</span><span class="p">(</span><span class="n">auto-fit</span><span class="p">,</span> <span class="n">minmax</span><span class="p">(</span><span class="m">300px</span><span class="p">,</span> <span class="m">1</span><span class="n">fr</span><span class="p">));</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">grid</span><span class="p">;</span>
+  <span class="nl">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="nb">auto-fit</span><span class="p">,</span> <span class="nf">minmax</span><span class="p">(</span><span class="m">300px</span><span class="p">,</span> <span class="m">1fr</span><span class="p">));</span>
   <span class="py">grid-gap</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -139,7 +139,7 @@ previous and next photo will navigate you along the list.</p>
 <p>ChatGPT produced some valid HTML that I could work with, but the rest of the
 code was not up to the task. It did not help much with the Jekyll integration
 part. After a quick look around the web and the Jekyll documentation, I
-understood I needed to write a custom plugin<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">4</a></sup>.</p>
+understood I needed to write a custom plugin<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>.</p>
 
 <blockquote>
   <p>Your suggestions so far are not working. I think I need to write a custom
@@ -240,18 +240,18 @@ afterwards. And, testament to its value, I consider it as a great companion in
 my tech endeavours and look forward to further exploring its powers.</p>
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>I am programming in C++ at work, so I frequently visit
 <a href="https://cppreference.com">cppreference.com</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>This website is based on the <a href="https://github.com/jekyll/minima">minima</a>
 theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3" role="doc-endnote">
+    <li id="fn:3">
       <p>I am using <a href="https://github.com/pattex/jekyll-tagging">jekyll-tagging</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:5" role="doc-endnote">
+    <li id="fn:5">
       <p>Maybe there is a more elegant way to do it. Suggestions are welcome. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
