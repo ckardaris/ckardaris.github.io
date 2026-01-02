@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-02T12:46:28+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-02T13:34:38+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
 
 <p>It’s been a while since my last post and I did not want to leave 2025 behind without making any.</p>
 
@@ -60,12 +60,12 @@ In <code class="language-plaintext highlighter-rouge">home.nix</code> we can def
   <span class="o">...</span>
 <span class="p">}:</span>
 <span class="p">{</span>
-  <span class="o">//</span> <span class="nv">Other</span> <span class="nv">home-manager</span> <span class="nv">configuration</span> <span class="nv">options</span>
+  <span class="c"># Other home-manager configuration options</span>
   <span class="o">...</span>
 
-  <span class="o">//</span> <span class="nv">Files</span>
+  <span class="c"># Files</span>
   <span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="o">//</span> <span class="nv">Key-value</span> <span class="nv">file</span> <span class="nv">entries</span>
+    <span class="c"># Key-value file entries</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -264,10 +264,10 @@ filter.</p>
   <span class="nv">result</span> <span class="o">=</span> <span class="o">...</span><span class="p">;</span>
 <span class="kn">in</span>
 <span class="p">{</span>
-  <span class="o">//</span> <span class="nv">Other</span> <span class="nv">home-manager</span> <span class="nv">configuration</span> <span class="nv">options</span><span class="o">.</span>
+  <span class="c"># Other home-manager configuration options.</span>
   <span class="o">...</span>
 
-  <span class="o">//</span> <span class="nv">Files</span>
+  <span class="c"># Files</span>
   <span class="nv">home</span><span class="o">.</span><span class="nv">file</span> <span class="o">=</span> <span class="nv">result</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
