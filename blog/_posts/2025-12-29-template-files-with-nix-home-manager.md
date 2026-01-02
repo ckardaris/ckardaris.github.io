@@ -83,7 +83,7 @@ corresponding entry in the `home.file` attribute set.
   ...
   home.file = {
     ".bashrc" = {
-      // File options
+      # File options
     };
   };
   ...
