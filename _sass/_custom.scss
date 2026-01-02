@@ -8,6 +8,10 @@
   padding: 5px;
 }
 
+button {
+  cursor: pointer;
+}
+
 #tag-cloud {
     margin: $spacing-unit 0;
 }
@@ -30,4 +34,40 @@
 
 h1, h2, h3, h4 {
     margin-top: $spacing-unit * 1.25;
+}
+
+/*
+https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+*/
+$magenta: #655978;
+
+pre.highlight {
+  position: relative;
+}
+
+pre.highlight:hover > button {
+  opacity:1
+}
+
+pre.highlight > button {
+  opacity: 0;
+  color: $magenta;
+  border-color: $magenta;
+  background-color: #eef;
+  border-radius: .2em;
+  transition:all 0.2s ease-out;
+  font-size: 1.2em;
+
+  // Move button to top-right (needs parent with position: relative)
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+pre.highlight > button:active,
+pre.highlight > button:focus,
+pre.highlight > button:hover {
+  opacity: 1;
+  color: #eef;
+  background-color: $magenta;
 }

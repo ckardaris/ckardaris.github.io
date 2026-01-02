@@ -133,7 +133,7 @@ code.highlighter-rouge {
 
 figure.highlight, div.highlighter-rouge {
   @include relative-font-size(0.9375);
-  padding: 0.5em 1em;
+  padding: 0.5em 0.75em;
   background-color: #eef;
   overflow-x: auto;
   border: 0.4em solid $purple-border;

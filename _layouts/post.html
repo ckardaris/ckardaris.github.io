@@ -33,3 +33,34 @@ layout: default_no_header
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<!--
+https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+-->
+<script>
+  var codeBlocks = document.querySelectorAll('pre.highlight');
+
+  codeBlocks.forEach(codeBlock => {
+    var copyButton = document.createElement('button');
+    copyButton.type = 'button';
+    copyButton.ariaLabel = 'Copy code to clipboard';
+    copyButton.innerText = 'Copy';
+
+    codeBlock.append(copyButton);
+    console.log(copyButton);
+
+    copyButton.addEventListener('click', function () {
+      var code = codeBlock.querySelector('code').innerText.trim();
+      window.navigator.clipboard.writeText(code);
+
+      copyButton.innerText = 'Copied';
+
+      setTimeout(function () {
+        copyButton.blur();
+        setTimeout(function() {
+          copyButton.innerText = 'Copy';
+        }, 250);
+      }, 4000);
+    });
+  });
+</script>
