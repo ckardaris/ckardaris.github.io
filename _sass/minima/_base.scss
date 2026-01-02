@@ -98,15 +98,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
-
+$purple-border: #837297;
 
 /**
  * Blockquotes
  */
 blockquote {
-  background-color: $grey-color-light;
-  border-left: 4px solid $grey-color;
-  padding-left: $spacing-unit * .5;
+  border-left: 0.3em solid $purple-border;
+  padding-left: 0.75em;
   @include relative-font-size(1.125);
   letter-spacing: -1px;
   font-style: italic;
@@ -122,19 +121,27 @@ blockquote {
  * Code formatting
  */
 pre, code {
-  @include relative-font-size(0.9375);
-  border-radius: 3px;
-  background-color: #eef;
   margin: 0px;
+}
+
+code.highlighter-rouge {
+  @include relative-font-size(0.9375);
+  padding: 0.1em 0.2em;
+  border: 0.1em solid $purple-border;
+  border-radius: 0.1em;
+}
+
+figure.highlight, div.highlighter-rouge {
+  @include relative-font-size(0.9375);
+  padding: 0.5em 1em;
+  background-color: #eef;
   overflow-x: auto;
+  border: 0.4em solid $purple-border;
+  border-radius: 0.5em;
 }
 
 pre td {
     padding: 0px;
-}
-
-figure > pre {
-    padding: 5px 12px;
 }
 
 pre.lineno {

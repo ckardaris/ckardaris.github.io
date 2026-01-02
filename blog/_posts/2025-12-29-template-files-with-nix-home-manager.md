@@ -134,7 +134,7 @@ from the command line.
 
 Let's take it step by step.
 
-##### 1. **Decouple** templating layer from the actual `home.file` attribute set.
+1\. **Decouple** templating layer from the actual `home.file` attribute set.
 
 We create an attribute set that mirrors the structure of the `home.file`. We do not want to deviate
 too much from the actual "structure" that `home-manager` expects, so that the configuration and
@@ -146,7 +146,7 @@ programming logic is simpler.
   };
 ```
 
-##### 2. **Modify** each "key-value" file entry using `builtins.mapAttrs`[^2].
+2\. **Modify** each "key-value" file entry using `builtins.mapAttrs`[^2].
 
 [^2]: See [builtins.mapAttrs](https://nix.dev/manual/nix/2.28/language/builtins.html#builtins-mapAttrs).
 
@@ -240,7 +240,7 @@ In our use case we only want to create one single file that we can then read fro
    output file directly.
 - Finally, we read the output file and return its content as a Nix string.
 
-##### 3. **Merge** simple and template files in one attribute set.
+3\. **Merge** simple and template files in one attribute set.
 
 We are almost done.
 We need to map **non-template files** with the `makeSimple` function and **template files** with the
@@ -255,7 +255,7 @@ filter.
   result = makeSimple simpleFiles // makeTemplates templateFiles;
 ```
 
-##### 4. **Assign** the resulting attribute set to `home.file`.
+4\. **Assign** the resulting attribute set to `home.file`.
 
 ``` nix
 {
@@ -308,7 +308,7 @@ How does this look like based on the described setup?
 ```
 
 `$HOME/.config/home-manager/files/.vim/variables.vim`:
-```vimscript
+```vim
 autocmd User LspSetup call LspAddServer([
     \   #{
     \       name: 'clangd',
