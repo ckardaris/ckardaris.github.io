@@ -13,7 +13,7 @@
 }
 
 .subtitle {
-  margin-top: $spacing-unit / 8;
+  margin-top: $spacing-unit * .125;
   margin-bottom: $spacing-unit;
 }
 
@@ -29,5 +29,5 @@
 }
 
 h1, h2, h3, h4 {
-    margin-top: $spacing-unit / 0.8;
+    margin-top: $spacing-unit * 1.25;
 }
