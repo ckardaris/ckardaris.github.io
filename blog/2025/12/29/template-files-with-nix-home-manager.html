@@ -180,7 +180,7 @@ from the command line.</p>
 
 <p>Let’s take it step by step.</p>
 
-<h5 id="1-decouple-templating-layer-from-the-actual-homefile-attribute-set">1. <strong>Decouple</strong> templating layer from the actual <code class="language-plaintext highlighter-rouge">home.file</code> attribute set.</h5>
+<p>1. <strong>Decouple</strong> templating layer from the actual <code class="language-plaintext highlighter-rouge">home.file</code> attribute set.</p>
 
 <p>We create an attribute set that mirrors the structure of the <code class="language-plaintext highlighter-rouge">home.file</code>. We do not want to deviate
 too much from the actual “structure” that <code class="language-plaintext highlighter-rouge">home-manager</code> expects, so that the configuration and
@@ -191,7 +191,7 @@ programming logic is simpler.</p>
   <span class="p">};</span>
 </code></pre></div></div>
 
-<h5 id="2-modify-each-key-value-file-entry-using-builtinsmapattrs">2. <strong>Modify</strong> each “key-value” file entry using <code class="language-plaintext highlighter-rouge">builtins.mapAttrs</code><sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</h5>
+<p>2. <strong>Modify</strong> each “key-value” file entry using <code class="language-plaintext highlighter-rouge">builtins.mapAttrs</code><sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</p>
 
 <p>Currently the values of the file entries are empty.
 We need to populate these attribute sets, so that they are valid <code class="language-plaintext highlighter-rouge">home-manager</code> file entries.</p>
@@ -277,7 +277,7 @@ In our use case we only want to create one single file that we can then read fro
   <li>Finally, we read the output file and return its content as a Nix string.</li>
 </ul>
 
-<h5 id="3-merge-simple-and-template-files-in-one-attribute-set">3. <strong>Merge</strong> simple and template files in one attribute set.</h5>
+<p>3. <strong>Merge</strong> simple and template files in one attribute set.</p>
 
 <p>We are almost done.
 We need to map <strong>non-template files</strong> with the <code class="language-plaintext highlighter-rouge">makeSimple</code> function and <strong>template files</strong> with the
@@ -291,7 +291,7 @@ filter.</p>
   <span class="nv">result</span> <span class="o">=</span> <span class="nv">makeSimple</span> <span class="nv">simpleFiles</span> <span class="o">//</span> <span class="nv">makeTemplates</span> <span class="nv">templateFiles</span><span class="p">;</span>
 </code></pre></div></div>
 
-<h5 id="4-assign-the-resulting-attribute-set-to-homefile">4. <strong>Assign</strong> the resulting attribute set to <code class="language-plaintext highlighter-rouge">home.file</code>.</h5>
+<p>4. <strong>Assign</strong> the resulting attribute set to <code class="language-plaintext highlighter-rouge">home.file</code>.</p>
 
 <div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
   <span class="nv">pkgs</span><span class="p">,</span>
@@ -342,7 +342,7 @@ is specifying a different number of async workers for <code class="language-plai
 </code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">$HOME/.config/home-manager/files/.vim/variables.vim</code>:</p>
-<div class="language-vimscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd <span class="nb">User</span> LspSetup <span class="k">call</span> LspAddServer<span class="p">([</span>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd <span class="nb">User</span> LspSetup <span class="k">call</span> LspAddServer<span class="p">([</span>
 <span class="se">    \</span>   #<span class="p">{</span>
 <span class="se">    \</span>       name<span class="p">:</span> <span class="s1">'clangd'</span><span class="p">,</span>
 <span class="se">    \</span>       <span class="k">filetype</span><span class="p">:</span> <span class="p">[</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">],</span>
