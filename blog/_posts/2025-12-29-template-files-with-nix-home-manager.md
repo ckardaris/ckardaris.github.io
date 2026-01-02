@@ -63,12 +63,12 @@ In `home.nix` we can define the files that are generated via `home-manager` by p
   ...
 }:
 {
-  // Other home-manager configuration options
+  # Other home-manager configuration options
   ...
 
-  // Files
+  # Files
   home.file = {
-    // Key-value file entries
+    # Key-value file entries
   };
 }
 ```
@@ -277,10 +277,10 @@ let
   result = ...;
 in
 {
-  // Other home-manager configuration options.
+  # Other home-manager configuration options.
   ...
 
-  // Files
+  # Files
   home.file = result;
 }
 ```
