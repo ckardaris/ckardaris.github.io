@@ -5,32 +5,30 @@
  */
 pre.highlight {
   position: relative;
-}
 
-pre.highlight:hover > button {
-  opacity:1
-}
+  &:hover > button {
+    opacity: 1;
+  }
 
-pre.highlight > button {
-  opacity: 0;
-  color: $magenta;
-  border-color: $magenta;
-  background-color: $lavender;
-  border-radius: .2em;
-  transition:all 0.2s ease-out;
-  font-size: 1.2em;
+  button {
+    opacity: 0;
+    color: $magenta;
+    border-color: $magenta;
+    background-color: $lavender;
+    border-radius: .2em;
+    transition:all 0.2s ease-out;
+    font-size: 1.2em;
 
-  // Move button to top-right
-  // (needs parent with position: relative)
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+    // Move button to top-right
+    // (needs parent with position: relative)
+    position: absolute;
+    top: 0;
+    right: 0;
 
-pre.highlight > button:active,
-pre.highlight > button:focus,
-pre.highlight > button:hover {
-  opacity: 1;
-  color: $lavender;
-  background-color: $magenta;
+    &:active, &:focus, &:hover {
+      opacity: 1;
+      color: $lavender;
+      background-color: $magenta;
+    }
+  }
 }

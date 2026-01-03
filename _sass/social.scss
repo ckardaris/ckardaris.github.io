@@ -1,0 +1,12 @@
+/**
+ *  Social media icons
+ */
+.social-media-list {
+  display:flex;
+  gap: 2rem;
+
+  .svg-icon {
+    width: 1.5em;
+    height: auto;
+  }
+}

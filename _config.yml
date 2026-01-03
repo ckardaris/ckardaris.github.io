@@ -19,12 +19,33 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Charalampos Kardaris
-email_username: ckardaris
-email_domain: outlook.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ckardaris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: ckardaris
-linkedin_username: ckardaris
+socials:
+  - url: mailto:ckardaris@outlook.com
+    svg: email
+    alt: Email logo
+    label: Send email to Charalampos Kardaris
+  - url: /feed.xml
+    svg: rss
+    alt: RSS logo
+    label: Open RSS feed of Charalampos Kardaris's blog
+  - url: https://www.linkedin.com/in/ckardaris
+    svg: linkedin
+    alt: LinkedIn logo
+    label: Visit LinkedIn profile
+  - url: https://www.github.com/ckardaris
+    svg: github
+    alt: GitHub logo
+    label: Visit GitHub profile
+  - url: https://www.gitlab.com/ckardaris
+    svg: gitlab
+    alt: GitLab logo
+    label: Visit GitLab profile
+  - url: https://www.codeberg.org/ckardaris
+    svg: codeberg
+    alt: Codeberg logo
+    label: Visit Codeberg profile
 
 # Build settings
 theme: minima
