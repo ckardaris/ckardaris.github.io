@@ -1,0 +1,12 @@
+/**
+ *  Tags
+ */
+.tags {
+    padding-top: $spacing-unit * 0.5;
+    padding-bottom: $spacing-unit * 0.5;
+    border-top: $footnote-line;
+}
+
+.tag, #tag-cloud > a {
+  padding: 5px;
+}

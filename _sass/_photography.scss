@@ -1,0 +1,13 @@
+/**
+ *  Photography
+ */
+.photo-caption {
+  margin-bottom: $spacing-unit;
+}
+
+#carousel-container > a {
+  background-color: $lavender;
+  padding: 5px 10px;
+  border: 0.15em solid $purple-border;
+  border-radius: 0.4em;
+}

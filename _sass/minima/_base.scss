@@ -1,4 +1,11 @@
 /**
+ *  Buttons
+ */
+button {
+  cursor: pointer;
+}
+
+/**
  * Reset some basic elements
  */
 body, h1, h2, h3, h4, h5, h6,
@@ -17,11 +24,6 @@ body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
   background-color: $background-color;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-       -o-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: flex;
   min-height: 100vh;
@@ -98,8 +100,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
-$purple-border: #837297;
-
 /**
  * Blockquotes
  */
@@ -134,7 +134,7 @@ code.highlighter-rouge {
 figure.highlight, div.highlighter-rouge {
   @include relative-font-size(0.9375);
   padding: 0.5em 0.75em;
-  background-color: #eef;
+  background-color: $lavender;
   overflow-x: auto;
   border: 0.4em solid $purple-border;
   border-radius: 0.5em;
