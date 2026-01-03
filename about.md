@@ -2,6 +2,7 @@
 layout: about
 title: About
 permalink: /about/
+description: Hi, I'm Charalampos Kardaris and this is some information about me.
 ---
 Hi! My name is Charalampos Kardaris.
 

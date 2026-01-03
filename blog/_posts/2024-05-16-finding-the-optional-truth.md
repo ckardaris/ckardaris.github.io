@@ -2,6 +2,7 @@
 layout: post
 title: Finding the optional truth
 tags: c++ std::optional
+description: Discovering a little more about C++ and std::optional
 ---
 
 Using a programming language *can* be an easy task[^1]. Understanding it deeply

@@ -2,6 +2,7 @@
 layout: post
 title: std::cout << "Goodbye Meeting C++. Hello C++ Community.";
 tags: meeting c++ conference berlin
+description: Trip report from Meeting C++ 2025
 ---
 
 The train journey from Berlin to Brno takes around 7 hours.

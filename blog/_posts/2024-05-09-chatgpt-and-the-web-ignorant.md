@@ -2,6 +2,7 @@
 layout: post
 title: ChatGPT and the web ignorant
 tags: html css chatgpt ruby jekyll
+description: How ChatGPT helped me configure my Jekyll static website
 ---
 
 The first time I used ChatGPT I was astounded. Here was something that felt like

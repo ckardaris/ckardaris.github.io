@@ -2,6 +2,7 @@
 layout: post
 title: See you at the library
 tags: library life travel work
+description: Libraries are amazing places. Here are some thoughts of mine about them.
 ---
 
 I was recently travelling again. On the first day of the trip, I had to work,

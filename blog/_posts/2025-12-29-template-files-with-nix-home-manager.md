@@ -2,6 +2,7 @@
 layout: post
 title: Template files with Nix Home Manager
 tags: config dotfiles nix home-manager template jinja
+description: Generate parameterized files with the help of Nix Home Manager
 ---
 
 # Backstory
