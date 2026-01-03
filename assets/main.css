@@ -414,10 +414,6 @@ table:not(.post-table):not(.rouge-table) td {
 /**
  * Posts
  */
-.post-header {
-  margin-bottom: 30px;
-}
-
 .post-title {
   font-size: 29.25px;
   letter-spacing: -1px;
@@ -705,15 +701,46 @@ pre.highlight > button:hover {
 /**
  *  Photography
  */
+.thumbnail {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 10px;
+}
+
+.grid-item {
+  width: 100%;
+}
+
 .photo-caption {
   margin-bottom: 30px;
 }
 
-#carousel-container > a {
+#carousel-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#carousel-container a {
   background-color: #eef;
-  padding: 5px 10px;
+  padding: 0.2em 0.4em;
   border: 0.15em solid #837297;
   border-radius: 0.4em;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
