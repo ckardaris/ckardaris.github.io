@@ -33,7 +33,7 @@ plugins:
   - jekyll-loading-lazy
 
 header_pages:
-  - blog.md
+  - blog.html
   - photography.html
   - about.md
 

@@ -1,0 +1,30 @@
+{%- comment -%}
+Split content in subsections.
+If more than 1 subsections exist, the first one is the subtitle (i.e. post-meta) of the page.
+The subtitle is the first section in the content and
+is separated by a line with '^^^' characters.
+{%- endcomment -%}
+
+{%- assign sections = content | split: '^^^' -%}
+{%- if sections.size > 1 -%}
+    {%- assign meta = sections[0] -%}
+{%- endif -%}
+{%- assign main = sections | last -%}
+
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <header class="post-header">
+      {% if page.path contains '/_drafts/' %}
+      <span style="color: red; font-weight: bold;">DRAFT</span>
+      {% endif %}
+      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    </header>
+    {%- if meta -%}
+      <p class="post-meta">
+        {{meta}}
+      </p>
+    {%- endif -%}
+
+    {{ main }}
+  </div>
+</main>

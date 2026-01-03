@@ -1,12 +1,12 @@
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 <tr>
-    <td>
+    <td style='padding-bottom: 0.8rem'>
         <span class="post-list-meta">{{ post.date | date: date_format }}</span><br>
         <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
         </a>
         {% if post.draft %}
-        <span style="color: red; font-weight: bold;">DRAFT</span>
+            <span style="color: red; font-weight: bold; margin-left: 1rem">DRAFT</span>
         {% endif %}
     </td>
 </tr>

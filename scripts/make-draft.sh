@@ -10,5 +10,4 @@ tags:
 ---
 EOF
 
-touch _layouts/posts.html
 vim "$file"

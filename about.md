@@ -3,7 +3,6 @@ layout: about
 title: About
 permalink: /about/
 ---
-
 Hi! My name is Charalampos Kardaris.
 
 I am a computer engineer from Greece. I graduated from the National Technical

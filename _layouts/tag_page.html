@@ -1,15 +1,8 @@
 ---
 layout: default
 ---
-<h1 class="post-title tag-page-title">Tag: {{ page.tag }}</h1>
-<div class="post-meta">
-  view all
-  <a href=/blog>posts</a>
-  and
-  <a href=/blog/tags>tags</a>
-  on {{ site.title }}' blog
-</div>
-
+view all <a href=/blog>posts</a> and <a href=/blog/tags>tags</a> on {{ site.title }}' blog
+^^^
 <table class="post-table">
   <tbody>
     {%- for post in page.posts -%}

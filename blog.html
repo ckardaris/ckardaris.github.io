@@ -1,0 +1,19 @@
+---
+layout: default
+title: Blog
+permalink: /blog
+description: Hi, I am Charalampos Kardaris and this is my blog. This is where I share my thoughts about software development and the world in general.
+---
+subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>, view all <a href="/blog/tags">tags</a>
+^^^
+{%- if site.posts.size > 0 -%}
+  <table class="post-table">
+    <tbody>
+      {%- for post in site.posts -%}
+        {%- include post-entry.html -%}
+      {%- endfor -%}
+    </tbody>
+  </table>
+{%- else -%}
+  <h4>No posts to show</h4>
+{%- endif -%}
