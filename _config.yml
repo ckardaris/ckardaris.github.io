@@ -46,6 +46,10 @@ socials:
     svg: codeberg
     alt: Codeberg logo
     label: Visit Codeberg profile
+  - url: https://orcid.org/0009-0001-4670-4594
+    svg: orcid
+    alt: ORCID logo
+    label: Visit ORCID profile
 
 # Build settings
 theme: minima
