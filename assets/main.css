@@ -672,12 +672,10 @@ table:not(.post-table):not(.rouge-table) td {
 pre.highlight {
   position: relative;
 }
-
 pre.highlight:hover > button {
   opacity: 1;
 }
-
-pre.highlight > button {
+pre.highlight button {
   opacity: 0;
   color: #655978;
   border-color: #655978;
@@ -689,10 +687,7 @@ pre.highlight > button {
   top: 0;
   right: 0;
 }
-
-pre.highlight > button:active,
-pre.highlight > button:focus,
-pre.highlight > button:hover {
+pre.highlight button:active, pre.highlight button:focus, pre.highlight button:hover {
   opacity: 1;
   color: #eef;
   background-color: #655978;
@@ -701,7 +696,15 @@ pre.highlight > button:hover {
 /**
  *  Photography
  */
-.thumbnail {
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 10px;
+}
+.grid-container .grid-item {
+  width: 100%;
+}
+.grid-container .grid-item .thumbnail {
   height: auto;
   max-width: 100%;
   display: block;
@@ -710,18 +713,7 @@ pre.highlight > button:hover {
   margin-left: auto;
   margin-right: auto;
 }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 10px;
-}
-
-.grid-item {
-  width: 100%;
-}
-
-.photo-caption {
+.grid-container .grid-item .photo-caption {
   margin-bottom: 30px;
 }
 
@@ -737,10 +729,16 @@ pre.highlight > button:hover {
   border-radius: 0.4em;
 }
 
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+/**
+ *  Social media icons
+ */
+.social-media-list {
+  display: flex;
+  gap: 2rem;
+}
+.social-media-list .svg-icon {
+  width: 1.5em;
+  height: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
