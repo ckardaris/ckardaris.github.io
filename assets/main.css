@@ -1,4 +1,14 @@
 /**
+ *  Colors for my website (syntax highlighting and UI).
+ */
+/**
+ *  Buttons
+ */
+button {
+  cursor: pointer;
+}
+
+/**
  * Reset some basic elements
  */
 body, h1, h2, h3, h4, h5, h6,
@@ -15,11 +25,6 @@ body {
   font: 400 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #111;
   background-color: #fdfdfd;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "kern" 1;
-  -moz-font-feature-settings: "kern" 1;
-  -o-font-feature-settings: "kern" 1;
-  font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: flex;
   min-height: 100vh;
@@ -373,7 +378,6 @@ table:not(.post-table):not(.rouge-table) td {
  * Page content
  */
 .page-content {
-  padding: 30px 0;
   flex: 1;
 }
 
@@ -396,6 +400,7 @@ table:not(.post-table):not(.rouge-table) td {
 .post-meta {
   font-size: 18px;
   margin-top: 3.75px;
+  margin-bottom: 30px;
 }
 
 .post-list-meta {
@@ -650,47 +655,24 @@ table:not(.post-table):not(.rouge-table) td {
   background-color: #F7C5C7;
 }
 
+/**
+ *  Tags
+ */
 .tags {
   padding-top: 15px;
+  padding-bottom: 15px;
   border-top: 1px solid #e8e8e8;
 }
 
 .tag, #tag-cloud > a {
-  text-decoration: underline;
   padding: 5px;
 }
 
-button {
-  cursor: pointer;
-}
-
-#tag-cloud {
-  margin: 30px 0;
-}
-
-.subtitle {
-  margin-top: 3.75px;
-  margin-bottom: 30px;
-}
-
-.photo-caption {
-  margin-bottom: 30px;
-}
-
-#carousel-container > a {
-  background-color: #e8e8e8;
-  color: #424242;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-h1, h2, h3, h4 {
-  margin-top: 37.5px;
-}
-
-/*
-https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
-*/
+/**
+ *  Copy button
+ *
+ *  https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+ */
 pre.highlight {
   position: relative;
 }
@@ -718,6 +700,20 @@ pre.highlight > button:hover {
   opacity: 1;
   color: #eef;
   background-color: #655978;
+}
+
+/**
+ *  Photography
+ */
+.photo-caption {
+  margin-bottom: 30px;
+}
+
+#carousel-container > a {
+  background-color: #eef;
+  padding: 5px 10px;
+  border: 0.15em solid #837297;
+  border-radius: 0.4em;
 }
 
 /*# sourceMappingURL=main.css.map */
