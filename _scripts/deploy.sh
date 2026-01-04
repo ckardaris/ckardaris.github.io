@@ -2,7 +2,7 @@
 
 set -e
 
-./scripts/check-track.sh
+./_scripts/check-track.sh
 echo Pushing sources...
 git push origin sources
 cd _site

@@ -7,7 +7,9 @@ endif
 .PHONY: setup
 setup:
 	rm -f .git/hooks/post-commit
-	ln -sf ../../scripts/post-commit.sh .git/hooks/post-commit
+	rm -f .git/hooks/pre-commit
+	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
+	ln -sf ../../_scripts/pre-commit.sh .git/hooks/pre-commit
 
 .PHONY: bash
 bash: image
@@ -28,12 +30,8 @@ build: image
 
 .PHONY: deploy
 deploy:
-	@./scripts/deploy.sh
+	@./_scripts/deploy.sh
 
 .PHONY: responsive
 responsive:
-	@./scripts/make-responsive.sh
-
-.PHONY: diff
-diff:
-	@./scripts/diff-upstream.sh
+	@./_scripts/make-responsive.sh

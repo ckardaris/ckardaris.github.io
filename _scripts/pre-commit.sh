@@ -12,7 +12,7 @@ else
 	against=$(git hash-object -t tree /dev/null)
 fi
 
-./scripts/make-responsive.sh
+./_scripts/make-responsive.sh
 git add ./assets/*
 
 exec git diff-index --check --cached $against --
