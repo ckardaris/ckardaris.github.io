@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-04T09:33:24+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-04T11:37:04+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
 
 <p>It’s been a while since my last post and I did not want to leave 2025 behind without making any.</p>
 
@@ -489,14 +489,14 @@ attend.</li>
   
     <a href="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" aria-label="Open photo: meeting C++ 2025 t-shirt">
   
-      <img src="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" alt="meeting C++ 2025 t-shirt" srcset="/assets/images/responsive/240/./2024-11-17-meeting-cpp-tshirt.jpg 240w,
-/assets/images/responsive/400/./2024-11-17-meeting-cpp-tshirt.jpg 400w,
-/assets/images/responsive/800/./2024-11-17-meeting-cpp-tshirt.jpg 800w,
-/assets/images/responsive/1200/./2024-11-17-meeting-cpp-tshirt.jpg 1200w,
-/assets/images/responsive/1600/./2024-11-17-meeting-cpp-tshirt.jpg 1600w,
-/assets/images/responsive/2400/./2024-11-17-meeting-cpp-tshirt.jpg 2400w,
-/assets/images/./2024-11-17-meeting-cpp-tshirt.jpg 3615w
-" sizes="min(100vw, 800px) - 60px" />
+      <img src="/images/2024-11-17-meeting-cpp-tshirt.jpg" alt="meeting C++ 2025 t-shirt" srcset="/assets/responsive/images/240.2024-11-17-meeting-cpp-tshirt.jpg 240w,
+/assets/responsive/images/400.2024-11-17-meeting-cpp-tshirt.jpg 400w,
+/assets/responsive/images/800.2024-11-17-meeting-cpp-tshirt.jpg 800w,
+/assets/responsive/images/1200.2024-11-17-meeting-cpp-tshirt.jpg 1200w,
+/assets/responsive/images/1600.2024-11-17-meeting-cpp-tshirt.jpg 1600w,
+/assets/responsive/images/2400.2024-11-17-meeting-cpp-tshirt.jpg 2400w,
+/assets/images/2024-11-17-meeting-cpp-tshirt.jpg 3615w
+" sizes="min(calc(100vw - 60px), 800px)" />
   
     </a>
   
@@ -743,10 +743,10 @@ work as I wanted. I put my photos in a single column and called it a day.</p>
   
     <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" aria-label="Open photo: Single column photo gallery">
   
-      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" alt="Single column photo gallery" srcset="/assets/images/responsive/240/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 240w,
-/assets/images/responsive/400/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 400w,
-/assets/images/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 728w
-" sizes="min(100vw, 800px) - 60px" />
+      <img src="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" alt="Single column photo gallery" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 240w,
+/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 400w,
+/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 728w
+" sizes="min(calc(100vw - 60px), 800px)" />
   
     </a>
   
@@ -789,10 +789,10 @@ photo gallery. I even added captions to all the photos. Cool!</p>
   
     <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" aria-label="Open photo: Grid gallery">
   
-      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" alt="Grid gallery" srcset="/assets/images/responsive/240/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 240w,
-/assets/images/responsive/400/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 400w,
-/assets/images/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 719w
-" sizes="min(100vw, 800px) - 60px" />
+      <img src="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" alt="Grid gallery" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 240w,
+/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 400w,
+/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 719w
+" sizes="min(calc(100vw - 60px), 800px)" />
   
     </a>
   
@@ -918,10 +918,10 @@ changes.</p>
   
     <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" aria-label="Open photo: Photo page">
   
-      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" alt="Photo page" srcset="/assets/images/responsive/240/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 240w,
-/assets/images/responsive/400/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 400w,
-/assets/images/./2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 738w
-" sizes="min(100vw, 800px) - 60px" />
+      <img src="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" alt="Photo page" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 240w,
+/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 400w,
+/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 738w
+" sizes="min(calc(100vw - 60px), 800px)" />
   
     </a>
   
