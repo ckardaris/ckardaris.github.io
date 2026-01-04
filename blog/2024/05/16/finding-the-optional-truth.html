@@ -27,13 +27,13 @@
     <header class="post-header">
       
       <h1 class="post-title p-name" itemprop="name headline">Finding the optional truth</h1>
-    </header><p class="post-meta">
+    </header><div class="post-meta">
         <time class="dt-published" datetime="2024-05-16T00:00:00+00:00" itemprop="datePublished">May 16, 2024
 </time>
 on
 <a href=/blog>Charalampos Kardaris' blog</a>
 
-      </p>
+      </div>
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -253,7 +253,6 @@ https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-
     copyButton.innerText = 'Copy';
 
     codeBlock.append(copyButton);
-    console.log(copyButton);
 
     copyButton.addEventListener('click', function () {
       var code = codeBlock.querySelector('code').innerText.trim();
@@ -270,6 +269,7 @@ https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-
     });
   });
 </script>
+
 
   </div>
 </main>
