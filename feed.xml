@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-04T12:02:37+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-04T13:19:43+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Template files with Nix Home Manager</title><link href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html" rel="alternate" type="text/html" title="Template files with Nix Home Manager" /><published>2025-12-29T00:00:00+00:00</published><updated>2025-12-29T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager</id><content type="html" xml:base="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager.html"><![CDATA[<h1 id="backstory">Backstory</h1>
 
 <p>It’s been a while since my last post and I did not want to leave 2025 behind without making any.</p>
 
@@ -487,19 +487,21 @@ attend.</li>
 
 <div class="responsive-image " style="text-align: center">
   
-    <a href="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" aria-label="Open photo: meeting C++ 2025 t-shirt">
   
-      <img src="/images/2024-11-17-meeting-cpp-tshirt.jpg" alt="meeting C++ 2025 t-shirt" srcset="/assets/responsive/images/240.2024-11-17-meeting-cpp-tshirt.jpg 240w,
-/assets/responsive/images/400.2024-11-17-meeting-cpp-tshirt.jpg 400w,
-/assets/responsive/images/800.2024-11-17-meeting-cpp-tshirt.jpg 800w,
-/assets/responsive/images/1200.2024-11-17-meeting-cpp-tshirt.jpg 1200w,
-/assets/responsive/images/1600.2024-11-17-meeting-cpp-tshirt.jpg 1600w,
-/assets/responsive/images/2400.2024-11-17-meeting-cpp-tshirt.jpg 2400w,
-/assets/images/2024-11-17-meeting-cpp-tshirt.jpg 3615w
+  <a href="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" aria-label="Open photo: meeting C++ 2025 t-shirt">
+    <picture>
+      <source type="image/avif" srcset="/assets/responsive/images/240.2024-11-17-meeting-cpp-tshirt.jpg.avif 240w,
+/assets/responsive/images/400.2024-11-17-meeting-cpp-tshirt.jpg.avif 400w,
+/assets/responsive/images/800.2024-11-17-meeting-cpp-tshirt.jpg.avif 800w,
+/assets/responsive/images/1200.2024-11-17-meeting-cpp-tshirt.jpg.avif 1200w,
+/assets/responsive/images/1600.2024-11-17-meeting-cpp-tshirt.jpg.avif 1600w,
+/assets/responsive/images/2400.2024-11-17-meeting-cpp-tshirt.jpg.avif 2400w,
+/assets/responsive/images/3615.2024-11-17-meeting-cpp-tshirt.jpg.avif 3615w,
 " sizes="min(calc(100vw - 60px), 800px)" />
-  
-    </a>
-  
+
+      <img src="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg" alt="meeting C++ 2025 t-shirt" />
+    </picture>
+  </a>
 
   
 </div>
@@ -741,15 +743,17 @@ work as I wanted. I put my photos in a single column and called it a day.</p>
 
 <div class="responsive-image " style="text-align: center">
   
-    <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" aria-label="Open photo: Single column photo gallery">
   
-      <img src="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" alt="Single column photo gallery" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 240w,
-/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 400w,
-/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png 728w
+  <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" aria-label="Open photo: Single column photo gallery">
+    <picture>
+      <source type="image/avif" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png.avif 240w,
+/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png.avif 400w,
+/assets/responsive/images/728.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png.avif 728w,
 " sizes="min(calc(100vw - 60px), 800px)" />
-  
-    </a>
-  
+
+      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" alt="Single column photo gallery" />
+    </picture>
+  </a>
 
   
 </div>
@@ -787,15 +791,17 @@ photo gallery. I even added captions to all the photos. Cool!</p>
 
 <div class="responsive-image " style="text-align: center">
   
-    <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" aria-label="Open photo: Grid gallery">
   
-      <img src="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" alt="Grid gallery" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 240w,
-/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 400w,
-/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png 719w
+  <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" aria-label="Open photo: Grid gallery">
+    <picture>
+      <source type="image/avif" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png.avif 240w,
+/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png.avif 400w,
+/assets/responsive/images/719.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png.avif 719w,
 " sizes="min(calc(100vw - 60px), 800px)" />
-  
-    </a>
-  
+
+      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" alt="Grid gallery" />
+    </picture>
+  </a>
 
   
 </div>
@@ -916,15 +922,17 @@ changes.</p>
 
 <div class="responsive-image " style="text-align: center">
   
-    <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" aria-label="Open photo: Photo page">
   
-      <img src="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" alt="Photo page" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 240w,
-/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 400w,
-/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png 738w
+  <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" aria-label="Open photo: Photo page">
+    <picture>
+      <source type="image/avif" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png.avif 240w,
+/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png.avif 400w,
+/assets/responsive/images/738.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png.avif 738w,
 " sizes="min(calc(100vw - 60px), 800px)" />
-  
-    </a>
-  
+
+      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" alt="Photo page" />
+    </picture>
+  </a>
 
   
 </div>
