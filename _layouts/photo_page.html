@@ -14,8 +14,9 @@ view all <a href="/photography">{{site.title}}' photos</a>
 </div><br>
 
 {% assign path = "/photography/" | append: page.photo.name | append: ".jpg" %}
+{% assign href = "/assets" | append: path %}
 {% include responsive-image.html
-  href=path
+  href=href
   path=path
   alt=thumbnail.caption
 %}

@@ -75,21 +75,6 @@ exclude:
   - scripts/
   - Dockerfile
   - blog/_posts/2024-04-23-hello-world.md
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-defaults:
-  - scope:
-      path: "404"
-    values:
-      layout: 404
 
 tag_page_layout: tag_page
 tag_page_dir: blog/tags

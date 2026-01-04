@@ -11,7 +11,8 @@ setup:
 
 .PHONY: bash
 bash: image
-	podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} bash
+	podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} \
+		sh -c 'bundle exec jekyll build && bash'
 
 .PHONY: server
 server: image

@@ -1,3 +1,0 @@
----
-permalink: /photography/thumbnails
----

@@ -1,0 +1,13 @@
+{
+    "name": "Charalampos Kardaris",
+    "short_name": "CKardaris",
+    "icons": [
+        {
+            "src": "/assets/favicon.svg",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

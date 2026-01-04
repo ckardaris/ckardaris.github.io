@@ -3,35 +3,66 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-include_dir="$(realpath _includes/responsive)"
-[[ -z "$include_dir" ]] && exit 1
-export include_dir
+base_include_dir="$(realpath _includes/responsive)"
+[[ -z "$base_include_dir" ]] && exit 1
+mkdir -p "$base_include_dir"
+export base_include_dir
+
+base_asset_path="assets/responsive"
+export base_asset_path
+
+base_asset_dir="$(realpath "$base_asset_path")"
+[[ -z "$base_asset_dir" ]] && exit 1
+mkdir -p "$base_asset_dir"
+export base_asset_dir
+
 
 function do_convert() {
-    base="${1:?}"
-    file="${2:?}"
+    file="${1:?}"
     original="$(identify -format "%w" "$file")"
     srcset=""
+
+    # Create files based on an original.
+    #
+    # Input:
+    # path/to/file.jpg
+    #
+    # Output:
+    # assets/responsive/path/to/240.file.jpg
+    # assets/responsive/path/to/400.file.jpg
+    # assets/responsive/path/to/...
+    #
+    rel_dir="$(dirname "$file")"
+    name="$(basename "$file")"
+    file_asset_dir="$base_asset_dir/$rel_dir"
+    mkdir -p "$file_asset_dir"
+
+    # Create srcset file based on an original
+    # Input:
+    # path/to/file.jpg
+    #
+    # Output:
+    # _includes/responsive/path/to/file.jpg/srcset
+    #
+    file_include_dir="$base_include_dir/$file"
+    mkdir -p "$file_include_dir"
+
     for w in {240,400,800,1200,1600,2400}
     do
-        [[ "$w" -ge "$original" ]] && break
-        dir="responsive/$w"
-        mkdir -p "$dir"
-        image="$dir/$file"
-        printf "[%s] %s..." "$w" "$file"
-        srcset+="/$base/$image ${w}w,\n"
-        [[ -f "$image" ]] && echo Skipping && continue
+        image="$file_asset_dir/$w.$name"
+        printf "[%4s] %s..." "$w" "$file"
+        [[ "$w" -ge "$original" ]] && echo TOO WIDE && continue
+
+        srcset+="/$base_asset_path/$rel_dir/$w.$name ${w}w,\n"
+        [[ -f "$image" ]] && echo GENERATED && continue
+
         magick "$file" -resize "${w}x" "$image"
         echo OK
     done
-    srcset+="/$base/$file ${original}w\n"
-    mkdir -p "$include_dir/$base"
-    printf "$srcset" > "$include_dir/$base/$file"
+    srcset+="/assets/$file ${original}w\n"
+    printf "$srcset" > "$file_include_dir/srcset"
 }
 export -f do_convert
 
-cd photography
-fd --type f --max-depth 1 -x sh -c 'do_convert photography {}'
-
-cd ../assets/images
-fd --type f --max-depth 1 -x sh -c 'do_convert assets/images {}'
+cd assets
+fd . --type f photography images -x sh -c 'do_convert {}'

@@ -8,10 +8,8 @@
         {% endif %}
         src="{{ include.path }}" alt="{{ include.alt }}"
 
-        {% assign include_file = "responsive" | append: include.path %}
-        {% capture srcset %}
-          {%- include {{ include_file}} -%}
-        {% endcapture %}
+        {% assign include_file = "responsive" | append: include.path | append: "/srcset" %}
+        {% capture srcset %} {%- include {{ include_file}} -%} {% endcapture %}
         srcset="{{ srcset }}"
 
         {% if include.grid -%}
@@ -24,7 +22,7 @@
           {% endcomment %}
           sizes="(max-width: 549px) calc(100vw - 2 * 30px), (max-width: 799px) calc((100vw - 2 * 30px - 10px) * 0.5), 240px"
         {%- else -%}
-          sizes="min(100vw, 800px) - 60px"
+          sizes="min(calc(100vw - 60px), 800px)"
         {%- endif %}
       >
   {% if include.href %}

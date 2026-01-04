@@ -13,7 +13,6 @@ else
 fi
 
 ./scripts/make-responsive.sh
-git add ./photography/responsive/*
-git add ./assets/images/responsive/*
+git add ./assets/*
 
 exec git diff-index --check --cached $against --
