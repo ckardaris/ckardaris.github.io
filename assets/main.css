@@ -569,6 +569,7 @@ pre.highlight:hover > button {
 }
 pre.highlight button {
   opacity: 0;
+  width: 5em;
   color: #655978;
   border-color: #655978;
   background-color: #eef;
