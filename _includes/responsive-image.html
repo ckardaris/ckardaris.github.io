@@ -1,13 +1,16 @@
 <div class="responsive-image {{include.div_class}}" style="text-align: center">
+  {% comment %}
+    The original image is used as 'href' by default.
+    If we want to follow some other link we need to explicitly pass it.
+  {% endcomment %}
   {% if include.href %}
-    <a href="{{ include.href }}" aria-label="Open photo: {{ include.alt }}">
+    {% assign href = include.href %}
+  {% else %}
+    {% assign href = "/assets" | append: include.path %}
   {% endif %}
-      <img
-        {% if include.img_class %}
-          class="{{include.img_class}}
-        {% endif %}
-        src="{{ include.path }}" alt="{{ include.alt }}"
-
+  <a href="{{ href }}" aria-label="Open photo: {{ include.alt }}">
+    <picture {% if include.img_class %} class="{{include.img_class}}" {% endif %} >
+      <source type="image/avif"
         {% assign include_file = "responsive" | append: include.path | append: "/srcset" %}
         {% capture srcset %} {%- include {{ include_file}} -%} {% endcapture %}
         srcset="{{ srcset }}"
@@ -25,9 +28,10 @@
           sizes="min(calc(100vw - 60px), 800px)"
         {%- endif %}
       >
-  {% if include.href %}
-    </a>
-  {% endif %}
+
+      <img src="/assets{{ include.path }}" alt="{{ include.alt }}" >
+    </picture>
+  </a>
 
   {% if include.caption %}
     <div class="photo-caption" style="text-align: center;">

@@ -44,7 +44,6 @@ However, I am not very proficient in CSS and, at the time, I could not make it
 work as I wanted. I put my photos in a single column and called it a day.
 
 {% include responsive-image.html
-    href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png"
     path="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png"
     alt="Single column photo gallery"
 %}
@@ -84,7 +83,6 @@ order to fit three photos in the widest layout. I finally had a nicely looking
 photo gallery. I even added captions to all the photos. Cool!
 
 {% include responsive-image.html
-    href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png"
     path="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png"
     alt="Grid gallery"
 %}
@@ -204,7 +202,6 @@ had it. A page for every one of my photos. Enthusiastically, I uploaded the
 changes.
 
 {% include responsive-image.html
-    href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png"
     path="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png"
     alt="Photo page"
 %}

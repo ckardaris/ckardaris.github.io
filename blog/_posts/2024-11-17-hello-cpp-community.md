@@ -140,7 +140,6 @@ PS:
 2. I quite like my new T-shirt.
 
 {% include responsive-image.html
-    href="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg"
     path="/images/2024-11-17-meeting-cpp-tshirt.jpg"
     alt="meeting C++ 2025 t-shirt"
 %}

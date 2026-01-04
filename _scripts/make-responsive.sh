@@ -47,19 +47,19 @@ function do_convert() {
     file_include_dir="$base_include_dir/$file"
     mkdir -p "$file_include_dir"
 
-    for w in {240,400,800,1200,1600,2400}
+    for w in {240,400,800,1200,1600,2400,"$original"}
     do
-        image="$file_asset_dir/$w.$name"
+        convert="$w.$name.avif"
+        image="$file_asset_dir/$convert"
         printf "[%4s] %s..." "$w" "$file"
-        [[ "$w" -ge "$original" ]] && echo TOO WIDE && continue
+        [[ "$w" -gt "$original" ]] && echo TOO WIDE && continue
 
-        srcset+="/$base_asset_path/$rel_dir/$w.$name ${w}w,\n"
+        srcset+="/$base_asset_path/$rel_dir/$convert ${w}w,\n"
         [[ -f "$image" ]] && echo GENERATED && continue
 
         magick "$file" -resize "${w}x" "$image"
         echo OK
     done
-    srcset+="/assets/$file ${original}w\n"
     printf "$srcset" > "$file_include_dir/srcset"
 }
 export -f do_convert
