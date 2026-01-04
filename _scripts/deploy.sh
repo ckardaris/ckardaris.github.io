@@ -4,6 +4,8 @@ set -e
 
 ./_scripts/check-track.sh
 echo Pushing sources...
+
+set +e
 git push origin sources
 cd _site
 [[ ! -d .git ]] && echo No git directory found... && exit 1
