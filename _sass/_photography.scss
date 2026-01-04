@@ -9,7 +9,7 @@
   .grid-item {
     width: 100%;
 
-    .thumbnail {
+    .grid-photo {
       height: auto;
       max-width: 100%;
       display: block;
@@ -31,6 +31,8 @@
   align-items: center;
 
   a {
+    color: $text-color;
+    text-decoration: none;
     background-color: $lavender;
     padding: 0.2em 0.4em;
     border: 0.15em solid $purple-border;

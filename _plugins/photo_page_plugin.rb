@@ -27,6 +27,7 @@ module Jekyll
       self.data = {
         'layout' => 'photo_page',
         'title' => photo["caption"],
+        'description' => photo["caption"],
         'photo' => photo,
         'previous_photo' => previous_photo,
         'next_photo' => next_photo,

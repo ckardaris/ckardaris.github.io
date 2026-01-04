@@ -43,8 +43,12 @@ One thing remained and I would be set: a better gallery view for my
 However, I am not very proficient in CSS and, at the time, I could not make it
 work as I wanted. I put my photos in a single column and called it a day.
 
-![Single column photo
-gallery](/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png)
+{% include responsive-image.html
+    href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png"
+    path="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png"
+    original="728"
+    alt="Single column photo gallery"
+%}
 
 [^4]: For the time being of course. Can you really be satisfied with your setup?
 
@@ -80,7 +84,12 @@ adjusted my Jekyll templates accordingly and changed the `minmax` value, in
 order to fit three photos in the widest layout. I finally had a nicely looking
 photo gallery. I even added captions to all the photos. Cool!
 
-![Grid gallery](/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png)
+{% include responsive-image.html
+    href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png"
+    path="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png"
+    original="719"
+    alt="Grid gallery"
+%}
 
 Initially, by clicking on each photo, the original full-size photo was shown. I
 thought that this was not very optimal, since a lot of network data needed to be
@@ -196,7 +205,12 @@ I finally had it. I struggled a little more than with the CSS grid code, but I
 had it. A page for every one of my photos. Enthusiastically, I uploaded the
 changes.
 
-![Photo page](/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png)
+{% include responsive-image.html
+    href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png"
+    path="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png"
+    original="738"
+    alt="Photo page"
+%}
 
 I am really satisfied with the outcome. I find it amazing how helpful ChatGPT
 can be, if you have a rough idea of what you want to achieve, you know the right

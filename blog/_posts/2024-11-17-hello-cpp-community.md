@@ -139,4 +139,8 @@ PS:
 1. Apparently, I, too, don't know how to properly operate a coffee safety pot.
 2. I quite like my new T-shirt.
 
-![t-shirt](/assets/images/2024-11-17-meeting-cpp-tshirt.jpg)
+{% include responsive-image.html
+    href="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg"
+    path="/assets/images/2024-11-17-meeting-cpp-tshirt.jpg"
+    alt="meeting C++ 2025 t-shirt"
+%}

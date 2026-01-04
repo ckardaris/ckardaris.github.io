@@ -15,8 +15,6 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-
-
 /**
  * Basic styling
  */
@@ -30,8 +28,6 @@ body {
   flex-direction: column;
 }
 
-
-
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -43,16 +39,12 @@ ul, ol, dl, figure,
   margin-bottom: $spacing-unit * .5;
 }
 
-
-
 /**
  * `main` element
  */
 main {
   display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
 }
-
-
 
 /**
  * Images
@@ -61,8 +53,6 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-
-
 
 /**
  * Figures
@@ -74,8 +64,6 @@ figure > img {
 figcaption {
   font-size: $small-font-size;
 }
-
-
 
 /**
  * Lists
@@ -90,8 +78,6 @@ li {
     margin-bottom: 0;
   }
 }
-
-
 
 /**
  * Headings
@@ -115,8 +101,6 @@ blockquote {
   }
 }
 
-
-
 /**
  * Code formatting
  */
@@ -126,12 +110,14 @@ pre, code {
 
 code.highlighter-rouge {
   @include relative-font-size(0.9375);
+  color: lighten($text-color, 10%);
   padding: 0.1em 0.2em;
   border: 0.1em solid $purple-border;
   border-radius: 0.1em;
 }
 
 figure.highlight, div.highlighter-rouge {
+  color: lighten($text-color, 10%);
   @include relative-font-size(0.9375);
   padding: 0.5em 0.75em;
   background-color: $lavender;
@@ -155,8 +141,6 @@ td.code {
     padding-left: 12px;
 }
 
-
-
 /**
  * Wrapper
  */
@@ -170,8 +154,6 @@ td.code {
   @extend %clearfix;
 }
 
-
-
 /**
  * Clearfix
  */
@@ -181,57 +163,34 @@ td.code {
   clear: both;
 }
 
-
-
-/**
- * Icons
- */
-
-.svg-icon {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    fill: #{$grey-color};
-    padding-right: 5px;
-    vertical-align: text-top;
-}
-
-.social-media-list {
-  li + li {
-    padding-top: 5px;
-  }
-}
-
-
-
 /**
  * Tables
  */
 table:not(.post-table):not(.rouge-table) {
-  margin-bottom: $spacing-unit;
-  width: 100%;
-  text-align: $table-text-align;
-  color: lighten($text-color, 18%);
-  border-collapse: collapse;
-  border: 1px solid $grey-color-light;
-  tr {
-    &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
-    }
-  }
-  th, td {
-    padding: ($spacing-unit * 33.3333333333 * .01) ($spacing-unit * .5);
-  }
-  th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
-  }
-  td {
-    border: 1px solid $grey-color-light;
-  }
-}
+  color: lighten($text-color, 10%);
+  position: relative;
 
-.rouge-table {
-    border-spacing: 0px;
+  width: 100%;
+
+  text-align: left;
+
+  margin-bottom: $spacing-unit;
+
+  // Padding
+  th, td {
+    padding: 0.4em 0.8em;
+    border: 1px solid $lavender;
+  }
+
+  // Colors
+  border-collapse: separate;
+  border: 0.4em solid $purple-border;
+  border-radius: 0.5em;
+
+  th {
+    background-color: $lavender;
+  }
+  tr:nth-child(even) {
+    background-color: lighten($grey-color-light, 6%);
+  }
 }

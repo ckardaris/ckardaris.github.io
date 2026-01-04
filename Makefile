@@ -29,9 +29,9 @@ build: image
 deploy:
 	@./scripts/deploy.sh
 
-.PHONY: thumbnails
-thumbnails:
-	@./scripts/make-thumbnails.sh
+.PHONY: responsive
+responsive:
+	@./scripts/make-responsive.sh
 
 .PHONY: diff
 diff:

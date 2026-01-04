@@ -12,7 +12,8 @@ else
 	against=$(git hash-object -t tree /dev/null)
 fi
 
-./scripts/make-thumbnails.sh
-git add ./photography/thumbnails/*
+./scripts/make-responsive.sh
+git add ./photography/responsive/*
+git add ./assets/images/responsive/*
 
 exec git diff-index --check --cached $against --
