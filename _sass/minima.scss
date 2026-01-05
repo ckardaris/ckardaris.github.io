@@ -2,8 +2,8 @@
 
 // Define defaults for each variable.
 
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-size:   18px !default;
+$base-font-family: sans-serif !default;
+$base-font-size:   1rem !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -17,20 +17,6 @@ $spacing-unit:     30px !default;
 // NOTE: Photography grid calculations rely on this value.
 $content-width:    800px !default;
 
-// This is the point when the hamburger menu appears.
-$on-palm:          600px !default;
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     ...
-//   }
-// }
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
-}
-
 @mixin relative-font-size($ratio) {
   font-size: $base-font-size * $ratio;
 }
@@ -43,6 +29,7 @@ $on-palm:          600px !default;
   "syntax-highlighting",
   "tags",
   "copy",
+  "blog",
   "photography",
   "social"
 ;

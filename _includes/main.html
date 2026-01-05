@@ -11,13 +11,22 @@ is separated by a line with '^^^' characters.
 {%- endif -%}
 {%- assign main = sections | last -%}
 
+{%- for path in site.header_pages -%}
+  {%- assign nav_page = site.pages | where: "path", path | first -%}
+  {%- if page.title == nav_page.title -%}
+      {%- assign hide_title = true -%}
+  {% endif %}
+{%- endfor -%}
+
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
     <header class="post-header">
       {% if page.path contains '/_drafts/' %}
       <span style="color: red; font-weight: bold;">DRAFT</span>
       {% endif %}
-      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+      {%- if hide_title != true -%}
+          <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+      {%- endif -%}
     </header>
     {%- if meta -%}
       <div class="post-meta">

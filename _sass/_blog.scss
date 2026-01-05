@@ -1,0 +1,15 @@
+/**
+ *  Post list
+ */
+.blog-subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: $spacing-unit;
+}
+
+.post-table {
+  border-collapse: collapse;
+
+  .post-list-meta, .post-link {
+    font-size: 1.1rem;
+  }
+}

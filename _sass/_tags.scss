@@ -2,11 +2,11 @@
  *  Tags
  */
 .tags {
-    padding-top: $spacing-unit * 0.5;
-    padding-bottom: $spacing-unit * 0.5;
-    border-top: $footnote-line;
+  padding-top: $spacing-unit * 0.5;
+  padding-bottom: $spacing-unit * 0.5;
+  border-top: $line;
 }
 
 .tag, #tag-cloud > a {
-  padding: 5px;
+  padding-right: 0.5em;
 }
