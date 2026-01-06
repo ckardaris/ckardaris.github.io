@@ -6,6 +6,12 @@
   margin-bottom: $spacing-unit;
 }
 
+.tag-title {
+  @include relative-font-size(1.1);
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
 .post-table {
   border-collapse: collapse;
 

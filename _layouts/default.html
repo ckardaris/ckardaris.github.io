@@ -3,6 +3,10 @@
   {%- include head.html -%}
   <body>
     {%- include header.html -%}
-    {%- include main.html -%}
+    {% comment %}
+    Hide the title when the header is present.
+    We can manually include the title in a case-by-case basis.
+    {% endcomment %}
+    {%- include main.html hide_title=true -%}
   </body>
 </html>

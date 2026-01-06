@@ -6,7 +6,11 @@
     <nav class="site-nav">
       {%- for path in site.header_pages -%}
         {%- assign nav_page = site.pages | where: "path", path | first -%}
-        <a class="page-link {% if page.title == nav_page.title %} nav-selected {% endif %}" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
+        <a
+          class="page-link
+          {% if page.title == nav_page.title
+             or page.nav == nav_page.title -%} nav-selected {%- endif -%}"
+          href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
       {%- endfor -%}
     </nav>
   </div>

@@ -2,9 +2,13 @@
 layout: default
 title: Tags
 permalink: /blog/tags
+nav: Blog
 ---
-view all <a href=/blog>posts</a> on {{ site.title }}' blog
-^^^
+<div class="blog-subtitle">
+view all <a href=/blog>posts</a>
+</div>
+
+<div class="tag-title">Tags: </div>
 <div id="tag-cloud">
   {{ site | tag_cloud }}
 </div>

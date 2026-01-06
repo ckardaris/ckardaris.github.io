@@ -1,8 +1,11 @@
 ---
 layout: default
 ---
-view all <a href=/blog>posts</a> and <a href=/blog/tags>tags</a> on {{ site.title }}' blog
-^^^
+<div class="blog-subtitle">
+view all <a href=/blog>posts</a> or <a href=/blog/tags>tags</a>
+</div>
+
+<div class="tag-title">{{ page.title }}</div>
 <table class="post-table">
   <tbody>
     {%- for post in page.posts -%}
