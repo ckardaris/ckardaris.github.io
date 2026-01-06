@@ -29,7 +29,11 @@
         {%- endif %}
       >
 
-      <img src="/assets{{ include.path }}" alt="{{ include.alt }}" >
+      <img
+        src="/assets{{ include.path }}"
+        alt="{{ include.alt }}"
+        {% if include.loading %} loading="{{ include.loading }}" {% endif %}
+      >
     </picture>
   </a>
 

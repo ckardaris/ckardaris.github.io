@@ -9,6 +9,11 @@ description: Hi, I am Charalampos Kardaris and this is my photography. This is w
     {% for photo in site.data.photos %}
       {% assign href = "/photography/" | append: photo.name %}
       {% assign path = href | append: ".jpg" %}
+      {% if forloop.index0 < 12 %}
+        {% assign loading = "eager" %}
+      {% else %}
+        {% assign loading = "lazy" %}
+      {% endif %}
       {% include responsive-image.html
           href=href
           path=path
@@ -17,6 +22,7 @@ description: Hi, I am Charalampos Kardaris and this is my photography. This is w
           div_class="grid-item"
           img_class="grid-photo"
           caption=photo.caption
+          loading=loading
       %}
     {% endfor %}
   </div>
