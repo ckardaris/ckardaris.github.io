@@ -2,7 +2,8 @@
   {%- for social in site.socials -%}
     <div style="display:flex; align-items:center; justify-content: flex-start">
       <a href="{{ social.url }}" aria-label="{{ social.label }}">
-        <img class="svg-icon" src="/assets/{{ social.svg }}.svg" alt="{{ social.alt }}">
+        {% assign svg = "/assets/" | append: social.svg | append: ".svg" %}
+        {% include_relative {{ svg }} %}
       </a>
     </div>
   {%- endfor -%}

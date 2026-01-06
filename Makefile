@@ -11,20 +11,24 @@ setup:
 	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
 	ln -sf ../../_scripts/pre-commit.sh .git/hooks/pre-commit
 
+.PHONY: svg
+svg:
+	fd .svg assets -x sh -c 'printf "%s: " {} && svgcleaner --multipass {} {} 2>&1'
+
 .PHONY: bash
-bash: image
+bash: image svg
 	podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} \
 		sh -c 'bundle exec jekyll build && bash'
 
 .PHONY: server
-server: image
+server: image svg
 	podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} \
 		bundle exec jekyll serve --host 0.0.0.0 --incremental --drafts \
 		--livereload --destination /tmp/ckardaris.github.io/
 
 
 .PHONY: build
-build: image
+build: image svg
 	podman run --security-opt label=disable --rm -v ${PWD}:/app ${IMAGE} \
 		bundle exec jekyll build
 
