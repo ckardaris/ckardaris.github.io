@@ -46,6 +46,7 @@ work as I wanted. I put my photos in a single column and called it a day.
 {% include responsive-image.html
     path="/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png"
     alt="Single column photo gallery"
+    loading="eager"
 %}
 
 [^4]: For the time being of course. Can you really be satisfied with your setup?
