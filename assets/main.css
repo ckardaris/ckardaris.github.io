@@ -573,9 +573,5 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   display: flex;
   gap: 2rem;
 }
-.social-media-list .svg-icon {
-  width: 1.5em;
-  height: auto;
-}
 
 /*# sourceMappingURL=main.css.map */
