@@ -521,6 +521,12 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   margin-bottom: 30px;
 }
 
+.tag-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
 .post-table {
   border-collapse: collapse;
 }
