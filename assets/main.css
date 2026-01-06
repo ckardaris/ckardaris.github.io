@@ -144,8 +144,8 @@ td.code {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
-  max-width: calc(800px - 30px * 2);
+  max-width: -webkit-calc($usable-width);
+  max-width: 740px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
@@ -576,8 +576,11 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
  *  Social media icons
  */
 .social-media-list {
+  margin-top: 2rem;
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 740px;
 }
 
 /*# sourceMappingURL=main.css.map */
