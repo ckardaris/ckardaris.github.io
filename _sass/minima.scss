@@ -16,6 +16,7 @@ $spacing-unit:     30px !default;
 // NOTE: Do not touch without checking side-effects.
 // NOTE: Photography grid calculations rely on this value.
 $content-width:    800px !default;
+$usable-width: $content-width - 2 * $spacing-unit;
 
 @mixin relative-font-size($ratio) {
   font-size: $base-font-size * $ratio;

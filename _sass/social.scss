@@ -2,6 +2,9 @@
  *  Social media icons
  */
 .social-media-list {
+  margin-top: 2rem;
   display:flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  max-width: $usable-width;
 }
