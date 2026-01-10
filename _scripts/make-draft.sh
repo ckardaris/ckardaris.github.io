@@ -7,6 +7,7 @@ cat << EOF > "$file"
 layout: post
 title:
 tags:
+description:
 ---
 EOF
 
