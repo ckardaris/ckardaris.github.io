@@ -120,11 +120,11 @@ code.highlighter-rouge {
 
 figure.highlight, div.highlighter-rouge {
   color: #2b2b2b;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   padding: 0.5em 0.75em;
   background-color: #eef;
   overflow-x: auto;
-  border: 0.4em solid #837297;
+  border: 0.3em solid #837297;
   border-radius: 0.5em;
 }
 
@@ -241,24 +241,25 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   letter-spacing: -1px;
   line-height: 1;
   margin-bottom: 0;
+  background-color: #eef;
+  color: #655978;
+  width: fit-content;
+  font-weight: bold;
+  padding: 0.1em 0.2em;
+  border-radius: 0.2em;
+  border: 0.2em solid #837297;
 }
 
+.post-content h1, .post-content h2, .post-content h3 {
+  font-weight: bold;
+}
 .post-content h1 {
-  font-size: 1.5rem;
-}
-.post-content h2 {
-  font-size: 1.4rem;
-}
-.post-content h3 {
-  font-size: 1.3rem;
-}
-.post-content h4 {
   font-size: 1.2rem;
 }
-.post-content h5 {
+.post-content h2 {
   font-size: 1.1rem;
 }
-.post-content h6 {
+.post-content h3 {
   font-size: 1rem;
 }
 
