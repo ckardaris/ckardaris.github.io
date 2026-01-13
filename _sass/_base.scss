@@ -117,11 +117,11 @@ code.highlighter-rouge {
 
 figure.highlight, div.highlighter-rouge {
   color: lighten($text-color, 10%);
-  @include relative-font-size(0.9375);
+  @include relative-font-size(1);
   padding: 0.5em 0.75em;
   background-color: $lavender;
   overflow-x: auto;
-  border: 0.4em solid $purple-border;
+  border: 0.3em solid $purple-border;
   border-radius: 0.5em;
 }
 
