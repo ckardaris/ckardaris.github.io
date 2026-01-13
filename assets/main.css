@@ -241,13 +241,7 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   letter-spacing: -1px;
   line-height: 1;
   margin-bottom: 0;
-  background-color: #eef;
-  color: #655978;
-  width: fit-content;
   font-weight: bold;
-  padding: 0.1em 0.2em;
-  border-radius: 0.2em;
-  border: 0.2em solid #837297;
 }
 
 .post-content h1, .post-content h2, .post-content h3 {
