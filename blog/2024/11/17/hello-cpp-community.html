@@ -221,7 +221,37 @@ work. Check us out if you are not aware of us. <a href="#fnref:3" class="revers
       <a href="/blog/tags/berlin" class="tag">berlin</a>
     
   </div>
-<a class="u-url" href="/blog/2024/11/17/hello-cpp-community.html" hidden></a>
+<div class="comments">
+  <div class="top">
+   <span class="title">Comments:</span>
+   <input type="checkbox" id="reply-" class="reply">
+    <noscript>
+        <a class="action reply-label" tabindex="0" href="mailto:ckardaris.github.io@outlook.com?subject=Comment:%20hello-cpp-community&amp;body=post:%20hello-cpp-community%0D%0ArepliesTo:%20%0D%0A%23%20This%20name%20will%20be%20linked%20to%20your%20email%20address.%0D%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0D%0Aname:%0D%0Acomment:%20|-%0D%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.%0D%0A">add comment</a>
+    </noscript>
+   <label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
+   <form id="comment-form-" class="comment-form">
+  <span class="comment-form-label">Name or nickname</span>
+  <span class="info-label" title="This name will be linked to your email address.
+If you change your name, your old name will be replaced in all comments."> i </span><br>
+  <input type="text" id="username-"><br>
+  <span class="comment-form-label">Comment</span>
+  <span class="info-label" title="The comment can be markdown text."> i </span><br>
+  <textarea id="comment-input-"></textarea><br>
+  <button type="submit" class="action send-email" tabindex="0" onclick="sendEmail()">send comment via email</button>
+  <label class="action" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
+</form>
+
+  </div>
+  <div class="content">
+    
+    
+    No comments to show.
+    
+  </div>
+</div>
+
+
+  <a class="u-url" href="/blog/2024/11/17/hello-cpp-community.html" hidden></a>
 </article>
 
 <!--
@@ -254,8 +284,35 @@ https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-
   });
 </script>
 
+<script>
+  function sendEmail(replyId = "") {
+    const username = document.getElementById(`username-${replyId}`).value.trim();
+    const comment  = document.getElementById(`comment-input-${replyId}`).value.trim();
+
+    const subject = "Comment: hello-cpp-community";
+    const body = `post: hello-cpp-community
+repliesTo: ${replyId ? replyId : ""}
+name: ${username}
+comment: |-
+${comment.split('\n').map(line => "  " + line).join('\n')}
+`;
+    const mailto = "mailto:ckardaris.github.io@outlook.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    window.open(mailto, "_blank");
+  }
+</script>
+<style>
+
+</style>
+
 
   </div>
 </main>
+
+
+<script>
+  document.querySelectorAll('.hidden-no-js').forEach(el => {
+      el.classList.remove('hidden-no-js');
+  });
+</script>
 </body>
 </html>

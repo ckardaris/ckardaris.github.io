@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  *  Colors for my website (syntax highlighting and UI).
  */
@@ -39,7 +40,7 @@ body {
  * Set `margin-bottom` to maintain vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
+p:not(.comments p), blockquote, pre,
 ul, ol, dl, figure {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -186,6 +187,14 @@ table:not(.post-table):not(.rouge-table) th {
 }
 table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   background-color: #f7f7f7;
+}
+
+/**
+ *  Elements that need javascript are hidden by default
+ *  and shown once <script> is executed.
+ */
+.hidden-no-js {
+  display: none;
 }
 
 /**
@@ -479,6 +488,109 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 
 .tag, #tag-cloud > a {
   padding-right: 0.5em;
+}
+
+/**
+ *  Comments
+ */
+.comments {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid #e8e8e8;
+}
+.comments .action {
+  color: #655978;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comments .reply {
+  display: none;
+}
+.comments .reply-label {
+  color: #655978;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.comments .reply:checked ~ .markdown {
+  background-color: #eef;
+}
+.comments .reply:checked ~ .reply-label {
+  display: none;
+}
+.comments .reply:checked ~ .comment-form {
+  display: block;
+}
+.comments .comment-form {
+  margin-top: 0.5em;
+  display: none;
+}
+.comments .comment-form .comment-form-label {
+  color: #655978;
+}
+.comments .comment-form .info-label {
+  background-color: #eef;
+  border-radius: 50%;
+  border: 0.1em solid #837297;
+  font-weight: bold;
+  color: #655978;
+  height: 1.1em;
+  width: 1.1em;
+  line-height: 1.1em;
+  display: inline-block;
+}
+.comments .comment-form input {
+  font: 400 1rem/1.5 sans-serif;
+  margin-bottom: 0.5em;
+}
+.comments .comment-form textarea {
+  font: 400 1rem/1.5 sans-serif;
+  margin-bottom: 0.5em;
+  width: 100%;
+  min-height: 10em;
+  resize: none;
+}
+.comments .comment-form button {
+  font: 400 1rem/1.5 sans-serif;
+  background: #eef;
+  color: #111;
+  border: 0.1em solid #837297;
+  border-radius: 0.2em;
+  text-decoration: none;
+}
+.comments .comment-form .send-email {
+  margin-right: 0.5em;
+}
+.comments .top {
+  margin-bottom: 1em;
+}
+.comments .top .title {
+  margin-right: 0.5em;
+}
+.comments .content .comment {
+  margin-bottom: 1em;
+}
+.comments .content .comment .info {
+  font-size: 0.9em;
+  color: #655978;
+}
+.comments .content p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+.comments .content .toggle {
+  display: none;
+}
+.comments .content .toggle-label {
+  font-size: 0.9em;
+  color: #655978;
+  float: left;
+  width: 2em;
+  cursor: pointer;
+}
+.comments .content .toggle-label::before {
+  content: "[−]";
+}
+.comments .content .toggle:checked ~ .toggle-label::before {
+  content: "[+]";
 }
 
 /**
