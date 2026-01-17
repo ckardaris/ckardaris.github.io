@@ -524,6 +524,12 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   margin-top: 0.5em;
   display: none;
 }
+.comments .comment-form details {
+  color: #655978;
+}
+.comments .comment-form details span {
+  font-size: 0.8em;
+}
 .comments .comment-form .comment-form-label {
   color: #655978;
 }
