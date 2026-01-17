@@ -1,0 +1,44 @@
+<div class="comments">
+  <div class="top">
+   <span class="title">Comments:</span>
+   <input type="checkbox" id="reply-" class="reply">
+    <noscript>
+        <a class="action reply-label" tabindex="0" {% include comment-no-js.txt %}>add comment</a>
+    </noscript>
+   <label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
+   {% include comment-form.html id="" reply=false %}
+  </div>
+  <div class="content">
+    {% assign comments = site.data.comments[page.slug] %}
+    {% if comments %}
+
+      {% for comment in comments %}
+        <input type="checkbox" id="toggle-{{comment.id}}" class="toggle" style="padding-left: {{comment.level | times: 2}}em">
+        <label for="toggle-{{comment.id}}" id="toggle-label-{{comment.id}}" class="toggle-label" style="padding-left: {{comment.level | times: 2}}em"></label>
+        <div id="comment-{{comment.id}}" class="comment" style="padding-left: {{comment.level | times: 2}}em">
+          <span class="info">
+            <span>{{ comment.name }} | </span>
+            <time>{{ comment.date }} CET</time>
+            {% if comment.path.size > 2 %} | <a class="action" href="#comment-{{comment.path[0]}}">root</a> {% endif %}
+            {% if comment.parent %} | <a class="action" href="#comment-{{comment.parent}}">parent</a> {% endif %}
+            {% if comment.prev %} | <a class="action" href="#comment-{{comment.prev}}">prev</a> {% endif %}
+            {% if comment.next %} | <a class="action" href="#comment-{{comment.next}}">next</a> {% endif %}
+          </span>
+
+          <div class="details">
+            <input type="checkbox" id="reply-{{comment.id}}" class="reply">
+            <div class="markdown">{{ comment.comment | markdownify }}</div>
+
+            <noscript>
+                <a class="action reply-label" tabindex="0" {% include comment-no-js.txt replies=comment.id %}>reply</a>
+            </noscript>
+            <label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{comment.id}}">reply</label>
+            {% include comment-form.html id=comment.id reply=true %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+    No comments to show.
+    {% endif %}
+  </div>
+</div>

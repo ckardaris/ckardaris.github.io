@@ -21,6 +21,7 @@
 title: Charalampos Kardaris
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ckardaris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+mailto: "ckardaris.github.io@outlook.com"
 socials:
   - url: mailto:ckardaris@outlook.com
     svg: email

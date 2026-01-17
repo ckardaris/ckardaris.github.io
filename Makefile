@@ -11,6 +11,10 @@ setup:
 	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
 	ln -sf ../../_scripts/pre-commit.sh .git/hooks/pre-commit
 
+.PHONY: comments
+comments:
+	@./_scripts/make_comments.py
+
 .PHONY: svg
 svg:
 	fd .svg assets -x sh -c 'printf "%s: " {} && svgcleaner --multipass {} {} 2>&1'

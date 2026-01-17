@@ -1,0 +1,38 @@
+<script>
+  function sendEmail(replyId = "") {
+    const username = document.getElementById(`username-${replyId}`).value.trim();
+    const comment  = document.getElementById(`comment-input-${replyId}`).value.trim();
+
+    const subject = "Comment: {{ page.slug }}";
+    const body = `post: {{page.slug}}
+repliesTo: ${replyId ? replyId : ""}
+name: ${username}
+comment: |-
+${comment.split('\n').map(line => "  " + line).join('\n')}
+`;
+    const mailto = "mailto:{{ site.mailto }}?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    window.open(mailto, "_blank");
+  }
+</script>
+<style>
+{% for comment in comments %}
+  {% comment %}
+    Hide if any parent comment is collapsed (checkbox is checked)
+  {% endcomment %}
+  {% for pid in comment.path %}
+    {% if forloop.last %}
+      {% comment %}
+        Hide the details but live the comment info line.
+      {% endcomment %}
+      #toggle-{{pid}}:checked  ~ #comment-{{comment.id}} > .details { display: none; }
+    {% else %}
+      {% comment %}
+        Hide all child comments
+      {% endcomment %}
+      #toggle-{{pid}}:checked  ~ #comment-{{comment.id}} { display: none; }
+      #toggle-{{pid}}:checked  ~ #toggle-{{comment.id}} { display: none; }
+      #toggle-{{pid}}:checked  ~ #toggle-label-{{comment.id}} { display: none; }
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+</style>

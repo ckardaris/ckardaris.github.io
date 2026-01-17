@@ -1,0 +1,11 @@
+<form id="comment-form-{{include.id}}" class="comment-form">
+  <span class="comment-form-label">Name or nickname</span>
+  <span class="info-label" title="This name will be linked to your email address.
+If you change your name, your old name will be replaced in all comments.">&nbsp;i&nbsp;</span><br>
+  <input type="text" id="username-{{include.id}}"><br>
+  <span class="comment-form-label">Comment</span>
+  <span class="info-label" title="The comment can be markdown text.">&nbsp;i&nbsp;</span><br>
+  <textarea id="comment-input-{{include.id}}"></textarea><br>
+  <button type="submit" class="action send-email" tabindex="0" onclick="sendEmail({{ include.id }})">send {% if include.reply %}reply{% else %}comment{% endif %} via email</button>
+  <label class="action" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
+</form>
