@@ -46,6 +46,14 @@
     margin-top: 0.5em;
     display: none;
 
+    details {
+      color: $magenta;
+
+      span {
+        font-size: 0.8em;
+      }
+    }
+
     .comment-form-label {
       color: $magenta;
     }
