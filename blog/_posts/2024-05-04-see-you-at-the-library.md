@@ -1,7 +1,7 @@
 ---
 layout: post
 title: See you at the library
-tags: library life travel work
+tags: life travel work
 description: Libraries are amazing places. Here are some thoughts of mine about them.
 ---
 

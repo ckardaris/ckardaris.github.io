@@ -1,7 +1,7 @@
 ---
 layout: post
 title: std::cout << "Goodbye Meeting C++. Hello C++ Community.";
-tags: meeting c++ conference berlin
+tags: c++ conference report
 description: Trip report from Meeting C++ 2025
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Techrastination
-tags: life work technology procrastination
+tags: life programming technology
 description: When hacking meets procrastination
 ---
 

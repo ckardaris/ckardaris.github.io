@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Finding the optional truth
-tags: c++ std::optional
+tags: c++ programming
 description: Discovering a little more about C++ and std::optional
 ---
 
