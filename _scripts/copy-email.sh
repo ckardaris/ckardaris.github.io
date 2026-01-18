@@ -24,9 +24,14 @@ then
     exit 1
 fi
 
+name="$(yq ".name" "$tmp")"
 post="$(yq ".post" "$tmp")"
 repliesTo="$(yq ".repliesTo" "$tmp")"
 comment="$(yq ".comment" "$tmp")"
+
+: "${name:?}"
+: "${post:?}"
+: "${comment:?}"
 
 # Calculate file SHA based on the contents of the email.
 file_sha="$(printf "%s%s%s" "$post" "$repliesTo" "$comment" | sha256sum | cut -d ' ' -f 1)"
@@ -44,7 +49,6 @@ emails="$(ls -1 _emails | wc -l)"
 id="$(( emails + 1 ))"
 
 # Update name for email in all comments.
-name="$(yq ".name" "$tmp")"
 if [[ -n "$name" ]] && [[ "$emails" -gt 0 ]]
 then
 

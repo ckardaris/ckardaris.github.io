@@ -6,14 +6,19 @@
       If you change your name, your old name will be replaced in all comments.
     </span>
   </details>
-  <input type="text" id="username-{{include.id}}"><br>
+  <input type="text" id="username-{{include.id}}" required><br>
   <details>
     <summary>Comment</summary>
     <span class="content">
       The comment can be markdown text.
     </span>
   </details>
-  <textarea id="comment-input-{{include.id}}"></textarea><br>
-  <button type="submit" class="action send-email" tabindex="0" onclick="sendEmail({{ include.id }})">send {% if include.reply %}reply{% else %}comment{% endif %} via email</button>
+  <textarea id="comment-input-{{include.id}}" required></textarea><br>
+  <button
+    type="submit"
+    class="action send-email"
+    tabindex="0"
+    onclick="sendEmail({{ include.id }})"
+  >send {% if include.reply %}reply{% else %}comment{% endif %} via email</button>
   <label class="action" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
 </form>
