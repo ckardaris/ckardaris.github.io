@@ -153,6 +153,34 @@ opinion. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;
     
   </div>
 </div>
+<script>
+    function sendEmail(replyId = "") {
+    const form = document.getElementById(`comment-form-${replyId}`);
+    if (!form.checkValidity()) {
+        return;
+    }
+    const username = document.getElementById(`username-${replyId}`).value.trim();
+    const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
+
+    const subject = "Comment: See you at the library";
+    let body = `post: /blog/2024/05/04/see-you-at-the-library`;
+    body += replyId ? `\nrepliesTo: ${replyId}` : "";
+    body += `
+name: ${username}
+comment: |-
+${comment.split('\n').map(line => "  " + line).join('\n')}
+`;
+    const mailto = "mailto:ckardaris.github.io@outlook.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    window.open(mailto, "_blank");
+}
+
+</script>
+
+<style>
+    
+
+</style>
+
 
 
   <a class="u-url" href="/blog/2024/05/04/see-you-at-the-library.html" hidden></a>
@@ -184,34 +212,6 @@ document.querySelectorAll('pre.highlight').forEach(codeBlock => {
 });
 
 </script>
-
-<script>
-    function sendEmail(replyId = "") {
-    const form = document.getElementById(`comment-form-${replyId}`);
-    if (!form.checkValidity()) {
-        return;
-    }
-    const username = document.getElementById(`username-${replyId}`).value.trim();
-    const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
-
-    const subject = "Comment: See you at the library";
-    let body = `post: /blog/2024/05/04/see-you-at-the-library`;
-    body += replyId ? `\nrepliesTo: ${replyId}` : "";
-    body += `
-name: ${username}
-comment: |-
-${comment.split('\n').map(line => "  " + line).join('\n')}
-`;
-    const mailto = "mailto:ckardaris.github.io@outlook.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
-    window.open(mailto, "_blank");
-}
-
-</script>
-
-<style>
-    
-
-</style>
 
 
   </div>
