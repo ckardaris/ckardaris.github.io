@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
+import hashlib
 import yaml
 
 emails = Path("_emails")
@@ -16,6 +17,12 @@ for file_path in emails.glob("*.yaml"):
                 comments[post] = []
 
             comments[post].append(data)
+
+            file_sha = file_path.stem
+            # null is the value that 'yq' returns for non-existing keys.
+            check_sha = hashlib.sha256((data["post"] + data.get("repliesTo", "null") + data["comment"]).encode("utf-8")).hexdigest()
+            assert file_sha == check_sha
+
         except yaml.YAMLError as e:
             print(f"Error parsing {file_path}: {e}")
             exit(1)

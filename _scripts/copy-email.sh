@@ -17,12 +17,16 @@ read -e -p "date: " date
 : "${email:?}"
 : "${date:?}"
 
-# Simple date checking.
-if [[ ! "$date" =~ ^20[2-9][0-9]-[0-1][0-9]-[0-3][0-9][[:space:]][0-2][0-9]:[0-5][0-9]$ ]]
+# Check date formating.
+# Check numbers of characters (leading zeros should always be included).
+# YYYY-mm-dd HH-MM
+if ! test "${#date}" == 16
 then
-    echo Wrong date format. Expected \"YYYY-MM-DD HH:MM\"
+    echo Date must be in the format YYYY-mm-dd HH:MM
     exit 1
 fi
+# Check format using python.
+python3 -c "import datetime; datetime.datetime.strptime('$date',  '%Y-%m-%d %H:%M')"
 
 name="$(yq ".name" "$tmp")"
 post="$(yq ".post" "$tmp")"
