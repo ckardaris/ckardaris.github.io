@@ -94,6 +94,13 @@
       text-decoration: none;
     }
 
+    &:invalid {
+      .send-email {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+
     .send-email {
       margin-right: 0.5em;
     }

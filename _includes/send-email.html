@@ -2,7 +2,6 @@
   function sendEmail(replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
-      form.reportValidity(); // shows messages
       return;
     }
     const username = document.getElementById(`username-${replyId}`).value.trim();
