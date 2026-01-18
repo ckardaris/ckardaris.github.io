@@ -41,36 +41,34 @@ comment="$(yq ".comment" "$tmp")"
 file_sha="$(printf "%s%s%s" "$post" "$repliesTo" "$comment" | sha256sum | cut -d ' ' -f 1)"
 
 # Check if the message is already processed.
-mkdir -p _emails
-file="_emails/$file_sha.yaml"
+mkdir -p _comments
+file="_comments/$file_sha.yaml"
 [[ -f "$file" ]] && echo Email already exists: "$file" && exit 1
 
 # Calculate email SHA to store in the public git repository.
 email_sha="$(printf "%s" "$email" | sha256sum | cut -d ' ' -f 1)"
 
+comments_count="$(ls -1 _comments | wc -l)"
+id="$(( comments_count + 1 ))"
 
-emails="$(ls -1 _emails | wc -l)"
-id="$(( emails + 1 ))"
-
-# Update name for email in all comments.
-if [[ -n "$name" ]] && [[ "$emails" -gt 0 ]]
+# Check name/email validity and update name for email in all comments.
+if [[ "$comments_count" -gt 0 ]]
 then
-
     # Check that 'name' is not linked to another email.
-    mapfile -t other_emails < <(rg --files-without-match "email: $email_sha" _emails)
-    for email in "${other_emails[@]}"
+    mapfile -t other_comments < <(rg --files-without-match "email: $email_sha" _comments)
+    for comment in "${other_comments[@]}"
     do
-        if [[ "$name" == "$(yq ".name" "$email")" ]]
+        if [[ "$name" == "$(yq ".name" "$comment")" ]]
         then
-            echo Name is linked to another email: $name
+            echo Name is linked to another email account: $name
             exit 1
         fi
     done
 
-    mapfile -t my_emails < <(rg --files-with-matches "email: $email_sha" _emails)
-    for email in "${my_emails[@]}"
+    mapfile -t my_comments < <(rg --files-with-matches "email: $email_sha" _comments)
+    for comment in "${my_comments[@]}"
     do
-        yq -i ".name = \"$name\"" "$email"
+        yq -i ".name = \"$name\"" "$comment"
     done
 fi
 

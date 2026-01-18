@@ -4,7 +4,7 @@ from pathlib import Path
 import hashlib
 import yaml
 
-emails = Path("_emails")
+emails = Path("_comments")
 comments = {}
 
 for file_path in emails.glob("*.yaml"):

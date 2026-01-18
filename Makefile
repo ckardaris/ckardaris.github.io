@@ -15,6 +15,10 @@ setup:
 comments:
 	@./_scripts/make_comments.py
 
+.PHONY: comment
+comment:
+	@./_scripts/add-comment.sh
+
 .PHONY: svg
 svg:
 	fd .svg assets -x sh -c 'printf "%s: " {} && svgcleaner --multipass {} {} 2>&1'
