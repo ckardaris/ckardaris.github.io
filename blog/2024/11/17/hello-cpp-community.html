@@ -237,14 +237,14 @@ work. Check us out if you are not aware of us. <a href="#fnref:3" class="revers
       If you change your name, your old name will be replaced in all comments.
     </span>
   </details>
-  <input type="text" id="username-"><br>
+  <input type="text" id="username-" required><br>
   <details>
     <summary>Comment</summary>
     <span class="content">
       The comment can be markdown text.
     </span>
   </details>
-  <textarea id="comment-input-"></textarea><br>
+  <textarea id="comment-input-" required></textarea><br>
   <button type="submit" class="action send-email" tabindex="0" onclick="sendEmail()">send comment via email</button>
   <label class="action" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
 </form>
@@ -294,12 +294,18 @@ https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-
 
 <script>
   function sendEmail(replyId = "") {
+    const form = document.getElementById(`comment-form-${replyId}`);
+    if (!form.checkValidity()) {
+      form.reportValidity(); // shows messages
+      return;
+    }
     const username = document.getElementById(`username-${replyId}`).value.trim();
     const comment  = document.getElementById(`comment-input-${replyId}`).value.trim();
 
     const subject = "Comment: hello-cpp-community";
-    const body = `post: hello-cpp-community
-repliesTo: ${replyId ? replyId : ""}
+    let body = `post: hello-cpp-community`;
+    body += replyId ? `\nrepliesTo: ${replyId}` : "";
+    body += `
 name: ${username}
 comment: |-
 ${comment.split('\n').map(line => "  " + line).join('\n')}
