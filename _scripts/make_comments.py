@@ -40,10 +40,17 @@ for post, post_comments in comments.items():
                 print(comment)
                 print(f"Non-existing comment ID ('repliesTo': {repliesTo}).")
                 exit(1)
-            print(post_comments)
         comment["level"] = len(comment["path"]) - 1
 
     comments[post] = sorted(post_comments, key = lambda x: x["path"])
+
+    for i, post_comment in enumerate(comments[post]):
+        next_comment = next((x for x in comments[post][i+1:] if x.get("repliesTo", None) == post_comment.get("repliesTo", None)), None)
+        if next_comment:
+            assert post_comment != next_comment
+            post_comment["next"] = next_comment["id"]
+            next_comment["prev"] = post_comment["id"]
+
 
 with open("_data/comments.yaml", "w") as f:
     yaml.dump(comments, f)

@@ -20,7 +20,7 @@
             <span>{{ comment.name }} | </span>
             <time>{{ comment.date }} CET</time>
             {% if comment.path.size > 2 %} | <a class="action" href="#comment-{{comment.path[0]}}">root</a> {% endif %}
-            {% if comment.parent %} | <a class="action" href="#comment-{{comment.parent}}">parent</a> {% endif %}
+            {% if comment.repliesTo %} | <a class="action" href="#comment-{{comment.repliesTo}}">parent</a> {% endif %}
             {% if comment.prev %} | <a class="action" href="#comment-{{comment.prev}}">prev</a> {% endif %}
             {% if comment.next %} | <a class="action" href="#comment-{{comment.next}}">next</a> {% endif %}
           </span>
