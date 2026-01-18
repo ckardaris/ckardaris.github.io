@@ -239,13 +239,14 @@ which ultimately expanded my knowledge.</p>
   </div><div class="comments">
   <div class="top">
    <span class="title">Comments:</span>
-   <input type="checkbox" id="reply-" class="reply">
-    <noscript>
-        <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@outlook.com?subject=Comment:%20Finding the optional truth&body=post:%20/blog/2024/05/16/finding-the-optional-truth%0D%0A%23%20This%20name%20will%20be%20linked%20to%20your%20email%20address.%0D%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0D%0Aname:%0D%0Acomment:%20|-%0D%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.%0D%0A
+   <input type="checkbox" id="reply-" class="reply-input">
+   
+<noscript>
+    <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@outlook.com?subject=Comment:%20Finding%20the%20optional%20truth&body=post:%20/blog/2024/05/16/finding-the-optional-truth%0D%0ArepliesTo:%20%0D%0A%23%20This%20name%20will%20be%20linked%20to%20your%20email%20address.%0D%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0D%0Aname:%0D%0Acomment:%20|-%0D%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.%0D%0A
 >add comment</a>
-    </noscript>
-   <label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
-   <form id="comment-form-" class="comment-form">
+</noscript>
+<label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
+<form id="comment-form-" class="comment-form">
   <details>
     <summary>Name or nickname</summary>
     <span class="content">
@@ -253,17 +254,16 @@ which ultimately expanded my knowledge.</p>
       If you change your name, your old name will be replaced in all comments.
     </span>
   </details>
-  <input type="text" id="username-" required><br>
+  <input type="text" id="username-" class="input" required><br>
   <details>
     <summary>Comment</summary>
     <span class="content">
       The comment can be markdown text.
     </span>
   </details>
-  <textarea id="comment-input-" required></textarea><br>
+  <textarea id="comment-input-" class="input" required></textarea><br>
   <button
     type="submit"
-    class="action send-email"
     tabindex="0"
     onclick="sendEmail()"
   >send comment via email</button>
@@ -283,13 +283,9 @@ which ultimately expanded my knowledge.</p>
   <a class="u-url" href="/blog/2024/05/16/finding-the-optional-truth.html" hidden></a>
 </article>
 
-<!--
-https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
--->
 <script>
-  var codeBlocks = document.querySelectorAll('pre.highlight');
-
-  codeBlocks.forEach(codeBlock => {
+    // https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+document.querySelectorAll('pre.highlight').forEach(codeBlock => {
     var copyButton = document.createElement('button');
     copyButton.type = 'button';
     copyButton.ariaLabel = 'Copy code to clipboard';
@@ -297,30 +293,31 @@ https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-
 
     codeBlock.append(copyButton);
 
-    copyButton.addEventListener('click', function () {
-      var code = codeBlock.querySelector('code').innerText.trim();
-      window.navigator.clipboard.writeText(code);
+    copyButton.addEventListener('click', function() {
+        var code = codeBlock.querySelector('code').innerText.trim();
+        window.navigator.clipboard.writeText(code);
 
-      copyButton.innerText = 'Copied';
+        copyButton.innerText = 'Copied';
 
-      setTimeout(function () {
-        copyButton.blur();
         setTimeout(function() {
-          copyButton.innerText = 'Copy';
-        }, 250);
-      }, 4000);
+            copyButton.blur();
+            setTimeout(function() {
+                copyButton.innerText = 'Copy';
+            }, 250);
+        }, 4000);
     });
-  });
+});
+
 </script>
 
 <script>
-  function sendEmail(replyId = "") {
+    function sendEmail(replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
-      return;
+        return;
     }
     const username = document.getElementById(`username-${replyId}`).value.trim();
-    const comment  = document.getElementById(`comment-input-${replyId}`).value.trim();
+    const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
 
     const subject = "Comment: Finding the optional truth";
     let body = `post: /blog/2024/05/16/finding-the-optional-truth`;
@@ -332,9 +329,12 @@ ${comment.split('\n').map(line => "  " + line).join('\n')}
 `;
     const mailto = "mailto:ckardaris.github.io@outlook.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
     window.open(mailto, "_blank");
-  }
+}
+
 </script>
+
 <style>
+    
 
 </style>
 
@@ -342,11 +342,13 @@ ${comment.split('\n').map(line => "  " + line).join('\n')}
   </div>
 </main>
 
-
 <script>
-  document.querySelectorAll('.hidden-no-js').forEach(el => {
-      el.classList.remove('hidden-no-js');
-  });
+    // Unhide all elements that require JS to work properly.
+document.querySelectorAll('.hidden-no-js').forEach(el => {
+    el.classList.remove('hidden-no-js');
+});
+
 </script>
+
 </body>
 </html>
