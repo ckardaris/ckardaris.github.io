@@ -20,7 +20,7 @@ for file_path in emails.glob("*.yaml"):
 
             file_sha = file_path.stem
             # null is the value that 'yq' returns for non-existing keys.
-            check_sha = hashlib.sha256((data["post"] + data.get("repliesTo", "null") + data["comment"]).encode("utf-8")).hexdigest()
+            check_sha = hashlib.sha256((data["post"] + str(data.get("repliesTo", "null")) + str(data["comment"]) + data["email"]).encode("utf-8")).hexdigest()
             assert file_sha == check_sha
 
         except yaml.YAMLError as e:
@@ -29,16 +29,16 @@ for file_path in emails.glob("*.yaml"):
 
 for post, post_comments in comments.items():
 
-    # Recursively calculate the parent comment IDs of the current comment.
-    def make_path(comment):
+    # Recursively calculate the ancestor comment IDs of the current comment.
+    def fill_ancestors(comment):
         for post_comment in [x for x in post_comments if x.get("repliesTo", None) == comment["id"]]:
-            post_comment["path"] = comment["path"] + [post_comment["id"]]
-            make_path(post_comment)
+            post_comment["ancestors"] = comment["ancestors"] + [comment["id"]]
+            fill_ancestors(post_comment)
 
     root_comments = [x for x in post_comments if not x.get("repliesTo", None)]
     for root_comment in root_comments:
-        root_comment["path"] = [root_comment["id"]]
-        make_path(root_comment)
+        root_comment["ancestors"] = []
+        fill_ancestors(root_comment)
 
     for i, comment in enumerate(post_comments):
         if comment.get("repliesTo", None):
@@ -47,12 +47,15 @@ for post, post_comments in comments.items():
                 print(comment)
                 print(f"Non-existing comment ID ('repliesTo': {repliesTo}).")
                 exit(1)
-        comment["level"] = len(comment["path"]) - 1
 
-    comments[post] = sorted(post_comments, key = lambda x: x["path"])
+    # Remove 'repliesTo' key, since the information is already present
+    # in the ancestors list (last # element).
+    comments[post] = sorted(post_comments, key = lambda x: x["ancestors"] + [x["id"]])
+    for comment in comments[post]:
+        comment.pop("repliesTo", None)
 
     for i, post_comment in enumerate(comments[post]):
-        next_comment = next((x for x in comments[post][i+1:] if x.get("repliesTo", None) == post_comment.get("repliesTo", None)), None)
+        next_comment = next((x for x in comments[post][i+1:] if x["ancestors"] == post_comment["ancestors"]), None)
         if next_comment:
             assert post_comment != next_comment
             post_comment["next"] = next_comment["id"]

@@ -12,7 +12,7 @@
     <picture {% if include.img_class %} class="{{include.img_class}}" {% endif %} >
       <source type="image/avif"
         {% assign include_file = "responsive" | append: include.path | append: "/srcset" %}
-        {% capture srcset %} {%- include {{ include_file}} -%} {% endcapture %}
+        {% capture srcset %} {%- include {{ include_file }} -%} {% endcapture %}
         srcset="{{ srcset }}"
 
         {% if include.grid -%}

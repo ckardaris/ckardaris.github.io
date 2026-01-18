@@ -1,3 +1,14 @@
+{% if include.reply %}
+  {% assign label = "reply" %}
+  {% assign type = "reply" %}
+{% else %}
+  {% assign label = "add comment" %}
+  {% assign type = "comment" %}
+{% endif %}
+<noscript>
+    <a class="action reply-label" tabindex="0" {% include comment-no-js.txt replies=include.id %}>{{ label }}</a>
+</noscript>
+<label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{include.id}}">{{ label }}</label>
 <form id="comment-form-{{include.id}}" class="comment-form">
   <details>
     <summary>Name or nickname</summary>
@@ -6,19 +17,18 @@
       If you change your name, your old name will be replaced in all comments.
     </span>
   </details>
-  <input type="text" id="username-{{include.id}}" required><br>
+  <input type="text" id="username-{{include.id}}" class="input" required><br>
   <details>
     <summary>Comment</summary>
     <span class="content">
       The comment can be markdown text.
     </span>
   </details>
-  <textarea id="comment-input-{{include.id}}" required></textarea><br>
+  <textarea id="comment-input-{{include.id}}" class="input" required></textarea><br>
   <button
     type="submit"
-    class="action send-email"
     tabindex="0"
     onclick="sendEmail({{ include.id }})"
-  >send {% if include.reply %}reply{% else %}comment{% endif %} via email</button>
+  >send {{ type }} via email</button>
   <label class="action" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
 </form>

@@ -5,6 +5,7 @@
   font-size: 0.9em;
   color: $magenta;
 }
+
 .comments {
   padding-top: $spacing-unit * 0.5;
   padding-bottom: $spacing-unit * 0.5;
@@ -16,18 +17,12 @@
     cursor: pointer;
   }
 
-  // Reply toggle button.
-  .reply {
+  // Comment/reply toggle button.
+  .reply-input {
     display: none
   }
 
-  .reply-label {
-    color: $magenta;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  .reply:checked {
+  .reply-input:checked {
     & ~ .markdown {
       background-color: $lavender;
     }
@@ -41,11 +36,12 @@
     }
   }
 
-  // Comment form
+  // Comment form.
   .comment-form {
     margin-top: 0.5em;
     display: none;
 
+    // Input labels with their explanations.
     details {
       color: $magenta;
 
@@ -54,37 +50,19 @@
       }
     }
 
-    .comment-form-label {
-      color: $magenta;
-    }
-
-    .info-label {
-      background-color: $lavender;
-      border-radius: 50%;
-      border: 0.1em solid $purple-border;
-      font-weight: bold;
-      color: $magenta;
-
-      // Make the label fixed sized circle.
-      height: 1.1em;
-      width: 1.1em;
-      line-height: 1.1em;
-      display: inline-block;
-    }
-
-    input {
+    // Input field elements.
+    .input {
       font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
       margin-bottom: 0.5em;
     }
 
     textarea {
-      font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-      margin-bottom: 0.5em;
       width: 100%;
       min-height: 10em;
       resize: none;
     }
 
+    // Submit button.
     button {
       font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
       background: $lavender;
@@ -92,17 +70,14 @@
       border: 0.1em solid $purple-border;
       border-radius: 0.2em;
       text-decoration: none;
+      margin-right: 0.5em;
     }
 
     &:invalid {
-      .send-email {
+      button {
         opacity: 0.5;
         pointer-events: none;
       }
-    }
-
-    .send-email {
-      margin-right: 0.5em;
     }
   }
 
@@ -115,20 +90,8 @@
   }
 
   .content {
-    .comment {
-      margin-bottom: 1em;
-
-      .info {
-        @include info-line;
-      }
-    }
-
-    p:not(:last-child) {
-      margin-bottom: 0.5em;
-    }
-
-    // Comment toggle button logic.
-    .toggle {
+    // Comment hide/show toggle button.
+    .toggle-input {
       display: none
     }
 
@@ -143,9 +106,22 @@
       content: "[−]";
     }
 
-    .toggle:checked ~ .toggle-label::before {
+    // Change the label that is the exact next sibling.
+    .toggle-input:checked + .toggle-label::before {
       content: "[+]";
     }
 
+    // Comment.
+    .comment {
+      margin-bottom: 1em;
+
+      .info {
+        @include info-line;
+      }
+
+      p:not(:last-child) {
+        margin-bottom: 0.5em;
+      }
+    }
   }
 }

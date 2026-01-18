@@ -31,11 +31,4 @@ is separated by a line with '^^^' characters.
   </div>
 </main>
 
-{% comment %}
-Unhide all elements that require JS to work properly.
-{% endcomment %}
-<script>
-  document.querySelectorAll('.hidden-no-js').forEach(el => {
-      el.classList.remove('hidden-no-js');
-  });
-</script>
+{% include script.html script="js-enabled.js" %}

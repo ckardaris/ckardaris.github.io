@@ -1,0 +1,11 @@
+{% for comment in comments %}
+
+  {% comment %} Hide details of the current comment {% endcomment %}
+  #toggle-{{ comment.id }}:checked  ~ div.comment-{{ comment.id }} > .body {display: none; }
+
+  {% comment %} Hide all children comments {% endcomment %}
+  {% for ancestor in comment.ancestors %}
+    #toggle-{{ ancestor }}:checked  ~ .comment-{{ comment.id }} { display: none; }
+  {% endfor %}
+
+{% endfor %}

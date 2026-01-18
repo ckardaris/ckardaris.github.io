@@ -32,21 +32,21 @@ name="$(yq ".name" "$tmp")"
 post="$(yq ".post" "$tmp")"
 repliesTo="$(yq ".repliesTo" "$tmp")"
 comment="$(yq ".comment" "$tmp")"
+# Calculate email SHA to store in the public git repository.
+email_sha="$(printf "%s" "$email" | sha256sum | cut -d ' ' -f 1)"
 
 : "${name:?}"
 : "${post:?}"
 : "${comment:?}"
+: "${email_sha:?}"
 
 # Calculate file SHA based on the contents of the email.
-file_sha="$(printf "%s%s%s" "$post" "$repliesTo" "$comment" | sha256sum | cut -d ' ' -f 1)"
+file_sha="$(printf "%s%s%s%s" "$post" "$repliesTo" "$comment" "$email_sha" | sha256sum | cut -d ' ' -f 1)"
 
 # Check if the message is already processed.
 mkdir -p _comments
 file="_comments/$file_sha.yaml"
 [[ -f "$file" ]] && echo Email already exists: "$file" && exit 1
-
-# Calculate email SHA to store in the public git repository.
-email_sha="$(printf "%s" "$email" | sha256sum | cut -d ' ' -f 1)"
 
 comments_count="$(ls -1 _comments | wc -l)"
 id="$(( comments_count + 1 ))"

@@ -1,11 +1,7 @@
 <div class="comments">
   <div class="top">
    <span class="title">Comments:</span>
-   <input type="checkbox" id="reply-" class="reply">
-    <noscript>
-        <a class="action reply-label" tabindex="0" {% include comment-no-js.txt %}>add comment</a>
-    </noscript>
-   <label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
+   <input type="checkbox" id="reply-" class="reply-input">
    {% include comment-form.html id="" reply=false %}
   </div>
   <div class="content">
@@ -13,26 +9,35 @@
     {% if comments %}
 
       {% for comment in comments %}
-        <input type="checkbox" id="toggle-{{comment.id}}" class="toggle" style="padding-left: {{comment.level | times: 2}}em">
-        <label for="toggle-{{comment.id}}" id="toggle-label-{{comment.id}}" class="toggle-label" style="padding-left: {{comment.level | times: 2}}em"></label>
-        <div id="comment-{{comment.id}}" class="comment" style="padding-left: {{comment.level | times: 2}}em">
+        {% assign padding = comment.ancestors.size | times: 2 %}
+        <input
+          type="checkbox"
+          id="toggle-{{ comment.id }}"
+          class="toggle-input comment-{{ comment.id }}"
+          style="padding-left: {{ padding }}em">
+        <label
+          for="toggle-{{comment.id}}"
+          class="toggle-label comment-{{ comment.id}}"
+          style="padding-left: {{ padding }}em"></label>
+        <div
+          id="comment-{{comment.id}}"
+          class="comment comment-{{ comment.id }}"
+          style="padding-left: {{ padding }}em">
           <span class="info">
             <span>{{ comment.name }} | </span>
             <time><a class="action" href="#comment-{{comment.id }}">{{ comment.date }} CET</a></time>
-            {% if comment.path.size > 2 %} | <a class="action" href="#comment-{{comment.path[0]}}">root</a> {% endif %}
-            {% if comment.repliesTo %} | <a class="action" href="#comment-{{comment.repliesTo}}">parent</a> {% endif %}
+            {% if comment.ancestors.size > 1 %} | <a class="action" href="#comment-{{comment.ancestors | first }}">root</a> {% endif %}
+            {% if comment.ancestors.size > 0 %} | <a class="action" href="#comment-{{comment.ancestors | last }}">parent</a> {% endif %}
             {% if comment.prev %} | <a class="action" href="#comment-{{comment.prev}}">prev</a> {% endif %}
             {% if comment.next %} | <a class="action" href="#comment-{{comment.next}}">next</a> {% endif %}
           </span>
 
-          <div class="details">
-            <input type="checkbox" id="reply-{{comment.id}}" class="reply">
+          <div class="body">
+            {% comment %}
+                I put the <input> before the <div> so that I can style the div when <input> is checked.
+            {% endcomment %}
+            <input type="checkbox" id="reply-{{comment.id}}" class="reply-input">
             <div class="markdown">{{ comment.comment | markdownify }}</div>
-
-            <noscript>
-                <a class="action reply-label" tabindex="0" {% include comment-no-js.txt replies=comment.id %}>reply</a>
-            </noscript>
-            <label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{comment.id}}">reply</label>
             {% include comment-form.html id=comment.id reply=true %}
           </div>
         </div>
@@ -42,3 +47,5 @@
     {% endif %}
   </div>
 </div>
+{% include script.html script="send-email.js" %}
+{% include style.html style="toggle-comments.css" %}
