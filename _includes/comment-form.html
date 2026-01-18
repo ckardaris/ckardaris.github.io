@@ -6,7 +6,7 @@
   {% assign type = "comment" %}
 {% endif %}
 <noscript>
-    <a class="action reply-label" tabindex="0" {% include comment-no-js.txt replies=include.id %}>{{ label }}</a>
+    <a class="action reply-label" tabindex="0" {% include comment-no-js.txt repliesTo=include.id %}>{{ label }}</a>
 </noscript>
 <label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{include.id}}">{{ label }}</label>
 <form id="comment-form-{{include.id}}" class="comment-form">
