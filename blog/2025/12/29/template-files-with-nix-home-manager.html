@@ -492,7 +492,6 @@ https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-
   function sendEmail(replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
-      form.reportValidity(); // shows messages
       return;
     }
     const username = document.getElementById(`username-${replyId}`).value.trim();

@@ -563,6 +563,10 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   border-radius: 0.2em;
   text-decoration: none;
 }
+.comments .comment-form:invalid .send-email {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .comments .comment-form .send-email {
   margin-right: 0.5em;
 }
