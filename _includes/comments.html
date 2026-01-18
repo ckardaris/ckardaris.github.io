@@ -9,7 +9,7 @@
    {% include comment-form.html id="" reply=false %}
   </div>
   <div class="content">
-    {% assign comments = site.data.comments[page.slug] %}
+    {% assign comments = site.data.comments[page.id] %}
     {% if comments %}
 
       {% for comment in comments %}

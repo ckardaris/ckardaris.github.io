@@ -7,8 +7,8 @@
     const username = document.getElementById(`username-${replyId}`).value.trim();
     const comment  = document.getElementById(`comment-input-${replyId}`).value.trim();
 
-    const subject = "Comment: {{ page.slug }}";
-    let body = `post: {{page.slug}}`;
+    const subject = "Comment: {{ page.title }}";
+    let body = `post: {{ page.id }}`;
     body += replyId ? `\nrepliesTo: ${replyId}` : "";
     body += `
 name: ${username}
