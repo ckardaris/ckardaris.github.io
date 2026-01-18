@@ -18,7 +18,7 @@
         <div id="comment-{{comment.id}}" class="comment" style="padding-left: {{comment.level | times: 2}}em">
           <span class="info">
             <span>{{ comment.name }} | </span>
-            <time>{{ comment.date }} CET</time>
+            <time><a class="action" href="#comment-{{comment.id }}">{{ comment.date }} CET</a></time>
             {% if comment.path.size > 2 %} | <a class="action" href="#comment-{{comment.path[0]}}">root</a> {% endif %}
             {% if comment.repliesTo %} | <a class="action" href="#comment-{{comment.repliesTo}}">parent</a> {% endif %}
             {% if comment.prev %} | <a class="action" href="#comment-{{comment.prev}}">prev</a> {% endif %}
