@@ -33,7 +33,7 @@ post="$(yq ".post" "$tmp")"
 repliesTo="$(yq ".repliesTo" "$tmp")"
 comment="$(yq ".comment" "$tmp")"
 # Calculate email SHA to store in the public git repository.
-email_sha="$(printf "%s" "$email" | sha256sum | cut -d ' ' -f 1)"
+email_sha="$(printf "%s%s" "${EMAIL_SALT:?}""$email" | sha256sum | cut -d ' ' -f 1)"
 
 : "${name:?}"
 : "${post:?}"
