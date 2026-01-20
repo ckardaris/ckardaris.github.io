@@ -79,6 +79,25 @@
         pointer-events: none;
       }
     }
+
+    // Password eye buttons.
+    .eye-input {
+      display: none
+    }
+
+    .eye-off {
+      display:none;
+    }
+
+    .eye-input:checked + label {
+      .eye {
+        display: none;
+      }
+
+      .eye-off {
+        display: inline;
+      }
+    }
   }
 
   .top {

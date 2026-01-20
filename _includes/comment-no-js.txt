@@ -10,6 +10,11 @@ repliesTo: {{ include.repliesTo }}
 # The name will be linked to your email address.
 # If you change your name, your old name will be replaced in all comments.
 name:
+# The password is used to authenticate against your email address.
+# The password is linked to your email address after your first comment.
+# After the first comment, you have to keep using the same password.
+# The password is sent in plaintext over email.
+password:
 comment: |-
   # The comment can be markdown text.
   # Write your comment under this line. Align it with the '#' character.

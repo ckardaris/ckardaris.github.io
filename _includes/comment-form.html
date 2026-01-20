@@ -10,6 +10,7 @@
 </noscript>
 <label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{include.id}}">{{ label }}</label>
 <form id="comment-form-{{include.id}}" class="comment-form">
+
   <details>
     <summary>Name or nickname</summary>
     <span class="content">
@@ -17,7 +18,26 @@
       If you change your name, your old name will be replaced in all comments.
     </span>
   </details>
-  <input type="text" id="username-{{include.id}}" class="input" required><br>
+  <input type="text" id="username-{{include.id}}" class="input" required>
+  <br>
+
+  <details>
+    <summary>Password</summary>
+    <span class="content">
+      The password is used to authenticate against your email address.<br>
+      The password is linked to your email address after your first comment.<br>
+      After the first comment, you have to keep using the same password.<br>
+      The password is sent in plaintext over email.<br>
+    </span>
+  </details>
+  <input type="password" id="password-{{include.id}}" class="input" required>
+  <input type="checkbox" id="eye-{{ comment.id }}" class="eye-input">
+  <label for="eye-{{ comment.id }}" tabindex="0" class="action">
+    <span class="eye">{% include assets/eye.svg %}</span>
+    <span class="eye-off">{% include assets/eye-off.svg %}</span>
+  </label>
+  <br>
+
   <details>
     <summary>Comment</summary>
     <span class="content">

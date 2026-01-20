@@ -5,12 +5,14 @@ function sendEmail(replyId = "") {
     }
     const username = document.getElementById(`username-${replyId}`).value.trim();
     const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
+    const password = document.getElementById(`password-${replyId}`).value.trim();
 
     const subject = "Comment: {{ page.title }}";
     let body = `post: {{ page.id }}`;
     body += replyId ? `\nrepliesTo: ${replyId}` : "";
     body += `
 name: ${username}
+password: ${password}
 comment: |-
 ${comment.split('\n').map(line => "  " + line).join('\n')}
 `;

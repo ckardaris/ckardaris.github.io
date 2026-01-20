@@ -20,7 +20,7 @@ for file_path in emails.glob("*.yaml"):
 
             file_sha = file_path.stem
             # null is the value that 'yq' returns for non-existing keys.
-            check_sha = hashlib.sha256((data["post"] + str(data.get("repliesTo", "null")) + str(data["comment"]) + data["email"]).encode("utf-8")).hexdigest()
+            check_sha = hashlib.sha256((data["email"] + data["post"] + str(data.get("repliesTo", "null")) + str(data["comment"])).encode("utf-8")).hexdigest()
             assert file_sha == check_sha
 
         except yaml.YAMLError as e:

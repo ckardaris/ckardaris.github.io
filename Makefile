@@ -21,7 +21,7 @@ comment:
 
 .PHONY: svg
 svg:
-	fd .svg assets -x sh -c 'printf "%s: " {} && svgcleaner --multipass {} {} 2>&1'
+	fd .svg -x sh -c 'printf "%s: " {} && svgcleaner --multipass {} {} 2>&1'
 
 .PHONY: bash
 bash: image svg
