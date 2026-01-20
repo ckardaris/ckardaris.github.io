@@ -547,6 +547,18 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   opacity: 0.5;
   pointer-events: none;
 }
+.comments .comment-form .eye-input {
+  display: none;
+}
+.comments .comment-form .eye-off {
+  display: none;
+}
+.comments .comment-form .eye-input:checked + label .eye {
+  display: none;
+}
+.comments .comment-form .eye-input:checked + label .eye-off {
+  display: inline;
+}
 .comments .top {
   margin-bottom: 1em;
 }
