@@ -14,6 +14,8 @@ name:
 # The password is linked to your email address after your first comment.
 # After the first comment, you have to keep using the same password.
 # The password is sent in plaintext over email.
+# If you want extra security, you can encrypt this email using the public key
+# found at {{ site.url }}/{{ site.pgp }}
 password:
 comment: |-
   # The comment can be markdown text.
