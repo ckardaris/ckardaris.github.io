@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ChatGPT and the web ignorant
-tags: llm programming jekyll
+tags: jekyll programming website
 description: How ChatGPT helped me configure my Jekyll static website
 ---
 
