@@ -1,4 +1,235 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-20T18:58:32+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">Techrastination</title><link href="https://ckardaris.github.io/blog/2026/01/10/techrastination.html" rel="alternate" type="text/html" title="Techrastination" /><published>2026-01-10T00:00:00+00:00</published><updated>2026-01-10T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2026/01/10/techrastination</id><content type="html" xml:base="https://ckardaris.github.io/blog/2026/01/10/techrastination.html"><![CDATA[<p>Have I made up a new word?
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-01-22T18:48:32+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris</title><entry><title type="html">My comments run on email</title><link href="https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email.html" rel="alternate" type="text/html" title="My comments run on email" /><published>2026-01-22T00:00:00+00:00</published><updated>2026-01-22T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email</id><content type="html" xml:base="https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email.html"><![CDATA[<p>Not all blogs support commenting.
+Initially, I considered doing without them.
+There are many places where one may share an article or blog post and start a discussion.
+I frequent <a href="https://news.ycombinator.com/news"><em>Hacker News</em></a><sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> myself and I really appreciate the
+breadth of opinions in some of the discussions.
+Discussion can happen in other <em>spaces</em> as well, like <em>Reddit</em>, <em>LinkedIn</em><sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> and many more.</p>
+
+<p>Despite the abundance of such <em>spaces</em>, where discussions can happen, I think it is convenient and
+fitting — especially for blog posts — when the actual post and the readers’ comments live
+together.</p>
+
+<p>With that in mind, and feeling the urge to <a href="/blog/2026/01/10/techrastination.html">hack a little more on my website</a>, during the past weekend I set out to add support for comments in
+this blog.</p>
+
+<p>Doing so in a static blog poses a big <strong>challenge</strong>.
+There is no actual server running that can handle requests and process data.
+That means that you do not have the necessary infrastructure for user accounts.
+The readers cannot log in and send their comments and there is no straightforward way to take those
+comments and automatically post them online.</p>
+
+<p>Another method is therefore needed to receive the comments and provide them as input to the static
+site generator, in my case <a href="https://jekyllrb.com/">jekyll</a>.</p>
+
+<p>One of the most frequently used solutions to this problem is <a href="https://giscus.app/">giscus</a>.
+<em>giscus</em> is utilizing <em>GitHub</em> discussions to store comments for the different blog posts and can be
+configured to automatically update your website when a new comment is created.</p>
+
+<p>This approach is very appealing, but it has one disadvantage in my opinion.
+The person who wants to comment needs to have a <em>GitHub</em> account.
+This can be a blocker for non-technical people.</p>
+
+<p>I wanted to use a different approach and I also wanted to make commenting accessible to as many
+people as possible.
+After some thinking I decided to use the most common technology I could think of.</p>
+
+<p><strong>Email.</strong></p>
+
+<p>Almost everyone using the internet has an email address.
+By basing my comment system on email, I can make it accessible to a wide range of people.</p>
+
+<p>The fact that every email address is unique allows to implement a kind of primitive authentication
+setup.
+I am saying primitive, because email is not secure by default, and by extension neither is any
+system built on top of it.</p>
+
+<p>It goes without saying that this system could never be used in production in security-sensitive
+environments. That said, crazier things have happened.</p>
+
+<h1 id="technical-overview">Technical overview</h1>
+
+<p>At this point, it would be useful to go in a little more detail.
+If you are not interested in the technical aspects of the comment system implementation you can skip
+this section and go straight to the <a href="#final-thoughts">end</a>. You will miss all the fun, though.</p>
+
+<p>So, how does it all work?</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>Before implementing the comment system, I drafted some requirements:</p>
+
+<ol>
+  <li>All comments should be displayed with a visible <em>name</em><sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup> selected by the commenter and the
+<em>date</em> they were made.</li>
+  <li>A commenter should be able to change their visible <em>name</em>.</li>
+  <li>A malicious actor should not be able<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup> to assume the identity of a commenter.</li>
+  <li>Sending a comment should be as easy as possible and the comment system should be functional with
+<em>JavaScript</em> disabled.</li>
+  <li>Comment replies should be supported and presented in a nested tree structure, which should
+support collapse and expansion of comment sub-trees.</li>
+</ol>
+
+<h2 id="data">Data</h2>
+
+<p>The comment system is based on email, so it is logical that you send a comment by sending an email.
+Every comment email contains all necessary information, so that the comment can be presented
+correctly.
+I decided to send the information in the <em>YAML</em> format, since <em>jekyll</em> is <em>YAML</em>-friendly.
+Additionally, <em>YAML</em> compared to <em>JSON</em> can be more readable for multi-line data, like comments, so
+it made it more fitting for this use case.</p>
+
+<p>Every comment email sends in its body the following information.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">post</span><span class="pi">:</span>
+<span class="na">name</span><span class="pi">:</span>
+<span class="na">password</span><span class="pi">:</span>
+<span class="na">repliesTo</span><span class="pi">:</span>
+<span class="na">comment</span><span class="pi">:</span> <span class="pi">|-</span>
+</code></pre></div></div>
+
+<p>Sending passwords in plain text is almost always frowned upon.
+But I believe this situation deserves some leeway.</p>
+
+<ul>
+  <li>The data transferred is not sensitive and proper care is taken to ensure confidentiality.</li>
+  <li>This is an educational project with no hard security requirements.</li>
+  <li>A password is good to be used as a measure against <a href="https://en.wikipedia.org/wiki/Email_spoofing">sender address
+spoofing</a>.</li>
+  <li>Email can always be hardened by using <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy"><em>PGP
+encryption</em></a><sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>:</li>
+</ul>
+
+<p>Upon receiving a comment email, some additional information can be obtained: <code class="language-plaintext highlighter-rouge">email_address</code> and <code class="language-plaintext highlighter-rouge">date</code>.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>Let’s see how we can satisfy the system requirements with these data.</p>
+
+<blockquote>
+  <p>All comments should be displayed with a visible name selected by the commenter and the
+   <em>date</em> they were made.</p>
+</blockquote>
+
+<p>For this we use the <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">date</code> information from the actual comment email.</p>
+
+<blockquote>
+  <p>A commenter should be able to change their visible name.<br />
+A malicious actor should not be able to easily assume the identity of a commenter.</p>
+</blockquote>
+
+<p>All information needed to generate this website is publicly stored in a <em>GitHub</em> repository.
+This means that any personal information needs to be properly stored.</p>
+
+<p>For each received comment email a <a href="https://en.wikipedia.org/wiki/SHA-2"><em>SHA256</em></a> message digest
+(<em>hash</em>) is computed using the <code class="language-plaintext highlighter-rouge">email_address</code> and a
+<a href="https://en.wikipedia.org/wiki/Salt_%28cryptography%29"><em>salt</em></a><sup id="fnref:7"><a href="#fn:7" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>.</p>
+
+<p>To check <em>name</em> availability, all <em>email hashes</em> that are <strong>different</strong> from the current one are
+gathered and their linked <em>name</em> is compared to the requested one.
+If no matches are found the <code class="language-plaintext highlighter-rouge">name</code> can be used.</p>
+
+<p>An additional message digest is computed for the authentication of the commenter using the
+<code class="language-plaintext highlighter-rouge">email_address</code>, the <code class="language-plaintext highlighter-rouge">password</code> and the <em>salt</em>.</p>
+
+<p>This <em>authentication hash</em> is compared against the <em>authentication hash</em> of one of previous comment
+emails that share the <strong>same</strong> <em>email hash</em><sup id="fnref:8"><a href="#fn:8" class="footnote" rel="footnote" role="doc-noteref">7</a></sup>.</p>
+
+<p>In the event of any error, the commenter is informed with a response email.</p>
+
+<blockquote>
+  <p>Sending a comment should be as easy as possible and the comment system should be functional with
+   <em>JavaScript</em> disabled.</p>
+</blockquote>
+
+<p>Commenters with <em>JavaScript</em> enabled can enjoy a streamlined user experience (UX).
+Clicking on <u>add comment</u> or <u>reply</u> presents them with an <em>HTML</em> form with three input
+fields: <em>name</em>, <em>password</em> and <em>comment</em>.
+After filling them and clicking the <em>send</em> button, their preferred email client is launched and the
+message is pre-filled for them and ready to be sent.</p>
+
+<p>Commenters with <em>JavaScript</em> disabled still get a pre-filled email message, but they have to fill
+the necessary information, while making sure to not break the formatting of the data.</p>
+
+<p>Writing a comment using the <em>HTML</em> form with <em>JavaScript</em> enabled has two benefits:</p>
+
+<ol>
+  <li>Browsers are able to save the <em>name</em> and <em>password</em> fields for the commenter and pre-fill them in
+the future.</li>
+  <li>The password can be hashed in the email body. This does not improve security, but
+protects against curious eyes.</li>
+</ol>
+
+<blockquote>
+  <p>Comment replies should be supported and presented in a nested tree structure, which should
+   support collapse and expansion of comment sub-trees.</p>
+</blockquote>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">repliesTo</code> field of the comment email<sup id="fnref:9"><a href="#fn:9" class="footnote" rel="footnote" role="doc-noteref">8</a></sup>, a tree hierarchy of messages is created.
+This hierarchy is used to sort the comments properly and to create the necessary logic to collapse
+and expand the respective sub-trees of comments.</p>
+
+<h2 id="synchronization">Synchronization</h2>
+
+<p>We are close to the end, but I have so far failed to mention one basic characteristic of the comment
+system.
+And this concerns its responsiveness, or lack thereof.</p>
+
+<p>After receiving a comment email, there is, as of now, no automation set up to process the email and
+post it on the blog.
+Posting each comment requires manual intervention.
+This makes the discussion asynchronous.
+I think that this is not a big issue and does not look out of place considering the static nature of
+the website.</p>
+
+<p>Nevertheless, I leave the door open to automation.
+Interacting with email is scriptable with programs like <a href="https://marlam.de/msmtp/"><em>msmtp</em></a>
+and <a href="https://isync.sourceforge.io/"><em>isync</em></a>.
+In the unlikely but welcome scenario that the volume of the received comment emails is too large to
+handle manually, another weekend hacking project could automate the whole process.</p>
+
+<h1 id="final-thoughts">Final thoughts</h1>
+
+<p>Creating a comment system based on email has been a worthwhile experience.
+I revisited some long-studied concepts and learned new ones.
+It was a good exercise in balancing trade-offs which I believe is one of the most important aspects
+of designing a system.</p>
+
+<p>The final result leaves me satisfied, while also leaving room for improvements in the future.</p>
+
+<p>And after all this work, I can finally say</p>
+<blockquote>
+  <p>Let me know what you think in the comments.</p>
+</blockquote>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>The user interface (UI) of my comments is <em>heavily</em> inspired by HN comments. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Even if too <em>corporatey</em> most of the time. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Or <em>nickname</em>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Although, you can never be 100% secure. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Here is the <a href="/pgp-public-key.txt">PGP public key</a>. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7">
+      <p>Storing message digests of <em>salted</em> data guarantees that, even though all stored data is
+publicly available, it is not possible to find out which email addresses are stored and what
+<em>name</em> each email is using. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+      <p>If any, the rest of the comments from the same email address have the same <em>authentication
+hash</em>. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9">
+      <p>Root messages, of course, do not set this value. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="blog" /><category term="programming" /><category term="website" /><summary type="html"><![CDATA[My website comments setup using email as the backend.]]></summary></entry><entry><title type="html">Techrastination</title><link href="https://ckardaris.github.io/blog/2026/01/10/techrastination.html" rel="alternate" type="text/html" title="Techrastination" /><published>2026-01-10T00:00:00+00:00</published><updated>2026-01-10T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2026/01/10/techrastination</id><content type="html" xml:base="https://ckardaris.github.io/blog/2026/01/10/techrastination.html"><![CDATA[<p>Have I made up a new word?
 How do technology and procrastination go together?</p>
 
 <p>Hacking with <strong><em>technology</em></strong> and <strong><em>procrastination</em></strong> may seem unrelated, but I believe that in
