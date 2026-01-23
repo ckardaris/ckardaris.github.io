@@ -413,7 +413,7 @@ deserves a post of its own. <a href="#fnref:5" class="reversefootnote" role="do
    <input type="checkbox" id="reply-" class="reply-input">
    
 <noscript>
-    <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@outlook.com?subject=Comment:%20Template%20files%20with%20Nix%20Home%20Manager&body=post:%20/blog/2025/12/29/template-files-with-nix-home-manager%0A%23%20The%20name%20will%20be%20linked%20to%20your%20email%20address.%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0Aname:%0A%23%20The%20password%20is%20used%20to%20authenticate%20against%20your%20email%20address.%0A%23%20The%20password%20is%20linked%20to%20your%20email%20address%20after%20your%20first%20comment.%0A%23%20After%20the%20first%20comment,%20you%20have%20to%20keep%20using%20the%20same%20password.%0A%23%20The%20password%20is%20sent%20in%20plaintext%20over%20email.%0A%23%20If%20you%20want%20extra%20security,%20you%20can%20encrypt%20this%20email%20using%20the%20public%20key%0A%23%20found%20at%20https://ckardaris.github.io/pgp-public-key.txt%0Apassword:%0Acomment:%20%7C-%0A%20%20%23%20The%20comment%20can%20be%20markdown%20text.%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.
+    <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@gmail.com?subject=Comment:%20Template%20files%20with%20Nix%20Home%20Manager&body=post:%20/blog/2025/12/29/template-files-with-nix-home-manager%0A%23%20The%20name%20will%20be%20linked%20to%20your%20email%20address.%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0Aname:%0A%23%20The%20password%20is%20used%20to%20authenticate%20against%20your%20email%20address.%0A%23%20The%20password%20is%20linked%20to%20your%20email%20address%20after%20your%20first%20comment.%0A%23%20After%20the%20first%20comment,%20you%20have%20to%20keep%20using%20the%20same%20password.%0A%23%20The%20password%20is%20sent%20in%20plaintext%20over%20email.%0A%23%20If%20you%20want%20extra%20security,%20you%20can%20encrypt%20this%20email%20using%20the%20public%20key%0A%23%20found%20at%20https://ckardaris.github.io/pgp-public-key.txt%0Apassword:%0Acomment:%20%7C-%0A%20%20%23%20The%20comment%20can%20be%20markdown%20text.%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.
 >add comment</a>
 </noscript>
 <label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
@@ -498,7 +498,7 @@ password: ${password}
 comment: |-
 ${comment.split('\n').map(line => "  " + line).join('\n')}
 `;
-    const mailto = "mailto:ckardaris.github.io@outlook.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    const mailto = "mailto:ckardaris.github.io@gmail.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
     window.open(mailto, "_blank");
 }
 
