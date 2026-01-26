@@ -318,7 +318,8 @@ theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></
     <summary>Name or nickname</summary>
     <span class="content">
       The name will be linked to your email address.<br>
-      If you change your name, your old name will be replaced in all comments.
+      If you change your name, your old name will be replaced in all comments.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
   <input type="text" id="username-" class="input" required>
@@ -330,9 +331,7 @@ theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></
       The password is used to authenticate against your email address.<br>
       The password is linked to your email address after your first comment.<br>
       After the first comment, you have to keep using the same password.<br>
-      The password is sent in plaintext over email.<br>
-      If you want extra security, you can encrypt your messages using this
-      <a href="/pgp-public-key.txt">public key</a>.
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
   <input type="password" id="password-" class="input" required>
@@ -346,11 +345,12 @@ theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></
   <details>
     <summary>Comment</summary>
     <span class="content">
-      The comment can be markdown text.
+      The comment can be markdown text.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
   <textarea id="comment-input-" class="input" required></textarea><br>
-  <button type="submit" tabindex="0" onclick="sendEmail()">send comment via email</button>
+  <button type="button" id="comment-submit-" class="comment-submit" tabindex="0">send comment via email</button>
   <label class="action" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
 </form>
 
@@ -363,12 +363,45 @@ theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></
   </div>
 </div>
 <script>
-async function sha256(str) {
-    const data = new TextEncoder().encode(str);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    return [...new Uint8Array(hashBuffer)]
-        .map(b => b.toString(16).padStart(2, "0"))
-        .join("");
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        // Prevent loading the same script twice
+        if (document.querySelector(`script[src="${src}"]`)) {
+            resolve();
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}
+
+async function encrypt(message) {
+    const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEaXPMYBYJKwYBBAHaRw8BAQdAWqhxt+He41nPZjJMb+ODDItKwqScYP6ZdD/L
+lvexjPS0M2NrYXJkYXJpcy5naXRodWIuaW8gPGNrYXJkYXJpcy5naXRodWIuaW9A
+Z21haWwuY29tPoiQBBMWCgA4FiEE/fBpvxnBo9g9MtNAmWHYgbE8j/MFAmlzzGAC
+GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmWHYgbE8j/N7KwD/QvcSTPYZ
+L+Yg1OJxyaIY1EL01HDvHfInnBtiSB0vxxMBAIEotvyirzgmGZtwFaEhVzoerN9p
+Kk24oumSG3u4VLAEuDgEaXPMYBIKKwYBBAGXVQEFAQEHQOoOISawzABAFbTEPcoD
+UKDVO2WdND0DgVDtaXO3b0l/AwEIB4h4BBgWCgAgFiEE/fBpvxnBo9g9MtNAmWHY
+gbE8j/MFAmlzzGACGwwACgkQmWHYgbE8j/OaOgEAj516yD04L5FhC8MjEZgBzLYz
+OaiUUjRwwv5C6r0mv1AA/1bOOdtmGaOvNRnea3BQrzJ5lbUyXV1+aJZ5HdW6i1QA
+=nUdM
+-----END PGP PUBLIC KEY BLOCK-----
+`.trim();
+
+    await loadScript('/openpgp.min.js');
+
+    return await window.openpgp.encrypt({
+        message: await openpgp.createMessage({ text: message }),
+        encryptionKeys: await window.openpgp.readKey({ armoredKey: publicKeyArmored })
+    });
 }
 
 async function sendEmail(replyId = "") {
@@ -378,20 +411,35 @@ async function sendEmail(replyId = "") {
     }
     const username = document.getElementById(`username-${replyId}`).value.trim();
     const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
-    const password = await sha256(document.getElementById(`password-${replyId}`).value.trim());
+    const password = document.getElementById(`password-${replyId}`).value.trim();
 
     const subject = "Comment: ChatGPT and the web ignorant";
-    let body = `post: /blog/2024/05/09/chatgpt-and-the-web-ignorant`;
-    body += replyId ? `\nrepliesTo: ${replyId}` : "";
-    body += `
+    let message = `post: /blog/2024/05/09/chatgpt-and-the-web-ignorant`;
+    message += replyId ? `\nrepliesTo: ${replyId}` : "";
+    message += `
 name: ${username}
 password: ${password}
 comment: |-
 ${comment.split('\n').map(line => "  " + line).join('\n')}
 `;
+    const encryptedMessage = await encrypt(message);
+
+    let body = `Your comment has been encrypted and is ready to be submitted.
+Please do not edit the following lines.
+
+${encryptedMessage}
+`;
+
     const mailto = "mailto:ckardaris.github.io@gmail.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
     window.open(mailto, "_blank");
 }
+
+// Register on-click callback for the comment submit buttons.
+document.querySelectorAll(".comment-submit").forEach(el => {
+    el.addEventListener("click", e => {
+        sendEmail(e.currentTarget.id.replace("comment-submit-", ""))
+    });
+})
 
 </script>
 
