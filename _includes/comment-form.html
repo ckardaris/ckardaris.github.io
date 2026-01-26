@@ -15,7 +15,8 @@
     <summary>Name or nickname</summary>
     <span class="content">
       The name will be linked to your email address.<br>
-      If you change your name, your old name will be replaced in all comments.
+      If you change your name, your old name will be replaced in all comments.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
   <input type="text" id="username-{{include.id}}" class="input" required>
@@ -27,9 +28,7 @@
       The password is used to authenticate against your email address.<br>
       The password is linked to your email address after your first comment.<br>
       After the first comment, you have to keep using the same password.<br>
-      The password is sent in plaintext over email.<br>
-      If you want extra security, you can encrypt your messages using this
-      <a href="/pgp-public-key.txt">public key</a>.
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
   <input type="password" id="password-{{include.id}}" class="input" required>
@@ -43,14 +42,16 @@
   <details>
     <summary>Comment</summary>
     <span class="content">
-      The comment can be markdown text.
+      The comment can be markdown text.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
   <textarea id="comment-input-{{include.id}}" class="input" required></textarea><br>
   <button
-    type="submit"
+    type="button"
+    id="comment-submit-{{include.id}}"
+    class="comment-submit"
     tabindex="0"
-    onclick="sendEmail({{ include.id }})"
   >send {{ type }} via email</button>
   <label class="action" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
 </form>

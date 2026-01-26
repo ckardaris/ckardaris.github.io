@@ -6,7 +6,13 @@ set -o pipefail
 
 # Save yaml clipboard content.
 tmp="$(mktemp)"
-xclip -o -sel clip > "$tmp"
+cliptext="$(xclip -o -sel clip)"
+if printf "%s" "$cliptext" | rg "BEGIN PGP MESSAGE" &>/dev/null
+then
+    printf "%s" "$cliptext" | gpg --decrypt > "$tmp"
+else
+    printf "%s" "$cliptext" > "$tmp"
+fi
 
 # Check validity of the yaml file.
 yq "$tmp" > /dev/null
