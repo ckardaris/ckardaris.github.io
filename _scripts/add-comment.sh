@@ -48,6 +48,9 @@ repliesTo="$(yq ".repliesTo" "$tmp")"
 comment="$(yq ".comment" "$tmp")"
 : "${comment:?}" && test "$comment" != "null"
 
+# Calculate password SHA to store in the public git repository.
+password_sha="$(printf "%s%s" "$password" "${EMAIL_SALT:?}" | sha256sum | cut -d ' ' -f 1)"
+
 # Calculate email SHA to store in the public git repository.
 email_sha="$(printf "%s%s" "$email" "${EMAIL_SALT:?}" | sha256sum | cut -d ' ' -f 1)"
 
@@ -106,6 +109,7 @@ file="_comments/$file_sha.yaml"
 mv "$tmp" "$file"
 yq -i ".date = \"$date\"" "$file"
 yq -i ".id = $(( comments_count + 1 ))" "$file"
+yq -i ".password = \"$password_sha\"" "$file"
 yq -i ".email = \"$email_sha\"" "$file"
 yq -i ".auth = \"$auth\"" "$file"
 
