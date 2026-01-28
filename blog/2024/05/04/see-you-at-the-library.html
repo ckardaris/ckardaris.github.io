@@ -116,12 +116,15 @@ opinion. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;
    <span class="title">Comments:</span>
    <input type="checkbox" id="reply-" class="reply-input">
    
+
 <noscript>
-    <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@gmail.com?subject=Comment:%20See%20you%20at%20the%20library&body=post:%20/blog/2024/05/04/see-you-at-the-library%0A%23%20The%20name%20will%20be%20linked%20to%20your%20email%20address.%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0Aname:%0A%23%20The%20password%20is%20used%20to%20authenticate%20against%20your%20email%20address.%0A%23%20The%20password%20is%20linked%20to%20your%20email%20address%20after%20your%20first%20comment.%0A%23%20After%20the%20first%20comment,%20you%20have%20to%20keep%20using%20the%20same%20password.%0A%23%20The%20password%20is%20sent%20in%20plaintext%20over%20email.%0A%23%20If%20you%20want%20extra%20security,%20you%20can%20encrypt%20this%20email%20using%20the%20public%20key%0A%23%20found%20at%20https://ckardaris.github.io/pgp-public-key.txt%0Apassword:%0Acomment:%20%7C-%0A%20%20%23%20The%20comment%20can%20be%20markdown%20text.%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.
+    <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@gmail.com?subject=Comment:%20See%20you%20at%20the%20library&body=%23%20If%20you%20want%20extra%20security,%20you%20can%20encrypt%20this%20email%20using%20the%20public%20key%0A%23%20found%20at%20https://ckardaris.github.io/pgp-public-key.txt.%0A%0Apost:%20/blog/2024/05/04/see-you-at-the-library%0A%23%20The%20name%20will%20be%20linked%20to%20your%20email%20address.%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0Aname:%0A%23%20The%20password%20is%20used%20to%20authenticate%20against%20your%20email%20address.%0A%23%20The%20password%20is%20linked%20to%20your%20email%20address%20after%20your%20first%20comment.%0A%23%20After%20the%20first%20comment,%20you%20have%20to%20keep%20using%20the%20same%20password.%0A%23%20You%20may%20change%20or%20reset%20your%20password%20at%20https://ckardaris.github.io/blog/account.%0Apassword:%0Acomment:%20%7C-%0A%20%20%23%20The%20comment%20can%20be%20markdown%20text.%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.
 >add comment</a>
 </noscript>
+
 <label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
-<form id="comment-form-" class="comment-form">
+
+<form id="comment-form-" class="input-form">
 
   <details>
     <summary>Name or nickname</summary>
@@ -140,7 +143,8 @@ opinion. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;
       The password is used to authenticate against your email address.<br>
       The password is linked to your email address after your first comment.<br>
       After the first comment, you have to keep using the same password.<br>
-      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.<br>
+      You may change or reset your password at the <a href="/blog/account">account</a> page.
     </span>
   </details>
   <input type="password" id="password-" class="input" required>
@@ -159,13 +163,16 @@ opinion. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;
     </span>
   </details>
   <textarea id="comment-input-" class="input" required></textarea><br>
+
   <button
     type="button"
     id="comment-submit-"
     class="comment-submit"
     tabindex="0"
   >send comment via email</button>
+
   <label class="action" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
+
 </form>
 
   </div>
@@ -176,6 +183,7 @@ opinion. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;
     
   </div>
 </div>
+
 <script>
 function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -218,6 +226,9 @@ OaiUUjRwwv5C6r0mv1AA/1bOOdtmGaOvNRnea3BQrzJ5lbUyXV1+aJZ5HdW6i1QA
     });
 }
 
+</script>
+
+<script>
 async function sendEmail(replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
@@ -238,7 +249,7 @@ ${comment.split('\n').map(line => "  " + line).join('\n')}
 `;
     const encryptedData = await encrypt(data);
 
-    let body = `Your comment has been encrypted and is ready to be submitted.
+    const body = `Your comment has been encrypted and is ready to be submitted.
 Please do not edit the following lines.
 
 ${encryptedData}

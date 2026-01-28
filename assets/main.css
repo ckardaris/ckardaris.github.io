@@ -278,6 +278,223 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   padding-left: 0.1em;
 }
 
+/**
+ *  Action elements.
+ */
+.action {
+  color: #655978;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/**
+ *  No script password elements.
+ */
+.password-change, .password-reset {
+  margin-top: 0.5em;
+}
+
+/**
+ *  Post list
+ */
+.blog-subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 30px;
+}
+
+.tag-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.post-table {
+  border-collapse: collapse;
+}
+.post-table .post-list-meta, .post-table .post-link {
+  font-size: 1.1rem;
+}
+
+/**
+ *  Comments
+ */
+.comments {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid #e8e8e8;
+}
+.comments .reply-input {
+  display: none;
+}
+.comments .reply-input:checked ~ .markdown {
+  background-color: #eef;
+}
+.comments .reply-input:checked ~ .reply-label {
+  display: none;
+}
+.comments .reply-input:checked ~ .input-form {
+  display: block;
+}
+.comments .input-form {
+  display: none;
+}
+.comments .top {
+  margin-bottom: 1em;
+}
+.comments .top .title {
+  margin-right: 0.5em;
+}
+.comments .content .toggle-input {
+  display: none;
+}
+.comments .content .toggle-label {
+  font-size: 0.9em;
+  color: #655978;
+  float: left;
+  width: 2em;
+  cursor: pointer;
+}
+.comments .content .toggle-label::before {
+  content: "[−]";
+}
+.comments .content .toggle-input:checked + .toggle-label::before {
+  content: "[+]";
+}
+.comments .content .comment {
+  margin-bottom: 1em;
+}
+.comments .content .comment .info {
+  font-size: 0.9em;
+  color: #655978;
+}
+.comments .content .comment p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+/**
+ *  Copy button
+ *
+ *  https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+ */
+pre.highlight {
+  position: relative;
+}
+pre.highlight:hover > button {
+  opacity: 1;
+}
+pre.highlight button {
+  opacity: 0;
+  width: 5em;
+  color: #655978;
+  border-color: #655978;
+  background-color: #eef;
+  border-radius: 0.2em;
+  transition: all 0.2s ease-out;
+  font-size: 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+pre.highlight button:active, pre.highlight button:focus, pre.highlight button:hover {
+  opacity: 1;
+  color: #eef;
+  background-color: #655978;
+}
+
+.input-form {
+  margin-top: 0.5em;
+}
+.input-form details, .input-form .details {
+  color: #655978;
+}
+.input-form details span, .input-form .details span {
+  font-size: 0.8em;
+}
+.input-form .input {
+  font: 400 1rem/1.5 sans-serif;
+  margin-bottom: 0.5em;
+}
+.input-form textarea {
+  width: 100%;
+  min-height: 10em;
+  resize: none;
+}
+.input-form button {
+  font: 400 1rem/1.5 sans-serif;
+  background: #eef;
+  color: #111;
+  border: 0.1em solid #837297;
+  border-radius: 0.2em;
+  text-decoration: none;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+}
+.input-form:invalid button {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.input-form .eye-input {
+  display: none;
+}
+.input-form .eye-off {
+  display: none;
+}
+.input-form .eye-input:checked + label .eye {
+  display: none;
+}
+.input-form .eye-input:checked + label .eye-off {
+  display: inline;
+}
+
+/**
+ *  Photography
+ */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 10px;
+}
+.grid-container .grid-item {
+  width: 100%;
+}
+.grid-container .grid-item .grid-photo {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid-container .grid-item .photo-caption {
+  margin-bottom: 30px;
+}
+
+#carousel-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#carousel-container a {
+  color: #111;
+  text-decoration: none;
+  background-color: #eef;
+  padding: 0.2em 0.4em;
+  border: 0.15em solid #837297;
+  border-radius: 0.4em;
+}
+
+/**
+ *  Social media icons
+ */
+.social-media-list {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 740px;
+}
+
 .highlight .err {
   color: #fdfdfd;
   background-color: #D51A24;
@@ -489,208 +706,6 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 
 .tag, #tag-cloud > a {
   padding-right: 0.5em;
-}
-
-/**
- *  Comments
- */
-.comments {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-top: 1px solid #e8e8e8;
-}
-.comments .action {
-  color: #655978;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.comments .reply-input {
-  display: none;
-}
-.comments .reply-input:checked ~ .markdown {
-  background-color: #eef;
-}
-.comments .reply-input:checked ~ .reply-label {
-  display: none;
-}
-.comments .reply-input:checked ~ .comment-form {
-  display: block;
-}
-.comments .comment-form {
-  margin-top: 0.5em;
-  display: none;
-}
-.comments .comment-form details {
-  color: #655978;
-}
-.comments .comment-form details span {
-  font-size: 0.8em;
-}
-.comments .comment-form .input {
-  font: 400 1rem/1.5 sans-serif;
-  margin-bottom: 0.5em;
-}
-.comments .comment-form textarea {
-  width: 100%;
-  min-height: 10em;
-  resize: none;
-}
-.comments .comment-form button {
-  font: 400 1rem/1.5 sans-serif;
-  background: #eef;
-  color: #111;
-  border: 0.1em solid #837297;
-  border-radius: 0.2em;
-  text-decoration: none;
-  margin-right: 0.5em;
-}
-.comments .comment-form:invalid button {
-  opacity: 0.5;
-  pointer-events: none;
-}
-.comments .comment-form .eye-input {
-  display: none;
-}
-.comments .comment-form .eye-off {
-  display: none;
-}
-.comments .comment-form .eye-input:checked + label .eye {
-  display: none;
-}
-.comments .comment-form .eye-input:checked + label .eye-off {
-  display: inline;
-}
-.comments .top {
-  margin-bottom: 1em;
-}
-.comments .top .title {
-  margin-right: 0.5em;
-}
-.comments .content .toggle-input {
-  display: none;
-}
-.comments .content .toggle-label {
-  font-size: 0.9em;
-  color: #655978;
-  float: left;
-  width: 2em;
-  cursor: pointer;
-}
-.comments .content .toggle-label::before {
-  content: "[−]";
-}
-.comments .content .toggle-input:checked + .toggle-label::before {
-  content: "[+]";
-}
-.comments .content .comment {
-  margin-bottom: 1em;
-}
-.comments .content .comment .info {
-  font-size: 0.9em;
-  color: #655978;
-}
-.comments .content .comment p:not(:last-child) {
-  margin-bottom: 0.5em;
-}
-
-/**
- *  Copy button
- *
- *  https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
- */
-pre.highlight {
-  position: relative;
-}
-pre.highlight:hover > button {
-  opacity: 1;
-}
-pre.highlight button {
-  opacity: 0;
-  width: 5em;
-  color: #655978;
-  border-color: #655978;
-  background-color: #eef;
-  border-radius: 0.2em;
-  transition: all 0.2s ease-out;
-  font-size: 1em;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-pre.highlight button:active, pre.highlight button:focus, pre.highlight button:hover {
-  opacity: 1;
-  color: #eef;
-  background-color: #655978;
-}
-
-/**
- *  Post list
- */
-.blog-subtitle {
-  margin-top: 0.5rem;
-  margin-bottom: 30px;
-}
-
-.tag-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-.post-table {
-  border-collapse: collapse;
-}
-.post-table .post-list-meta, .post-table .post-link {
-  font-size: 1.1rem;
-}
-
-/**
- *  Photography
- */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 10px;
-}
-.grid-container .grid-item {
-  width: 100%;
-}
-.grid-container .grid-item .grid-photo {
-  height: auto;
-  max-width: 100%;
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
-}
-.grid-container .grid-item .photo-caption {
-  margin-bottom: 30px;
-}
-
-#carousel-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#carousel-container a {
-  color: #111;
-  text-decoration: none;
-  background-color: #eef;
-  padding: 0.2em 0.4em;
-  border: 0.15em solid #837297;
-  border-radius: 0.4em;
-}
-
-/**
- *  Social media icons
- */
-.social-media-list {
-  margin-top: 2rem;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  max-width: 740px;
 }
 
 /*# sourceMappingURL=main.css.map */
