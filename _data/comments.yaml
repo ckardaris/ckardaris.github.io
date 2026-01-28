@@ -1,0 +1,36 @@
+/blog/2026/01/22/my-comments-run-on-email:
+- ancestors: []
+  auth: b3f587b933a2de58d065634e4e354d0c8600f081d0fffb34d31e78899bd38745
+  comment: "I think I'm very lucky to be the first to experience this function.\n\
+    I think the author's idea is very innovative. Maybe in the near future, I will\
+    \ be able to use this technology. \n> Almost everyone using the internet has an\
+    \ email address. In fact, for instance in China, many people neither have nor\
+    \ use email accounts. \nOf course, this is not the main point of this article,\
+    \ and there is no need to pay too much attention to it."
+  date: 2026-01-27 13:08
+  email: a85f15428c7bcccf735b0d6cb8b862ee2fc5a5c78478c959df7dc3ec957b93bc
+  id: 1
+  name: tian
+  post: /blog/2026/01/22/my-comments-run-on-email
+- ancestors:
+  - 1
+  auth: 340b260d193d4d3cb4c66f17ced4103fc9fdfcf2af3b43eb58f5e91a3390b539
+  comment: 'Hello. Thanks for this first comment. You have a special place in this
+    website now.
+
+
+    And your comment provides some good feedback, as well. For example, I should make
+    a "preview" functionality, so that you can see how the comment will look like
+    once rendered in markdown.
+
+
+    > In fact, for instance in China, many people neither have nor use email accounts
+
+
+    I knew that in China there are centralized apps that you can use for everything,
+    but I did not know that they have made email obsolete for many people. Interesting.'
+  date: 2026-01-28 20:03
+  email: 36ef206dd7208aaf896d832e2d33390b666a6ee3cb7a64b283e45c2e3dc466cc
+  id: 2
+  name: ckardaris
+  post: /blog/2026/01/22/my-comments-run-on-email

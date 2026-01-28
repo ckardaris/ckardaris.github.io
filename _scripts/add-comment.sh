@@ -108,6 +108,7 @@ yq -i ".date = \"$date\"" "$file"
 yq -i ".id = $(( comments_count + 1 ))" "$file"
 yq -i ".email = \"$email_sha\"" "$file"
 yq -i ".auth = \"$auth_sha\"" "$file"
+yq -i "del(.password)" "$file"
 
 if ! make comments
 then
