@@ -234,7 +234,8 @@ The basic theme is the same anyway. <a href="#fnref:2" class="reversefootnote" 
       All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
-  <textarea id="comment-input-" class="input" required></textarea><br>
+  <textarea id="comment-input-" class="input" required></textarea>
+  <div id="comment-markdown-" class="comment-markdown"></div>
 
   <button
     type="button"
@@ -243,7 +244,10 @@ The basic theme is the same anyway. <a href="#fnref:2" class="reversefootnote" 
     tabindex="0"
   >send comment via email</button>
 
-  <label class="action" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
+  <label class="action cancel-reply" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
+
+  <input type="checkbox" id="preview-" class="preview-input">
+  <label for="preview-" tabindex="0" class="action"></label>
 
 </form>
 
@@ -274,6 +278,9 @@ function loadScript(src) {
     });
 }
 
+</script>
+
+<script>
 async function encrypt(message) {
     const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -297,6 +304,30 @@ OaiUUjRwwv5C6r0mv1AA/1bOOdtmGaOvNRnea3BQrzJ5lbUyXV1+aJZ5HdW6i1QA
         encryptionKeys: await window.openpgp.readKey({ armoredKey: publicKeyArmored })
     });
 }
+
+</script>
+
+<script>
+document.querySelectorAll('.preview-input').forEach(el => {
+    const id = el.id.replace(/^preview-/, '');
+    const textarea = document.getElementById(`comment-input-${id}`);
+    const markdown = document.getElementById(`comment-markdown-${id}`);
+    el.addEventListener('change', async function() {
+        if (this.checked) {
+
+            await loadScript('/markdown-it.min.js');
+
+            const md = window.markdownit({ html: true });
+
+            textarea.style.display = "none";
+            markdown.style.display = "block";
+            markdown.innerHTML = md.render(textarea.value);
+        } else {
+            textarea.style.display = "block";
+            markdown.style.display = "none";
+        }
+    })
+});
 
 </script>
 
