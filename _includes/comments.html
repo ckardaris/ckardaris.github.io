@@ -24,7 +24,11 @@
           class="comment comment-{{ comment.id }}"
           style="padding-left: {{ padding }}em">
           <span class="info">
-            <span>{{ comment.name }} | </span>
+            <span>{{ comment.name }}
+              {% if comment.name == "ckardaris" %}
+              <span style="font-weight: bold">[author]</span>
+              {% endif %}
+                | </span>
             <time><a class="action" href="#comment-{{comment.id }}">{{ comment.date }} CET</a></time>
             {% if comment.ancestors.size > 1 %} | <a class="action" href="#comment-{{comment.ancestors | first }}">root</a> {% endif %}
             {% if comment.ancestors.size > 0 %} | <a class="action" href="#comment-{{comment.ancestors | last }}">parent</a> {% endif %}
