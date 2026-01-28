@@ -48,15 +48,12 @@ repliesTo="$(yq ".repliesTo" "$tmp")"
 comment="$(yq ".comment" "$tmp")"
 : "${comment:?}" && test "$comment" != "null"
 
-# Calculate password SHA to store in the public git repository.
-password_sha="$(printf "%s%s" "$password" "${EMAIL_SALT:?}" | sha256sum | cut -d ' ' -f 1)"
-
 # Calculate email SHA to store in the public git repository.
 email_sha="$(printf "%s%s" "$email" "${EMAIL_SALT:?}" | sha256sum | cut -d ' ' -f 1)"
 
 # Calculate auth SHA to store in the public git repository.
-auth="$(printf "%s%s%s" "$email" "$password" "${EMAIL_SALT:?}" | sha256sum | cut -d ' ' -f 1)"
-: "${auth:?}"
+auth_sha="$(printf "%s%s%s" "$email" "$password" "${EMAIL_SALT:?}" | sha256sum | cut -d ' ' -f 1)"
+: "${auth_sha:?}"
 
 mkdir -p _comments
 comments_count="$(ls -1 _comments | wc -l)"
@@ -79,8 +76,8 @@ then
     mapfile -t my_comments < <(rg --files-with-matches "email: $email_sha" _comments)
     for c in "${my_comments[@]}"
     do
-        comment_auth="$(yq ".auth" "$c")"
-        if [[ "$auth" != "${comment_auth:?}" ]]
+        comment_auth_sha="$(yq ".auth" "$c")"
+        if [[ "$auth_sha" != "${comment_auth_sha:?}" ]]
         then
             # Password for this email address is wrong.
             echo Authentication failed.
@@ -94,7 +91,7 @@ then
             break
         fi
 
-        yq -i ".name = \"$name\"" "$comment"
+        yq -i ".name = \"$name\"" "$c"
     done
 fi
 
@@ -109,9 +106,8 @@ file="_comments/$file_sha.yaml"
 mv "$tmp" "$file"
 yq -i ".date = \"$date\"" "$file"
 yq -i ".id = $(( comments_count + 1 ))" "$file"
-yq -i ".password = \"$password_sha\"" "$file"
 yq -i ".email = \"$email_sha\"" "$file"
-yq -i ".auth = \"$auth\"" "$file"
+yq -i ".auth = \"$auth_sha\"" "$file"
 
 if ! make comments
 then

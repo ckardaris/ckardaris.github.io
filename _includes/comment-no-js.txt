@@ -3,6 +3,9 @@ Comment: {{ page.title }}
 {%- endcapture -%}
 
 {%- capture body -%}
+# If you want extra security, you can encrypt this email using the public key
+# found at {{ site.url }}/{{ site.pgp }}.
+
 post: {{ page.id }}
 {%- if include.repliesTo != "" %}
 repliesTo: {{ include.repliesTo }}
@@ -13,9 +16,7 @@ name:
 # The password is used to authenticate against your email address.
 # The password is linked to your email address after your first comment.
 # After the first comment, you have to keep using the same password.
-# The password is sent in plaintext over email.
-# If you want extra security, you can encrypt this email using the public key
-# found at {{ site.url }}/{{ site.pgp }}
+# You may change or reset your password at {{ site.url | append: "/blog/account"}}.
 password:
 comment: |-
   # The comment can be markdown text.

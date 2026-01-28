@@ -1,0 +1,59 @@
+---
+layout: default
+title: Account
+permalink: /blog/account
+nav: Blog
+---
+<div class="blog-subtitle">
+change or reset your password<br>
+if you want to change your name or username, send a new comment
+</div>
+
+<div class="tag-title">Account: </div>
+
+<div class="account">
+
+  <form class="input-form hidden-no-js">
+
+    <div class="details">Old password</div>
+    <input type="password" id="password-old" class="input" required>
+    <input type="checkbox" id="eye-old" class="eye-input">
+    <label for="eye-old" tabindex="0" class="action">
+      <span class="eye">{% include assets/eye.svg %}</span>
+      <span class="eye-off">{% include assets/eye-off.svg %}</span>
+    </label>
+    <br>
+
+    <div class="details">New password</div>
+    <input type="password" id="password-new" class="input" required>
+    <input type="checkbox" id="eye-new" class="eye-input">
+    <label for="eye-new" tabindex="0" class="action">
+      <span class="eye">{% include assets/eye.svg %}</span>
+      <span class="eye-off">{% include assets/eye-off.svg %}</span>
+    </label>
+    <br>
+
+    <button type="button" id="password-change-button" tabindex="0">change password via email</button>
+
+    <div class="password-reset">
+         Forgot your password? <a id="password-reset" class="action" tabindex="0">Reset it via email</a>
+    </div>
+
+  </form>
+
+  <noscript>
+      <div class="password-change">
+           Don't like your password?
+          <a class="action" tabindex="0" {% include change-pass-no-js.txt repliesTo=include.id %}>Change it via email</a>.
+      </div>
+      <div class="password-reset">
+           Forgot your password?
+          <a class="action" tabindex="0" {% include reset-pass-no-js.txt repliesTo=include.id %}>Reset it via email</a>.
+      </div>
+  </noscript>
+
+</div>
+
+{% include script.html script="openpgp.js" %}
+{% include script.html script="account.js" %}
+{% include script.html script="eye.js" %}

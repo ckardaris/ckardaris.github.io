@@ -5,11 +5,14 @@
   {% assign label = "add comment" %}
   {% assign type = "comment" %}
 {% endif %}
+
 <noscript>
     <a class="action reply-label" tabindex="0" {% include comment-no-js.txt repliesTo=include.id %}>{{ label }}</a>
 </noscript>
+
 <label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{include.id}}">{{ label }}</label>
-<form id="comment-form-{{include.id}}" class="comment-form">
+
+<form id="comment-form-{{include.id}}" class="input-form">
 
   <details>
     <summary>Name or nickname</summary>
@@ -28,7 +31,8 @@
       The password is used to authenticate against your email address.<br>
       The password is linked to your email address after your first comment.<br>
       After the first comment, you have to keep using the same password.<br>
-      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.<br>
+      You may change or reset your password at the <a href="/blog/account">account</a> page.
     </span>
   </details>
   <input type="password" id="password-{{include.id}}" class="input" required>
@@ -47,11 +51,14 @@
     </span>
   </details>
   <textarea id="comment-input-{{include.id}}" class="input" required></textarea><br>
+
   <button
     type="button"
     id="comment-submit-{{include.id}}"
     class="comment-submit"
     tabindex="0"
   >send {{ type }} via email</button>
+
   <label class="action" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
+
 </form>

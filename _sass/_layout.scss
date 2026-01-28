@@ -78,3 +78,19 @@ $line: 1px solid $grey-color-light;
 .footnote {
     padding-left: 0.1em;
 }
+
+/**
+ *  Action elements.
+ */
+.action {
+  color: $magenta;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/**
+ *  No script password elements.
+ */
+.password-change, .password-reset {
+  margin-top: 0.5em;
+}

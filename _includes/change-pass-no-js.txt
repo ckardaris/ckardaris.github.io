@@ -1,0 +1,19 @@
+{%- capture subject -%}
+Change password
+{%- endcapture -%}
+
+{%- capture body -%}
+# If you want extra security, you can encrypt this email using the public key
+# found at {{ site.url }}/{{ site.pgp }}.
+
+# Your old password
+old_password:
+# Your new password
+new_password:
+{%- endcapture -%}
+
+{%- capture href -%}
+mailto:{{ site.mailto }}?subject={{ subject }}&body={{ body }}
+{%- endcapture -%}
+
+href={{ href | uri_escape | replace: "#", "%23" }}

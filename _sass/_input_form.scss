@@ -1,0 +1,62 @@
+.input-form {
+  margin-top: 0.5em;
+
+  // Input labels with their explanations.
+  details, .details {
+    color: $magenta;
+
+    span {
+      font-size: 0.8em;
+    }
+  }
+
+  // Input field elements.
+  .input {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    margin-bottom: 0.5em;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 10em;
+    resize: none;
+  }
+
+  // Submit button.
+  button {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    background: $lavender;
+    color: $text-color;
+    border: 0.1em solid $purple-border;
+    border-radius: 0.2em;
+    text-decoration: none;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  &:invalid {
+    button {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  // Password eye buttons.
+  .eye-input {
+    display: none
+  }
+
+  .eye-off {
+    display:none;
+  }
+
+  .eye-input:checked + label {
+    .eye {
+      display: none;
+    }
+
+    .eye-off {
+      display: inline;
+    }
+  }
+}

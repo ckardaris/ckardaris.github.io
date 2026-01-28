@@ -15,9 +15,13 @@ setup:
 comments:
 	@./_scripts/make_comments.py
 
-.PHONY: comment
-comment:
+.PHONY: add-comment
+add-comment:
 	@./_scripts/add-comment.sh
+
+.PHONY: change-password
+change-password:
+	@./_scripts/change-password.sh
 
 .PHONY: svg
 svg:
