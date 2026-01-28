@@ -16,10 +16,45 @@
     margin-bottom: 0.5em;
   }
 
+
+  // Password eye buttons.
+  .eye-input {
+    display: none
+  }
+
+  .eye-off {
+    display:none;
+  }
+
+  .eye-input:checked + label {
+    .eye {
+      display: none;
+    }
+
+    .eye-off {
+      display: inline;
+    }
+  }
+
   textarea {
     width: 100%;
     min-height: 10em;
     resize: none;
+    padding: 0.1em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .comment-markdown {
+    display: none;
+    width: 100%;
+    height: 10em;
+    overflow-y: auto;
+    padding: 0.1em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    // The following values for the border is copied based on the values of the textarea.
+    border: 2px solid $purple-border;
   }
 
   // Submit button.
@@ -41,22 +76,21 @@
     }
   }
 
-  // Password eye buttons.
-  .eye-input {
-    display: none
+  // Cancel button
+  .cancel-reply {
+    margin-right: 0.5em;
   }
 
-  .eye-off {
-    display:none;
+  // Preview/edit buttons
+  .preview-input {
+    display: none;
   }
 
-  .eye-input:checked + label {
-    .eye {
-      display: none;
-    }
+  .preview-input + label::before {
+    content: "preview";
+  }
 
-    .eye-off {
-      display: inline;
-    }
+  .preview-input:checked + label::before {
+    content: "edit";
   }
 }

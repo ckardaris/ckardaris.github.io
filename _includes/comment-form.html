@@ -50,7 +50,8 @@
       All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
     </span>
   </details>
-  <textarea id="comment-input-{{include.id}}" class="input" required></textarea><br>
+  <textarea id="comment-input-{{include.id}}" class="input" required></textarea>
+  <div id="comment-markdown-{{include.id}}" class="comment-markdown"></div>
 
   <button
     type="button"
@@ -59,6 +60,9 @@
     tabindex="0"
   >send {{ type }} via email</button>
 
-  <label class="action" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
+  <label class="action cancel-reply" tabindex="0" for="reply-{{include.id}}" id="cancel-reply-label-{{include.id}}">cancel</label>
+
+  <input type="checkbox" id="preview-{{ comment.id }}" class="preview-input">
+  <label for="preview-{{ comment.id }}" tabindex="0" class="action"></label>
 
 </form>

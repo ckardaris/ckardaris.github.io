@@ -116,7 +116,13 @@ code.highlighter-rouge {
   border-radius: 0.1em;
 }
 
-figure.highlight, div.highlighter-rouge {
+.comment-markdown code {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.comment-markdown code, figure.highlight, div.highlighter-rouge {
   color: lighten($text-color, 10%);
   @include relative-font-size(1);
   padding: 0.5em 0.75em;
