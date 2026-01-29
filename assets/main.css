@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
  * Blockquotes
  */
 blockquote {
-  border-left: 0.3em solid #837297;
+  border-left: 0.2em solid #837297;
   padding-left: 0.75em;
   letter-spacing: -1px;
   font-style: italic;
@@ -111,7 +111,7 @@ pre, code {
   margin: 0px;
 }
 
-code.highlighter-rouge {
+.comment-markdown p code, code.highlighter-rouge {
   font-size: 0.9375rem;
   color: #2b2b2b;
   padding: 0.1em 0.2em;
@@ -120,20 +120,20 @@ code.highlighter-rouge {
   border-radius: 0.1em;
 }
 
-.comment-markdown code {
+.comment-markdown pre code {
   width: 100%;
   box-sizing: border-box;
   display: inline-block;
 }
 
-.comment-markdown code, figure.highlight, div.highlighter-rouge {
+.comment-markdown pre code, figure.highlight, div.highlighter-rouge {
   color: #2b2b2b;
   font-size: 1rem;
   padding: 0.5em 0.75em;
   background-color: #eef;
   overflow-x: auto;
-  border: 0.3em solid #837297;
-  border-radius: 0.5em;
+  border: 0.2em solid #837297;
+  border-radius: 0.25em;
 }
 
 pre td {
@@ -448,7 +448,7 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   padding: 0.1em;
   margin-top: 0;
   margin-bottom: 0.5em;
-  border: 2px solid #837297;
+  border: 2px solid transparent;
 }
 .input-form button {
   font: 400 1rem/1.5 sans-serif;
