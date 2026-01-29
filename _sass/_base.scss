@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
  * Blockquotes
  */
 blockquote {
-  border-left: 0.3em solid $purple-border;
+  border-left: 0.2em solid $purple-border;
   padding-left: 0.75em;
   letter-spacing: -1px;
   font-style: italic;
@@ -107,7 +107,7 @@ pre, code {
   margin: 0px;
 }
 
-code.highlighter-rouge {
+.comment-markdown p code, code.highlighter-rouge {
   @include relative-font-size(0.9375);
   color: lighten($text-color, 10%);
   padding: 0.1em 0.2em;
@@ -116,20 +116,20 @@ code.highlighter-rouge {
   border-radius: 0.1em;
 }
 
-.comment-markdown code {
+.comment-markdown pre code {
   width: 100%;
   box-sizing: border-box;
   display: inline-block;
 }
 
-.comment-markdown code, figure.highlight, div.highlighter-rouge {
+.comment-markdown pre code, figure.highlight, div.highlighter-rouge {
   color: lighten($text-color, 10%);
   @include relative-font-size(1);
   padding: 0.5em 0.75em;
   background-color: $lavender;
   overflow-x: auto;
-  border: 0.3em solid $purple-border;
-  border-radius: 0.5em;
+  border: 0.2em solid $purple-border;
+  border-radius: 0.25em;
 }
 
 pre td {
