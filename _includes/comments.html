@@ -7,7 +7,7 @@
      <span class="title">Comments:</span>
      <a class=action href="{{ page.id }}/comments.xml">feed</a>
      <input type="checkbox" id="reply-" class="reply-input">
-     {% include comment-form.html id="" reply=false %}
+     {% include comment-form.html post=page.id id="" reply=false %}
     </div>
   {% endif %}
   <div class="content">
@@ -72,7 +72,7 @@
             {% endcomment %}
             <input type="checkbox" id="reply-{{comment.id}}" class="reply-input">
             <div class="markdown">{{ comment.comment | markdownify }}</div>
-            {% include comment-form.html id=comment.id reply=true %}
+            {% include comment-form.html post=comment.post id=comment.id reply=true %}
           </div>
         </div>
       {% endfor %}

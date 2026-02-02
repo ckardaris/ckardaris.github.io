@@ -7,7 +7,7 @@
 {% endif %}
 
 <noscript>
-    <a class="action reply-label" tabindex="0" {% include comment-no-js.txt repliesTo=include.id %}>{{ label }}</a>
+    <a class="action reply-label" tabindex="0" {% include comment-no-js.txt post=include.post repliesTo=include.id %}>{{ label }}</a>
 </noscript>
 
 <label class="action reply-label hidden-no-js" tabindex="0" for="reply-{{include.id}}">{{ label }}</label>
@@ -56,6 +56,8 @@
   <button
     type="button"
     id="comment-submit-{{include.id}}"
+    data-post-id="{{ include.post }}"
+    data-post-title="{{ site.data.post_id_map[include.post]["title"] }}"
     class="comment-submit"
     tabindex="0"
   >send {{ type }} via email</button>

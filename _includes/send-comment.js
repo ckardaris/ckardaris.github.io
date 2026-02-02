@@ -1,4 +1,4 @@
-async function sendEmail(replyId = "") {
+async function sendEmail(postId, postTitle, replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
         return;
@@ -7,8 +7,8 @@ async function sendEmail(replyId = "") {
     const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
     const password = document.getElementById(`password-${replyId}`).value.trim();
 
-    const subject = "Comment: {{ page.title }}";
-    let data = `post: {{ page.id }}`;
+    const subject = `Comment: ${postTitle}`;
+    let data = `post: ${postId}`;
     data += replyId ? `\nrepliesTo: ${replyId}` : "";
     data += `
 name: ${username}
@@ -34,6 +34,10 @@ ${encryptedData}
 // Register on-click callback for the comment submit buttons.
 document.querySelectorAll(".comment-submit").forEach(el => {
     el.addEventListener("click", e => {
-        sendEmail(e.currentTarget.id.replace("comment-submit-", ""))
+        sendEmail(
+            e.currentTarget.dataset.postId,
+            e.currentTarget.dataset.postTitle,
+            e.currentTarget.id.replace("comment-submit-", "")
+        )
     });
 })

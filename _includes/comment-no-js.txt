@@ -1,5 +1,5 @@
 {%- capture subject -%}
-Comment: {{ page.title }}
+Comment: {{ site.data.post_id_map[include.post]["title"] }}
 {%- endcapture -%}
 
 {%- capture body -%}
@@ -9,7 +9,7 @@ Comment: {{ page.title }}
 # {{ site.url }}/blog/user/<name>/replies.xml
 # The feed is created after your first comment is posted.
 
-post: {{ page.id }}
+post: {{ include.post }}
 {%- if include.repliesTo != "" %}
 repliesTo: {{ include.repliesTo }}
 {%- endif %}
