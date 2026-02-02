@@ -275,7 +275,7 @@ work. Check us out if you are not aware of us. <a href="#fnref:3" class="revers
   <textarea id="comment-input-" class="input" required></textarea>
   <div id="comment-markdown-" class="comment-markdown"></div>
 
-  <button type="button" id="comment-submit-" class="comment-submit" tabindex="0">send comment via email</button>
+  <button type="button" id="comment-submit-" data-post-id="/blog/2024/11/17/hello-cpp-community" data-post-title="std::cout &lt;&lt; " goodbye meeting c hello community. class="comment-submit" tabindex="0">send comment via email</button>
 
   <label class="action cancel-reply" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
 
@@ -365,7 +365,7 @@ document.querySelectorAll('.preview-input').forEach(el => {
 </script>
 
 <script>
-async function sendEmail(replyId = "") {
+async function sendEmail(postId, postTitle, replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
         return;
@@ -374,8 +374,8 @@ async function sendEmail(replyId = "") {
     const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
     const password = document.getElementById(`password-${replyId}`).value.trim();
 
-    const subject = "Comment: std::cout << "Goodbye Meeting C++. Hello C++ Community.";";
-    let data = `post: /blog/2024/11/17/hello-cpp-community`;
+    const subject = `Comment: ${postTitle}`;
+    let data = `post: ${postId}`;
     data += replyId ? `\nrepliesTo: ${replyId}` : "";
     data += `
 name: ${username}
@@ -401,7 +401,11 @@ ${encryptedData}
 // Register on-click callback for the comment submit buttons.
 document.querySelectorAll(".comment-submit").forEach(el => {
     el.addEventListener("click", e => {
-        sendEmail(e.currentTarget.id.replace("comment-submit-", ""))
+        sendEmail(
+            e.currentTarget.dataset.postId,
+            e.currentTarget.dataset.postTitle,
+            e.currentTarget.id.replace("comment-submit-", "")
+        )
     });
 })
 

@@ -340,6 +340,8 @@ hash</em>. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#861
   <button
     type="button"
     id="comment-submit-"
+    data-post-id="/blog/2026/01/22/my-comments-run-on-email"
+    data-post-title="My comments run on email"
     class="comment-submit"
     tabindex="0"
   >send comment via email</button>
@@ -456,6 +458,8 @@ Of course, this is not the main point of this article, and there is no need to p
   <button
     type="button"
     id="comment-submit-1"
+    data-post-id="/blog/2026/01/22/my-comments-run-on-email"
+    data-post-title="My comments run on email"
     class="comment-submit"
     tabindex="0"
   >send reply via email</button>
@@ -576,6 +580,8 @@ Of course, this is not the main point of this article, and there is no need to p
   <button
     type="button"
     id="comment-submit-2"
+    data-post-id="/blog/2026/01/22/my-comments-run-on-email"
+    data-post-title="My comments run on email"
     class="comment-submit"
     tabindex="0"
   >send reply via email</button>
@@ -666,7 +672,7 @@ document.querySelectorAll('.preview-input').forEach(el => {
 </script>
 
 <script>
-async function sendEmail(replyId = "") {
+async function sendEmail(postId, postTitle, replyId = "") {
     const form = document.getElementById(`comment-form-${replyId}`);
     if (!form.checkValidity()) {
         return;
@@ -675,8 +681,8 @@ async function sendEmail(replyId = "") {
     const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
     const password = document.getElementById(`password-${replyId}`).value.trim();
 
-    const subject = "Comment: My comments run on email";
-    let data = `post: /blog/2026/01/22/my-comments-run-on-email`;
+    const subject = `Comment: ${postTitle}`;
+    let data = `post: ${postId}`;
     data += replyId ? `\nrepliesTo: ${replyId}` : "";
     data += `
 name: ${username}
@@ -702,7 +708,11 @@ ${encryptedData}
 // Register on-click callback for the comment submit buttons.
 document.querySelectorAll(".comment-submit").forEach(el => {
     el.addEventListener("click", e => {
-        sendEmail(e.currentTarget.id.replace("comment-submit-", ""))
+        sendEmail(
+            e.currentTarget.dataset.postId,
+            e.currentTarget.dataset.postTitle,
+            e.currentTarget.id.replace("comment-submit-", "")
+        )
     });
 })
 
