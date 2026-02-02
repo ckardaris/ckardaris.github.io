@@ -4,10 +4,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+
   {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
+  {%- if page.feed -%}
+    <link type="application/atom+xml" rel="alternate" href="{{site.url}}{{ page.feed.url }}.xml" title="{{page.feed.title}}">
   {%- endif -%}
   
-  {%- include custom-head.html -%}
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>

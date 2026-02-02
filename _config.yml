@@ -19,6 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Charalampos Kardaris
+author: Charalampos Kardaris
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ckardaris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 mailto: "ckardaris.github.io@gmail.com"
@@ -75,9 +76,20 @@ header_pages:
 exclude:
   - Makefile
   - Dockerfile
+  - shell.nix
+  - _scripts
+  - _script_data
+  - _comments
+  - _site
 
+# jekyll-tagging
 tag_page_layout: tag_page
 tag_page_dir: blog/tags
 # This makes sure that the "Blog" button is bold in the header.
 tag_page_data:
   nav: "Blog"
+
+# jekyll-feed
+feed:
+  title: "Charalampos Kardaris' blog"
+  author: Charalampos Kardaris

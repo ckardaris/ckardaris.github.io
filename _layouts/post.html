@@ -6,7 +6,7 @@ layout: default_no_header
   {{ page.date | date: date_format }}
 </time>
 on
-<a href=/blog>{{ site.title }}' blog</a>
+<a href=/blog>{{ site.title }}' blog</a>, view <a href="#comments">comments</a>
 ^^^
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -23,7 +23,8 @@ on
   </div>
   {%- endif -%}
 
-  {% include comments.html %}
+  {% assign comments = site.data.comments | where: "post", page.id %}
+  {% include comments.html comments=comments top=true post=false top-separator=true context=false %}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>

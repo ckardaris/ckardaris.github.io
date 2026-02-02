@@ -116,3 +116,4 @@ then
     rm "$file"
     exit "$exit_code"
 fi
+make feeds

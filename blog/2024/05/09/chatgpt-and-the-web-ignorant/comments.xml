@@ -1,0 +1,21 @@
+---
+---
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://ckardaris.github.io/blog/2024/05/09/chatgpt-and-the-web-ignorant/comments.xml</id>
+  <title>Comments on 'ChatGPT and the web ignorant'</title>
+  <updated>2024-05-09T00:00:00+00:00</updated>
+  <author>
+    <name>Charalampos Kardaris</name>
+  </author>
+  <link href="https://ckardaris.github.io/blog/2024/05/09/chatgpt-and-the-web-ignorant/comments.xml" rel="self"/>
+  <link href="https://ckardaris.github.io/blog/2024/05/09/chatgpt-and-the-web-ignorant/comments.html" rel="alternate"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
+  <entry>
+    <id>https://ckardaris.github.io/blog/2024/05/09/chatgpt-and-the-web-ignorant/comments.html</id>
+    <title>No comments yet.</title>
+    <updated>2024-05-09T00:00:00+00:00</updated>
+    <link href="https://ckardaris.github.io/blog/2024/05/09/chatgpt-and-the-web-ignorant/comments.html"/>
+    <published>2024-05-09T00:00:00+00:00</published>
+  </entry>
+</feed>

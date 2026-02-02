@@ -15,6 +15,14 @@ setup:
 comments:
 	@./_scripts/make_comments.py
 
+.PHONY: feeds
+feeds:
+	@./_scripts/make_feeds.py
+
+.PHONY: format
+format:
+	@fd py _scripts -x ruff format
+
 .PHONY: add-comment
 add-comment:
 	@./_scripts/add-comment.sh

@@ -1,0 +1,42 @@
+---
+layout: default
+permalink: /blog/comment/1/replies
+title: "Comment #1 - replies"
+nav: Blog
+feed:
+  url: /blog/comment/1/replies
+  title: "Replies to comment #1 on 'My comments run on email'"
+---
+<div class="blog-subtitle">
+subscribe to this <a href="/blog/comment/1/replies.xml">feed</a>
+</div>
+^^^
+
+{% assign selected_comments = "" | split: "" %}
+{% assign selected_comments = selected_comments | push: 1 %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=true
+        flatten=true
+%}
+<div class="blog-subpage-title">comments:</div>
+
+<a class="action " href="/blog/comment/1/thread">thread</a>
+<a class="action nav-selected" href="/blog/comment/1/replies">replies</a>
+
+
+{% assign selected_comments = "" | split: "" %}
+{% assign selected_comments = selected_comments | push: 2 %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=false
+        flatten=true
+%}

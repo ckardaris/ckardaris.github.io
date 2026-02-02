@@ -5,6 +5,9 @@ Comment: {{ page.title }}
 {%- capture body -%}
 # If you want extra security, you can encrypt this email using the public key
 # found at {{ site.url }}/{{ site.pgp }}.
+# You can follow the replies to your comments by subscribing to your feed at
+# {{ site.url }}/blog/user/<name>/replies.xml
+# The feed is created after your first comment is posted.
 
 post: {{ page.id }}
 {%- if include.repliesTo != "" %}

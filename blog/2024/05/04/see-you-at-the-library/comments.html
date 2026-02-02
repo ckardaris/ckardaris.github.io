@@ -1,0 +1,28 @@
+---
+layout: default
+permalink: /blog/2024/05/04/see-you-at-the-library/comments
+title: "See you at the library - Comments"
+nav: Blog
+feed:
+  url: /blog/2024/05/04/see-you-at-the-library/comments
+  title: "Comments on 'See you at the library'"
+---
+<div class="blog-subtitle">
+subscribe to this <a href="/blog/2024/05/04/see-you-at-the-library/comments.xml">feed</a>
+</div>
+^^^
+
+<div class="blog-subpage-title">Comments on <a href="/blog/2024/05/04/see-you-at-the-library">See you at the library</a>:</div>
+
+
+
+{% assign selected_comments = "" | split: "" %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=false
+        flatten=false
+%}

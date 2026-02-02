@@ -19,6 +19,9 @@ ${comment.split('\n').map(line => "  " + line).join('\n')}
     const encryptedData = await encrypt(data);
 
     const body = `Your comment has been encrypted and is ready to be submitted.
+You can follow the replies to your comments by subscribing to your feed at
+{{ site.url }}/blog/user/${username}/replies.xml
+The feed is created after your first comment is posted.
 Please do not edit the following lines.
 
 ${encryptedData}

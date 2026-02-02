@@ -1,0 +1,28 @@
+---
+layout: default
+permalink: /blog/2026/01/10/techrastination/comments
+title: "Techrastination - Comments"
+nav: Blog
+feed:
+  url: /blog/2026/01/10/techrastination/comments
+  title: "Comments on 'Techrastination'"
+---
+<div class="blog-subtitle">
+subscribe to this <a href="/blog/2026/01/10/techrastination/comments.xml">feed</a>
+</div>
+^^^
+
+<div class="blog-subpage-title">Comments on <a href="/blog/2026/01/10/techrastination">Techrastination</a>:</div>
+
+
+
+{% assign selected_comments = "" | split: "" %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=false
+        flatten=false
+%}

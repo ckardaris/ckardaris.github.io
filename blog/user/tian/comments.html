@@ -1,0 +1,32 @@
+---
+layout: default
+permalink: /blog/user/tian/comments
+title: "tian - comments"
+nav: Blog
+feed:
+  url: /blog/user/tian/comments
+  title: "Comments by tian"
+---
+<div class="blog-subtitle">
+subscribe to this <a href="/blog/user/tian/comments.xml">feed</a>
+</div>
+^^^
+
+<div class="blog-subpage-title">tian:</div>
+
+<a class="action nav-selected" href="/blog/user/tian/comments">comments</a>
+<a class="action " href="/blog/user/tian/threads">threads</a>
+<a class="action " href="/blog/user/tian/replies">replies</a>
+
+
+{% assign selected_comments = "" | split: "" %}
+{% assign selected_comments = selected_comments | push: 1 %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=true
+        flatten=true
+%}

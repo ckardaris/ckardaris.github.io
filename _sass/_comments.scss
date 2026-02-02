@@ -6,10 +6,12 @@
   color: $magenta;
 }
 
+.comment-separator {
+  border-top: $line;
+}
+
 .comments {
   padding-top: $spacing-unit * 0.5;
-  padding-bottom: $spacing-unit * 0.5;
-  border-top: $line;
 
   // Comment/reply toggle button.
   .reply-input {
@@ -38,7 +40,7 @@
   .top {
     margin-bottom: 1em;
 
-    .title {
+    & > *:not(last-child) {
       margin-right: 0.5em;
     }
   }
@@ -71,10 +73,6 @@
 
       .info {
         @include info-line;
-      }
-
-      p:not(:last-child) {
-        margin-bottom: 0.5em;
       }
     }
   }

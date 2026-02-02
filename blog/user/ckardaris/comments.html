@@ -1,0 +1,32 @@
+---
+layout: default
+permalink: /blog/user/ckardaris/comments
+title: "ckardaris - comments"
+nav: Blog
+feed:
+  url: /blog/user/ckardaris/comments
+  title: "Comments by ckardaris"
+---
+<div class="blog-subtitle">
+subscribe to this <a href="/blog/user/ckardaris/comments.xml">feed</a>
+</div>
+^^^
+
+<div class="blog-subpage-title">ckardaris:</div>
+
+<a class="action nav-selected" href="/blog/user/ckardaris/comments">comments</a>
+<a class="action " href="/blog/user/ckardaris/threads">threads</a>
+<a class="action " href="/blog/user/ckardaris/replies">replies</a>
+
+
+{% assign selected_comments = "" | split: "" %}
+{% assign selected_comments = selected_comments | push: 2 %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=true
+        flatten=true
+%}

@@ -15,4 +15,7 @@ fi
 ./_scripts/make-responsive.sh
 git add ./assets/*
 
+# Format python scripts
+fd .py _scripts -x ruff format
+
 exec git diff-index --check --cached $against --

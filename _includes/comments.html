@@ -1,15 +1,29 @@
-<div class="comments">
-  <div class="top">
-   <span class="title">Comments:</span>
-   <input type="checkbox" id="reply-" class="reply-input">
-   {% include comment-form.html id="" reply=false %}
-  </div>
+<div
+  id="comments"
+  class="comments {% if include.top-separator %}comment-separator{% endif %}"
+>
+  {% if include.top == nil or include.top %}
+    <div class="top">
+     <span class="title">Comments:</span>
+     <a class=action href="{{ page.id }}/comments.xml">feed</a>
+     <input type="checkbox" id="reply-" class="reply-input">
+     {% include comment-form.html id="" reply=false %}
+    </div>
+  {% endif %}
   <div class="content">
-    {% assign comments = site.data.comments[page.id] %}
-    {% if comments %}
-
+    {% if comments.size > 0 %}
+      {% assign ids = comments | map: "id" %}
       {% for comment in comments %}
-        {% assign padding = comment.ancestors.size | times: 2 %}
+
+        {% assign padding = comment.ancestors | where_exp: "ancestor", "ids contains ancestor" | size | times: 2 %}
+        {% if include.flatten %}
+          {% assign padding = 0 %}
+        {% endif %}
+
+        {% if include.post and padding  == 0 %}
+        <div>On <a class="action" href="{{comment.post}}">{{site.data.post_id_map[comment.post]["title"]}}</a></div>
+        {% endif %}
+
         <input
           type="checkbox"
           id="toggle-{{ comment.id }}"
@@ -24,16 +38,32 @@
           class="comment comment-{{ comment.id }}"
           style="padding-left: {{ padding }}em">
           <span class="info">
-            <span>{{ comment.name }}
+            <a
+              class="action"
               {% if comment.name == "ckardaris" %}
-              <span style="font-weight: bold">[author]</span>
+                style="font-weight: bold"
               {% endif %}
-                | </span>
-            <time><a class="action" href="#comment-{{comment.id }}">{{ comment.date }} CET</a></time>
-            {% if comment.ancestors.size > 1 %} | <a class="action" href="#comment-{{comment.ancestors | first }}">root</a> {% endif %}
-            {% if comment.ancestors.size > 0 %} | <a class="action" href="#comment-{{comment.ancestors | last }}">parent</a> {% endif %}
-            {% if comment.prev %} | <a class="action" href="#comment-{{comment.prev}}">prev</a> {% endif %}
-            {% if comment.next %} | <a class="action" href="#comment-{{comment.next}}">next</a> {% endif %}
+              href="/blog/user/{{ comment.name }}/comments"
+            >{{ comment.name }}</a>
+            | <time><a class="action" href="/blog/comment/{{comment.id}}/thread">{{ comment.date }} CET</a></time>
+            | <a class="action" href="/blog/comment/{{ comment.id }}/thread.xml">feed</a>
+            {% if include.context %}
+              | <a class="action" href="{{comment.post}}#comment-{{comment.id }}">context</a></time>
+            {% endif %}
+            {% assign root = comment.ancestors | first %}
+            {% assign parent = comment.ancestors | last %}
+            {% if ids contains root and root != parent %}
+              | <a class="action" href="#comment-{{ root }}">root</a>
+            {% endif %}
+            {% if ids contains parent %}
+              | <a class="action" href="#comment-{{ parent }}">parent</a>
+            {% endif %}
+            {% if comment.prev %}
+              | <a class="action" href="#comment-{{comment.prev}}">prev</a>
+            {% endif %}
+            {% if comment.next %}
+              | <a class="action" href="#comment-{{comment.next}}">next</a>
+            {% endif %}
           </span>
 
           <div class="body">
@@ -47,7 +77,7 @@
         </div>
       {% endfor %}
     {% else %}
-    No comments to show.
+      No comments to show.
     {% endif %}
   </div>
 </div>
