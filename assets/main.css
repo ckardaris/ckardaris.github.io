@@ -218,6 +218,10 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   margin: 0.5rem 0;
 }
 
+.nav-selected {
+  font-weight: bold;
+}
+
 .site-nav {
   margin: 0.5rem 0;
 }
@@ -225,9 +229,6 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   color: #111;
   margin-right: 0.5em;
   font-size: 1.2rem;
-}
-.site-nav .page-link.nav-selected {
-  font-weight: bold;
 }
 
 /**
@@ -308,10 +309,13 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   margin-bottom: 30px;
 }
 
-.tag-title {
+.blog-subpage-title {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 0.5em;
+}
+.blog-subpage-title ~ a:not(last-child) {
+  margin-right: 0.5em;
 }
 
 .post-table {
@@ -324,10 +328,12 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 /**
  *  Comments
  */
+.comment-separator {
+  border-top: 1px solid #e8e8e8;
+}
+
 .comments {
   padding-top: 15px;
-  padding-bottom: 15px;
-  border-top: 1px solid #e8e8e8;
 }
 .comments .reply-input {
   display: none;
@@ -347,7 +353,7 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 .comments .top {
   margin-bottom: 1em;
 }
-.comments .top .title {
+.comments .top > *:not(last-child) {
   margin-right: 0.5em;
 }
 .comments .content .toggle-input {
@@ -372,9 +378,6 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 .comments .content .comment .info {
   font-size: 0.9em;
   color: #655978;
-}
-.comments .content .comment p:not(:last-child) {
-  margin-bottom: 0.5em;
 }
 
 /**

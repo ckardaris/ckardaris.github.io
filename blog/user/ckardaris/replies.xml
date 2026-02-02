@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://ckardaris.github.io/blog/user/ckardaris/replies.xml</id>
+  <title>Replies to ckardaris</title>
+  <updated>2026-01-28T19:03:00+00:00</updated>
+  <author>
+    <name>ckardaris</name>
+  </author>
+  <link href="https://ckardaris.github.io/blog/user/ckardaris/replies.xml" rel="self"/>
+  <link href="https://ckardaris.github.io/blog/user/ckardaris/replies.html" rel="alternate"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
+  <entry>
+    <id>https://ckardaris.github.io/blog/user/ckardaris/replies.html</id>
+    <title>No comments yet.</title>
+    <updated>2026-01-28T19:03:00+00:00</updated>
+    <link href="https://ckardaris.github.io/blog/user/ckardaris/replies.html"/>
+    <published>2026-01-28T19:03:00+00:00</published>
+  </entry>
+</feed>

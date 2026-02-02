@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Template files with Nix Home Manager - Comments | Charalampos Kardaris</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Template files with Nix Home Manager - Comments" />
+<meta name="author" content="Charalampos Kardaris" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager/comments" />
+<meta property="og:url" content="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager/comments" />
+<meta property="og:site_name" content="Charalampos Kardaris" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Template files with Nix Home Manager - Comments" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Charalampos Kardaris"},"headline":"Template files with Nix Home Manager - Comments","url":"https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager/comments"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://ckardaris.github.io/feed.xml" title="Charalampos Kardaris" /><link type="application/atom+xml" rel="alternate" href="https://ckardaris.github.io/blog/2025/12/29/template-files-with-nix-home-manager/comments.xml" title="Comments on 'Template files with Nix Home Manager'"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper">
+    <div class="site-title"> Charalampos Kardaris </div>
+
+    <nav class="site-nav"><a
+          class="page-link
+          nav-selected"
+          href="/blog">Blog</a><a
+          class="page-link
+          "
+          href="/photography/">Photography</a><a
+          class="page-link
+          "
+          href="/about/">About</a></nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <header class="post-header">
+      </header><div class="post-meta">
+        <div class="blog-subtitle">
+subscribe to this <a href="/blog/2025/12/29/template-files-with-nix-home-manager/comments.xml">feed</a>
+</div>
+
+      </div>
+
+<div class="blog-subpage-title">Comments on <a href="/blog/2025/12/29/template-files-with-nix-home-manager">Template files with Nix Home Manager</a>:</div>
+
+
+
+
+
+
+<div
+  id="comments"
+  class="comments "
+>
+  
+  <div class="content">
+    
+      No comments to show.
+    
+  </div>
+</div>
+
+<script>
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        // Prevent loading the same script twice
+        if (document.querySelector(`script[src="${src}"]`)) {
+            resolve();
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}
+
+</script>
+
+<script>
+async function encrypt(message) {
+    const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEaXPMYBYJKwYBBAHaRw8BAQdAWqhxt+He41nPZjJMb+ODDItKwqScYP6ZdD/L
+lvexjPS0M2NrYXJkYXJpcy5naXRodWIuaW8gPGNrYXJkYXJpcy5naXRodWIuaW9A
+Z21haWwuY29tPoiQBBMWCgA4FiEE/fBpvxnBo9g9MtNAmWHYgbE8j/MFAmlzzGAC
+GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmWHYgbE8j/N7KwD/QvcSTPYZ
+L+Yg1OJxyaIY1EL01HDvHfInnBtiSB0vxxMBAIEotvyirzgmGZtwFaEhVzoerN9p
+Kk24oumSG3u4VLAEuDgEaXPMYBIKKwYBBAGXVQEFAQEHQOoOISawzABAFbTEPcoD
+UKDVO2WdND0DgVDtaXO3b0l/AwEIB4h4BBgWCgAgFiEE/fBpvxnBo9g9MtNAmWHY
+gbE8j/MFAmlzzGACGwwACgkQmWHYgbE8j/OaOgEAj516yD04L5FhC8MjEZgBzLYz
+OaiUUjRwwv5C6r0mv1AA/1bOOdtmGaOvNRnea3BQrzJ5lbUyXV1+aJZ5HdW6i1QA
+=nUdM
+-----END PGP PUBLIC KEY BLOCK-----
+`.trim();
+
+    await loadScript('/openpgp.min.js');
+
+    return await window.openpgp.encrypt({
+        message: await openpgp.createMessage({ text: message }),
+        encryptionKeys: await window.openpgp.readKey({ armoredKey: publicKeyArmored })
+    });
+}
+
+</script>
+
+<script>
+document.querySelectorAll('.preview-input').forEach(el => {
+    const id = el.id.replace(/^preview-/, '');
+    const textarea = document.getElementById(`comment-input-${id}`);
+    const markdown = document.getElementById(`comment-markdown-${id}`);
+    el.addEventListener('change', async function() {
+        if (this.checked) {
+
+            await loadScript('/markdown-it.min.js');
+
+            const md = window.markdownit({ html: true });
+
+            textarea.style.display = "none";
+            markdown.style.display = "block";
+            markdown.innerHTML = md.render(textarea.value);
+        } else {
+            textarea.style.display = "block";
+            markdown.style.display = "none";
+        }
+    })
+});
+
+</script>
+
+<script>
+async function sendEmail(replyId = "") {
+    const form = document.getElementById(`comment-form-${replyId}`);
+    if (!form.checkValidity()) {
+        return;
+    }
+    const username = document.getElementById(`username-${replyId}`).value.trim();
+    const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
+    const password = document.getElementById(`password-${replyId}`).value.trim();
+
+    const subject = "Comment: Template files with Nix Home Manager - Comments";
+    let data = `post: `;
+    data += replyId ? `\nrepliesTo: ${replyId}` : "";
+    data += `
+name: ${username}
+password: ${password}
+comment: |-
+${comment.split('\n').map(line => "  " + line).join('\n')}
+`;
+    const encryptedData = await encrypt(data);
+
+    const body = `Your comment has been encrypted and is ready to be submitted.
+You can follow the replies to your comments by subscribing to your feed at
+https://ckardaris.github.io/blog/user/${username}/replies.xml
+The feed is created after your first comment is posted.
+Please do not edit the following lines.
+
+${encryptedData}
+`;
+
+    const mailto = "mailto:ckardaris.github.io@gmail.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    window.open(mailto, "_blank");
+}
+
+// Register on-click callback for the comment submit buttons.
+document.querySelectorAll(".comment-submit").forEach(el => {
+    el.addEventListener("click", e => {
+        sendEmail(e.currentTarget.id.replace("comment-submit-", ""))
+    });
+})
+
+</script>
+
+<script>
+document.querySelectorAll('.eye-input').forEach(el => {
+    el.addEventListener('change', function() {
+        this.previousElementSibling.type = this.checked ? 'text' : 'password';
+    })
+});
+
+</script>
+
+<style>
+
+
+</style>
+
+
+  </div>
+</main>
+
+<script>
+// Unhide all elements that require JS to work properly.
+document.querySelectorAll('.hidden-no-js').forEach(el => {
+    el.classList.remove('hidden-no-js');
+});
+
+</script>
+
+</body>
+</html>

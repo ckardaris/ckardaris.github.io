@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community/comments.xml</id>
+  <title>Comments on 'std::cout &lt;&lt; "Goodbye Meeting C++. Hello C++ Community.";'</title>
+  <updated>2024-11-17T00:00:00+00:00</updated>
+  <author>
+    <name>Charalampos Kardaris</name>
+  </author>
+  <link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community/comments.xml" rel="self"/>
+  <link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community/comments.html" rel="alternate"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
+  <entry>
+    <id>https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community/comments.html</id>
+    <title>No comments yet.</title>
+    <updated>2024-11-17T00:00:00+00:00</updated>
+    <link href="https://ckardaris.github.io/blog/2024/11/17/hello-cpp-community/comments.html"/>
+    <published>2024-11-17T00:00:00+00:00</published>
+  </entry>
+</feed>
