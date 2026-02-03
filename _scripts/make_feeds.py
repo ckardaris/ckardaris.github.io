@@ -48,7 +48,7 @@ def parse_date(
 
 
 def comment_url(site_url: str, comment: dict) -> str:
-    return f"{site_url}{comment['post']}.html#comment-{comment['id']}"
+    return f"{site_url}/blog/comment/{comment['id']}/thread"
 
 
 def markdown_to_html(content: str) -> str:
