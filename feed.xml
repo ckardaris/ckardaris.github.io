@@ -1,4 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-02-03T20:49:08+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">My comments run on email</title><link href="https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email.html" rel="alternate" type="text/html" title="My comments run on email" /><published>2026-01-22T00:00:00+00:00</published><updated>2026-01-22T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email</id><content type="html" xml:base="https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email.html"><![CDATA[<p>Not all blogs support commenting.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.github.io/" rel="alternate" type="text/html" /><updated>2026-02-07T18:13:18+00:00</updated><id>https://ckardaris.github.io/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">The P in PGP isn’t for pain: encrypting emails in the browser</title><link href="https://ckardaris.github.io/blog/2026/02/07/encrypted-email.html" rel="alternate" type="text/html" title="The P in PGP isn’t for pain: encrypting emails in the browser" /><published>2026-02-07T00:00:00+00:00</published><updated>2026-02-07T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2026/02/07/encrypted-email</id><content type="html" xml:base="https://ckardaris.github.io/blog/2026/02/07/encrypted-email.html"><![CDATA[<p>In my previous post, I described how I implemented an asynchronous, <a href="/blog/2026/01/22/my-comments-run-on-email.html">email-based comment system</a> for this blog that runs without a true backend.
+Every comment is an email sent to a specified address.
+After each email is processed, all information is stored publicly in a GitHub repository.</p>
+
+<p>One of the limitations of such a system is user authentication.
+Each user needs to send a password alongside each comment that serves to authenticate the user
+against their email.
+This is needed because <em>email spoofing</em> is a thing and identity theft is not a joke; even if the
+stakes are low in the context of blog comments.</p>
+
+<p>In that previous post, I acknowledged that sending a password in plain text via email is not best
+practice and I encouraged the usage of encryption.
+For this purpose, I provided a <a href="/pgp-public-key.txt">public PGP key</a> that can be used to encrypt any
+email and can only be decrypted by me, the owner of the secret key.</p>
+
+<h1 id="problem">Problem</h1>
+
+<p>The problem with this suggestion is that, even though it’s technically sound and legitimate, it is
+not straightforward to set up.
+Many email clients do not even support PGP encryption and, dare I say, even most technical people do
+not have it set up by default.
+For non-technical users, configuring everything properly would certainly be a test of computer
+literacy.</p>
+
+<p>This is not good enough, and certainly not welcoming or inclusive.</p>
+
+<h1 id="solution">Solution</h1>
+
+<p>Shortly after I published the first version of the comment system I came up with a question.</p>
+
+<blockquote>
+  <p>I already have a public PGP key published and ready to be used.
+Is there a way to encrypt the comment payload on the browser, including the password and all other
+data?</p>
+</blockquote>
+
+<p>I wouldn’t be writing this post if the answer was negative.</p>
+
+<p>After a quick web search, I came across <a href="https://openpgpjs.org/">openPGP.js</a>, a JavaScript library
+maintained by the <a href="https://proton.me/">Proton team</a>.
+The goal of the library is to <em>“bypass the PGP installation requirement in every machine”</em>.
+Just perfect for my use case.</p>
+
+<p>I quickly set everything up.
+I downloaded the JavaScript library files at the root of my website and created a couple of helper
+functions.
+The first to load the library on-demand to avoid unnecessary network transactions and the
+second to produce a PGP encrypted message from a plain text string input.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">loadScript</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// Prevent loading the same script twice</span>
+        <span class="k">if </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s2">`script[src="</span><span class="p">${</span><span class="nx">src</span><span class="p">}</span><span class="s2">"]`</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nf">resolve</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">const</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">script</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">src</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="k">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">resolve</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">reject</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">publicKeyArmored</span> <span class="o">=</span> <span class="s2">`{% include pgp-public-key.txt %}`</span><span class="p">.</span><span class="nf">trim</span><span class="p">();</span>
+
+    <span class="k">await</span> <span class="nf">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">/openpgp.min.js</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nb">window</span><span class="p">.</span><span class="nx">openpgp</span><span class="p">.</span><span class="nf">encrypt</span><span class="p">({</span>
+        <span class="na">message</span><span class="p">:</span> <span class="k">await</span> <span class="nx">openpgp</span><span class="p">.</span><span class="nf">createMessage</span><span class="p">({</span> <span class="na">text</span><span class="p">:</span> <span class="nx">message</span> <span class="p">}),</span>
+        <span class="na">encryptionKeys</span><span class="p">:</span> <span class="k">await</span> <span class="nb">window</span><span class="p">.</span><span class="nx">openpgp</span><span class="p">.</span><span class="nf">readKey</span><span class="p">({</span> <span class="na">armoredKey</span><span class="p">:</span> <span class="nx">publicKeyArmored</span> <span class="p">})</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It’s simple.
+And it works.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> The comment encryption functionality is not available if <em>JavaScript</em> is disabled on the
+client.</p>
+</blockquote>
+
+<p>For example, if you were to write a comment for this post using the <em>comment form</em> and provided the
+following data:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username: test_user
+password: test_password
+comment: Test comment.
+</code></pre></div></div>
+<p>the email to be sent would be pre-filled with the following body:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your comment has been encrypted and is ready to be submitted.
+...
+
+-----BEGIN PGP MESSAGE-----
+
+wV4Dyk92dA2JWC4SAQdAFgNHlb6Q7nAgovzVgUnB5CTOKBWSlXxSoIOzLUQl
+Zm4wBdsLdUROxNS0xcTyja4iq9QUsSazv18DYbmRd2Lix3XoL4zDrQVOPVw6
+ZGlkeDhi0qEByCityS59xWSuREVqgS4tpPlZg8Lz5Go6D2nSBu+1iTXw2dy6
+L9eL5NZMoFhYUqocGukxBlEcHY6j1U+3Lstvc5dZPl+u7+Zh32uTzTo8CC05
+doKNwH5AP9ybHk7nr2vVLdrede6vLCIAwGTK9fVYq2V1udXfSPNCESSeunh1
+68qEaAA81mjCbSSfcB/RznpL8/nOLLWDXlXxfMPlYV8/+Q==
+=k2VX
+-----END PGP MESSAGE-----
+</code></pre></div></div>
+<p>Your comment data (username, password, message, etc.) is automatically encrypted without any
+need for manual intervention.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Based on the above proof of concept, I can say that, even without operating a “proper” backend
+server, it is still possible to guarantee a reasonable level of security.
+And you can do so without requiring any complicated setup on the user side.</p>
+
+<p>To my eyes, this is a win for secure communication when email is used as the medium.
+Do you agree?</p>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><category term="security" /><category term="website" /><summary type="html"><![CDATA[How to receive encrypted messages via emails with openPGP.js]]></summary></entry><entry><title type="html">My comments run on email</title><link href="https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email.html" rel="alternate" type="text/html" title="My comments run on email" /><published>2026-01-22T00:00:00+00:00</published><updated>2026-01-22T00:00:00+00:00</updated><id>https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email</id><content type="html" xml:base="https://ckardaris.github.io/blog/2026/01/22/my-comments-run-on-email.html"><![CDATA[<p>Not all blogs support commenting.
 Initially, I considered doing without them.
 There are many places where one may share an article or blog post and start a discussion.
 I frequent <a href="https://news.ycombinator.com/news"><em>Hacker News</em></a><sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> myself and I really appreciate the

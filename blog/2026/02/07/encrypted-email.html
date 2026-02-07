@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The P in PGP isn’t for pain: encrypting emails in the browser | Charalampos Kardaris</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="The P in PGP isn’t for pain: encrypting emails in the browser" />
+<meta name="author" content="Charalampos Kardaris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to receive encrypted messages via emails with openPGP.js" />
+<meta property="og:description" content="How to receive encrypted messages via emails with openPGP.js" />
+<link rel="canonical" href="https://ckardaris.github.io/blog/2026/02/07/encrypted-email.html" />
+<meta property="og:url" content="https://ckardaris.github.io/blog/2026/02/07/encrypted-email.html" />
+<meta property="og:site_name" content="Charalampos Kardaris" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The P in PGP isn’t for pain: encrypting emails in the browser" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Charalampos Kardaris"},"dateModified":"2026-02-07T00:00:00+00:00","datePublished":"2026-02-07T00:00:00+00:00","description":"How to receive encrypted messages via emails with openPGP.js","headline":"The P in PGP isn’t for pain: encrypting emails in the browser","mainEntityOfPage":{"@type":"WebPage","@id":"https://ckardaris.github.io/blog/2026/02/07/encrypted-email.html"},"url":"https://ckardaris.github.io/blog/2026/02/07/encrypted-email.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://ckardaris.github.io/feed.xml" title="Charalampos Kardaris" /><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body><main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">The P in PGP isn’t for pain: encrypting emails in the browser</h1></header><div class="post-meta">
+        <time class="dt-published" datetime="2026-02-07T00:00:00+00:00" itemprop="datePublished">Feb 7, 2026
+</time>
+on
+<a href=/blog>Charalampos Kardaris' blog</a>, view <a href="#comments">comments</a>
+
+      </div>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In my previous post, I described how I implemented an asynchronous, <a href="/blog/2026/01/22/my-comments-run-on-email.html">email-based comment system</a> for this blog that runs without a true backend.
+Every comment is an email sent to a specified address.
+After each email is processed, all information is stored publicly in a GitHub repository.</p>
+
+<p>One of the limitations of such a system is user authentication.
+Each user needs to send a password alongside each comment that serves to authenticate the user
+against their email.
+This is needed because <em>email spoofing</em> is a thing and identity theft is not a joke; even if the
+stakes are low in the context of blog comments.</p>
+
+<p>In that previous post, I acknowledged that sending a password in plain text via email is not best
+practice and I encouraged the usage of encryption.
+For this purpose, I provided a <a href="/pgp-public-key.txt">public PGP key</a> that can be used to encrypt any
+email and can only be decrypted by me, the owner of the secret key.</p>
+
+<h1 id="problem">Problem</h1>
+
+<p>The problem with this suggestion is that, even though it’s technically sound and legitimate, it is
+not straightforward to set up.
+Many email clients do not even support PGP encryption and, dare I say, even most technical people do
+not have it set up by default.
+For non-technical users, configuring everything properly would certainly be a test of computer
+literacy.</p>
+
+<p>This is not good enough, and certainly not welcoming or inclusive.</p>
+
+<h1 id="solution">Solution</h1>
+
+<p>Shortly after I published the first version of the comment system I came up with a question.</p>
+
+<blockquote>
+  <p>I already have a public PGP key published and ready to be used.
+Is there a way to encrypt the comment payload on the browser, including the password and all other
+data?</p>
+</blockquote>
+
+<p>I wouldn’t be writing this post if the answer was negative.</p>
+
+<p>After a quick web search, I came across <a href="https://openpgpjs.org/">openPGP.js</a>, a JavaScript library
+maintained by the <a href="https://proton.me/">Proton team</a>.
+The goal of the library is to <em>“bypass the PGP installation requirement in every machine”</em>.
+Just perfect for my use case.</p>
+
+<p>I quickly set everything up.
+I downloaded the JavaScript library files at the root of my website and created a couple of helper
+functions.
+The first to load the library on-demand to avoid unnecessary network transactions and the
+second to produce a PGP encrypted message from a plain text string input.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">loadScript</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// Prevent loading the same script twice</span>
+        <span class="k">if </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s2">`script[src="</span><span class="p">${</span><span class="nx">src</span><span class="p">}</span><span class="s2">"]`</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nf">resolve</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">const</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">script</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">src</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="k">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">resolve</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">reject</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">publicKeyArmored</span> <span class="o">=</span> <span class="s2">`{% include pgp-public-key.txt %}`</span><span class="p">.</span><span class="nf">trim</span><span class="p">();</span>
+
+    <span class="k">await</span> <span class="nf">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">/openpgp.min.js</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nb">window</span><span class="p">.</span><span class="nx">openpgp</span><span class="p">.</span><span class="nf">encrypt</span><span class="p">({</span>
+        <span class="na">message</span><span class="p">:</span> <span class="k">await</span> <span class="nx">openpgp</span><span class="p">.</span><span class="nf">createMessage</span><span class="p">({</span> <span class="na">text</span><span class="p">:</span> <span class="nx">message</span> <span class="p">}),</span>
+        <span class="na">encryptionKeys</span><span class="p">:</span> <span class="k">await</span> <span class="nb">window</span><span class="p">.</span><span class="nx">openpgp</span><span class="p">.</span><span class="nf">readKey</span><span class="p">({</span> <span class="na">armoredKey</span><span class="p">:</span> <span class="nx">publicKeyArmored</span> <span class="p">})</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It’s simple.
+And it works.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> The comment encryption functionality is not available if <em>JavaScript</em> is disabled on the
+client.</p>
+</blockquote>
+
+<p>For example, if you were to write a comment for this post using the <em>comment form</em> and provided the
+following data:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username: test_user
+password: test_password
+comment: Test comment.
+</code></pre></div></div>
+<p>the email to be sent would be pre-filled with the following body:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your comment has been encrypted and is ready to be submitted.
+...
+
+-----BEGIN PGP MESSAGE-----
+
+wV4Dyk92dA2JWC4SAQdAFgNHlb6Q7nAgovzVgUnB5CTOKBWSlXxSoIOzLUQl
+Zm4wBdsLdUROxNS0xcTyja4iq9QUsSazv18DYbmRd2Lix3XoL4zDrQVOPVw6
+ZGlkeDhi0qEByCityS59xWSuREVqgS4tpPlZg8Lz5Go6D2nSBu+1iTXw2dy6
+L9eL5NZMoFhYUqocGukxBlEcHY6j1U+3Lstvc5dZPl+u7+Zh32uTzTo8CC05
+doKNwH5AP9ybHk7nr2vVLdrede6vLCIAwGTK9fVYq2V1udXfSPNCESSeunh1
+68qEaAA81mjCbSSfcB/RznpL8/nOLLWDXlXxfMPlYV8/+Q==
+=k2VX
+-----END PGP MESSAGE-----
+</code></pre></div></div>
+<p>Your comment data (username, password, message, etc.) is automatically encrypted without any
+need for manual intervention.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Based on the above proof of concept, I can say that, even without operating a “proper” backend
+server, it is still possible to guarantee a reasonable level of security.
+And you can do so without requiring any complicated setup on the user side.</p>
+
+<p>To my eyes, this is a win for secure communication when email is used as the medium.
+Do you agree?</p>
+
+  </div><div class="tags">
+    Tags:
+    
+      <a href="/blog/tags/programming" class="tag">programming</a>
+    
+      <a href="/blog/tags/security" class="tag">security</a>
+    
+      <a href="/blog/tags/website" class="tag">website</a>
+    
+  </div>
+  <div
+  id="comments"
+  class="comments comment-separator"
+>
+  
+    <div class="top">
+     <span class="title">Comments:</span>
+     <a class=action href="/blog/2026/02/07/encrypted-email/comments.xml">feed</a>
+     <input type="checkbox" id="reply-" class="reply-input">
+     
+
+<noscript>
+    <a class="action reply-label" tabindex="0" href=mailto:ckardaris.github.io@gmail.com?subject=Comment:%20The%20P%20in%20PGP%20isn%E2%80%99t%20for%20pain:%20encrypting%20emails%20in%20the%20browser&body=%23%20If%20you%20want%20extra%20security,%20you%20can%20encrypt%20this%20email%20using%20the%20public%20key%0A%23%20found%20at%20https://ckardaris.github.io/pgp-public-key.txt.%0A%23%20You%20can%20follow%20the%20replies%20to%20your%20comments%20by%20subscribing%20to%20your%20feed%20at%0A%23%20https://ckardaris.github.io/blog/user/%3Cname%3E/replies.xml%0A%23%20The%20feed%20is%20created%20after%20your%20first%20comment%20is%20posted.%0A%0Apost:%20/blog/2026/02/07/encrypted-email%0A%23%20The%20name%20will%20be%20linked%20to%20your%20email%20address.%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0Aname:%0A%23%20The%20password%20is%20used%20to%20authenticate%20against%20your%20email%20address.%0A%23%20The%20password%20is%20linked%20to%20your%20email%20address%20after%20your%20first%20comment.%0A%23%20After%20the%20first%20comment,%20you%20have%20to%20keep%20using%20the%20same%20password.%0A%23%20You%20may%20change%20or%20reset%20your%20password%20at%20https://ckardaris.github.io/blog/account.%0Apassword:%0Acomment:%20%7C-%0A%20%20%23%20The%20comment%20can%20be%20markdown%20text.%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.
+>add comment</a>
+</noscript>
+
+<label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
+
+<form id="comment-form-" class="input-form">
+
+  <details>
+    <summary>Name or nickname</summary>
+    <span class="content">
+      The name will be linked to your email address.<br>
+      If you change your name, your old name will be replaced in all comments.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
+    </span>
+  </details>
+  <input type="text" id="username-" class="input" required>
+  <br>
+
+  <details>
+    <summary>Password</summary>
+    <span class="content">
+      The password is used to authenticate against your email address.<br>
+      The password is linked to your email address after your first comment.<br>
+      After the first comment, you have to keep using the same password.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.<br>
+      You may change or reset your password at the <a href="/blog/account">account</a> page.
+    </span>
+  </details>
+  <input type="password" id="password-" class="input" required>
+  <input type="checkbox" id="eye-" class="eye-input">
+  <label for="eye-" tabindex="0" class="action">
+    <span class="eye"><svg height="1em" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" r="64"/><path d="m394.82 141.18c-43.72-29.98-90.51-45.18-139.06-45.18-43.69 0-86.28 13-126.59 38.48-40.65 25.75-80.5 72.52-113.17 121.52 26.42 44 62.56 89.24 100.2 115.18 43.18 29.74 90.13 44.82 139.56 44.82 49 0 95.85-15.07 139.3-44.79 38.25-26.21 74.65-71.39 100.94-115.21-26.38-43.43-62.9-88.56-101.18-114.82zm-138.82 210.82a96 96 0 1 1 96-96 96.11 96.11 0 0 1 -96 96z"/></svg></span>
+    <span class="eye-off"><svg height="1em" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m240.44.03h31.11v511.95h-31.11z" transform="matrix(.70710678 -.70710678 .70710678 .70710678 -106.04 256)"/><path d="m259.34 192.09 60.57 60.57a64.07 64.07 0 0 0 -60.57-60.57z"/><path d="m252.66 319.91-60.57-60.57a64.07 64.07 0 0 0 60.57 60.57z"/><path d="m256 352a96 96 0 0 1 -92.6-121.34l-69.07-69.08c-28.21 25.84-55.09 59.56-78.33 94.42 26.42 44 62.56 89.24 100.2 115.18 43.18 29.74 90.13 44.82 139.56 44.82a233.47 233.47 0 0 0 79.24-13.8l-53.61-53.6a95.84 95.84 0 0 1 -25.39 3.4z"/><path d="m256 160a96 96 0 0 1 92.6 121.34l70.66 70.66c29.15-26.25 56.07-61.56 76.74-96-26.38-43.43-62.9-88.56-101.18-114.82-43.72-29.98-90.51-45.18-139.06-45.18a222.92 222.92 0 0 0 -78.21 14.29l53.11 53.11a95.84 95.84 0 0 1 25.34-3.4z"/></svg></span>
+  </label>
+  <br>
+
+  <details>
+    <summary>Comment</summary>
+    <span class="content">
+      The comment can be markdown text.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
+    </span>
+  </details>
+  <textarea id="comment-input-" class="input" required></textarea>
+  <div id="comment-markdown-" class="comment-markdown"></div>
+
+  <button
+    type="button"
+    id="comment-submit-"
+    data-post-id="/blog/2026/02/07/encrypted-email"
+    data-post-title="The P in PGP isn’t for pain: encrypting emails in the browser"
+    class="comment-submit"
+    tabindex="0"
+  >send comment via email</button>
+
+  <label class="action cancel-reply" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
+
+  <input type="checkbox" id="preview-" class="preview-input">
+  <label for="preview-" tabindex="0" class="action"></label>
+
+</form>
+
+    </div>
+  
+  <div class="content">
+    
+      No comments to show.
+    
+  </div>
+</div>
+
+<script>
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        // Prevent loading the same script twice
+        if (document.querySelector(`script[src="${src}"]`)) {
+            resolve();
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}
+
+</script>
+
+<script>
+async function encrypt(message) {
+    const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEaXPMYBYJKwYBBAHaRw8BAQdAWqhxt+He41nPZjJMb+ODDItKwqScYP6ZdD/L
+lvexjPS0M2NrYXJkYXJpcy5naXRodWIuaW8gPGNrYXJkYXJpcy5naXRodWIuaW9A
+Z21haWwuY29tPoiQBBMWCgA4FiEE/fBpvxnBo9g9MtNAmWHYgbE8j/MFAmlzzGAC
+GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQmWHYgbE8j/N7KwD/QvcSTPYZ
+L+Yg1OJxyaIY1EL01HDvHfInnBtiSB0vxxMBAIEotvyirzgmGZtwFaEhVzoerN9p
+Kk24oumSG3u4VLAEuDgEaXPMYBIKKwYBBAGXVQEFAQEHQOoOISawzABAFbTEPcoD
+UKDVO2WdND0DgVDtaXO3b0l/AwEIB4h4BBgWCgAgFiEE/fBpvxnBo9g9MtNAmWHY
+gbE8j/MFAmlzzGACGwwACgkQmWHYgbE8j/OaOgEAj516yD04L5FhC8MjEZgBzLYz
+OaiUUjRwwv5C6r0mv1AA/1bOOdtmGaOvNRnea3BQrzJ5lbUyXV1+aJZ5HdW6i1QA
+=nUdM
+-----END PGP PUBLIC KEY BLOCK-----
+`.trim();
+
+    await loadScript('/openpgp.min.js');
+
+    return await window.openpgp.encrypt({
+        message: await openpgp.createMessage({ text: message }),
+        encryptionKeys: await window.openpgp.readKey({ armoredKey: publicKeyArmored })
+    });
+}
+
+</script>
+
+<script>
+document.querySelectorAll('.preview-input').forEach(el => {
+    const id = el.id.replace(/^preview-/, '');
+    const textarea = document.getElementById(`comment-input-${id}`);
+    const markdown = document.getElementById(`comment-markdown-${id}`);
+    el.addEventListener('change', async function() {
+        if (this.checked) {
+
+            await loadScript('/markdown-it.min.js');
+
+            const md = window.markdownit({ html: true });
+
+            textarea.style.display = "none";
+            markdown.style.display = "block";
+            markdown.innerHTML = md.render(textarea.value);
+        } else {
+            textarea.style.display = "block";
+            markdown.style.display = "none";
+        }
+    })
+});
+
+</script>
+
+<script>
+async function sendEmail(postId, postTitle, replyId = "") {
+    const form = document.getElementById(`comment-form-${replyId}`);
+    if (!form.checkValidity()) {
+        return;
+    }
+    const username = document.getElementById(`username-${replyId}`).value.trim();
+    const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
+    const password = document.getElementById(`password-${replyId}`).value.trim();
+
+    const subject = `Comment: ${postTitle}`;
+    let data = `post: ${postId}`;
+    data += replyId ? `\nrepliesTo: ${replyId}` : "";
+    data += `
+name: ${username}
+password: ${password}
+comment: |-
+${comment.split('\n').map(line => "  " + line).join('\n')}
+`;
+    const encryptedData = await encrypt(data);
+
+    const body = `Your comment has been encrypted and is ready to be submitted.
+You can follow the replies to your comments by subscribing to your feed at
+https://ckardaris.github.io/blog/user/${username}/replies.xml
+The feed is created after your first comment is posted.
+Please do not edit the following lines.
+
+${encryptedData}
+`;
+
+    const mailto = "mailto:ckardaris.github.io@gmail.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    window.open(mailto, "_blank");
+}
+
+// Register on-click callback for the comment submit buttons.
+document.querySelectorAll(".comment-submit").forEach(el => {
+    el.addEventListener("click", e => {
+        sendEmail(
+            e.currentTarget.dataset.postId,
+            e.currentTarget.dataset.postTitle,
+            e.currentTarget.id.replace("comment-submit-", "")
+        )
+    });
+})
+
+</script>
+
+<script>
+document.querySelectorAll('.eye-input').forEach(el => {
+    el.addEventListener('change', function() {
+        this.previousElementSibling.type = this.checked ? 'text' : 'password';
+    })
+});
+
+</script>
+
+<style>
+
+
+</style>
+
+
+
+  <a class="u-url" href="/blog/2026/02/07/encrypted-email.html" hidden></a>
+</article>
+
+<script>
+// https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+document.querySelectorAll('pre.highlight').forEach(codeBlock => {
+    var copyButton = document.createElement('button');
+    copyButton.type = 'button';
+    copyButton.ariaLabel = 'Copy code to clipboard';
+    copyButton.innerText = 'Copy';
+
+    codeBlock.append(copyButton);
+
+    copyButton.addEventListener('click', function() {
+        var code = codeBlock.querySelector('code').innerText.trim();
+        window.navigator.clipboard.writeText(code);
+
+        copyButton.innerText = 'Copied';
+
+        setTimeout(function() {
+            copyButton.blur();
+            setTimeout(function() {
+                copyButton.innerText = 'Copy';
+            }, 250);
+        }, 4000);
+    });
+});
+
+</script>
+
+
+  </div>
+</main>
+
+<script>
+// Unhide all elements that require JS to work properly.
+document.querySelectorAll('.hidden-no-js').forEach(el => {
+    el.classList.remove('hidden-no-js');
+});
+
+</script>
+
+</body>
+</html>
