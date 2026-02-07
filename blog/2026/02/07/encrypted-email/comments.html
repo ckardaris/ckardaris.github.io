@@ -1,0 +1,28 @@
+---
+layout: default
+permalink: /blog/2026/02/07/encrypted-email/comments
+title: "The P in PGP isn’t for pain: encrypting emails in the browser - Comments"
+nav: Blog
+feed:
+  url: /blog/2026/02/07/encrypted-email/comments
+  title: "Comments on 'The P in PGP isn’t for pain: encrypting emails in the browser'"
+---
+<div class="blog-subtitle">
+subscribe to this <a href="/blog/2026/02/07/encrypted-email/comments.xml">feed</a>
+</div>
+^^^
+
+<div class="blog-subpage-title">Comments on <a href="/blog/2026/02/07/encrypted-email">The P in PGP isn’t for pain: encrypting emails in the browser</a>:</div>
+
+
+
+{% assign selected_comments = "" | split: "" %}
+{% assign comments = site.data.comments | where_exp: "comment", "selected_comments contains comment.id" %}
+
+{% include comments.html
+        comments=comments
+        top=false
+        context=true
+        post=false
+        flatten=false
+%}

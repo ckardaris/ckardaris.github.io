@@ -1,0 +1,21 @@
+---
+---
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://ckardaris.github.io/blog/2026/02/07/encrypted-email/comments.xml</id>
+  <title>Comments on 'The P in PGP isn’t for pain: encrypting emails in the browser'</title>
+  <updated>2026-02-07T00:00:00+00:00</updated>
+  <author>
+    <name>Charalampos Kardaris</name>
+  </author>
+  <link href="https://ckardaris.github.io/blog/2026/02/07/encrypted-email/comments.xml" rel="self"/>
+  <link href="https://ckardaris.github.io/blog/2026/02/07/encrypted-email/comments.html" rel="alternate"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
+  <entry>
+    <id>https://ckardaris.github.io/blog/2026/02/07/encrypted-email/comments.html</id>
+    <title>No comments yet.</title>
+    <updated>2026-02-07T00:00:00+00:00</updated>
+    <link href="https://ckardaris.github.io/blog/2026/02/07/encrypted-email/comments.html"/>
+    <published>2026-02-07T00:00:00+00:00</published>
+  </entry>
+</feed>

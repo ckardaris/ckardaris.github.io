@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-file="blog/_drafts/$(date +%Y-%m-%d)-$1.md"
+drafts="blog/_drafts"
+
+mkdir -p "$drafts"
+
+file="$drafts/$(date +%Y-%m-%d)-$1.md"
 touch "$file"
 cat << EOF > "$file"
 ---

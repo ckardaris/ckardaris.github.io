@@ -18,4 +18,7 @@ git add ./assets/*
 # Format python scripts
 fd .py _scripts -x ruff format
 
+./_scripts/make_feeds.py
+git add blog
+
 exec git diff-index --check --cached $against --
