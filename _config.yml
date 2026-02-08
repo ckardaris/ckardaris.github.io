@@ -29,10 +29,6 @@ socials:
     svg: email
     alt: Email logo
     label: Send email to Charalampos Kardaris
-  - url: /feed.xml
-    svg: rss
-    alt: RSS logo
-    label: Open RSS feed of Charalampos Kardaris's blog
   - url: https://www.linkedin.com/in/ckardaris
     svg: linkedin
     alt: LinkedIn logo
