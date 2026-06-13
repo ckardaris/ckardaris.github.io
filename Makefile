@@ -12,6 +12,10 @@ setup:
 	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
 	ln -sf ../../_scripts/pre-commit.sh .git/hooks/pre-commit
 
+.PHONY: develop
+develop:
+	nix develop
+
 .PHONY: comments
 comments:
 	@./_scripts/make_comments.py
