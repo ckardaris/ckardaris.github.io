@@ -1,0 +1,14 @@
+# ./.tmuxinator.yml
+
+name: blog
+root: .
+
+pre_window: nix develop
+
+windows:
+  - blog:
+      layout: main-vertical
+      panes:
+        - tmux resize-pane -t 1 -x 50% && vim
+        - make server
+        - clear
