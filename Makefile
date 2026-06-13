@@ -6,6 +6,7 @@ endif
 
 .PHONY: setup
 setup:
+	podman build -t ckardaris.github.io .
 	rm -f .git/hooks/post-commit
 	rm -f .git/hooks/pre-commit
 	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
