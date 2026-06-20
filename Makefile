@@ -60,3 +60,8 @@ deploy:
 .PHONY: responsive
 responsive:
 	@./_scripts/make-responsive.sh
+
+.PHONY: check-commit
+check-commit:
+	@git log -n1
+	@(cd _site; git log -n1)
