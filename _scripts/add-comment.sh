@@ -6,7 +6,7 @@ set -o pipefail
 
 # Save yaml clipboard content.
 tmp="$(mktemp)"
-cliptext="$(xclip -o -sel clip)"
+cliptext="$(wl-paste)"
 if printf "%s" "$cliptext" | rg "BEGIN PGP MESSAGE" &>/dev/null
 then
     printf "%s" "$cliptext" | gpg --decrypt > "$tmp"
