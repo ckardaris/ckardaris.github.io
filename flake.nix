@@ -8,7 +8,7 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        IMAGE = "localhost/ckardaris.github.io";
+        IMAGE = "localhost/ckardaris.com";
         buildInputs = with pkgs; [
           python313
           python313Packages.pyyaml

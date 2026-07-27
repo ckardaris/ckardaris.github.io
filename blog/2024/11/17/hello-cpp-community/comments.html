@@ -116,14 +116,14 @@ ${comment.split('\n').map(line => "  " + line).join('\n')}
 
     const body = `Your comment has been encrypted and is ready to be submitted.
 You can follow the replies to your comments by subscribing to your feed at
-https://ckardaris.github.io/blog/user/${username}/replies.xml
+https://ckardaris.com/blog/user/${username}/replies.xml
 The feed is created after your first comment is posted.
 Please do not edit the following lines.
 
 ${encryptedData}
 `;
 
-    const mailto = "mailto:ckardaris.github.io@gmail.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    const mailto = "mailto:blog@ckardaris.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
     window.open(mailto, "_blank");
 }
 
