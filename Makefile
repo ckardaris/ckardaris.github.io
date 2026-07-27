@@ -6,7 +6,7 @@ endif
 
 .PHONY: setup
 setup:
-	podman build -t ckardaris.github.io .
+	podman build -t ckardaris.com .
 	rm -f .git/hooks/post-commit
 	rm -f .git/hooks/pre-commit
 	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
@@ -45,7 +45,7 @@ bash: image svg
 server: image svg
 	podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} \
 		bundle exec jekyll serve --host 0.0.0.0 --incremental --drafts \
-		--livereload --destination /tmp/ckardaris.github.io/
+		--livereload --destination /tmp/ckardaris.com/
 
 
 .PHONY: build

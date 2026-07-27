@@ -21,11 +21,11 @@
 title: Charalampos Kardaris
 author: Charalampos Kardaris
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ckardaris.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-mailto: "ckardaris.github.io@gmail.com"
+url: "https://ckardaris.com" # the base hostname & protocol for your site, e.g. http://example.com
+mailto: "blog@ckardaris.com"
 pgp: pgp-public-key.txt
 socials:
-  - url: mailto:ckardaris@outlook.com
+  - url: mailto:contact@ckardaris.com
     svg: email
     alt: Email logo
     label: Send email to Charalampos Kardaris
