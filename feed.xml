@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-07-27T21:19:58+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">New address, new adventures</title><link href="https://ckardaris.com/blog/2026/07/27/new-address.html" rel="alternate" type="text/html" title="New address, new adventures" /><published>2026-07-27T00:00:00+00:00</published><updated>2026-07-27T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/07/27/new-address</id><content type="html" xml:base="https://ckardaris.com/blog/2026/07/27/new-address.html"><![CDATA[<p>I had been thinking of buying my own domain to host this website for a while.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-07-28T12:22:07+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">New address, new adventures</title><link href="https://ckardaris.com/blog/2026/07/27/new-address.html" rel="alternate" type="text/html" title="New address, new adventures" /><published>2026-07-27T00:00:00+00:00</published><updated>2026-07-27T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/07/27/new-address</id><content type="html" xml:base="https://ckardaris.com/blog/2026/07/27/new-address.html"><![CDATA[<p>I had been thinking of buying my own domain to host this website for a while.
 I was always putting it off, since it was not a priority or a strict necessity.
 But, lately, I reached a tipping point.</p>
 
@@ -21,11 +21,12 @@ setting everything up.</p>
 domain</a>
 for GitHub Pages to avoid any future surprises and added any additional DNS records needed.</p>
 
-<p>I created a second static website repository on GitHub and pushed the existing repository to it.
+<p><del>I created a second static website repository on GitHub and pushed the existing repository to it.
 As the first order of business (i.e. first commit) I made sure to fix any “stale” links pointing to
-the old <code class="language-plaintext highlighter-rouge">ckardaris.github.io</code> domain to now point to the new one.</p>
+the old <code class="language-plaintext highlighter-rouge">ckardaris.github.io</code> domain to now point to the new one.</del></p>
 
-<p>Finally, I edited the old static site to redirect to the new one automatically and that was all<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+<p><del>Finally, I edited the old static site to redirect to the new one automatically and that was
+all<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</del></p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;script&gt;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://ckardaris.com</span><span class="dl">"</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">;</span>
@@ -34,6 +35,12 @@ the old <code class="language-plaintext highlighter-rouge">ckardaris.github.io</
     <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"refresh"</span> <span class="na">content=</span><span class="s">"0; url=https://ckardaris.com{{ page.url }}"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/noscript&gt;</span>
 </code></pre></div></div>
+
+<p><em>UPDATE</em>: It turns out I did not read the GitHub Pages documentation carefully enough.
+Creating the second repository and the manual redirects were not needed.
+By setting the custom domain in the original repository, GitHub handles the redirects from the
+default domain (i.e. <code class="language-plaintext highlighter-rouge">ckardaris.github.io</code>), while properly returning the <code class="language-plaintext highlighter-rouge">301</code> status code in the
+process.</p>
 
 <p>This was my first ever domain purchase and I have to say everything went quite smoothly, so I am
 satisfied.</p>
