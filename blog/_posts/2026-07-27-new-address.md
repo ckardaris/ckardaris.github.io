@@ -28,11 +28,12 @@ I [verified the new
 domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)
 for GitHub Pages to avoid any future surprises and added any additional DNS records needed.
 
-I created a second static website repository on GitHub and pushed the existing repository to it.
+~~I created a second static website repository on GitHub and pushed the existing repository to it.
 As the first order of business (i.e. first commit) I made sure to fix any "stale" links pointing to
-the old `ckardaris.github.io` domain to now point to the new one.
+the old `ckardaris.github.io` domain to now point to the new one.~~
 
-Finally, I edited the old static site to redirect to the new one automatically and that was all[^1].
+~~Finally, I edited the old static site to redirect to the new one automatically and that was
+all[^1].~~
 
 ``` html
   <script>
@@ -42,6 +43,12 @@ Finally, I edited the old static site to redirect to the new one automatically a
     <meta http-equiv="refresh" content="0; url=https://ckardaris.com{% raw %}{{ page.url }}{% endraw %}">
   </noscript>
 ```
+
+*UPDATE*: It turns out I did not read the GitHub Pages documentation carefully enough.
+Creating the second repository and the manual redirects were not needed.
+By setting the custom domain in the original repository, GitHub handles the redirects from the
+default domain (i.e. `ckardaris.github.io`), while properly returning the `301` status code in the
+process.
 
 [^1]: Reading online I got the understanding that a proper redirect emitting the `301` status code
     would be preferable in order to preserve any search engine ranking that I had. But, honestly, I
