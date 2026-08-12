@@ -11,6 +11,7 @@ setup:
 	rm -f .git/hooks/pre-commit
 	ln -sf ../../_scripts/post-commit.sh .git/hooks/post-commit
 	ln -sf ../../_scripts/pre-commit.sh .git/hooks/pre-commit
+	git clone git@github.com:ckardaris/ckardaris.github.io.git _site
 
 .PHONY: comments
 comments:

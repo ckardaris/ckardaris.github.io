@@ -15,6 +15,8 @@
           python313Packages.feedgen
           python313Packages.markdown
           ruff
+          fd
+          svgcleaner
         ];
       };
     };
