@@ -59,6 +59,7 @@ plugins:
 header_pages:
   - blog.html
   - photography.html
+  - software.html
   - about.md
 
 # Exclude from processing.

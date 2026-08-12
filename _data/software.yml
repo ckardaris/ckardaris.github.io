@@ -1,0 +1,23 @@
+
+- name: tormix
+  archived: true
+  description: A terminal user interface for the transmission-cli.
+  url: https://github.com/ckardaris/tormix
+  technologies:
+    - bash
+
+- name: ucollage
+  archived: true
+  description: An extensible command line image viewer inspired by vim.
+  url: https://github.com/ckardaris/ucollage
+  technologies:
+    - bash
+
+- name: Klisi
+  archived: false
+  description: A GTK4/Adwaita callgrind profile viewer and generator.
+  url: https://gitlab.com/ckardaris/klisi
+  technologies:
+    - clojure
+    - gtk
+    - adwaita
