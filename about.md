@@ -12,3 +12,8 @@ Athens](https://www.ece.ntua.gr/en) and now I am working as a software engineer 
 
 I like talking about technology, sports and music among other things. I also
 like reading books.
+
+The favicon for this website is an edit of the [original
+icon](https://www.svgrepo.com/svg/429856/island-land-nature) by [Raisul
+Hadi](https://dribbble.com/Broc_Simp) available with the CC Attribution License
+via [SVG Repo](https://www.svgrepo.com).
