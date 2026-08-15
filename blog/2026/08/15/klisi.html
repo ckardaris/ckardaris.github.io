@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Klisi | Charalampos Kardaris</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Klisi" />
+<meta name="author" content="Charalampos Kardaris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Klisi is a GTK4/Adwaita callgrind profile viewer and generator" />
+<meta property="og:description" content="Klisi is a GTK4/Adwaita callgrind profile viewer and generator" />
+<link rel="canonical" href="https://ckardaris.com/blog/2026/08/15/klisi.html" />
+<meta property="og:url" content="https://ckardaris.com/blog/2026/08/15/klisi.html" />
+<meta property="og:site_name" content="Charalampos Kardaris" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-08-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Klisi" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Charalampos Kardaris"},"dateModified":"2026-08-15T00:00:00+00:00","datePublished":"2026-08-15T00:00:00+00:00","description":"Klisi is a GTK4/Adwaita callgrind profile viewer and generator","headline":"Klisi","mainEntityOfPage":{"@type":"WebPage","@id":"https://ckardaris.com/blog/2026/08/15/klisi.html"},"url":"https://ckardaris.com/blog/2026/08/15/klisi.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://ckardaris.com/feed.xml" title="Charalampos Kardaris" /><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body><main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">Klisi</h1></header><div class="post-meta">
+        <time class="dt-published" datetime="2026-08-15T00:00:00+00:00" itemprop="datePublished">Aug 15, 2026
+</time>
+on
+<a href=/blog>Charalampos Kardaris' blog</a>, view <a href="#comments">comments</a>
+
+      </div>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <blockquote>
+  <p>From Ancient Greek κλῆσις (klêsis), related to καλέω (kaléō, “I call”).</p>
+</blockquote>
+
+<p>After around 3 months of effort, I have finally released the first version of
+<a href="https://gitlab.com/ckardaris/klisi">Klisi</a>.</p>
+
+<p>Klisi is the result of a desire to fill a small gap in the available
+application offering for the <a href="https://www.gnome.org/">GNOME</a> desktop
+environment and a recent interest in the <a href="https://clojure.org">Clojure</a>
+programming language.</p>
+
+<p>I wanted to develop a <strong>callgrind profile viewer</strong> that better integrates with GNOME and can be used as
+a simplified alternative to <a href="https://kcachegrind.github.io">KCacheGrind</a>.</p>
+
+<blockquote>
+  <p>Have you heard enough already? <a href="https://gitlab.com/ckardaris/klisi#installation">Install</a> and try
+out the application.
+You can come back for the rest of the write-up and leave a comment with your thoughts.</p>
+</blockquote>
+
+<p>It all started around one year ago.</p>
+
+<p>After more than 7 years of using <a href="https://i3wm.org/">i3</a> as my window manager —
+through the end of my university years and the start of my professional career
+— I decided that it was time to embrace
+<a href="https://wayland.freedesktop.org/">Wayland</a>.
+The obvious choice would be to continue using another tiling window manager.
+<a href="https://swaywm.org/">sway</a> would be the prime candidate.
+But I was also eyeing a more complete solution.
+Tiling window managers are great, but they require a lot more manual
+configuration to have a fully functioning system.
+I am grateful for what I learned in the process, but I was ready to off-load
+some of that work to someone else.</p>
+
+<p>So, I switched to GNOME.
+I had always liked the aesthetics of its applications, so having them integrate
+natively with the whole environment appealed to me.
+I had also noticed that I could translate my i3 workflow directly to GNOME
+without any significant changes.
+I was already using most windows maximized and delegating to
+<a href="https://tmux.app/">tmux</a> for my terminal tiling needs.
+Scriptability is a little trickier in GNOME than in i3, but GNOME would handle
+most of my needs now anyway.</p>
+
+<p>This was last November.</p>
+
+<p>Some time after that — in April — I saw on <a href="https://news.ycombinator.com/">Hacker News</a> the announcement for the <a href="https://clojure.org/about/documentary">Clojure documentary</a>.
+People seemed excited about it, so I decided to watch it.
+Going in, I had zero knowledge about Clojure.
+I did not know anything about <a href="https://en.wikipedia.org/wiki/Rich_Hickey">Rich Hickey</a>.
+I did not know anything about the philosophy of the language.
+I had only read about it in various post titles, but had never gotten down to study it and use it.</p>
+
+<p>The documentary was engaging enough and it piqued my interest.
+I wanted to try to learn another functional programming language after previous
+<a href="https://www.haskell.org/">Haskell</a> adventures and this seemed like a nice
+opportunity.
+Clojure being a Lisp dialect made the whole premise even more appealing.</p>
+
+<p>I started by reading all beginner-friendly documentation on the official
+website and then went over <a href="https://www.braveclojure.com/clojure-for-the-brave-and-true">Clojure for the Brave and
+True</a> trying to be
+as hands-on as possible.</p>
+
+<p>I was ready for the next step.
+They say one of the best ways to learn and understand a programming language is
+to use it in a project.
+And this is exactly what I did.
+I set out to combine Clojure and GNOME application development.</p>
+
+<p>On the 2nd of May, I made the first commit of Klisi.
+At the time, I had not yet settled on a name and I was only able to launch an
+empty <a href="https://www.gtk.org/">GTK</a> window.
+Today, the application can do a little more.
+After a long development list, consisting of required features and other
+ideas that came to my mind while developing, I believe it is good enough to
+serve other people.</p>
+
+<p>This brings us to today and the first release.</p>
+
+<p>It was time to share my application with the world.
+I hope that someone will find it useful and decide to make it a part of their
+development workflow.</p>
+
+<p>In any case, I am very satisfied by the result so far.
+I have learned a lot and I will continue to do so, while I further explore
+Clojure, GTK and <a href="https://flatpak.org/">Flatpak</a> development.
+There is a long way to go and I believe all the lessons I will learn in the
+process will be valuable one way or another.</p>
+
+<p>This is it from me for now.
+Try out Klisi and let me know what you think.
+I will appreciate any well-meaning feedback.</p>
+
+  </div><div class="tags">
+    Tags:
+    
+      <a href="/blog/tags/programming" class="tag">programming</a>
+    
+  </div>
+  <div
+  id="comments"
+  class="comments comment-separator"
+>
+  
+    <div class="top">
+     <span class="title">Comments:</span>
+     <a class=action href="/blog/2026/08/15/klisi/comments.xml">feed</a>
+     <input type="checkbox" id="reply-" class="reply-input">
+     
+
+<noscript>
+    <a class="action reply-label" tabindex="0" href=mailto:blog@ckardaris.com?subject=Comment:%20Klisi&body=%23%20If%20you%20want%20extra%20security,%20you%20can%20encrypt%20this%20email%20using%20the%20public%20key%0A%23%20found%20at%20https://ckardaris.com/pgp-public-key.txt.%0A%23%20You%20can%20follow%20the%20replies%20to%20your%20comments%20by%20subscribing%20to%20your%20feed%20at%0A%23%20https://ckardaris.com/blog/user/%3Cname%3E/replies.xml%0A%23%20The%20feed%20is%20created%20after%20your%20first%20comment%20is%20posted.%0A%0Apost:%20/blog/2026/08/15/klisi%0A%23%20The%20name%20will%20be%20linked%20to%20your%20email%20address.%0A%23%20If%20you%20change%20your%20name,%20your%20old%20name%20will%20be%20replaced%20in%20all%20comments.%0Aname:%0A%23%20The%20password%20is%20used%20to%20authenticate%20against%20your%20email%20address.%0A%23%20The%20password%20is%20linked%20to%20your%20email%20address%20after%20your%20first%20comment.%0A%23%20After%20the%20first%20comment,%20you%20have%20to%20keep%20using%20the%20same%20password.%0A%23%20You%20may%20change%20or%20reset%20your%20password%20at%20https://ckardaris.com/blog/account.%0Apassword:%0Acomment:%20%7C-%0A%20%20%23%20The%20comment%20can%20be%20markdown%20text.%0A%20%20%23%20Write%20your%20comment%20under%20this%20line.%20Align%20it%20with%20the%20'%23'%20character.
+>add comment</a>
+</noscript>
+
+<label class="action reply-label hidden-no-js" tabindex="0" for="reply-">add comment</label>
+
+<form id="comment-form-" class="input-form">
+
+  <details>
+    <summary>Name or nickname</summary>
+    <span class="content">
+      The name will be linked to your email address.<br>
+      If you change your name, your old name will be replaced in all comments.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
+    </span>
+  </details>
+  <input type="text" id="username-" class="input" required>
+  <br>
+
+  <details>
+    <summary>Password</summary>
+    <span class="content">
+      The password is used to authenticate against your email address.<br>
+      The password is linked to your email address after your first comment.<br>
+      After the first comment, you have to keep using the same password.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.<br>
+      You may change or reset your password at the <a href="/blog/account">account</a> page.
+    </span>
+  </details>
+  <input type="password" id="password-" class="input" required>
+  <input type="checkbox" id="eye-" class="eye-input">
+  <label for="eye-" tabindex="0" class="action">
+    <span class="eye"><svg height="1em" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" r="64"/><path d="m394.82 141.18c-43.72-29.98-90.51-45.18-139.06-45.18-43.69 0-86.28 13-126.59 38.48-40.65 25.75-80.5 72.52-113.17 121.52 26.42 44 62.56 89.24 100.2 115.18 43.18 29.74 90.13 44.82 139.56 44.82 49 0 95.85-15.07 139.3-44.79 38.25-26.21 74.65-71.39 100.94-115.21-26.38-43.43-62.9-88.56-101.18-114.82zm-138.82 210.82a96 96 0 1 1 96-96 96.11 96.11 0 0 1 -96 96z"/></svg></span>
+    <span class="eye-off"><svg height="1em" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m240.44.03h31.11v511.95h-31.11z" transform="matrix(.70710678 -.70710678 .70710678 .70710678 -106.04 256)"/><path d="m259.34 192.09 60.57 60.57a64.07 64.07 0 0 0 -60.57-60.57z"/><path d="m252.66 319.91-60.57-60.57a64.07 64.07 0 0 0 60.57 60.57z"/><path d="m256 352a96 96 0 0 1 -92.6-121.34l-69.07-69.08c-28.21 25.84-55.09 59.56-78.33 94.42 26.42 44 62.56 89.24 100.2 115.18 43.18 29.74 90.13 44.82 139.56 44.82a233.47 233.47 0 0 0 79.24-13.8l-53.61-53.6a95.84 95.84 0 0 1 -25.39 3.4z"/><path d="m256 160a96 96 0 0 1 92.6 121.34l70.66 70.66c29.15-26.25 56.07-61.56 76.74-96-26.38-43.43-62.9-88.56-101.18-114.82-43.72-29.98-90.51-45.18-139.06-45.18a222.92 222.92 0 0 0 -78.21 14.29l53.11 53.11a95.84 95.84 0 0 1 25.34-3.4z"/></svg></span>
+  </label>
+  <br>
+
+  <details>
+    <summary>Comment</summary>
+    <span class="content">
+      The comment can be markdown text.<br>
+      All comment data will be automatically encrypted with the <a href="/pgp-public-key.txt">public key</a>.
+    </span>
+  </details>
+  <textarea id="comment-input-" class="input" required></textarea>
+  <div id="comment-markdown-" class="comment-markdown"></div>
+
+  <button
+    type="button"
+    id="comment-submit-"
+    data-post-id="/blog/2026/08/15/klisi"
+    data-post-title="Klisi"
+    class="comment-submit"
+    tabindex="0"
+  >send comment via email</button>
+
+  <label class="action cancel-reply" tabindex="0" for="reply-" id="cancel-reply-label-">cancel</label>
+
+  <input type="checkbox" id="preview-" class="preview-input">
+  <label for="preview-" tabindex="0" class="action"></label>
+
+</form>
+
+    </div>
+  
+  <div class="content">
+    
+      No comments to show.
+    
+  </div>
+</div>
+
+<script>
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        // Prevent loading the same script twice
+        if (document.querySelector(`script[src="${src}"]`)) {
+            resolve();
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}
+
+</script>
+
+<script>
+async function encrypt(message) {
+    const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEafOVCxYJKwYBBAHaRw8BAQdAGyKlwYkI6yeyF0Ed0IDuni7rVgo0ahW1zTsR
+uPlmxgy0M2NrYXJkYXJpcy5naXRodWIuaW8gPGNrYXJkYXJpcy5naXRodWIuaW9A
+Z21haWwuY29tPoiQBBMWCgA4FiEEtA/U3xJPIjaDyJZkukzhBfqbYg4FAmnzlQsC
+GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQukzhBfqbYg5oFgD9HMY/VDlx
+M6D89Zyv6J9mmVjN+x7g7TPIbC8OzqesVr8A+gNY0+wBRE2x+Mfmfo9yZBMDSYCv
+sd3V1GOGj15sSIwAuDgEafOVCxIKKwYBBAGXVQEFAQEHQAddKQiYF6OuAwuQ6Lnq
+eaBGg7MNnIz5bOoens2nbwEEAwEIB4h4BBgWCgAgFiEEtA/U3xJPIjaDyJZkukzh
+BfqbYg4FAmnzlQsCGwwACgkQukzhBfqbYg4AJwD+OnMEWnhgZzXjcT0gcinFBRlw
+qZiu6SZ98WLshLfoHd8BAInF06SIr5FydltVpv373O/8GQNJRTR1VapfgfAmCR8L
+=Jj0J
+-----END PGP PUBLIC KEY BLOCK-----
+`.trim();
+
+    await loadScript('/openpgp.min.js');
+
+    return await window.openpgp.encrypt({
+        message: await openpgp.createMessage({ text: message }),
+        encryptionKeys: await window.openpgp.readKey({ armoredKey: publicKeyArmored })
+    });
+}
+
+</script>
+
+<script>
+document.querySelectorAll('.preview-input').forEach(el => {
+    const id = el.id.replace(/^preview-/, '');
+    const textarea = document.getElementById(`comment-input-${id}`);
+    const markdown = document.getElementById(`comment-markdown-${id}`);
+    el.addEventListener('change', async function() {
+        if (this.checked) {
+
+            await loadScript('/markdown-it.min.js');
+
+            const md = window.markdownit({ html: true });
+
+            textarea.style.display = "none";
+            markdown.style.display = "block";
+            markdown.innerHTML = md.render(textarea.value);
+        } else {
+            textarea.style.display = "block";
+            markdown.style.display = "none";
+        }
+    })
+});
+
+</script>
+
+<script>
+async function sendEmail(postId, postTitle, replyId = "") {
+    const form = document.getElementById(`comment-form-${replyId}`);
+    if (!form.checkValidity()) {
+        return;
+    }
+    const username = document.getElementById(`username-${replyId}`).value.trim();
+    const comment = document.getElementById(`comment-input-${replyId}`).value.trim();
+    const password = document.getElementById(`password-${replyId}`).value.trim();
+
+    const subject = `Comment: ${postTitle}`;
+    let data = `post: ${postId}`;
+    data += replyId ? `\nrepliesTo: ${replyId}` : "";
+    data += `
+name: ${username}
+password: ${password}
+comment: |-
+${comment.split('\n').map(line => "  " + line).join('\n')}
+`;
+    const encryptedData = await encrypt(data);
+
+    const body = `Your comment has been encrypted and is ready to be submitted.
+You can follow the replies to your comments by subscribing to your feed at
+https://ckardaris.com/blog/user/${username}/replies.xml
+The feed is created after your first comment is posted.
+Please do not edit the following lines.
+
+${encryptedData}
+`;
+
+    const mailto = "mailto:blog@ckardaris.com?subject=" + encodeURIComponent(subject) + "&Whatever&body=" + encodeURIComponent(body);
+    window.open(mailto, "_blank");
+}
+
+// Register on-click callback for the comment submit buttons.
+document.querySelectorAll(".comment-submit").forEach(el => {
+    el.addEventListener("click", e => {
+        sendEmail(
+            e.currentTarget.dataset.postId,
+            e.currentTarget.dataset.postTitle,
+            e.currentTarget.id.replace("comment-submit-", "")
+        )
+    });
+})
+
+</script>
+
+<script>
+document.querySelectorAll('.eye-input').forEach(el => {
+    el.addEventListener('change', function() {
+        this.previousElementSibling.type = this.checked ? 'text' : 'password';
+    })
+});
+
+</script>
+
+<style>
+
+
+</style>
+
+
+
+  <a class="u-url" href="/blog/2026/08/15/klisi.html" hidden></a>
+</article>
+
+<script>
+// https://remarkablemark.org/blog/2021/06/01/add-copy-code-to-clipboard-button-to-jeyll-site/
+document.querySelectorAll('pre.highlight').forEach(codeBlock => {
+    var copyButton = document.createElement('button');
+    copyButton.type = 'button';
+    copyButton.ariaLabel = 'Copy code to clipboard';
+    copyButton.innerText = 'Copy';
+
+    codeBlock.append(copyButton);
+
+    copyButton.addEventListener('click', function() {
+        var code = codeBlock.querySelector('code').innerText.trim();
+        window.navigator.clipboard.writeText(code);
+
+        copyButton.innerText = 'Copied';
+
+        setTimeout(function() {
+            copyButton.blur();
+            setTimeout(function() {
+                copyButton.innerText = 'Copy';
+            }, 250);
+        }, 4000);
+    });
+});
+
+</script>
+
+
+  </div>
+</main>
+
+<script>
+// Unhide all elements that require JS to work properly.
+document.querySelectorAll('.hidden-no-js').forEach(el => {
+    el.classList.remove('hidden-no-js');
+});
+
+</script>
+
+</body>
+</html>
