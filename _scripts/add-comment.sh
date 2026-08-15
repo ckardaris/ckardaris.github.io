@@ -110,10 +110,10 @@ yq -i ".email = \"$email_sha\"" "$file"
 yq -i ".auth = \"$auth_sha\"" "$file"
 yq -i "del(.password)" "$file"
 
-if ! make comments
+if ! just comments
 then
     exit_code="$?"
     rm "$file"
     exit "$exit_code"
 fi
-make feeds
+just feeds

@@ -58,8 +58,8 @@ plugins:
 
 header_pages:
   - blog.html
-  - photography.html
   - software.html
+  - photography.html
   - about.md
 
 # Exclude from processing.
@@ -71,7 +71,7 @@ header_pages:
 # their entries' file path in the `include:` list.
 #
 exclude:
-  - Makefile
+  - justfile
   - Dockerfile
   - shell.nix
   - _scripts
