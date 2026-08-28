@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The P in PGP isn’t for pain: encrypting emails in the browser"
-tags: programming security website
+tags: programming website
 description: How to receive encrypted messages via emails with openPGP.js
 ---
 

@@ -24,3 +24,7 @@ icon](https://www.svgrepo.com/svg/429856/island-land-nature) by [Raisul
 Hadi](https://dribbble.com/Broc_Simp) available with the
 [CC-BY](https://creativecommons.org/licenses/by/4.0/) via [SVG
 Repo](https://www.svgrepo.com) and is also distributed under the same license.
+The fonts used are the iA Writer
+[Mono](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Mono) and
+[Quattro](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Quattro) available via the
+[SIL Open Font License](/assets/fonts/LICENSE.md).

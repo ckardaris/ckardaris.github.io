@@ -2,7 +2,8 @@
 
 // Define defaults for each variable.
 
-$base-font-family: sans-serif !default;
+$base-font-family: "iA Writer Quattro", sans-serif !default;
+$mono-font-family: "iA Writer Mono", monospace !default;
 $base-font-size:   1rem !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
@@ -24,6 +25,7 @@ $usable-width: $content-width - 2 * $spacing-unit;
 
 // Import partials.
 @import
+  "fonts",
   "colors",
   "base",
   "layout",
