@@ -5,6 +5,11 @@ tags: programming
 description: GUI applications should be fully driven by the keyboard using shortcuts
 ---
 
+This post has made it to the Hacker News front page.
+See the [discussion](https://news.ycombinator.com/item?id=49479837).
+
+---
+
 Last week I came across a [post on *Hacker
 News*](https://sockpuppet.org/blog/2026/08/20/stop-making-tuis/) that encouraged application
 developers to stop making terminal user interfaces[^1]
