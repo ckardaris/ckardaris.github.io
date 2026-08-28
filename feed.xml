@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-08-27T19:18:04+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">Klisi</title><link href="https://ckardaris.com/blog/2026/08/15/klisi.html" rel="alternate" type="text/html" title="Klisi" /><published>2026-08-15T00:00:00+00:00</published><updated>2026-08-15T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/15/klisi</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/15/klisi.html"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-08-28T15:07:35+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">New font</title><link href="https://ckardaris.com/blog/2026/08/27/new-font.html" rel="alternate" type="text/html" title="New font" /><published>2026-08-27T00:00:00+00:00</published><updated>2026-08-27T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/27/new-font</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/27/new-font.html"><![CDATA[<p>I saw the <a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Quattro">iA Writer Quattro</a>
+font and I liked it.</p>
+
+<p>So far, I was not explicitly using a font-family for this website and instead relied on the
+default <em>sans-serif</em> font provided by the browser.
+I thought it is time to change that and present a more unified experience for all readers.</p>
+
+<p>What do you think?</p>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="website" /><summary type="html"><![CDATA[I am trying out a new font for my website, the iA Writer Quattro]]></summary></entry><entry><title type="html">Klisi</title><link href="https://ckardaris.com/blog/2026/08/15/klisi.html" rel="alternate" type="text/html" title="Klisi" /><published>2026-08-15T00:00:00+00:00</published><updated>2026-08-15T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/15/klisi</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/15/klisi.html"><![CDATA[<blockquote>
   <p>From Ancient Greek κλῆσις (klêsis), related to καλέω (kaléō, “I call”).</p>
 </blockquote>
 
@@ -266,7 +273,7 @@ server, it is still possible to guarantee a reasonable level of security.
 And you can do so without requiring any complicated setup on the user side.</p>
 
 <p>To my eyes, this is a win for secure communication when email is used as the medium.
-Do you agree?</p>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><category term="security" /><category term="website" /><summary type="html"><![CDATA[How to receive encrypted messages via emails with openPGP.js]]></summary></entry><entry><title type="html">My comments run on email</title><link href="https://ckardaris.com/blog/2026/01/22/my-comments-run-on-email.html" rel="alternate" type="text/html" title="My comments run on email" /><published>2026-01-22T00:00:00+00:00</published><updated>2026-01-22T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/01/22/my-comments-run-on-email</id><content type="html" xml:base="https://ckardaris.com/blog/2026/01/22/my-comments-run-on-email.html"><![CDATA[<p>Not all blogs support commenting.
+Do you agree?</p>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><category term="website" /><summary type="html"><![CDATA[How to receive encrypted messages via emails with openPGP.js]]></summary></entry><entry><title type="html">My comments run on email</title><link href="https://ckardaris.com/blog/2026/01/22/my-comments-run-on-email.html" rel="alternate" type="text/html" title="My comments run on email" /><published>2026-01-22T00:00:00+00:00</published><updated>2026-01-22T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/01/22/my-comments-run-on-email</id><content type="html" xml:base="https://ckardaris.com/blog/2026/01/22/my-comments-run-on-email.html"><![CDATA[<p>Not all blogs support commenting.
 Initially, I considered doing without them.
 There are many places where one may share an article or blog post and start a discussion.
 I frequent <a href="https://news.ycombinator.com/news"><em>Hacker News</em></a><sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> myself and I really appreciate the
@@ -991,7 +998,7 @@ a few changes.</p>
 deserves a post of its own. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="dotfiles" /><category term="home-manager" /><category term="nix" /><category term="programming" /><summary type="html"><![CDATA[Generate parameterized files with the help of Nix Home Manager]]></summary></entry><entry><title type="html">std::cout « “Goodbye Meeting C++. Hello C++ Community.”;</title><link href="https://ckardaris.com/blog/2024/11/17/hello-cpp-community.html" rel="alternate" type="text/html" title="std::cout « “Goodbye Meeting C++. Hello C++ Community.”;" /><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/11/17/hello-cpp-community</id><content type="html" xml:base="https://ckardaris.com/blog/2024/11/17/hello-cpp-community.html"><![CDATA[<p>The train journey from Berlin to Brno takes around 7 hours.
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><summary type="html"><![CDATA[Generate parameterized files with the help of Nix Home Manager]]></summary></entry><entry><title type="html">std::cout « “Goodbye Meeting C++. Hello C++ Community.”;</title><link href="https://ckardaris.com/blog/2024/11/17/hello-cpp-community.html" rel="alternate" type="text/html" title="std::cout « “Goodbye Meeting C++. Hello C++ Community.”;" /><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/11/17/hello-cpp-community</id><content type="html" xml:base="https://ckardaris.com/blog/2024/11/17/hello-cpp-community.html"><![CDATA[<p>The train journey from Berlin to Brno takes around 7 hours.
 This gave me some time to reflect on my experience at this year’s <strong>Meeting C++</strong> in
 Berlin and start jotting down these words.</p>
 
@@ -1155,7 +1162,7 @@ always reach me on LinkedIn or by sending me an email. <a href="#fnref:1" class
 work. Check us out if you are not aware of us. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="c++" /><category term="conference" /><category term="report" /><summary type="html"><![CDATA[Trip report from Meeting C++ 2025]]></summary></entry><entry><title type="html">Finding the optional truth</title><link href="https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth.html" rel="alternate" type="text/html" title="Finding the optional truth" /><published>2024-05-16T00:00:00+00:00</published><updated>2024-05-16T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth.html"><![CDATA[<p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Understanding it deeply
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="trip" /><summary type="html"><![CDATA[Trip report from Meeting C++ 2025]]></summary></entry><entry><title type="html">Finding the optional truth</title><link href="https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth.html" rel="alternate" type="text/html" title="Finding the optional truth" /><published>2024-05-16T00:00:00+00:00</published><updated>2024-05-16T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth.html"><![CDATA[<p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Understanding it deeply
 and mastering it, though, is more challenging. Multiple definitions of the word
 apply here: <em>demanding</em> and <em>stimulating</em>.</p>
 
@@ -1346,7 +1353,7 @@ which ultimately expanded my knowledge.</p>
       <p>See <a href="https://en.cppreference.com/w/cpp/language/implicit_conversion">cppreference.com/…/language/implicit_conversion</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="c++" /><category term="programming" /><summary type="html"><![CDATA[Discovering a little more about C++ and std::optional]]></summary></entry><entry><title type="html">ChatGPT and the web ignorant</title><link href="https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant.html" rel="alternate" type="text/html" title="ChatGPT and the web ignorant" /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant.html"><![CDATA[<p>The first time I used ChatGPT I was astounded. Here was something that felt like
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><summary type="html"><![CDATA[Discovering a little more about C++ and std::optional]]></summary></entry><entry><title type="html">ChatGPT and the web ignorant</title><link href="https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant.html" rel="alternate" type="text/html" title="ChatGPT and the web ignorant" /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant.html"><![CDATA[<p>The first time I used ChatGPT I was astounded. Here was something that felt like
 magic. Since then, a lot more information has been made available about LLMs in
 general. Us laymen have peeked inside the magician’s hat. We know more about
 their capabilities and shortcomings. We know that they can hallucinate at times
@@ -1594,68 +1601,4 @@ theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</
       <p>Maybe there is a more elegant way to do it. Suggestions are welcome. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="jekyll" /><category term="programming" /><category term="website" /><summary type="html"><![CDATA[How ChatGPT helped me configure my Jekyll static website]]></summary></entry><entry><title type="html">See you at the library</title><link href="https://ckardaris.com/blog/2024/05/04/see-you-at-the-library.html" rel="alternate" type="text/html" title="See you at the library" /><published>2024-05-04T00:00:00+00:00</published><updated>2024-05-04T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/04/see-you-at-the-library</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/04/see-you-at-the-library.html"><![CDATA[<p>I was recently travelling again. On the first day of the trip, I had to work,
-but the hostel I was staying at did not have any quiet space for that purpose.
-I tried to use the common room; however, the morning cheers of vacationing
-children did not provide an ideal working environment.</p>
-
-<p>I had to evaluate my options. Many people working remotely go to cafés. They
-enjoy a cup of coffee and a piece of cake and hopefully something else
-later<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, until it is time to call it a day. Visiting the city for the first
-time, I had no idea where to find good cafés for working. I didn’t want to
-spend more time searching for a suitable place, when I should have already been
-working. So, I decided to play it safe.</p>
-
-<p>In the maps application on my phone, I entered:</p>
-<blockquote>
-  <p>library</p>
-</blockquote>
-
-<p>Libraries have always held a soft spot in my heart. I am a book aficionado and
-love learning new stuff, so a place that contains such a variety of books and
-knowledge naturally appeals to me. Despite this, I hadn’t visited a library
-with the intention of spending some productive time there in nearly five years.
-It was during my last year of studies. Before the whole Covid-19 adventure.</p>
-
-<p>I scanned the map on my phone for a library within walking distance and was
-satisfied that the main library of the city was only 1.5 kilometre down the
-street. I packed my laptop and headed towards there.</p>
-
-<p>The first visit to a previously unknown library is a pleasant experience for
-me.  It mostly comes down to the curiosity about the arrangement of the books,
-the availability of working spaces and, most importantly, the people that are
-already there. I did a brief tour around. I was looking for a suitable place to
-“camp”, while quickly observing the other library visitors. Some working alone,
-some students on a group project, some on the public computers.</p>
-
-<p>I soon had my spot. I unpacked my stuff and started working. I like to have my
-headphones on, when working in public spaces. But I don’t want to block all
-outside sounds. I like knowing that the environment around me is lively. It
-gives me a sense of purpose.</p>
-
-<p>I believe that the collective focus of people working or studying, even though
-they do not interact directly with one another, has an interesting effect which
-in turn makes me more focused on my work. It is what makes libraries unique.
-They are not just buildings or places of public service, but a vibrant social
-environment. It is also why I don’t plan to wait for five more years before my
-next visit.</p>
-
-<p>You should not wait either. If you ever need a change of scenery when working,
-you know what to do. Open the maps application on your phone<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> and enter the
-magic word:</p>
-<blockquote>
-  <p>library</p>
-</blockquote>
-
-<p>See you there.</p>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>Ordering once and staying there for multiple hours is at least rude in my
-opinion. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>Old-school ways of searching are not frowned upon. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="life" /><category term="travel" /><category term="work" /><summary type="html"><![CDATA[Libraries are amazing places. Here are some thoughts of mine about them.]]></summary></entry></feed>
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><category term="website" /><summary type="html"><![CDATA[How ChatGPT helped me configure my Jekyll static website]]></summary></entry></feed>

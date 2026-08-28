@@ -1,4 +1,60 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "iA Writer Mono";
+  src: url("fonts/iAWriterMonoS-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Mono";
+  src: url("fonts/iAWriterMonoS-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Mono";
+  src: url("fonts/iAWriterMonoS-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Mono";
+  src: url("fonts/iAWriterMonoS-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url("fonts/iAWriterQuattroS-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url("fonts/iAWriterQuattroS-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url("fonts/iAWriterQuattroS-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url("fonts/iAWriterQuattroS-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 /**
  *  Colors for my website (syntax highlighting and UI).
  */
@@ -27,13 +83,14 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 1rem/1.5 sans-serif;
+  font: 400 1rem/1.5 "iA Writer Quattro", sans-serif;
   color: #111;
   background-color: #fdfdfd;
   font-kerning: normal;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 
 /**
@@ -108,6 +165,7 @@ blockquote > :last-child {
  * Code formatting
  */
 pre, code {
+  font-family: "iA Writer Mono", monospace;
   margin: 0px;
 }
 
@@ -420,7 +478,7 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   font-size: 0.8em;
 }
 .input-form .input {
-  font: 400 1rem/1.5 sans-serif;
+  font: 400 1rem/1.5 "iA Writer Quattro", sans-serif;
   margin-bottom: 0.5em;
 }
 .input-form .eye-input {
@@ -454,7 +512,7 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   border: 2px solid transparent;
 }
 .input-form button {
-  font: 400 1rem/1.5 sans-serif;
+  font: 400 1rem/1.5 "iA Writer Quattro", sans-serif;
   background: #eef;
   color: #111;
   border: 0.1em solid #837297;
