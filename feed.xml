@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-08-28T15:07:35+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">New font</title><link href="https://ckardaris.com/blog/2026/08/27/new-font.html" rel="alternate" type="text/html" title="New font" /><published>2026-08-27T00:00:00+00:00</published><updated>2026-08-27T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/27/new-font</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/27/new-font.html"><![CDATA[<p>I saw the <a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Quattro">iA Writer Quattro</a>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-08-28T15:09:12+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">GUIs should be fully keyboard-driven</title><link href="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html" rel="alternate" type="text/html" title="GUIs should be fully keyboard-driven" /><published>2026-08-28T00:00:00+00:00</published><updated>2026-08-28T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html"><![CDATA[<p>Last week I came across a <a href="https://sockpuppet.org/blog/2026/08/20/stop-making-tuis/">post on <em>Hacker
+News</em></a> that encouraged application
+developers to stop making terminal user interfaces<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>
+(a.k.a. TUIs) and instead focus on graphical user interfaces (a.k.a. GUIs).
+The post reached the HN front page and sparked a lively debate in the
+<a href="https://news.ycombinator.com/item?id=49384210">comments</a> section.</p>
+
+<p>I think there is merit in both sides of the debate.
+On one hand, I understand the GUI-positive arguments of the post author.
+In theory, the capabilities of GUI application frameworks are a superset of the capabilities of
+their TUI counterparts, so they should be preferred.
+On the other hand, as a heavy <em>terminal user</em>, I <em>also</em> greatly appreciate all TUIs that allow me to
+“stay” in the terminal and fulfill all my needs.</p>
+
+<p>But I want to oppose a recurring argument in favor of TUIs that in my opinion does not have a solid
+foundation<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.
+To paraphrase various commenters:</p>
+
+<blockquote>
+  <p>TUIs should be preferred because they are keyboard-driven.</p>
+</blockquote>
+
+<p>While it’s true that if you randomly pick a GUI and a TUI application, the latter is more probable
+to be fully keyboard-driven, this does not tip the scale in favor of developing TUIs over GUIs<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.
+What it does is highlight the inadequacies of keyboard navigation in many GUI applications.</p>
+
+<p>There is nothing preventing a GUI from being fully keyboard-driven<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup> just like — or even better
+than — a TUI.
+In fact, many GUI framework application guidelines explicitly encourage GUI application developers
+to provide support for keyboard-driven navigation that covers the whole functionality of the
+application.</p>
+
+<p>For example, the GNOME Human Interface Guidelines state that <a href="https://developer.gnome.org/hig/guidelines/keyboard.html#:~:text=Just%20as%20it%20should%20be%20possible%20to%20perform%20every%20action%20with%20a%20pointing%20device%2C%20every%20action%20should%20also%20be%20possible%20with%20the%20keyboard"><em>just as it should be possible to perform every
+action with a pointing device, every action should also be possible with the
+keyboard</em></a>
+and that <a href="https://developer.gnome.org/hig/guidelines/keyboard.html#:~:text=It%20should%20be%20possible%20to%20move%20around%20and%20interact%20with%20every%20part%20of%20your%20user%20interface%20using%20the%20keyboard"><em>it should be possible to move around and interact with every part of your user interface
+using the
+keyboard</em></a>.</p>
+
+<p>This resonates with me as a user.
+Being able to intuitively — and predictably — navigate around a GUI application with only my
+keyboard gives me more incentive to choose it compared to its alternatives.</p>
+
+<p>Knowing that, and when wearing my developer hat, I have to make sure that my
+applications are keyboard-friendly.
+For my first ever GUI application, <a href="https://gitlab.com/ckardaris/klisi">Klisi</a>, I invested some time
+to implement keyboard shortcuts targeting the whole range of available actions.</p>
+
+<p>Keyboard navigation is not that hard to achieve in most cases and results in an overall better user
+experience.
+It is not a matter of feasibility, but a matter of will on the application developer’s part.</p>
+
+<p>The takeaway is simple.
+Do not compromise on the user experience you provide with your application.
+Strive to make it as intuitive as possible.
+To that end, enabling full keyboard navigation should not be ignored.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Or alternatively <a href="https://en.wikipedia.org/wiki/Text-based_user_interface">text-based user
+interfaces</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>The original post author mentions this as well. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>There are other more compelling arguments towards tipping that scale, for example ease of
+portability. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Of course, the dexterity achieved via mouse is still preferred — or even required — for some
+tasks. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><summary type="html"><![CDATA[GUI applications should be fully driven by the keyboard using shortcuts]]></summary></entry><entry><title type="html">New font</title><link href="https://ckardaris.com/blog/2026/08/27/new-font.html" rel="alternate" type="text/html" title="New font" /><published>2026-08-27T00:00:00+00:00</published><updated>2026-08-27T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/27/new-font</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/27/new-font.html"><![CDATA[<p>I saw the <a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Quattro">iA Writer Quattro</a>
 font and I liked it.</p>
 
 <p>So far, I was not explicitly using a font-family for this website and instead relied on the
@@ -1353,252 +1427,4 @@ which ultimately expanded my knowledge.</p>
       <p>See <a href="https://en.cppreference.com/w/cpp/language/implicit_conversion">cppreference.com/…/language/implicit_conversion</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><summary type="html"><![CDATA[Discovering a little more about C++ and std::optional]]></summary></entry><entry><title type="html">ChatGPT and the web ignorant</title><link href="https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant.html" rel="alternate" type="text/html" title="ChatGPT and the web ignorant" /><published>2024-05-09T00:00:00+00:00</published><updated>2024-05-09T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/09/chatgpt-and-the-web-ignorant.html"><![CDATA[<p>The first time I used ChatGPT I was astounded. Here was something that felt like
-magic. Since then, a lot more information has been made available about LLMs in
-general. Us laymen have peeked inside the magician’s hat. We know more about
-their capabilities and shortcomings. We know that they can hallucinate at times
-and that their output should be used with care. But the point still remains;
-what ChatGPT and the rest of the LLMs offer is awesome.</p>
-
-<p>I mostly use ChatGPT for my programming tasks. While learning new concepts, it
-has mostly replaced searching the web for me. I prefer its clean interface: a
-question followed by an answer. Most times the answer is on point, something you
-don’t get out of a traditional search engine these days. The top-ranked
-SEO-heavy posts create an additional burden on me to filter them, which is not
-always an easy task, or a worthwhile one. For specific technical matters, I
-still prefer to directly visit the reference or documentation websites<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
-
-<p>I first set up this personal website two years ago. I realised that GitHub
-pages would be a simple way to go about it. I set up Jekyll and started
-tinkering with a theme<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. Initially hesitant to begin posting, I uploaded
-some of my photography and left it at that.</p>
-
-<p>About two weeks ago, I decided that I wanted to bring some life back into it. I
-set up my local environment again and started improving the website, bit by bit.
-I introduced post tags and tag pages<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. I uploaded my first
-<a href="/blog/2024/05/04/see-you-at-the-library.html">post</a>.</p>
-
-<p>One thing remained and I would be set: a better gallery view for my
-<a href="/photography">photos</a>. From the first moment, I wanted to have a grid view.
-However, I am not very proficient in CSS and, at the time, I could not make it
-work as I wanted. I put my photos in a single column and called it a day.</p>
-
-<div class="responsive-image " style="text-align: center">
-  
-  
-  <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" aria-label="Open photo: Single column photo gallery">
-    <picture>
-      <source type="image/avif" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png.avif 240w,
-/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png.avif 400w,
-/assets/responsive/images/728.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png.avif 728w,
-" sizes="min(calc(100vw - 60px), 800px)" />
-
-      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-0.png" alt="Single column photo gallery" loading="eager" />
-    </picture>
-  </a>
-
-  
-</div>
-
-<p>Enter ChatGPT.</p>
-
-<blockquote>
-  <p>I want to put photos in a three column grid. When the screen size reduces, I
-want it to be responsive. What is the proper way to do it?</p>
-</blockquote>
-
-<p>ChatGPT replied.</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-container"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"photo1.jpg"</span> <span class="na">alt=</span><span class="s">"Photo 1"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"photo2.jpg"</span> <span class="na">alt=</span><span class="s">"Photo 2"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"photo3.jpg"</span> <span class="na">alt=</span><span class="s">"Photo 3"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="c">&lt;!-- Add more grid items as needed --&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-<p>and</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">grid</span><span class="p">;</span>
-  <span class="nl">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="nb">auto-fit</span><span class="p">,</span> <span class="nf">minmax</span><span class="p">(</span><span class="m">300px</span><span class="p">,</span> <span class="m">1fr</span><span class="p">));</span>
-  <span class="py">grid-gap</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.grid-item</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>It worked on the first try. I took it from there. I knew how to proceed. I
-adjusted my Jekyll templates accordingly and changed the <code class="language-plaintext highlighter-rouge">minmax</code> value, in
-order to fit three photos in the widest layout. I finally had a nicely looking
-photo gallery. I even added captions to all the photos. Cool!</p>
-
-<div class="responsive-image " style="text-align: center">
-  
-  
-  <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" aria-label="Open photo: Grid gallery">
-    <picture>
-      <source type="image/avif" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png.avif 240w,
-/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png.avif 400w,
-/assets/responsive/images/719.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png.avif 719w,
-" sizes="min(calc(100vw - 60px), 800px)" />
-
-      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-1.png" alt="Grid gallery" />
-    </picture>
-  </a>
-
-  
-</div>
-
-<p>Initially, by clicking on each photo, the original full-size photo was shown. I
-thought that this was not very optimal, since a lot of network data needed to be
-transferred. Most of my photos are taken with my Nikon D3400 DSLR camera and
-their size can be up to 20MB. The solution would be to show some smaller version
-of each photo initially, and only display the full-size version after a second
-click.</p>
-
-<p>I thought to myself, “I want each photo to have its own page. How do I do
-that?”. I knew that it was possible to do it. My tags plugin is generating
-pages for all post tags.</p>
-
-<p>Enter ChatGPT. Again.</p>
-
-<blockquote>
-  <p>Let’s say I have a list of photos in a Jekyll website as a data file. I want
-to create a page for each photo, where you can see the photo and links to the
-previous and next photo will navigate you along the list.</p>
-</blockquote>
-
-<p>ChatGPT produced some valid HTML that I could work with, but the rest of the
-code was not up to the task. It did not help much with the Jekyll integration
-part. After a quick look around the web and the Jekyll documentation, I
-understood I needed to write a custom plugin<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>.</p>
-
-<blockquote>
-  <p>Your suggestions so far are not working. I think I need to write a custom
-plugin.</p>
-</blockquote>
-
-<p>After the usual ChatGPT answer intro, I got the coveted code.</p>
-
-<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Jekyll</span>
-  <span class="k">class</span> <span class="nc">PhotoPagesGenerator</span> <span class="o">&lt;</span> <span class="no">Generator</span>
-    <span class="n">safe</span> <span class="kp">true</span>
-    <span class="n">priority</span> <span class="ss">:normal</span>
-
-    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
-      <span class="n">photos</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'photos'</span><span class="p">]</span>
-      <span class="n">photos</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">photo</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
-        <span class="n">previous_photo</span> <span class="o">=</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="n">photos</span><span class="p">[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="p">:</span> <span class="kp">nil</span>
-        <span class="n">next_photo</span> <span class="o">=</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">photos</span><span class="p">.</span><span class="nf">size</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">?</span> <span class="n">photos</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="p">:</span> <span class="kp">nil</span>
-
-        <span class="n">site</span><span class="p">.</span><span class="nf">pages</span> <span class="o">&lt;&lt;</span> <span class="n">photoPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">photo</span><span class="p">,</span> <span class="n">previous_photo</span><span class="p">,</span> <span class="n">next_photo</span><span class="p">)</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-
-  <span class="k">class</span> <span class="n">photoPage</span> <span class="o">&lt;</span> <span class="no">Page</span>
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">photo</span><span class="p">,</span> <span class="n">previous_photo</span><span class="p">,</span> <span class="n">next_photo</span><span class="p">)</span>
-      <span class="vi">@site</span> <span class="o">=</span> <span class="n">site</span>
-      <span class="vi">@base</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">source</span>
-      <span class="vi">@dir</span> <span class="o">=</span> <span class="s1">''</span> <span class="c1"># Set the directory where you want the pages to be generated</span>
-      <span class="vi">@name</span> <span class="o">=</span> <span class="n">photo</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span> <span class="c1"># Use the photo URL as the page name</span>
-
-      <span class="nb">self</span><span class="p">.</span><span class="nf">process</span><span class="p">(</span><span class="vi">@name</span><span class="p">)</span>
-      <span class="nb">self</span><span class="p">.</span><span class="nf">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'layout'</span> <span class="o">=&gt;</span> <span class="s1">'photo_page'</span><span class="p">,</span>
-        <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="n">photo</span><span class="p">[</span><span class="s1">'caption'</span><span class="p">],</span>
-        <span class="s1">'photo'</span> <span class="o">=&gt;</span> <span class="n">photo</span><span class="p">,</span>
-        <span class="s1">'previous_photo'</span> <span class="o">=&gt;</span> <span class="n">previous_photo</span><span class="p">,</span>
-        <span class="s1">'next_photo'</span> <span class="o">=&gt;</span> <span class="n">next_photo</span>
-      <span class="p">}</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div></div>
-<p>Voila! Once more, I made the necessary edits. I introduced wrapping around after
-reaching the end of the photo list, simplified the code, based on the official
-Jekyll documentation for generators, and set the correct path for the photos to
-be shown.</p>
-
-<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Jekyll</span>
-  <span class="k">class</span> <span class="nc">PhotoPagesGenerator</span> <span class="o">&lt;</span> <span class="no">Generator</span>
-    <span class="n">safe</span> <span class="kp">true</span>
-    <span class="n">priority</span> <span class="ss">:normal</span>
-
-    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
-      <span class="n">photos</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'photos'</span><span class="p">]</span>
-      <span class="n">photos</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">photo</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
-        <span class="n">previous_photo</span> <span class="o">=</span> <span class="n">photos</span><span class="p">[(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">photos</span><span class="p">.</span><span class="nf">size</span><span class="p">]</span>
-        <span class="n">next_photo</span> <span class="o">=</span> <span class="n">photos</span><span class="p">[(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">photos</span><span class="p">.</span><span class="nf">size</span><span class="p">]</span>
-
-        <span class="n">site</span><span class="p">.</span><span class="nf">pages</span> <span class="o">&lt;&lt;</span> <span class="no">PhotoPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">photo</span><span class="p">,</span> <span class="n">previous_photo</span><span class="p">,</span> <span class="n">next_photo</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-
-  <span class="k">class</span> <span class="nc">PhotoPage</span> <span class="o">&lt;</span> <span class="no">Page</span>
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">photo</span><span class="p">,</span> <span class="n">previous_photo</span><span class="p">,</span> <span class="n">next_photo</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-      <span class="vi">@site</span> <span class="o">=</span> <span class="n">site</span>
-      <span class="vi">@base</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">source</span>
-      <span class="vi">@dir</span> <span class="o">=</span> <span class="s2">"/photography/"</span> <span class="o">+</span> <span class="n">photo</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span>
-      <span class="vi">@basename</span> <span class="o">=</span> <span class="s1">'index'</span>
-      <span class="vi">@ext</span>      <span class="o">=</span> <span class="s1">'.html'</span>
-      <span class="vi">@name</span>     <span class="o">=</span> <span class="s1">'index.html'</span>
-
-      <span class="nb">self</span><span class="p">.</span><span class="nf">process</span><span class="p">(</span><span class="vi">@name</span><span class="p">)</span>
-      <span class="nb">self</span><span class="p">.</span><span class="nf">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'layout'</span> <span class="o">=&gt;</span> <span class="s1">'photo_page'</span><span class="p">,</span>
-        <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="n">photo</span><span class="p">[</span><span class="s2">"caption"</span><span class="p">],</span>
-        <span class="s1">'photo'</span> <span class="o">=&gt;</span> <span class="n">photo</span><span class="p">,</span>
-        <span class="s1">'previous_photo'</span> <span class="o">=&gt;</span> <span class="n">previous_photo</span><span class="p">,</span>
-        <span class="s1">'next_photo'</span> <span class="o">=&gt;</span> <span class="n">next_photo</span><span class="p">,</span>
-        <span class="s1">'index'</span> <span class="o">=&gt;</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># increment to start from 1,</span>
-      <span class="p">}</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p>I finally had it. I struggled a little more than with the CSS grid code, but I
-had it. A page for every one of my photos. Enthusiastically, I uploaded the
-changes.</p>
-
-<div class="responsive-image " style="text-align: center">
-  
-  
-  <a href="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" aria-label="Open photo: Photo page">
-    <picture>
-      <source type="image/avif" srcset="/assets/responsive/images/240.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png.avif 240w,
-/assets/responsive/images/400.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png.avif 400w,
-/assets/responsive/images/738.2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png.avif 738w,
-" sizes="min(calc(100vw - 60px), 800px)" />
-
-      <img src="/assets/images/2024-05-06-chatgpt-stories-helping-a-ruby-ignorant-2.png" alt="Photo page" />
-    </picture>
-  </a>
-
-  
-</div>
-
-<p>I am really satisfied with the outcome. I find it amazing how helpful ChatGPT
-can be, if you have a rough idea of what you want to achieve, you know the right
-keywords to use in your query and are willing to play a little with the code
-afterwards. And, testament to its value, I consider it as a great companion in
-my tech endeavours and look forward to further exploring its powers.</p>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>I am programming in C++ at work, so I frequently visit
-<a href="https://cppreference.com">cppreference.com</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>This website is based on the <a href="https://github.com/jekyll/minima">minima</a>
-theme. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3">
-      <p>I am using <a href="https://github.com/pattex/jekyll-tagging">jekyll-tagging</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:5">
-      <p>Maybe there is a more elegant way to do it. Suggestions are welcome. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><category term="website" /><summary type="html"><![CDATA[How ChatGPT helped me configure my Jekyll static website]]></summary></entry></feed>
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><summary type="html"><![CDATA[Discovering a little more about C++ and std::optional]]></summary></entry></feed>
