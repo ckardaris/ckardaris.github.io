@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-08-28T17:34:59+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">GUIs should be fully keyboard-driven</title><link href="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html" rel="alternate" type="text/html" title="GUIs should be fully keyboard-driven" /><published>2026-08-28T00:00:00+00:00</published><updated>2026-08-28T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html"><![CDATA[<p>This post has made it to the Hacker News front page.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ckardaris.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ckardaris.com/" rel="alternate" type="text/html" /><updated>2026-08-30T06:24:04+00:00</updated><id>https://ckardaris.com/feed.xml</id><title type="html">Charalampos Kardaris’ blog</title><author><name>Charalampos Kardaris</name></author><entry><title type="html">Front page</title><link href="https://ckardaris.com/blog/2026/08/30/front-page.html" rel="alternate" type="text/html" title="Front page" /><published>2026-08-30T00:00:00+00:00</published><updated>2026-08-30T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/30/front-page</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/30/front-page.html"><![CDATA[<p>I have not had a huge success with my writing in this blog so far.
+I don’t collect any analytics<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, so I am not sure exactly how each post fares, but based on the
+amount of comments I have received in the various platforms I have shared my posts, the traffic must
+not be very high.</p>
+
+<p>This has not discouraged me from writing.
+My goal is to share projects that I am developing and to express some of my thoughts when I feel
+like it.
+I am glad if someone finds the content interesting and I am even happier to engage anyone who sends
+a comment my way.
+In any case, I think that the mere act of sitting down and writing your thoughts is beneficial by
+itself and it is worth doing, even if the audience is not there.</p>
+
+<p>It is true, though, that it feels nice when people accept what you are offering.
+And two days ago, I finally got my first breakthrough.
+I shared my <a href="/blog/2026/08/28/keyboard-driven-guis.html">last post</a> on Hacker News and it
+reached the <a href="https://news.ycombinator.com/front?day=2026-08-28">front page</a>.</p>
+
+<p>I admit it was satisfying to see that a lot of people approved of the message and wanted to share
+their own opinions.
+I spent the next day or so participating in the
+<a href="https://news.ycombinator.com/item?id=49479837">discussion</a> and digesting all the new information
+that was available.
+One of the main themes of the discussion was user interface accessibility.
+It is a part of software development that is of great interest and importance and I hope to more
+systematically approach it in my programming and my writing in the near future.</p>
+
+<p>The whole experience was positive.
+I do not claim to be a great writer, nor that my post proclaimed some profound truth, but it was
+gratifying to see that an extended discussion was started because of something I wrote.
+As a result, I now am a little braver to share my thoughts with the world.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>I think they can create bad incentives for content creation. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="life" /><category term="website" /><summary type="html"><![CDATA[The experience of having a post on the front page of Hacker News for a day.]]></summary></entry><entry><title type="html">GUIs should be fully keyboard-driven</title><link href="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html" rel="alternate" type="text/html" title="GUIs should be fully keyboard-driven" /><published>2026-08-28T00:00:00+00:00</published><updated>2026-08-28T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis</id><content type="html" xml:base="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html"><![CDATA[<p>This post has made it to the Hacker News front page.
 See the <a href="https://news.ycombinator.com/item?id=49479837">discussion</a>.</p>
 
 <hr />
@@ -1241,195 +1278,4 @@ always reach me on LinkedIn or by sending me an email. <a href="#fnref:1" class
 work. Check us out if you are not aware of us. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="trip" /><summary type="html"><![CDATA[Trip report from Meeting C++ 2025]]></summary></entry><entry><title type="html">Finding the optional truth</title><link href="https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth.html" rel="alternate" type="text/html" title="Finding the optional truth" /><published>2024-05-16T00:00:00+00:00</published><updated>2024-05-16T00:00:00+00:00</updated><id>https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth</id><content type="html" xml:base="https://ckardaris.com/blog/2024/05/16/finding-the-optional-truth.html"><![CDATA[<p>Using a programming language <em>can</em> be an easy task<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Understanding it deeply
-and mastering it, though, is more challenging. Multiple definitions of the word
-apply here: <em>demanding</em> and <em>stimulating</em>.</p>
-
-<p>I have been trying to utilize all available features of C++ as much as possible.
-One that I particularly like is <code class="language-plaintext highlighter-rouge">std::optional</code><sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. I am fond of its semantics.
-Here is something that may contain a value, or it may as well contain nothing.
-This <em>nothing</em> is also known as <code class="language-plaintext highlighter-rouge">std::nullopt</code>. <code class="language-plaintext highlighter-rouge">std::optional</code> removes the need
-of returning raw pointers and relying on comparisons with <code class="language-plaintext highlighter-rouge">nullptr</code> in order to
-check if the return value of a function is valid or not.</p>
-
-<p>I must say I have not been using <code class="language-plaintext highlighter-rouge">std::optional</code> extensively, so I am yet to
-discover all its edges. But recently, I had to interact with it a little more
-and learned something along the way.</p>
-
-<h1 id="pseudocode">Pseudocode</h1>
-
-<p>Let’s start by writing a small example to describe my thought process.</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;optional&gt;</span><span class="cp">
-</span>
-<span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">ParseMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">msg</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">msg</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">auto</span> <span class="n">myMsg</span> <span class="o">=</span> <span class="n">ParseMessage</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>The most explicit way to print the above message is:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">myMsg</span><span class="p">.</span><span class="n">has_value</span><span class="p">())</span>
-<span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">myMsg</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Of course, in this small example, we could have skipped the check. But in the
-real world, we always have to ensure that the value is there. Otherwise, an
-exception – when using <code class="language-plaintext highlighter-rouge">.value()</code> – or undefined behavior – when directly
-dereferencing the <code class="language-plaintext highlighter-rouge">std::optional</code> – is on the table.</p>
-
-<p>Knowing all these, I filled my code with <code class="language-plaintext highlighter-rouge">.has_value()</code> and <code class="language-plaintext highlighter-rouge">.value()</code> calls. I
-knew it was correct, but it was also quite cumbersome. There must have been an
-easier way to write this.</p>
-
-<p>Looking online, I saw some examples that were doing something akin to:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">myMsg</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">myMsg</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>This is what I was looking for. Not only is this a lot simpler to write, but it
-permits you to reuse old code that uses the <em>nullptr-for-no-value</em> pattern,
-just by changing the type from <code class="language-plaintext highlighter-rouge">T*</code> to <code class="language-plaintext highlighter-rouge">std::optional&lt;T&gt;</code> in the code.</p>
-
-<p>Equipped with my newly found knowledge, I removed all calls to <code class="language-plaintext highlighter-rouge">has_value()</code> and
-replaced all calls to <code class="language-plaintext highlighter-rouge">value()</code> with direct dereferencing using <code class="language-plaintext highlighter-rouge">operator*</code>.</p>
-
-<h1 id="surprise">Surprise</h1>
-
-<p>Unfortunately, I was greeted with a compiler error.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: cannot convert 'std::optional&lt;T&gt;' to 'bool'
-</code></pre></div></div>
-
-<p>The code in question was trying to do something like the following:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">Check</span><span class="p">(</span><span class="kt">bool</span> <span class="n">value</span><span class="p">);</span>
-
-<span class="kt">void</span> <span class="nf">Run</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="p">...</span>
-    <span class="n">Check</span><span class="p">(</span><span class="n">myOptionalValue</span><span class="p">);</span>
-    <span class="p">...</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>The message was clear. But why did it not work? Converting to a
-<code class="language-plaintext highlighter-rouge">bool</code> in the condition of the <code class="language-plaintext highlighter-rouge">if</code> statement is certainly possible.</p>
-
-<h1 id="truth">Truth</h1>
-
-<p>It turns out – as always – this is all by design. To answer my questions, I
-had to read the available specification on <em>cppreference.com</em> a little more
-carefully.</p>
-
-<blockquote>
-  <p>When an object of type optional&lt;T&gt; is <strong>contextually converted to bool</strong> <sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>,
-the conversion returns true if the object contains a value and false if it
-does not contain a value.</p>
-</blockquote>
-
-<p>I was not sure what <strong>“contextually”</strong> meant, so I followed the link, and
-I was presented with the following introductory text.</p>
-
-<blockquote>
-  <p><strong>Implicit conversions</strong> are performed whenever an expression of some type T1 is used in context that does not accept that type, but accepts some other type T2; in particular:</p>
-  <ul>
-    <li>when the expression is used as the <strong>argument</strong> when calling a function that is declared with T2 as parameter;</li>
-    <li>when the expression is used as an <strong>operand</strong> with an operator that expects T2;</li>
-    <li>when <strong>initializing</strong> a new object of type T2, including return statement in a function returning T2;</li>
-    <li>when the expression is used in a <strong>switch</strong> statement (T2 is integral type);</li>
-    <li>when the expression is used in an <strong>if</strong> statement or a <strong>loop</strong> (T2 is bool).</li>
-  </ul>
-</blockquote>
-
-<p>It seemed to explain my situation. The last bullet must be what permits the
-usage of <code class="language-plaintext highlighter-rouge">std::optional</code> in <code class="language-plaintext highlighter-rouge">if</code> statements.</p>
-
-<p>But wait a minute.</p>
-
-<p>The first bullet should cover the function parameter scenario, too. Obviously,
-this was not the case. I was missing something.</p>
-
-<p>The magic word is <strong>“implicit”</strong>.</p>
-
-<p>The <code class="language-plaintext highlighter-rouge">std::optional</code> class defines the following conversion function to
-<code class="language-plaintext highlighter-rouge">bool</code>:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">constexpr</span> <span class="k">explicit</span> <span class="k">operator</span> <span class="kt">bool</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span>
-</code></pre></div></div>
-
-<p>It is clearly marked as <code class="language-plaintext highlighter-rouge">explicit</code>, so implicit conversions do not consider it.</p>
-
-<p>I thought to myself:</p>
-
-<blockquote>
-  <p>How, then, does the conversion to ‘bool’ take place in the ‘if’ condition?</p>
-</blockquote>
-
-<p>I had to keep reading. Further below was the answer to my question about the
-meaning of <strong>“contextually”</strong>.</p>
-
-<blockquote>
-  <p><strong>Contextual conversions</strong></p>
-
-  <p>In the following contexts, the type ‘bool’ is expected and the implicit
-conversion is performed if the declaration ‘bool t(e)’ is well-formed (that is,
-an explicit conversion function such as ‘explicit T::operator bool() const’ is
-considered). Such expression ‘e’ is said to be <strong>contextually converted to
-bool</strong>.</p>
-
-  <p>Since C++11:</p>
-  <ul>
-    <li>the controlling expression of <strong>if</strong>, <strong>while</strong>, <strong>for</strong></li>
-    <li>the operands of the built-in logical operators <strong>!</strong>, <strong>&amp;&amp;</strong> and <strong>||</strong></li>
-    <li>the first operand of the conditional operator <strong>?:</strong></li>
-    <li>the predicate in a <strong>static_assert</strong> declaration</li>
-    <li>the expression in a <strong>noexcept</strong> specifier</li>
-  </ul>
-
-  <p>Since C++20:</p>
-  <ul>
-    <li>the expression in an <strong>explicit</strong> specifier</li>
-  </ul>
-</blockquote>
-
-<p>It turns out that, when a boolean expression is required for defining a
-condition – one would say, in a <em>conditional context</em> –, explicit conversion
-functions to <code class="language-plaintext highlighter-rouge">bool</code> are considered as well.</p>
-
-<h1 id="lesson">Lesson</h1>
-
-<p>I don’t want to focus on the minefield that is modern C++ syntax and rules.
-People smarter and more knowledgeable than me have expressed, and will continue
-to express, their opinions on the language. All I want to say is that, as a
-deeply inquiring mind, I was quite fascinated to discover this little sub-rule,
-which ultimately expanded my knowledge.</p>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>Depending on which one you pick, of course. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>See <a href="https://en.cppreference.com/w/cpp/utility/optional">cppreference.com/…/optional</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3">
-      <p>See <a href="https://en.cppreference.com/w/cpp/language/implicit_conversion">cppreference.com/…/language/implicit_conversion</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="programming" /><summary type="html"><![CDATA[Discovering a little more about C++ and std::optional]]></summary></entry></feed>
+</div>]]></content><author><name>Charalampos Kardaris</name></author><category term="blog" /><category term="trip" /><summary type="html"><![CDATA[Trip report from Meeting C++ 2025]]></summary></entry></feed>
