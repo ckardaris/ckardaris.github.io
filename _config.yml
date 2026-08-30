@@ -76,7 +76,8 @@ minima:
 exclude:
   - justfile
   - Dockerfile
-  - shell.nix
+  - flake.nix
+  - flake.lock
   - _scripts
   - _script_data
   - _comments
