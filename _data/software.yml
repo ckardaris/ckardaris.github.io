@@ -1,8 +1,8 @@
-
 - name: tormix
   archived: true
   description: A terminal user interface for the transmission-cli.
   url: https://github.com/ckardaris/tormix
+  svg: terminal.svg
   technologies:
     - bash
 
@@ -10,6 +10,7 @@
   archived: true
   description: An extensible command line image viewer inspired by vim.
   url: https://github.com/ckardaris/ucollage
+  svg: terminal.svg
   technologies:
     - bash
 
@@ -17,6 +18,7 @@
   archived: false
   description: A GTK4/Adwaita callgrind profile viewer and generator.
   url: https://gitlab.com/ckardaris/klisi
+  svg: klisi.svg
   technologies:
     - clojure
     - gtk
