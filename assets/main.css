@@ -538,6 +538,18 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   content: "edit";
 }
 
+#software-table {
+  margin-top: 0.5em;
+}
+#software-table td {
+  padding-bottom: 0.8em;
+}
+#software-table img {
+  height: 2em;
+  border: 1px solid #d0d0d0;
+  border-radius: 0.5em;
+}
+
 /**
  *  Photography
  */
