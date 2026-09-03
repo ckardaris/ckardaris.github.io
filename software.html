@@ -10,7 +10,8 @@ description: Software created by Charalampos Kardaris.
     {%- for item in site.data.software -%}
       <tr>
         <td>
-          <img src="/assets/{{ item.svg }}">
+          {% assign svg = "assets/" | append: item.svg %}
+          {% include {{ svg }} %}
           <span>
             <a href="{{ item.url }}" class="post-link">{{ item.name }}</a>
             {% if item.archived %}
