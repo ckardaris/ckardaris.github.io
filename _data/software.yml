@@ -3,6 +3,8 @@
   description: A terminal user interface for the transmission-cli.
   url: https://github.com/ckardaris/tormix
   svg: terminal.svg
+  flatpak:
+    available: false
   technologies:
     - bash
 
@@ -11,6 +13,8 @@
   description: An extensible command line image viewer inspired by vim.
   url: https://github.com/ckardaris/ucollage
   svg: terminal.svg
+  flatpak:
+    available: false
   technologies:
     - bash
 
@@ -19,6 +23,10 @@
   description: A GTK4/Adwaita callgrind profile viewer and generator.
   url: https://gitlab.com/ckardaris/klisi
   svg: klisi.svg
+  flatpak:
+    available: true
+    metainfo: https://gitlab.com/ckardaris/klisi/-/raw/main/resources/share/metainfo/com.ckardaris.Klisi.metainfo.xml
+    flatpakref: flatpak+https://gitlab.com/ckardaris/klisi/-/raw/main/flatpak/com.ckardaris.Klisi.flatpakref
   technologies:
     - clojure
     - gtk

@@ -6,7 +6,7 @@ module Jekyll
   class Assets404Generator < Generator
     safe true
     priority :normal
-    Targets = ["assets", "flatpak"]
+    Targets = ["assets"]
 
     def generate(site)
       app_path = site.source

@@ -1,6 +1,18 @@
 $line: 1px solid $grey-color-light;
 
 /**
+ * General
+ */
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h1 { @include relative-font-size(1.2); }
+h2 { @include relative-font-size(1.1); }
+h3 { @include relative-font-size(1.0); }
+
+
+/**
  * Site header
  */
 .site-header {
@@ -20,6 +32,9 @@ $line: 1px solid $grey-color-light;
 
 .site-nav  {
   margin: 0.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 
   .page-link {
     color: $text-color;
@@ -56,16 +71,6 @@ $line: 1px solid $grey-color-light;
   line-height: 1;
   margin-bottom: 0;
   font-weight: bold;
-}
-
-.post-content {
-  h1, h2, h3 {
-    font-weight: bold;
-  }
-
-  h1 { @include relative-font-size(1.2); }
-  h2 { @include relative-font-size(1.1); }
-  h3 { @include relative-font-size(1.0); }
 }
 
 /**

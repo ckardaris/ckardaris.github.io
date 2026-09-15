@@ -59,6 +59,7 @@ plugins:
 header_pages:
   - blog.html
   - software.html
+  - flatpak.md
   - photography.html
   - about.md
 

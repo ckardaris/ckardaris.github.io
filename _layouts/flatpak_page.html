@@ -1,0 +1,187 @@
+---
+layout: default_no_header
+---
+in <a href="/flatpak">{{site.title}}'s flatpak repository</a>
+^^^
+<div id="flatpak-page">
+    <div id="flatpak-page-icon">
+{% assign svg = "assets/" | append: page.metainfo.svg %}
+{% include {{ svg }} %}
+    </div>
+
+    <details id="flatpak-page-instructions">
+        <summary>
+            <a id="flatpak-page-install" href="{{ page.metainfo.flatpakref }}">Install</a>
+        </summary>
+        <div id="flatpak-page-instructions-expand">
+  {% capture instructions %}
+### Manual Install
+
+Make sure to [setup](/flatpak/#setup) the flatpak repository before installing
+```
+flatpak install --user ckardaris.com {{ page.metainfo.id }}
+```
+
+### Run
+```
+flatpak run {{ page.metainfo.id }}
+```
+  {% endcapture %}
+  {{ instructions | markdownify }}
+        </div>
+    </details>
+
+<h2>Screenshots</h2>
+
+<div id="flatpak-page-carousel">
+    {% for screenshot in page.metainfo.screenshots.screenshot %}
+        <div>
+            <a href="{{ screenshot.image }}" target="_blank">
+                <img src="{{ screenshot.image }}" alt="{{ screenshot.caption}}">
+            </a>
+            <div class="caption">{{ screenshot.caption }} ({{ forloop.index }} / {{ forloop.length }})</div>
+        </div>
+    {% endfor %}
+</div>
+
+<h2>Information</h2>
+
+<div id="flatpak-page-info">
+    {% assign release = page.metainfo.releases.release | last %}
+    {% assign license = page.metainfo.project_license %}
+    {% assign summary = page.metainfo.summary %}
+    {% assign description = page.metainfo.description %}
+    {% assign controls = page.metainfo.supports.control %}
+    {% assign categories = page.metainfo.categories.category %}
+
+    {% if summary %}
+    <div class="flatpak-page-row">
+        <div class="flatpak-page-row-title">Summary</div>
+        <div class="flatpak-page-row-details">{{ summary }}</div>
+    </div>
+    {% endif %}
+
+    {% if description %}
+    <div class="flatpak-page-row">
+        <div class="flatpak-page-row-title">Description</div>
+        <div class="flatpak-page-row-details">{{ description }}</div>
+    </div>
+    {% endif %}
+
+    <div class="flatpak-page-row">
+        <a href="{{ release.url }}" target="_blank">
+            <div class="flatpak-page-row-title">Latest release</div>
+            <div class="flatpak-page-row-details">{{ release.version }} ({{release.date}})</div>
+        </a>
+    </div>
+
+    {% if license %}
+    <div class="flatpak-page-row">
+        <a href="https://spdx.org/licenses/{{ license }}" target="_blank">
+            <div class="flatpak-page-row-title">License</div>
+            <div class="flatpak-page-row-details">{{ license }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if controls %}
+    <div class="flatpak-page-row">
+        <div class="flatpak-page-row-title">Controls</div>
+        <div class="flatpak-page-row-details">{{ controls | join: " · "}}</div>
+    </div>
+    {% endif %}
+
+    {% if categories %}
+    <div class="flatpak-page-row">
+        <div class="flatpak-page-row-title">Categories</div>
+        <div class="flatpak-page-row-details">{{ categories | join: " · "}}</div>
+    </div>
+    {% endif %}
+</div>
+
+<h2>Links</h2>
+<div id="flatpak-page-rows">
+    {% assign homepage = page.metainfo.url | where: "type", "homepage" | first %}
+    {% assign bugs = page.metainfo.url | where: "type", "bugtracker" | first %}
+    {% assign source = page.metainfo.url | where: "type", "vcs-browser" | first %}
+    {% assign translate = page.metainfo.url | where: "type", "translate" | first %}
+    {% assign contribute = page.metainfo.url | where: "type", "contribute" | first %}
+    {% assign help = page.metainfo.url | where: "type", "help" | first %}
+    {% assign donation = page.metainfo.url | where: "type", "donation" | first %}
+    {% assign faq = page.metainfo.url | where: "type", "donation" | first %}
+    {% assign contact = page.metainfo.url | where: "type", "donation" | first %}
+
+    {% if homepage %}
+    <div class="flatpak-page-row">
+        <a href="{{ homepage.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Project website</div>
+            <div class="flatpak-page-row-details">{{ homepage.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if bugs %}
+    <div class="flatpak-page-row">
+        <a href="{{ bugs.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Report an Issue</div>
+            <div class="flatpak-page-row-details">{{ bugs.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if source %}
+    <div class="flatpak-page-row">
+        <a href="{{ source.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Browser the source code</div>
+            <div class="flatpak-page-row-details">{{ source.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if help %}
+    <div class="flatpak-page-row">
+        <a href="{{ help.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Read the documentation</div>
+            <div class="flatpak-page-row-details">{{ help.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if faq %}
+    <div class="flatpak-page-row">
+        <a href="{{ faq.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Frequently Asked Questions</div>
+            <div class="flatpak-page-row-details">{{ faq.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if translate %}
+    <div class="flatpak-page-row">
+        <a href="{{ translate.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Help translate the application</div>
+            <div class="flatpak-page-row-details">{{ translate.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if contribute %}
+    <div class="flatpak-page-row">
+        <a href="{{ contribute.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Contribute to the application</div>
+            <div class="flatpak-page-row-details">{{ contribute.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if contact %}
+    <div class="flatpak-page-row">
+        <a href="{{ contact.text }}" target="_blank">
+            <div class="flatpak-page-row-title">Contact</div>
+            <div class="flatpak-page-row-details">{{ contact.text }}</div>
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{% include script.html script="copy.js" %}

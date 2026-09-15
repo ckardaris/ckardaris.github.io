@@ -1,0 +1,138 @@
+#flatpak-repo-icon {
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    height: 192px;
+    width: auto;
+  }
+}
+
+#flatpak-list {
+  .flatpak-list-item {
+    border: 0.05em solid $purple-border;
+    border-radius: 0.4em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    margin-bottom: 1em;
+
+    .flatpak-item-title {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    svg {
+      height: 92px;
+      width: auto;
+    }
+
+    &:hover {
+      background: $lavender;
+    }
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+#flatpak-page {
+
+  #flatpak-page-icon {
+    margin-inline: auto;
+    width: fit-content;
+  }
+
+  svg {
+    height: 192px;
+    width: auto;
+  }
+
+  #flatpak-page-instructions {
+    margin-top: 1em;
+
+    #flatpak-page-install {
+      color: $text-color;
+      text-decoration: none;
+      @include relative-font-size(1.1);
+      background-color: $lavender;
+      padding: 0.2em 0.4em;
+      border: 0.1em solid $purple-border;
+      border-radius: 0.4em;
+    }
+
+    #flatpak-page-instructions-expand {
+      margin-top: 1em;
+      border: solid 0.1em $purple-border;
+      border-radius: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-bottom: 1em;
+    }
+  }
+
+  #flatpak-page-carousel {
+    background-color: $lavender;
+    border-radius: 0.5em;
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1.5em;
+
+    > div {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .caption {
+        text-align: center;
+      }
+    }
+    }
+
+    #flatpak-page-rows, #flatpak-page-info {
+      border: solid 0.1em $purple-border;
+      border-radius: 0.5em;
+
+      .flatpak-page-row {
+        padding: 0.5em;
+
+        &:first-child {
+          border-top-left-radius: 0.5em;
+          border-top-right-radius: 0.5em;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 0.5em;
+          border-bottom-right-radius: 0.5em;
+        }
+
+        a {
+          color: $text-color;
+          text-decoration: none;
+        }
+
+        .flatpak-page-row-title {
+          font-weight: bold;
+        }
+
+        &:hover {
+          background: $lavender;
+        }
+
+
+        &:not(:first-child){
+          border-top: 0.1em solid $lavender;
+        }
+      }
+    }
+}
