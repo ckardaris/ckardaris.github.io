@@ -1,5 +1,10 @@
 #software-page {
 
+  details {
+    margin-top: $spacing-unit * .5;
+    margin-bottom: $spacing-unit * .5;
+  }
+
   summary {
     font-weight: bold;
     @include relative-font-size(1.2);
