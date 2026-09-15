@@ -263,7 +263,7 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 }
 
 /**
- * General
+ *  General
  */
 h1, h2, h3 {
   font-weight: bold;
@@ -281,8 +281,28 @@ h3 {
   font-size: 1rem;
 }
 
+#site-title {
+  color: #111;
+  text-decoration: none;
+}
+
 /**
- * Site header
+ *  Home Page
+ */
+#home-page-links {
+  margin-top: 0.5em;
+}
+
+.home-page-link {
+  margin-bottom: 1em;
+}
+.home-page-link a {
+  color: #111;
+  font-size: 1.2rem;
+}
+
+/**
+ *  Site header
  */
 .site-header {
   border-bottom: 1px solid #e8e8e8;
@@ -312,7 +332,7 @@ h3 {
 }
 
 /**
- * Page content
+ *  Page content
  */
 .page-content {
   flex: 1;
@@ -331,7 +351,7 @@ h3 {
 }
 
 /**
- * Posts
+ *  Posts
  */
 .post-title {
   font-size: 1.625rem;
