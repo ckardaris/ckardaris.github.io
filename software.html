@@ -5,23 +5,17 @@ permalink: /software/
 description: Software created by Charalampos Kardaris.
 ---
 
-<table id="software-table" class="post-table">
-  <tbody>
-    {%- for item in site.data.software -%}
-      <tr>
-        <td>
-          {% assign svg = "assets/" | append: item.svg %}
-          {% include {{ svg }} %}
-          <span>
-            <a href="{{ item.url }}" class="post-link">{{ item.name }}</a>
-            {% if item.archived %}
-              <span style="font-style: italic">(archived)</span>
-            {% endif %}
-          </span>
-          <div>{{ item.description }}</div>
-          <div>[{{ item.technologies | join: " · " }}]</div>
-        </td>
-      </tr>
-    {%- endfor -%}
-  </tbody>
-</table>
+<div id="software-page">
+  <h1>Projects</h1>
+  {% include software_table.html items=site.data.software.projects %}
+
+  <details>
+    <summary>Scripts</summary>
+    {% include software_table.html items=site.data.software.scripts %}
+  </details>
+
+  <details>
+    <summary>Contributions</summary>
+    {% include software_table.html items=site.data.software.contributions %}
+  </details>
+</div>

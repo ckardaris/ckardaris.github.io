@@ -1,13 +1,21 @@
-#software-table {
-  margin-top: 0.5em;
+#software-page {
 
-  td {
-    padding-bottom: 0.8em;
+  summary {
+    font-weight: bold;
+    @include relative-font-size(1.2);
   }
 
-  svg {
-    height: 2em;
-    width: 2em;
-    vertical-align: middle;
+  #software-table {
+    margin-top: 0.5em;
+
+    td {
+      padding-bottom: 0.8em;
+    }
+
+    svg {
+      height: 2em;
+      width: 2em;
+      vertical-align: middle;
+    }
   }
 }

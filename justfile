@@ -25,7 +25,7 @@ change-password:
     ./_scripts/change-password.sh
 
 svg:
-    fd .svg -x sh -c 'printf "%s: " {} && svgcleaner --multipass {} {} 2>&1'
+    fd .svg -x sh -c 'printf "%s: " {} && svgcleaner --trim-ids=no --multipass {} {} 2>&1'
 
 bash: image svg
     podman run --security-opt label=disable --rm -it -p 4000:4000 -p 35729:35729 -v ${PWD}:/app ${IMAGE} \

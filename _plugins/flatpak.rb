@@ -27,7 +27,7 @@ module Jekyll
     priority :high
 
     def generate(site)
-      projects = site.data['software']
+      projects = site.data['software']['projects']
       flatpaks = {}
 
       projects.each do |project|

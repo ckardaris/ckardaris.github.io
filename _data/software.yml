@@ -1,33 +1,99 @@
-- name: tormix
-  archived: true
-  description: A terminal user interface for the transmission-cli.
-  url: https://github.com/ckardaris/tormix
-  svg: terminal.svg
-  flatpak:
-    available: false
-  technologies:
-    - bash
+projects:
+  - name: tormix
+    archived: true
+    description: A terminal user interface for the transmission-cli.
+    url: https://github.com/ckardaris/tormix
+    svg: terminal.svg
+    flatpak:
+      available: false
+    technologies:
+      - bash
 
-- name: ucollage
-  archived: true
-  description: An extensible command line image viewer inspired by vim.
-  url: https://github.com/ckardaris/ucollage
-  svg: terminal.svg
-  flatpak:
-    available: false
-  technologies:
-    - bash
+  - name: ucollage
+    archived: true
+    description: An extensible command line image viewer inspired by vim.
+    url: https://github.com/ckardaris/ucollage
+    svg: terminal.svg
+    flatpak:
+      available: false
+    technologies:
+      - bash
 
-- name: Klisi
-  archived: false
-  description: A GTK4/Adwaita callgrind profile viewer and generator.
-  url: https://gitlab.com/ckardaris/klisi
-  svg: klisi.svg
-  flatpak:
-    available: true
-    metainfo: https://gitlab.com/ckardaris/klisi/-/raw/main/resources/share/metainfo/com.ckardaris.Klisi.metainfo.xml
-    flatpakref: flatpak+https://gitlab.com/ckardaris/klisi/-/raw/main/flatpak/com.ckardaris.Klisi.flatpakref
-  technologies:
-    - clojure
-    - gtk
-    - adwaita
+  - name: Klisi
+    archived: false
+    description: A GTK4/Adwaita callgrind profile viewer and generator.
+    url: https://gitlab.com/ckardaris/klisi
+    svg: klisi.svg
+    flatpak:
+      available: true
+      metainfo: https://gitlab.com/ckardaris/klisi/-/raw/main/resources/share/metainfo/com.ckardaris.Klisi.metainfo.xml
+      flatpakref: flatpak+https://gitlab.com/ckardaris/klisi/-/raw/main/flatpak/com.ckardaris.Klisi.flatpakref
+    technologies:
+      - clojure
+      - gtk
+      - adwaita
+
+scripts:
+  - name: mani-utils
+    archived: false
+    description: Advanced management for mani.
+    url: https://github.com/ckardaris/mani-utils
+    svg: terminal.svg
+    flatpak:
+      available: false
+    technologies:
+      - bash
+      - python
+
+  - name: gnome-app-manager
+    archived: false
+    description: Create .desktop application files for GNOME.
+    url: https://codeberg.org/ckardaris/gnome-app-manager
+    svg: terminal.svg
+    flatpak:
+      available: false
+    technologies:
+      - python
+
+  - name: gnome-favorites-manager
+    archived: false
+    description: Populate your GNOME favorites with separator elements.
+    url: https://codeberg.org/ckardaris/gnome-favorites-manager
+    svg: terminal.svg
+    flatpak:
+      available: false
+    technologies:
+      - python
+
+contributions:
+  - name: NeoMutt
+    archived: false
+    description: NeoMutt is a command line mail reader (or MUA). It’s a fork of Mutt with added features.
+    url: https://github.com/neomutt/neomutt/pulls?q=is%3Apr+author%3Ackardaris
+    svg: neomutt.svg
+    technologies:
+      - c
+
+  - name: goimapnotify
+    archived: false
+    description: Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE.
+    url: https://gitlab.com/shackra/goimapnotify/-/merge_requests/?state=merged&author_username=ckardaris
+    svg: terminal.svg
+    technologies:
+      - go
+
+  - name: Vimium
+    archived: false
+    description: The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.
+    url: https://github.com/philc/vimium/pulls?q=is%3Apr+author%3Ackardaris
+    svg: vimium.svg
+    technologies:
+      - javascript
+
+  - name: Catima
+    archived: false
+    description: A Loyalty Card & Ticket Manager for Android.
+    url: https://github.com/CatimaLoyalty/Android/pulls?q=is%3Apr+author%3Ackardaris
+    svg: catima.svg
+    technologies:
+      - kotlin
