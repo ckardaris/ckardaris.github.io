@@ -567,6 +567,10 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   content: "edit";
 }
 
+#software-page details {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 #software-page summary {
   font-weight: bold;
   font-size: 1.2rem;
