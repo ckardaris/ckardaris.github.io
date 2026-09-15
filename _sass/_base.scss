@@ -24,9 +24,9 @@ body {
   background-color: $background-color;
   font-kerning: normal;
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - $spacing-unit);
   flex-direction: column;
-  margin-bottom: 1em;
+  margin-bottom: $spacing-unit;
 }
 
 /**
