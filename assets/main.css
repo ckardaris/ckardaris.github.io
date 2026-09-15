@@ -263,6 +263,25 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 }
 
 /**
+ * General
+ */
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+/**
  * Site header
  */
 .site-header {
@@ -282,6 +301,9 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
 
 .site-nav {
   margin: 0.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 .site-nav .page-link {
   color: #111;
@@ -317,19 +339,6 @@ table:not(.post-table):not(.rouge-table) tr:nth-child(even) {
   line-height: 1;
   margin-bottom: 0;
   font-weight: bold;
-}
-
-.post-content h1, .post-content h2, .post-content h3 {
-  font-weight: bold;
-}
-.post-content h1 {
-  font-size: 1.2rem;
-}
-.post-content h2 {
-  font-size: 1.1rem;
-}
-.post-content h3 {
-  font-size: 1rem;
 }
 
 /**
@@ -548,6 +557,119 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   height: 2em;
   width: 2em;
   vertical-align: middle;
+}
+
+#flatpak-repo-icon {
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#flatpak-repo-icon svg {
+  height: 192px;
+  width: auto;
+}
+
+#flatpak-list .flatpak-list-item {
+  border: 0.05em solid #837297;
+  border-radius: 0.4em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+#flatpak-list .flatpak-list-item .flatpak-item-title {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+#flatpak-list .flatpak-list-item svg {
+  height: 92px;
+  width: auto;
+}
+#flatpak-list .flatpak-list-item:hover {
+  background: #eef;
+}
+#flatpak-list a {
+  color: #111;
+  text-decoration: none;
+}
+
+#flatpak-page #flatpak-page-icon {
+  margin-inline: auto;
+  width: fit-content;
+}
+#flatpak-page svg {
+  height: 192px;
+  width: auto;
+}
+#flatpak-page #flatpak-page-instructions {
+  margin-top: 1em;
+}
+#flatpak-page #flatpak-page-instructions #flatpak-page-install {
+  color: #111;
+  text-decoration: none;
+  font-size: 1.1rem;
+  background-color: #eef;
+  padding: 0.2em 0.4em;
+  border: 0.1em solid #837297;
+  border-radius: 0.4em;
+}
+#flatpak-page #flatpak-page-instructions #flatpak-page-instructions-expand {
+  margin-top: 1em;
+  border: solid 0.1em #837297;
+  border-radius: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+#flatpak-page #flatpak-page-carousel {
+  background-color: #eef;
+  border-radius: 0.5em;
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1.5em;
+}
+#flatpak-page #flatpak-page-carousel > div {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+#flatpak-page #flatpak-page-carousel > div img {
+  width: 100%;
+  object-fit: contain;
+}
+#flatpak-page #flatpak-page-carousel > div .caption {
+  text-align: center;
+}
+#flatpak-page #flatpak-page-rows, #flatpak-page #flatpak-page-info {
+  border: solid 0.1em #837297;
+  border-radius: 0.5em;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row, #flatpak-page #flatpak-page-info .flatpak-page-row {
+  padding: 0.5em;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row:first-child, #flatpak-page #flatpak-page-info .flatpak-page-row:first-child {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row:last-child, #flatpak-page #flatpak-page-info .flatpak-page-row:last-child {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row a, #flatpak-page #flatpak-page-info .flatpak-page-row a {
+  color: #111;
+  text-decoration: none;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row .flatpak-page-row-title, #flatpak-page #flatpak-page-info .flatpak-page-row .flatpak-page-row-title {
+  font-weight: bold;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row:hover, #flatpak-page #flatpak-page-info .flatpak-page-row:hover {
+  background: #eef;
+}
+#flatpak-page #flatpak-page-rows .flatpak-page-row:not(:first-child), #flatpak-page #flatpak-page-info .flatpak-page-row:not(:first-child) {
+  border-top: 0.1em solid #eef;
 }
 
 /**
