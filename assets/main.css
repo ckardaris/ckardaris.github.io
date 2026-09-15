@@ -567,13 +567,17 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   content: "edit";
 }
 
-#software-table {
+#software-page summary {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+#software-page #software-table {
   margin-top: 0.5em;
 }
-#software-table td {
+#software-page #software-table td {
   padding-bottom: 0.8em;
 }
-#software-table svg {
+#software-page #software-table svg {
   height: 2em;
   width: 2em;
   vertical-align: middle;
