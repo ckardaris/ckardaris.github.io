@@ -88,9 +88,9 @@ body {
   background-color: #fdfdfd;
   font-kerning: normal;
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 30px);
   flex-direction: column;
-  margin-bottom: 1em;
+  margin-bottom: 30px;
 }
 
 /**
