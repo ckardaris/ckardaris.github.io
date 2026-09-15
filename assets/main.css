@@ -650,6 +650,10 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
 #flatpak-page #flatpak-page-rows .flatpak-page-row, #flatpak-page #flatpak-page-info .flatpak-page-row {
   padding: 0.5em;
 }
+#flatpak-page #flatpak-page-rows .flatpak-page-row div, #flatpak-page #flatpak-page-info .flatpak-page-row div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #flatpak-page #flatpak-page-rows .flatpak-page-row:first-child, #flatpak-page #flatpak-page-info .flatpak-page-row:first-child {
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
