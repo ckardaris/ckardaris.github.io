@@ -18,12 +18,10 @@ applications.
   <div markdown="1">
 1. Install flatpak on your machine by following the [instructions](https://flathub.org/en/setup) for your distribution.
 2. Add this flatpak repository.<br>
-Download and install the [flatpak repository file](/flatpak/ckardaris.com.flatpakrepo) or run:
 ```
 flatpak remote-add --user --if-not-exists ckardaris.com {{ site.url }}/flatpak/ckardaris.com.flatpakrepo
 ```
 3. Install applications.<br>
-Download and install an application flatpakref file or run:
 ```
 flatpak install --user ckardaris.com <app-id>
 ```
