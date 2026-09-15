@@ -1,7 +1,7 @@
 $line: 1px solid $grey-color-light;
 
 /**
- * General
+ *  General
  */
 h1, h2, h3 {
   font-weight: bold;
@@ -11,9 +11,29 @@ h1 { @include relative-font-size(1.2); }
 h2 { @include relative-font-size(1.1); }
 h3 { @include relative-font-size(1.0); }
 
+#site-title {
+  color: $text-color;
+  text-decoration: none;
+}
 
 /**
- * Site header
+ *  Home Page
+ */
+#home-page-links {
+  margin-top: 0.5em;
+}
+
+.home-page-link {
+  margin-bottom: 1em;
+
+  a {
+      color: $text-color;
+      @include relative-font-size(1.2);
+  }
+}
+
+/**
+ *  Site header
  */
 .site-header {
   border-bottom: $line;
@@ -44,7 +64,7 @@ h3 { @include relative-font-size(1.0); }
 }
 
 /**
- * Page content
+ *  Page content
  */
 .page-content {
   flex: 1;
@@ -63,7 +83,7 @@ h3 { @include relative-font-size(1.0); }
 }
 
 /**
- * Posts
+ *  Posts
  */
 .post-title {
   @include relative-font-size(1.625);
