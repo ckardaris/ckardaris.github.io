@@ -34,7 +34,7 @@ flatpak install --user ckardaris.com <app-id>
  {% for item in site.data.flatpaks %}
    {% assign application = item[1] %}
    {% assign svg = "assets/" | append: application.svg %}
-   <a href="/flatpak/applications/{{application.name}}">
+   <a href="/flatpak/applications/{{application.id}}">
        <div class="flatpak-list-item">
            {% include {{ svg }} %}
            <div>

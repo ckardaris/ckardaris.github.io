@@ -18,10 +18,9 @@ module Jekyll
     def initialize(site, photo, previous_photo, next_photo, index)
       @site = site
       @base = site.source
-      @dir = "/photography/" + photo["name"]
-      @basename = 'index'
+      @dir = "/photography"
+      @basename = photo["name"]
       @ext      = '.html'
-      @name     = 'index.html'
 
       Jekyll.logger.info "\r[photo_page.rb] Generating: #{@dir}/index.html"
       self.process(@name)

@@ -4,19 +4,17 @@ require 'open-uri'
 
 module Jekyll
   class FlatpakPage < Page
-    def initialize(site, name, data)
+    def initialize(site, data)
       @site = site
       @base = site.source
-      @dir  = "/flatpak/applications/" + name
-      @basename = 'index'
+      @dir  = "/flatpak/applications/"
+      @basename = data['id']
       @ext      = '.html'
-      @name = 'index.html'
 
       self.process(@name)
       self.data = {
         'layout' => 'flatpak_page',
-        'title' => name,
-        'application' => name,
+        'title' => data['name'],
         'metainfo' => data
       }
     end
@@ -39,19 +37,18 @@ module Jekyll
         begin
           xml = URI.open(metainfo).read
           doc = Nokogiri::XML(xml)
-          hash = xml_to_hash(doc.root)
-          name = project['name']
+          data = xml_to_hash(doc.root)
         rescue => e
-          Jekyll.logger.warn 'FlatpakMetainfoGenerator:', "Failed for #{name}: #{e.message}"
+          Jekyll.logger.warn 'FlatpakMetainfoGenerator:', "Failed for #{data['id']}: #{e.message}"
           next
         end
 
-        hash['svg'] = project['svg']
-        hash['flatpakref'] = project['flatpak']['flatpakref']
+        data['svg'] = project['svg']
+        data['flatpakref'] = project['flatpak']['flatpakref']
 
-        flatpaks[name] = hash
+        flatpaks[data['name']] = data
 
-        site.pages << FlatpakPage.new(site, name, hash)
+        site.pages << FlatpakPage.new(site, data)
       end
 
       site.data['flatpaks'] = flatpaks
