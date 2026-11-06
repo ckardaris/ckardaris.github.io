@@ -17,7 +17,7 @@
           ruff
           fd
           svgcleaner
-	  just
+          just
         ];
       };
     };
