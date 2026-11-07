@@ -623,12 +623,16 @@ pre.highlight button:active, pre.highlight button:focus, pre.highlight button:ho
   text-decoration: none;
 }
 
-#flatpak-page #flatpak-page-icon {
+#flatpak-page #flatpak-page-icon, #flatpak-page #flathub-page-icon {
   margin-inline: auto;
   width: fit-content;
 }
 #flatpak-page svg {
   height: 192px;
+  width: auto;
+}
+#flatpak-page #flathub-page-icon svg {
+  height: 75px;
   width: auto;
 }
 #flatpak-page #flatpak-page-instructions {
