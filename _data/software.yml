@@ -21,13 +21,13 @@ projects:
 
   - name: Klisi
     archived: false
-    description: A GTK4/Adwaita callgrind profile viewer and generator.
-    url: https://gitlab.com/ckardaris/klisi
+    description: Inspect callgrind profile data.
+    url: https://flathub.org/en/apps/com.ckardaris.Klisi
     svg: klisi.svg
     flatpak:
       available: true
       metainfo: https://gitlab.com/ckardaris/klisi/-/raw/main/resources/share/metainfo/com.ckardaris.Klisi.metainfo.xml
-      flatpakref: flatpak+https://gitlab.com/ckardaris/klisi/-/raw/main/flatpak/com.ckardaris.Klisi.flatpakref
+      flathub: https://flathub.org/en/apps/com.ckardaris.Klisi/install
     technologies:
       - clojure
       - gtk

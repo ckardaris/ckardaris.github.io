@@ -9,6 +9,13 @@ in <a href="/flatpak">{{site.title}}'s flatpak repository</a>
 {% include {{ svg }} %}
     </div>
 
+{% if page.metainfo.flathub %}
+    <div id="flathub-page-icon">
+        <a href="https://flathub.org/en/apps/com.ckardaris.Klisi/install">
+            {% include assets/flathub.svg %}
+        </a>
+    </div>
+{% else %}
     <details id="flatpak-page-instructions">
         <summary>
             <a id="flatpak-page-install" href="{{ page.metainfo.flatpakref }}">Install</a>
@@ -43,11 +50,12 @@ flatpak run {{ page.metainfo.id }}
         </div>
     {% endfor %}
 </div>
+{% endif %}
 
 <h2>Information</h2>
 
 <div id="flatpak-page-info">
-    {% assign release = page.metainfo.releases.release | last %}
+    {% assign release = page.metainfo.releases.release | first %}
     {% assign license = page.metainfo.project_license %}
     {% assign summary = page.metainfo.summary %}
     {% assign description = page.metainfo.description %}

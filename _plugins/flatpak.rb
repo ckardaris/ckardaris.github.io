@@ -45,6 +45,7 @@ module Jekyll
 
         data['svg'] = project['svg']
         data['flatpakref'] = project['flatpak']['flatpakref']
+        data['flathub'] = project['flatpak']['flathub']
 
         flatpaks[data['name']] = data
 

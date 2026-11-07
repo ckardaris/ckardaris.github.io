@@ -42,13 +42,18 @@
 
 #flatpak-page {
 
-  #flatpak-page-icon {
+  #flatpak-page-icon, #flathub-page-icon {
     margin-inline: auto;
     width: fit-content;
   }
 
   svg {
     height: 192px;
+    width: auto;
+  }
+
+  #flathub-page-icon svg {
+    height: 75px;
     width: auto;
   }
 
