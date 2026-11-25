@@ -26,3 +26,6 @@ The fonts used are the iA Writer
 [Mono](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Mono) and
 [Quattro](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Quattro), which are [SIL Open
 Font](/assets/fonts/LICENSE.md) licensed.
+
+The views and opinions expressed in this website are my own and do not necessarily reflect the views
+of my employer.

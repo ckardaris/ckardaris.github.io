@@ -69,7 +69,7 @@ contributions:
   - name: NeoMutt
     archived: false
     description: NeoMutt is a command line mail reader (or MUA). It’s a fork of Mutt with added features.
-    url: https://github.com/neomutt/neomutt/pulls?q=is%3Apr+author%3Ackardaris
+    url: https://github.com/neomutt/neomutt/commits?author=ckardaris
     svg: neomutt.svg
     technologies:
       - c
@@ -77,7 +77,7 @@ contributions:
   - name: goimapnotify
     archived: false
     description: Execute scripts on IMAP mailbox changes (new/deleted/updated messages) using IDLE.
-    url: https://gitlab.com/shackra/goimapnotify/-/merge_requests/?state=merged&author_username=ckardaris
+    url: https://gitlab.com/shackra/goimapnotify/-/commits/master?author=ckardaris
     svg: terminal.svg
     technologies:
       - go
@@ -85,7 +85,7 @@ contributions:
   - name: Vimium
     archived: false
     description: The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.
-    url: https://github.com/philc/vimium/pulls?q=is%3Apr+author%3Ackardaris
+    url: https://github.com/philc/vimium/commits?author=ckardaris
     svg: vimium.svg
     technologies:
       - javascript
@@ -93,7 +93,7 @@ contributions:
   - name: Catima
     archived: false
     description: A Loyalty Card & Ticket Manager for Android.
-    url: https://github.com/CatimaLoyalty/Android/pulls?q=is%3Apr+author%3Ackardaris
+    url: https://github.com/CatimaLoyalty/Android/commits?author=ckardaris
     svg: catima.svg
     technologies:
       - kotlin
